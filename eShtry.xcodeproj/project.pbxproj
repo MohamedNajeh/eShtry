@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E127D9785E00C17E57 /* AppDelegate.swift */; };
 		5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E327D9785E00C17E57 /* SceneDelegate.swift */; };
-		5BA095E627D9785E00C17E57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E527D9785E00C17E57 /* ViewController.swift */; };
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
 		5BA095EB27D9786200C17E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095EA27D9786200C17E57 /* Assets.xcassets */; };
 		5BA095EE27D9786200C17E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095EC27D9786200C17E57 /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		5BA095DE27D9785E00C17E57 /* eShtry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShtry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095E127D9785E00C17E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA095E327D9785E00C17E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5BA095E527D9785E00C17E57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5BA095E827D9785E00C17E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BA095EA27D9786200C17E57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BA095ED27D9786200C17E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +56,6 @@
 			children = (
 				5BA095E127D9785E00C17E57 /* AppDelegate.swift */,
 				5BA095E327D9785E00C17E57 /* SceneDelegate.swift */,
-				5BA095E527D9785E00C17E57 /* ViewController.swift */,
 				5BA095E727D9785E00C17E57 /* Main.storyboard */,
 				5BA095EA27D9786200C17E57 /* Assets.xcassets */,
 				5BA095EC27D9786200C17E57 /* LaunchScreen.storyboard */,
@@ -103,7 +100,7 @@
 				};
 			};
 			buildConfigurationList = 5BA095D927D9785E00C17E57 /* Build configuration list for PBXProject "eShtry" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -138,7 +135,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BA095E627D9785E00C17E57 /* ViewController.swift in Sources */,
 				5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */,
 				5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */,
 			);
