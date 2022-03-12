@@ -22,6 +22,7 @@ class DefaultButton: UIButton {
         configure()
         setTitle(btnTitle, for: .normal)
         setTitleColor(titleColor, for: .normal)
+        self.titleLabel?.font = UIFont(name: "Almarai-ExtraBold", size: 20)
         self.backgroundColor = backgroundColor
         self.layer.cornerRadius = raduis
     }

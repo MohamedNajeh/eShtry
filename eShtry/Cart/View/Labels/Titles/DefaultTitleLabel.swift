@@ -23,7 +23,7 @@ class DefaultTitleLabel: UILabel {
     init(textAlignment: NSTextAlignment, fontSize: CGFloat, fontColor: UIColor) {
         super.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.font          = UIFont.systemFont(ofSize: fontSize, weight: .bold)
+        self.font          = UIFont(name: "Almarai-Bold", size: fontSize)
         self.textColor     = fontColor
         configureTitleLabel()
     }

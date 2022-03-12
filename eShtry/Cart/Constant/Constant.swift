@@ -19,4 +19,5 @@ let bestSelling = "https://f36da23eb91a2fd4cba11b9a30ff124f:shpat_8ae37dbfc64411
 enum typeOfButton{
     case plusBtn
     case minusBtn
+    case returnBtn
 }

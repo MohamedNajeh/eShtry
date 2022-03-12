@@ -11,7 +11,7 @@ class CartVC: UIViewController {
     
     let headerView        = DefaultView(color: UIColor(red: 23/255, green: 69/255, blue: 167/255, alpha: 1), raduis: 0)
     let usernameLabel     = DefaultTitleLabel(textAlignment: .center, fontSize: 18, fontColor: .white)
-        
+    
     let locationView      = DefaultView(color: UIColor(red: 17/255, green: 52/255, blue: 125/255, alpha: 1), raduis: 0)
     let locationImage     = DefaultImageView(frame: .zero)
     let locationLabel     = SeconderyTitleLabel(textAlignment: .left, fontSize: 16, fontColor: .white)
@@ -26,14 +26,16 @@ class CartVC: UIViewController {
     
     let checkoutBtn       = DefaultButton(btnTitle: "CHECKOUT ALL", titleColor: .white, backgroundColor: UIColor(red: 255/255, green: 0, blue: 5/255, alpha: 1), raduis: 10)
     
+    let locationChoiceView = TopRoundView(raduis: 15, color: .white)
     
     
     
     var cartItemsTableView: UITableView!
     let refreshControl  = UIRefreshControl()
     let tableViewFooter = DefaultView(color: .clear, raduis: 0)
-
-
+    var cellIndex       = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -57,21 +59,23 @@ class CartVC: UIViewController {
         configureCartItemsTableView()
         configureRefreshForTable()
         
-
-
+        configureLocationChoiceView()
+        
+        
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureView()
-
+        
     }
     
     private func configureView(){
         view.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1)
         navigationController?.setNavigationBarHidden(true, animated: true)
-
+        
     }
     
     private func configureHeaderView(){
@@ -89,8 +93,8 @@ class CartVC: UIViewController {
         usernameLabel.text = "eslams's Basket"
         NSLayoutConstraint.activate([
             usernameLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
-//            usernameLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
-//            usernameLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10)
+            //            usernameLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
+            //            usernameLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10)
             usernameLabel.topAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
     }
@@ -102,7 +106,7 @@ class CartVC: UIViewController {
             locationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             locationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             locationView.heightAnchor.constraint(equalToConstant: 40)
-
+            
             
         ])
     }
@@ -110,8 +114,8 @@ class CartVC: UIViewController {
     
     private func configureLocationImage(){
         locationView.addSubview(locationImage)
-//        locationImage.image = UIImage(named: "location")
-        locationImage.image = UIImage(systemName: "location.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .small))?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        locationImage.image = UIImage(named: "location")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+
         locationImage.contentMode = .center
         NSLayoutConstraint.activate([
             locationImage.leadingAnchor.constraint(equalTo: locationView.leadingAnchor, constant: 5),
@@ -124,10 +128,11 @@ class CartVC: UIViewController {
     
     private func configureLocationDownImage(){
         locationView.addSubview(locationDownImage)
-//        locationDownImage.image = UIImage(named: "right-arrow6")
-        locationDownImage.image = UIImage(systemName: "arrow.down.app.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .small))?.withTintColor(.white, renderingMode: .alwaysOriginal)
-        locationDownImage.contentMode = .center
-
+                locationDownImage.image = UIImage(named: "downArrow")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+//        locationDownImage.image = UIImage(systemName: "arrow.down.app.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .small))?.withTintColor(.white, renderingMode: .alwaysOriginal)
+//        locationDownImage.contentMode = .center
+        
+        
         NSLayoutConstraint.activate([
             locationDownImage.trailingAnchor.constraint(equalTo: locationView.trailingAnchor, constant: -5),
             locationDownImage.topAnchor.constraint(equalTo: locationView.topAnchor, constant: 5),
@@ -159,8 +164,42 @@ class CartVC: UIViewController {
     
     @objc func locationBtnAction(){
         print("loactionBtnTapped")
+        updateLocationChoiceView()
+        
     }
+    
+    private func updateLocationChoiceView(){
+        if locationChoiceView.isHidden == true{
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseIn],
+                           animations: {
+                self.locationChoiceView.center.y -= self.locationChoiceView.bounds.height
+                self.locationChoiceView.layoutIfNeeded()
+            }, completion: nil)
+            self.locationChoiceView.isHidden = false
+            
+        }else{
+            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveLinear],
+                           animations: {
+                self.locationChoiceView.center.y += self.locationChoiceView.bounds.height
+                self.locationChoiceView.layoutIfNeeded()
+                
+            },  completion: {(_ completed: Bool) -> Void in
+                self.locationChoiceView.isHidden = true
+            })
+        }
 
+    }
+    
+    private func configureLocationChoiceView(){
+        view.addSubview(locationChoiceView)
+        locationChoiceView.isHidden = true
+        NSLayoutConstraint.activate([
+            locationChoiceView.topAnchor.constraint(equalTo: view.bottomAnchor),
+            locationChoiceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            locationChoiceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            locationChoiceView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+        ])
+    }
     
     private func configureTableViewFooter(){
         tableViewFooter.frame.size.height = 100
@@ -173,7 +212,7 @@ class CartVC: UIViewController {
         
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.backgroundColor = .green
+        //        stackView.backgroundColor = .green
         
         let imageView0 = UIImageView()
         imageView0.image = UIImage(named: "visa")
@@ -194,22 +233,22 @@ class CartVC: UIViewController {
         stackView.spacing      = 25
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: tableViewFooter.centerXAnchor),
-//            titleLabel.centerYAnchor.constraint(equalTo: tableViewFooter.centerYAnchor)
-            titleLabel.topAnchor.constraint(equalTo: tableViewFooter.topAnchor, constant: 15),
+            //            titleLabel.centerYAnchor.constraint(equalTo: tableViewFooter.centerYAnchor)
+            titleLabel.topAnchor.constraint(equalTo: tableViewFooter.topAnchor),
             
-//            stackView.leadingAnchor.constraint(equalTo: tableViewFooter.leadingAnchor, constant: 20),
-//            stackView.trailingAnchor.constraint(equalTo: tableViewFooter.trailingAnchor, constant: -20),
+            //            stackView.leadingAnchor.constraint(equalTo: tableViewFooter.leadingAnchor, constant: 20),
+            //            stackView.trailingAnchor.constraint(equalTo: tableViewFooter.trailingAnchor, constant: -20),
             stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             stackView.heightAnchor.constraint(equalToConstant: 30),
             stackView.centerXAnchor.constraint(equalTo: tableViewFooter.centerXAnchor),
             stackView.widthAnchor.constraint(equalToConstant: 250)
-//            stackView.bottomAnchor.constraint(equalTo: tableViewFooter.bottomAnchor)
+            //            stackView.bottomAnchor.constraint(equalTo: tableViewFooter.bottomAnchor)
         ])
     }
     
     
     private func configureCartItemsTableView(){
-        cartItemsTableView = UITableView(frame: .zero, style: .plain)
+        cartItemsTableView = UITableView(frame: .zero, style: .grouped)
         cartItemsTableView.register(CartItemTableViewCell.self, forCellReuseIdentifier: CartItemTableViewCell.reuseID)
         view.addSubview(cartItemsTableView)
         cartItemsTableView.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1)
@@ -217,9 +256,9 @@ class CartVC: UIViewController {
         cartItemsTableView.separatorStyle = .none
         cartItemsTableView.dataSource = self
         cartItemsTableView.delegate   = self
-//        cartItemsTableView.allowsSelection = false
+        //        cartItemsTableView.allowsSelection = false
         cartItemsTableView.tableFooterView = tableViewFooter
-
+        
         NSLayoutConstraint.activate([
             cartItemsTableView.topAnchor.constraint(equalTo: locationView.bottomAnchor),
             cartItemsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -231,12 +270,12 @@ class CartVC: UIViewController {
     private func configureRefreshForTable(){
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         cartItemsTableView.addSubview(refreshControl)
-
-
+        
+        
     }
     
     @objc func refresh(_ sender: AnyObject) {
-       print("refresh")
+        print("refresh")
         cartItemsTableView.reloadData()
         refreshControl.endRefreshing()
     }
@@ -248,8 +287,8 @@ class CartVC: UIViewController {
             bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-//            bottomView.heightAnchor.constraint(equalToConstant: 60)
+            
+            //            bottomView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -276,7 +315,7 @@ class CartVC: UIViewController {
         cashLabel.text = "EGP 999.999.999.9"
         NSLayoutConstraint.activate([
             cashLabel.centerYAnchor.constraint(equalTo: subTotalLabel.centerYAnchor),
-//            cashLabel.leadingAnchor.constraint(equalTo: bottomView.centerXAnchor),
+            //            cashLabel.leadingAnchor.constraint(equalTo: bottomView.centerXAnchor),
             cashLabel.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -10)
         ])
     }
@@ -295,6 +334,7 @@ class CartVC: UIViewController {
     
     private func configureCheckoutBtn(){
         bottomView.addSubview(checkoutBtn)
+        checkoutBtn.addTarget(self, action: #selector(pushCompleteCartVC), for: .touchUpInside)
         NSLayoutConstraint.activate([
             checkoutBtn.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
             checkoutBtn.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 10),
@@ -304,31 +344,109 @@ class CartVC: UIViewController {
         ])
     }
     
+    @objc func pushCompleteCartVC(){
+        let completeCartVC = CompleteOrderVC()
+        self.navigationController?.pushViewController(completeCartVC, animated: true)
+    }
+    
     
     private func configureHeaderViewForSection(section:Int)->UIView{
-        let view = DefaultView(color: .white, raduis: 5)
+        let view = TopRoundView(raduis: 10, color: .clear)
         view.translatesAutoresizingMaskIntoConstraints = true
-        let sectionLabel = DefaultTitleLabel(textAlignment: .center, fontSize: 18, fontColor: .black)
-        sectionLabel.text = "section name \(section)"
-        view.addSubview(sectionLabel)
+        let backgrounView = DefaultView(color: .white, raduis: 10)
+        view.translatesAutoresizingMaskIntoConstraints = true
+        let sectionLabel = SeconderyTitleLabel(textAlignment: .center, fontSize: 18, fontColor: .black)
+        sectionLabel.text = "category name for section \(section)"
+        backgrounView.addSubview(sectionLabel)
+        view.addSubview(backgrounView)
         NSLayoutConstraint.activate([
-            sectionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-            sectionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            backgrounView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 5),
+            backgrounView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgrounView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgrounView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7),
+            sectionLabel.leadingAnchor.constraint(equalTo: backgrounView.leadingAnchor, constant: 15),
+            sectionLabel.topAnchor.constraint(equalTo: backgrounView.topAnchor, constant: 5),
+//            sectionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
             
-
+            
         ])
         return view
     }
     
     
-    @objc func minusBtnTapped(sender:UIButton){
+    private func configureFooterViewForSection(section:Int)->UIView{
+        let view = DefaultView(color: .clear, raduis: 0)
+        let backgrounView = DefaultView(color: .white, raduis: 10)
+        view.translatesAutoresizingMaskIntoConstraints = true
+        let sectionLabel = SeconderyTitleLabel(textAlignment: .center, fontSize: 18, fontColor: .black)
+        sectionLabel.text = "Sub total for section \(section)"
+        backgrounView.addSubview(sectionLabel)
+        view.addSubview(backgrounView)
+        NSLayoutConstraint.activate([
+            backgrounView.topAnchor.constraint(equalTo: view.topAnchor, constant: -5),
+            backgrounView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgrounView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgrounView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
+            sectionLabel.leadingAnchor.constraint(equalTo: backgrounView.leadingAnchor, constant: 15),
+            sectionLabel.topAnchor.constraint(equalTo: backgrounView.topAnchor, constant: 5),
+//            sectionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            
+            
+        ])
+        return view
+    }
+    
+    
+    @objc func minusBtnTapped(sender:ImageButton){
         print("minus Btn ")
-        let buttonTag = sender.tag
-        print(buttonTag)
+        print("indexPath is \(sender.indexPath)")
+        let cell = cartItemsTableView.cellForRow(at: IndexPath(row: sender.indexPath.row, section: sender.indexPath.section)) as! CartItemTableViewCell
+        
+        if cell.amountLabel.text != "1"{
+            cell.amountLabel.text = String((Int(cell.amountLabel.text ?? "0") ?? 0) - 1)
+            performAnimationForCartButtons(button: cell.minusBtn)
+        }
+        
+        
+        print("minus is : \(cell.amountLabel.text!)")
+        
+    }
+    
+    @objc func plusBtnTapped(sender:ImageButton){
+        print("plus Btn ")
+        print("indexPath is \(sender.indexPath)")
+        let cell = cartItemsTableView.cellForRow(at: IndexPath(row: sender.indexPath.row, section: sender.indexPath.section)) as! CartItemTableViewCell
+        cell.amountLabel.text = String((Int(cell.amountLabel.text ?? "0") ?? 0) + 1)
+        print("plus is : \(cell.amountLabel.text!)")
+        performAnimationForCartButtons(button: cell.plusBtn)
+        
+        
+        
+    }
+    
+    
+    
+    private func performAnimationForCartButtons(button:ImageButton){
+    
+    UIView.animate(withDuration: 0.4, delay: 0,
+           usingSpringWithDamping: 0.7, initialSpringVelocity: 0.1,
+           options: [], animations: {
+        
+        button.transform =
+               CGAffineTransform(scaleX: 2.0, y: 2.0)
+        button.transform =
+               CGAffineTransform(scaleX: 1.0, y: 1.0)
+    }) { _ in
+
     }
 
-        
+   
 
+}
+
+    
+    
+    
 }
 
 
@@ -344,20 +462,23 @@ extension CartVC: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartItemTableViewCell.reuseID, for: indexPath) as! CartItemTableViewCell
-//        cell.minusBtn.tag = indexPath.row + 1
+        cell.minusBtn.indexPath = indexPath
+        cell.plusBtn.indexPath  = indexPath
         cell.minusBtn.addTarget(self, action: #selector(minusBtnTapped(sender:)), for: .touchUpInside)
-//        cell.plusBtn.addTarget(self, action:#selector(minusBtnTapped(sender:)), for: .touchUpInside)
-//        cell.plusBtn.tag = indexPath.row + 2
+        cell.plusBtn.addTarget(self, action:#selector(plusBtnTapped(sender:)), for: .touchUpInside)
         
-//        let minusBtn: UIButton = cell.viewWithTag(5) as! UIButton
-//        minusBtn.setTitle("\(indexPath.row)", for: .normal)
-//        minusBtn.tag = indexPath.row
-//        print(minusBtn.tag)
-//        minusBtn.addTarget(self, action: #selector(minusBtnTapped(sender:)), for: .touchUpInside)
-
+        //        let minusBtn: UIButton = cell.viewWithTag(5) as! UIButton
+        //        minusBtn.setTitle("\(indexPath.row)", for: .normal)
+        //        minusBtn.tag = indexPath.row
+        //        print(minusBtn.tag)
+        //        minusBtn.addTarget(self, action: #selector(minusBtnTapped(sender:)), for: .touchUpInside)
+        
         return cell
     }
     
+    
+    //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    //    }
     
 }
 
@@ -370,23 +491,29 @@ extension CartVC: UITableViewDelegate{
         return configureHeaderViewForSection(section: section)
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return configureFooterViewForSection(section: section)
+    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 40
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("push product VC")
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 60
+    }
     
     
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 150
-//    }
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        return 150
+    //    }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Section Index\(section)"
-//    }
+    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //        return "Section Index\(section)"
+    //    }
 }

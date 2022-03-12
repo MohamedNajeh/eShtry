@@ -10,7 +10,7 @@ import UIKit
 class ImageButton: UIButton {
 
     
-    
+    var indexPath = IndexPath(row: 0, section: 0)
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -27,6 +27,11 @@ class ImageButton: UIButton {
             setImage(imageIcon, for: .normal)
         case .minusBtn:
             let imageIcon = UIImage(systemName: "trash", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .small))?.withTintColor(.red, renderingMode: .alwaysOriginal)
+
+            setImage(imageIcon, for: .normal)
+            
+        case .returnBtn:
+            let imageIcon = UIImage(named: "arrow-small")?.withTintColor(.white, renderingMode: .alwaysOriginal)
 
             setImage(imageIcon, for: .normal)
 

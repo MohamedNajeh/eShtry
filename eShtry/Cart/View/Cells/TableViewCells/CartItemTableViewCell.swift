@@ -42,8 +42,8 @@ class CartItemTableViewCell: UITableViewCell {
         containerView.addBorder(color: UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1))
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
         ])
     }
@@ -53,12 +53,15 @@ class CartItemTableViewCell: UITableViewCell {
 //        cellImage.backgroundColor = .yellow
         cellImage.layer.cornerRadius = 10
         cellImage.addBorder(color: UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1))
-        cellImage.contentMode = .center
+//        cellImage.contentMode = .center
+        cellImage.contentMode = .scaleAspectFill
+        cellImage.clipsToBounds = true
         NSLayoutConstraint.activate([
-            cellImage.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            cellImage.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
+//            cellImage.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             cellImage.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            cellImage.widthAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.45),
-            cellImage.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5)
+            cellImage.widthAnchor.constraint(equalToConstant: 60),
+            cellImage.heightAnchor.constraint(equalToConstant: 80)
 
         ])
     }
@@ -66,11 +69,11 @@ class CartItemTableViewCell: UITableViewCell {
     
     private func configureCellTitle(){
         containerView.addSubview(cellTitle)
-        cellTitle.numberOfLines = 2
+        cellTitle.numberOfLines = 3
         cellTitle.text = "AddBorder(color: UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1))"
         NSLayoutConstraint.activate([
-            cellTitle.topAnchor.constraint(equalTo: cellImage.topAnchor, constant: 5),
-            cellTitle.leadingAnchor.constraint(equalTo: cellImage.trailingAnchor, constant: 5),
+            cellTitle.topAnchor.constraint(equalTo: cellImage.topAnchor),
+            cellTitle.leadingAnchor.constraint(equalTo: cellImage.trailingAnchor, constant: 10),
             cellTitle.trailingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 30)
         ])
     }
@@ -81,9 +84,9 @@ class CartItemTableViewCell: UITableViewCell {
         cellPrice.text = "EGP 999.999"
         NSLayoutConstraint.activate([
             cellPrice.topAnchor.constraint(equalTo: cellTitle.bottomAnchor, constant: 5),
-            cellPrice.leadingAnchor.constraint(equalTo: cellImage.trailingAnchor, constant: 5),
+            cellPrice.leadingAnchor.constraint(equalTo: cellImage.trailingAnchor, constant: 10),
             cellPrice.trailingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 30),
-            cellPrice.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -30)
+            cellPrice.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20)
         ])
     }
 
@@ -93,10 +96,10 @@ class CartItemTableViewCell: UITableViewCell {
         minusBtn.layer.cornerRadius = 5
 
         NSLayoutConstraint.activate([
-            minusBtn.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 10),
+            minusBtn.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             minusBtn.widthAnchor.constraint(equalToConstant: 30),
             minusBtn.heightAnchor.constraint(equalToConstant: 30),
-            minusBtn.leadingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 40)
+            minusBtn.leadingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 50)
         ])
     }
 
@@ -107,10 +110,10 @@ class CartItemTableViewCell: UITableViewCell {
         plusBtn.layer.cornerRadius = 5
 
         NSLayoutConstraint.activate([
-            plusBtn.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 10),
+            plusBtn.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             plusBtn.widthAnchor.constraint(equalToConstant: 30),
             plusBtn.heightAnchor.constraint(equalToConstant: 30),
-            plusBtn.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
+            plusBtn.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
 
         ])
     }
@@ -118,7 +121,7 @@ class CartItemTableViewCell: UITableViewCell {
     
     private func configureAmountLabel(){
         containerView.addSubview(amountLabel)
-        amountLabel.text = "100"
+        amountLabel.text = "1"
 
         amountLabel.textAlignment = .center
         NSLayoutConstraint.activate([

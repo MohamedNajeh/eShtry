@@ -21,8 +21,8 @@ class SeconderyTitleLabel: UILabel {
 
     init(textAlignment: NSTextAlignment, fontSize: CGFloat, fontColor: UIColor) {
         super.init(frame: .zero)
-        self.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
-        self.textColor = fontColor
+        self.font          = UIFont(name: "Almarai-Light", size: fontSize)
+        self.textColor     = fontColor
         self.textAlignment = textAlignment
         configureBodyLabel()
     }
