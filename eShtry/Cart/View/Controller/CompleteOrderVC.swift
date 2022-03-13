@@ -12,7 +12,7 @@ class CompleteOrderVC: UIViewController {
     let headerView        = DefaultView(color: UIColor(red: 23/255, green: 69/255, blue: 167/255, alpha: 1), raduis: 0)
     let titleLabel        = DefaultTitleLabel(textAlignment: .center, fontSize: 18, fontColor: .white)
     let returnBtn         = ImageButton(typeOfBtn: .returnBtn)
-    let scrollView        = UIScrollView()
+    let scrollView          = UIScrollView()
     let containerView     = DefaultView(color: .clear, raduis: 0)
     
     let shipmentLabel     = DefaultTitleLabel(textAlignment: .left, fontSize: 18, fontColor: .black)
