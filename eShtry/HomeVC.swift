@@ -10,20 +10,46 @@ import UIKit
 class HomeVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    let searchBar = UISearchController()
+    var currentIndex = 0
+    var timer:Timer?
+    var mov = [1,2,3,2,1,4,5,2,21,21,32,6]
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "eShtry"
+        
+        navigationItem.searchController = searchBar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(timeAction))
         collectionView.collectionViewLayout = creatCompositionalLayout()
         collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderView")
         collectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "sliderCell")
         collectionView.register(UINib(nibName: "OffersCell", bundle: nil), forCellWithReuseIdentifier: "offersCell")
         collectionView.register(UINib(nibName: "BrandCell", bundle: nil), forCellWithReuseIdentifier: "brandCell")
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
+        startTimer()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
        
     }
+    
+    func startTimer(){
+        
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timeAction), userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func timeAction(){
+        if currentIndex < 19 {
+            currentIndex += 1
+        }else{
+            currentIndex = 0
+        }
+        collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: true)
+       
+    }
+    
     
     func creatCompositionalLayout() -> UICollectionViewCompositionalLayout{
         let layout = UICollectionViewCompositionalLayout { [weak self] (index, enviroment) -> NSCollectionLayoutSection? in
@@ -63,9 +89,9 @@ class HomeVC: UIViewController {
         section.orthogonalScrollingBehavior = .groupPaging
         
         //supplemantary
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40))
-        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: "header", alignment: .top)
-        section.boundarySupplementaryItems = [header]
+//        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40))
+//        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: "header", alignment: .top)
+//        section.boundarySupplementaryItems = [header]
         return section
     }
     
@@ -145,17 +171,25 @@ class HomeVC: UIViewController {
         let samllItem = NSCollectionLayoutItem(layoutSize: smallItemSize)
         samllItem.contentInsets = NSDirectionalEdgeInsets(top: 2.5, leading: 2.5, bottom: 2.5, trailing: 2.5)
         
-        let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
+        let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let largeItem = NSCollectionLayoutItem(layoutSize: largeItemSize)
         largeItem.contentInsets = NSDirectionalEdgeInsets(top: 2.5, leading: 2.5, bottom: 2.5, trailing: 2.5)
         //Configure Groups
         let verticalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
         let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize, subitems: [samllItem])
         
-        let horizantilGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.25))
-        let horizantilGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizantilGroupSize, subitems: [verticalGroup ,verticalGroup,verticalGroup])
+        //--- above group
+     
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [largeItem])
+        
+        let horizantilGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+        let horizantilGroup = NSCollectionLayoutGroup.horizontal(layoutSize: horizantilGroupSize, subitems: [verticalGroup,verticalGroup])
+        
+        let allGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.25))
+        let allGroup = NSCollectionLayoutGroup.vertical(layoutSize: allGroupSize, subitems: [group,horizantilGroup])
         //section
-        let section = NSCollectionLayoutSection(group: horizantilGroup)
+        let section = NSCollectionLayoutSection(group: allGroup)
         section.orthogonalScrollingBehavior = .groupPaging
         
         //supplemantary
@@ -167,7 +201,7 @@ class HomeVC: UIViewController {
 
 }
 
-extension HomeVC:UICollectionViewDataSource{
+extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 5
     }
@@ -229,5 +263,14 @@ extension HomeVC:UICollectionViewDataSource{
         }
         return view
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 2 {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "productsVC") as! BrandProductsVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+   
+    
 }
 

@@ -32,7 +32,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NKX-D1-bUZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="633" y="-678"/>
+            <point key="canvasLocation" x="651" y="-678"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w4a-KQ-rlE">
@@ -40,8 +40,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fay-a9-4gv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="homekit" catalog="system" id="95z-vH-fQ3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qkV-PL-puX">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="qkV-PL-puX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

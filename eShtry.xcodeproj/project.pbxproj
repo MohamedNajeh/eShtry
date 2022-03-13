@@ -24,6 +24,10 @@
 		5BBB0CA327DB851800A22972 /* BrandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB0C9727DB851800A22972 /* BrandCell.xib */; };
 		5BBB0CA527DB852900A22972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB0CA427DB852900A22972 /* Assets.xcassets */; };
 		5BBB0CA927DB891500A22972 /* HomeSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB0CA827DB891500A22972 /* HomeSB.storyboard */; };
+		5BBB0CAB27DC05FA00A22972 /* BrandProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB0CAA27DC05FA00A22972 /* BrandProductsVC.swift */; };
+		5BBB0CAD27DD213E00A22972 /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB0CAC27DD213E00A22972 /* ProductDetailsVC.swift */; };
+		5BBB0CB427DD478900A22972 /* ReviewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB0CB227DD478900A22972 /* ReviewCollectionCell.swift */; };
+		5BBB0CB527DD478900A22972 /* ReviewCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB0CB327DD478900A22972 /* ReviewCollectionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		5BBB0C9727DB851800A22972 /* BrandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandCell.xib; sourceTree = "<group>"; };
 		5BBB0CA427DB852900A22972 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BBB0CA827DB891500A22972 /* HomeSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeSB.storyboard; sourceTree = "<group>"; };
+		5BBB0CAA27DC05FA00A22972 /* BrandProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductsVC.swift; sourceTree = "<group>"; };
+		5BBB0CAC27DD213E00A22972 /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
+		5BBB0CB227DD478900A22972 /* ReviewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionCell.swift; sourceTree = "<group>"; };
+		5BBB0CB327DD478900A22972 /* ReviewCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCollectionCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +92,12 @@
 				5BA095E327D9785E00C17E57 /* SceneDelegate.swift */,
 				5BA095EC27D9786200C17E57 /* LaunchScreen.storyboard */,
 				5BBB0C9527DB851800A22972 /* HomeVC.swift */,
+				5BBB0CAA27DC05FA00A22972 /* BrandProductsVC.swift */,
 				5BBB0C9027DB851800A22972 /* Main.storyboard */,
 				5BBB0CA827DB891500A22972 /* HomeSB.storyboard */,
 				5BBB0CA427DB852900A22972 /* Assets.xcassets */,
 				5BA095EF27D9786200C17E57 /* Info.plist */,
+				5BBB0CAC27DD213E00A22972 /* ProductDetailsVC.swift */,
 			);
 			path = eShtry;
 			sourceTree = "<group>";
@@ -100,6 +110,7 @@
 				5BBB0C9327DB851800A22972 /* OffersCell.xib */,
 				5BBB0C9627DB851800A22972 /* ProductCell.xib */,
 				5BBB0C8E27DB851700A22972 /* SliderCell.xib */,
+				5BBB0CB327DD478900A22972 /* ReviewCollectionCell.xib */,
 			);
 			path = "XIB's";
 			sourceTree = "<group>";
@@ -107,6 +118,7 @@
 		5BBB0CA727DB878E00A22972 /* Coustom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5BBB0CB227DD478900A22972 /* ReviewCollectionCell.swift */,
 				5BBB0C8C27DB851700A22972 /* BrandCell.swift */,
 				5BBB0C9127DB851800A22972 /* HeaderView.swift */,
 				5BBB0C8F27DB851700A22972 /* OffersCell.swift */,
@@ -174,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BBB0CB527DD478900A22972 /* ReviewCollectionCell.xib in Resources */,
 				5BBB0CA927DB891500A22972 /* HomeSB.storyboard in Resources */,
 				5BBB0C9A27DB851800A22972 /* SliderCell.xib in Resources */,
 				5BBB0C9E27DB851800A22972 /* HeaderView.xib in Resources */,
@@ -194,11 +207,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */,
+				5BBB0CAB27DC05FA00A22972 /* BrandProductsVC.swift in Sources */,
 				5BBB0CA127DB851800A22972 /* HomeVC.swift in Sources */,
+				5BBB0CB427DD478900A22972 /* ReviewCollectionCell.swift in Sources */,
 				5BBB0C9D27DB851800A22972 /* HeaderView.swift in Sources */,
 				5BBB0C9B27DB851800A22972 /* OffersCell.swift in Sources */,
 				5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */,
 				5BBB0C9927DB851800A22972 /* SliderCell.swift in Sources */,
+				5BBB0CAD27DD213E00A22972 /* ProductDetailsVC.swift in Sources */,
 				5BBB0CA027DB851800A22972 /* ProductCell.swift in Sources */,
 				5BBB0C9827DB851800A22972 /* BrandCell.swift in Sources */,
 			);
