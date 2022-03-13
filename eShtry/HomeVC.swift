@@ -48,6 +48,7 @@ class HomeVC: UIViewController {
         }
         collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: true)
        
+        
     }
     
     
