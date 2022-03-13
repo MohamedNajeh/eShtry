@@ -29,7 +29,6 @@
 		192BE12827DD18EF00D8F3C8 /* CartItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192BE12727DD18EF00D8F3C8 /* CartItemCollectionViewCell.swift */; };
 		5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E127D9785E00C17E57 /* AppDelegate.swift */; };
 		5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E327D9785E00C17E57 /* SceneDelegate.swift */; };
-		5BA095E627D9785E00C17E57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E527D9785E00C17E57 /* ViewController.swift */; };
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
 		5BA095EB27D9786200C17E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095EA27D9786200C17E57 /* Assets.xcassets */; };
 		5BA095EE27D9786200C17E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095EC27D9786200C17E57 /* LaunchScreen.storyboard */; };
@@ -59,7 +58,6 @@
 		5BA095DE27D9785E00C17E57 /* eShtry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShtry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095E127D9785E00C17E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA095E327D9785E00C17E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5BA095E527D9785E00C17E57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5BA095E827D9785E00C17E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BA095EA27D9786200C17E57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BA095ED27D9786200C17E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 				1917A5AC27DA2014001F93FE /* Cart */,
 				5BA095E127D9785E00C17E57 /* AppDelegate.swift */,
 				5BA095E327D9785E00C17E57 /* SceneDelegate.swift */,
-				5BA095E527D9785E00C17E57 /* ViewController.swift */,
 				5BA095E727D9785E00C17E57 /* Main.storyboard */,
 				5BA095EA27D9786200C17E57 /* Assets.xcassets */,
 				5BA095EC27D9786200C17E57 /* LaunchScreen.storyboard */,
@@ -341,7 +338,6 @@
 				1917A5BA27DA3001001F93FE /* DefaultTitleLabel.swift in Sources */,
 				1917A5C627DA39DB001F93FE /* CartItemTableViewCell.swift in Sources */,
 				192BE11827DCAA1000D8F3C8 /* CartItem.swift in Sources */,
-				5BA095E627D9785E00C17E57 /* ViewController.swift in Sources */,
 				5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */,
 				1917A5B627DA2CEF001F93FE /* CartVC.swift in Sources */,
 				1917A5BD27DA31E4001F93FE /* DefaultImageView.swift in Sources */,
