@@ -25,7 +25,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     private func createHomeNC()->UINavigationController{
-        let homeNC = CartVC()
+        
+        let storyboard = UIStoryboard(name: "HomeSB", bundle: .main)
+        let homeNC     = storyboard.instantiateViewController(withIdentifier: "HomeVC")
         homeNC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "homeIcon"), tag: 1)
         
         return UINavigationController(rootViewController: homeNC)
@@ -46,7 +48,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func createMoreNC()-> UINavigationController{
-        let moreNC = CartVC()
+        let storyboard = UIStoryboard(name: "meVC", bundle: .main)
+        let moreNC     = storyboard.instantiateViewController(withIdentifier: "me")
         let imageIcon = UIImage(systemName: "list.bullet")
         moreNC.tabBarItem = UITabBarItem(title: "More", image: imageIcon, tag: 4)
 
