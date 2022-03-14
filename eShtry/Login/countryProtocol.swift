@@ -9,4 +9,5 @@
 import Foundation
 protocol setCountryProtocol {
     func sendCountry(name:String)
+    
 }
