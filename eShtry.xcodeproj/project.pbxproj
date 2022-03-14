@@ -57,6 +57,7 @@
 		E264E1C127DFBD8100615EBF /* meVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E264E1B927DFBD8100615EBF /* meVC.storyboard */; };
 		E264E1C227DFBD8100615EBF /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1BA27DFBD8100615EBF /* Orders.swift */; };
 		E264E1C327DFBD8100615EBF /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1BB27DFBD8100615EBF /* RegisterVC.swift */; };
+		E264E1C527DFD1E800615EBF /* countryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1C427DFD1E800615EBF /* countryProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		E264E1B927DFBD8100615EBF /* meVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = meVC.storyboard; sourceTree = "<group>"; };
 		E264E1BA27DFBD8100615EBF /* Orders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		E264E1BB27DFBD8100615EBF /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		E264E1C427DFD1E800615EBF /* countryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = countryProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,7 +364,6 @@
 				E264E1B627DFBD8100615EBF /* moreOrdersVC.swift */,
 				E264E1BA27DFBD8100615EBF /* Orders.swift */,
 				E264E1BB27DFBD8100615EBF /* RegisterVC.swift */,
-				1950627827DFC2E000A8A334 /* countryProtocol.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -450,7 +451,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1950627927DFC2E000A8A334 /* countryProtocol.swift in Sources */,
 				1914DEEC27DFAE9B00931E5D /* CartViewModel.swift in Sources */,
 				5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */,
 				1914DEF027DFAE9B00931E5D /* CartItemCollectionViewCell.swift in Sources */,
