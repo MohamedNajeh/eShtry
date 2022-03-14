@@ -56,7 +56,7 @@
 		E264E1C127DFBD8100615EBF /* meVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E264E1B927DFBD8100615EBF /* meVC.storyboard */; };
 		E264E1C227DFBD8100615EBF /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1BA27DFBD8100615EBF /* Orders.swift */; };
 		E264E1C327DFBD8100615EBF /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1BB27DFBD8100615EBF /* RegisterVC.swift */; };
-		E264E1C727DFE27B00615EBF /* countryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1C627DFE27B00615EBF /* countryProtocol.swift */; };
+		E264E1C727DFE27B00615EBF /* myCountryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1C627DFE27B00615EBF /* myCountryProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,7 +111,7 @@
 		E264E1B927DFBD8100615EBF /* meVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = meVC.storyboard; sourceTree = "<group>"; };
 		E264E1BA27DFBD8100615EBF /* Orders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		E264E1BB27DFBD8100615EBF /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
-		E264E1C627DFE27B00615EBF /* countryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = countryProtocol.swift; sourceTree = "<group>"; };
+		E264E1C627DFE27B00615EBF /* myCountryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myCountryProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,7 +362,7 @@
 				E264E1B627DFBD8100615EBF /* moreOrdersVC.swift */,
 				E264E1BA27DFBD8100615EBF /* Orders.swift */,
 				E264E1BB27DFBD8100615EBF /* RegisterVC.swift */,
-				E264E1C627DFE27B00615EBF /* countryProtocol.swift */,
+				E264E1C627DFE27B00615EBF /* myCountryProtocol.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -467,7 +467,7 @@
 				1914DEF527DFAE9B00931E5D /* DefaultTitleLabel.swift in Sources */,
 				1914DEF327DFAE9B00931E5D /* DefaultButton.swift in Sources */,
 				1914DEFA27DFAE9B00931E5D /* DefaultImageView.swift in Sources */,
-				E264E1C727DFE27B00615EBF /* countryProtocol.swift in Sources */,
+				E264E1C727DFE27B00615EBF /* myCountryProtocol.swift in Sources */,
 				5BB7777D27DFC64700ECAC8B /* OffersCell.swift in Sources */,
 				1914DEF827DFAE9B00931E5D /* LineView.swift in Sources */,
 				1914DEEF27DFAE9B00931E5D /* CartItemTableViewCell.swift in Sources */,
