@@ -46,7 +46,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func createMoreNC()-> UINavigationController{
-        let moreNC = CartVC()
+        let storyboard = UIStoryboard(name: "meVC", bundle: .main)
+        let moreNC     = storyboard.instantiateViewController(withIdentifier: "me")
         let imageIcon = UIImage(systemName: "list.bullet")
         moreNC.tabBarItem = UITabBarItem(title: "More", image: imageIcon, tag: 4)
 
