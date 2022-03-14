@@ -12,11 +12,56 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
 
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = createTabBarController()
+        window?.makeKeyAndVisible()
+    }
+    
+    
+    private func createHomeNC()->UINavigationController{
+        let homeNC = CartVC()
+        homeNC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "homeIcon"), tag: 1)
+        
+        return UINavigationController(rootViewController: homeNC)
+    }
+    
+    private func createCategoriesNC()-> UINavigationController{
+        let cateegoriesNC = CartVC()
+        let imageIcon = UIImage(systemName: "text.alignleft")
+        cateegoriesNC.tabBarItem = UITabBarItem(title: "Categories", image: imageIcon, tag: 2)
+        return UINavigationController(rootViewController: cateegoriesNC)
+    }
+    
+    private func createCartNC()-> UINavigationController{
+        let cartNC = CartVC()
+        let imageIcon = UIImage(systemName: "cart")
+        cartNC.tabBarItem = UITabBarItem(title: "Cart", image: imageIcon, tag: 3)
+        return UINavigationController(rootViewController: cartNC)
+    }
+    
+    private func createMoreNC()-> UINavigationController{
+        let moreNC = CartVC()
+        let imageIcon = UIImage(systemName: "list.bullet")
+        moreNC.tabBarItem = UITabBarItem(title: "More", image: imageIcon, tag: 4)
+
+        return UINavigationController(rootViewController: moreNC)
+    }
+
+    
+    func createTabBarController() -> UITabBarController{
+        let tabBar = UITabBarController()
+        UITabBar.appearance().tintColor = UIColor.init(red: 0/255, green: 59/255, blue: 118/255, alpha: 1)
+        tabBar.viewControllers = [createHomeNC(),createCategoriesNC(),createCartNC(),createMoreNC()]
+//        UITabBar.appearance().isTranslucent = true
+        UITabBar.appearance().backgroundColor = .white
+        
+        return tabBar
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
