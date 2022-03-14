@@ -25,7 +25,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     private func createHomeNC()->UINavigationController{
-        let homeNC = CartVC()
+        
+        let storyboard = UIStoryboard(name: "HomeSB", bundle: .main)
+        let homeNC     = storyboard.instantiateViewController(withIdentifier: "HomeVC")
         homeNC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "homeIcon"), tag: 1)
         
         return UINavigationController(rootViewController: homeNC)
