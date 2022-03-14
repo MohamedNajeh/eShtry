@@ -32,6 +32,14 @@
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
 		5BA095EB27D9786200C17E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095EA27D9786200C17E57 /* Assets.xcassets */; };
 		5BA095EE27D9786200C17E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095EC27D9786200C17E57 /* LaunchScreen.storyboard */; };
+		E264E1BC27DFBD8100615EBF /* AddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1B427DFBD8000615EBF /* AddressVC.swift */; };
+		E264E1BD27DFBD8100615EBF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1B527DFBD8000615EBF /* LoginVC.swift */; };
+		E264E1BE27DFBD8100615EBF /* moreOrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1B627DFBD8100615EBF /* moreOrdersVC.swift */; };
+		E264E1BF27DFBD8100615EBF /* CountryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1B727DFBD8100615EBF /* CountryVC.swift */; };
+		E264E1C027DFBD8100615EBF /* meVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1B827DFBD8100615EBF /* meVC.swift */; };
+		E264E1C127DFBD8100615EBF /* meVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E264E1B927DFBD8100615EBF /* meVC.storyboard */; };
+		E264E1C227DFBD8100615EBF /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1BA27DFBD8100615EBF /* Orders.swift */; };
+		E264E1C327DFBD8100615EBF /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1BB27DFBD8100615EBF /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +70,14 @@
 		5BA095EA27D9786200C17E57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BA095ED27D9786200C17E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BA095EF27D9786200C17E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E264E1B427DFBD8000615EBF /* AddressVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressVC.swift; sourceTree = "<group>"; };
+		E264E1B527DFBD8000615EBF /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		E264E1B627DFBD8100615EBF /* moreOrdersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = moreOrdersVC.swift; sourceTree = "<group>"; };
+		E264E1B727DFBD8100615EBF /* CountryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryVC.swift; sourceTree = "<group>"; };
+		E264E1B827DFBD8100615EBF /* meVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = meVC.swift; sourceTree = "<group>"; };
+		E264E1B927DFBD8100615EBF /* meVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = meVC.storyboard; sourceTree = "<group>"; };
+		E264E1BA27DFBD8100615EBF /* Orders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
+		E264E1BB27DFBD8100615EBF /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +265,7 @@
 		5BA095E027D9785E00C17E57 /* eShtry */ = {
 			isa = PBXGroup;
 			children = (
+				E264E1B327DFBD5B00615EBF /* Login */,
 				1914DEC727DFAE9B00931E5D /* Cart */,
 				5BA095E127D9785E00C17E57 /* AppDelegate.swift */,
 				5BA095E327D9785E00C17E57 /* SceneDelegate.swift */,
@@ -258,6 +275,21 @@
 				5BA095EF27D9786200C17E57 /* Info.plist */,
 			);
 			path = eShtry;
+			sourceTree = "<group>";
+		};
+		E264E1B327DFBD5B00615EBF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E264E1B427DFBD8000615EBF /* AddressVC.swift */,
+				E264E1B727DFBD8100615EBF /* CountryVC.swift */,
+				E264E1B527DFBD8000615EBF /* LoginVC.swift */,
+				E264E1B927DFBD8100615EBF /* meVC.storyboard */,
+				E264E1B827DFBD8100615EBF /* meVC.swift */,
+				E264E1B627DFBD8100615EBF /* moreOrdersVC.swift */,
+				E264E1BA27DFBD8100615EBF /* Orders.swift */,
+				E264E1BB27DFBD8100615EBF /* RegisterVC.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BA095EE27D9786200C17E57 /* LaunchScreen.storyboard in Resources */,
+				E264E1C127DFBD8100615EBF /* meVC.storyboard in Resources */,
 				1914DEFC27DFAE9B00931E5D /* Almarai-Bold.ttf in Resources */,
 				5BA095EB27D9786200C17E57 /* Assets.xcassets in Resources */,
 				1914DEFF27DFAE9B00931E5D /* Almarai-Light.ttf in Resources */,
@@ -341,18 +374,25 @@
 				1914DEF127DFAE9B00931E5D /* TopRoundView.swift in Sources */,
 				1914DEFB27DFAE9B00931E5D /* CartItem.swift in Sources */,
 				1914DEF627DFAE9B00931E5D /* CartVC.swift in Sources */,
+				E264E1C227DFBD8100615EBF /* Orders.swift in Sources */,
 				1914DEF227DFAE9B00931E5D /* ImageButton.swift in Sources */,
+				E264E1BE27DFBD8100615EBF /* moreOrdersVC.swift in Sources */,
 				1914DEF527DFAE9B00931E5D /* DefaultTitleLabel.swift in Sources */,
 				1914DEF327DFAE9B00931E5D /* DefaultButton.swift in Sources */,
 				1914DEFA27DFAE9B00931E5D /* DefaultImageView.swift in Sources */,
 				1914DEF827DFAE9B00931E5D /* LineView.swift in Sources */,
 				1914DEEF27DFAE9B00931E5D /* CartItemTableViewCell.swift in Sources */,
 				1914DEF427DFAE9B00931E5D /* SeconderyTitleLabel.swift in Sources */,
+				E264E1BC27DFBD8100615EBF /* AddressVC.swift in Sources */,
+				E264E1BD27DFBD8100615EBF /* LoginVC.swift in Sources */,
 				1914DEEE27DFAE9B00931E5D /* Constant.swift in Sources */,
 				1914DEF927DFAE9B00931E5D /* DefaultView.swift in Sources */,
+				E264E1C327DFBD8100615EBF /* RegisterVC.swift in Sources */,
 				1914DEED27DFAE9B00931E5D /* UIView+Extension.swift in Sources */,
 				1914DEF727DFAE9B00931E5D /* CompleteOrderVC.swift in Sources */,
 				5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */,
+				E264E1C027DFBD8100615EBF /* meVC.swift in Sources */,
+				E264E1BF27DFBD8100615EBF /* CountryVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
