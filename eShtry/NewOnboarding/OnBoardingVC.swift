@@ -136,8 +136,11 @@ class OnBoardingVC: UIViewController {
     
     
     @IBAction func getStartedButtonClicked(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CategoryVC" ) as! CategoryVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        UserDefaults.standard.set(true, forKey: "firstTimeToUseApplication")
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CategoryVC" ) as! CategoryVC
+//        self.navigationController?.pushViewController(vc, animated: true)
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        sceneDelegate!.window?.rootViewController = sceneDelegate?.createTabBarController()
     }
     
 }

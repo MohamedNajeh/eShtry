@@ -10,17 +10,36 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let userDefaults = UserDefaults.standard
 
 
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         
+        var rootVC = window?.rootViewController
+
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = createTabBarController()
+        
+        
+        if !userDefaults.bool(forKey: "firstTimeToUseApplication"){
+            let storyboard = UIStoryboard(name: "OnboardingSB", bundle: .main)
+
+            rootVC = storyboard.instantiateViewController(withIdentifier: "OnBoardingVC")
+        }else{
+            rootVC = createTabBarController()
+
+        }
+        
+        
+        window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
+        
+        
+        
     }
     
     
@@ -34,10 +53,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func createCategoriesNC()-> UINavigationController{
-        let cateegoriesNC = CartVC()
+//        let cateegoriesNC = CartVC()
+        let storyboard = UIStoryboard(name: "CategorySB", bundle: .main)
+        let cateegoriesNC = storyboard.instantiateViewController(withIdentifier: "navigationController")
         let imageIcon = UIImage(systemName: "text.alignleft")
         cateegoriesNC.tabBarItem = UITabBarItem(title: "Categories", image: imageIcon, tag: 2)
-        return UINavigationController(rootViewController: cateegoriesNC)
+        return cateegoriesNC as! UINavigationController
     }
     
     private func createCartNC()-> UINavigationController{
