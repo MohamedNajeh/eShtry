@@ -27,6 +27,11 @@
 		1914DEFD27DFAE9B00931E5D /* Almarai-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1914DEE927DFAE9B00931E5D /* Almarai-ExtraBold.ttf */; };
 		1914DEFE27DFAE9B00931E5D /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1914DEEA27DFAE9B00931E5D /* Almarai-Regular.ttf */; };
 		1914DEFF27DFAE9B00931E5D /* Almarai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1914DEEB27DFAE9B00931E5D /* Almarai-Light.ttf */; };
+		46985B3827E09CE2003E3958 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3727E09CE2003E3958 /* CategoryCell.swift */; };
+		46985B3B27E09CEA003E3958 /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3A27E09CEA003E3958 /* ProductCollectionCell.swift */; };
+		46985B3E27E09CF1003E3958 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3D27E09CF1003E3958 /* CategoryVC.swift */; };
+		46985B4127E09CF8003E3958 /* SubCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B4027E09CF8003E3958 /* SubCategoryCell.swift */; };
+		46985B4427E09D56003E3958 /* CategorySB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46985B4327E09D56003E3958 /* CategorySB.storyboard */; };
 		5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E127D9785E00C17E57 /* AppDelegate.swift */; };
 		5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E327D9785E00C17E57 /* SceneDelegate.swift */; };
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
@@ -80,6 +85,11 @@
 		1914DEE927DFAE9B00931E5D /* Almarai-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-ExtraBold.ttf"; sourceTree = "<group>"; };
 		1914DEEA27DFAE9B00931E5D /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
 		1914DEEB27DFAE9B00931E5D /* Almarai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Light.ttf"; sourceTree = "<group>"; };
+		46985B3727E09CE2003E3958 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		46985B3A27E09CEA003E3958 /* ProductCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
+		46985B3D27E09CF1003E3958 /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
+		46985B4027E09CF8003E3958 /* SubCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryCell.swift; sourceTree = "<group>"; };
+		46985B4327E09D56003E3958 /* CategorySB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategorySB.storyboard; sourceTree = "<group>"; };
 		5BA095DE27D9785E00C17E57 /* eShtry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShtry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095E127D9785E00C17E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA095E327D9785E00C17E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -280,6 +290,18 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		46985B3227E09C6D003E3958 /* NewCategory */ = {
+			isa = PBXGroup;
+			children = (
+				46985B3D27E09CF1003E3958 /* CategoryVC.swift */,
+				46985B4027E09CF8003E3958 /* SubCategoryCell.swift */,
+				46985B3A27E09CEA003E3958 /* ProductCollectionCell.swift */,
+				46985B3727E09CE2003E3958 /* CategoryCell.swift */,
+				46985B4327E09D56003E3958 /* CategorySB.storyboard */,
+			);
+			path = NewCategory;
+			sourceTree = "<group>";
+		};
 		5BA095D527D9785E00C17E57 = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +321,7 @@
 		5BA095E027D9785E00C17E57 /* eShtry */ = {
 			isa = PBXGroup;
 			children = (
+				46985B3227E09C6D003E3958 /* NewCategory */,
 				5BB7777027DFC5EA00ECAC8B /* Home */,
 				E264E1B327DFBD5B00615EBF /* Login */,
 				1914DEC727DFAE9B00931E5D /* Cart */,
@@ -440,6 +463,7 @@
 				5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */,
 				1914DEFD27DFAE9B00931E5D /* Almarai-ExtraBold.ttf in Resources */,
 				1914DEFE27DFAE9B00931E5D /* Almarai-Regular.ttf in Resources */,
+				46985B4427E09D56003E3958 /* CategorySB.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +478,7 @@
 				5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */,
 				1914DEF027DFAE9B00931E5D /* CartItemCollectionViewCell.swift in Sources */,
 				1914DEF127DFAE9B00931E5D /* TopRoundView.swift in Sources */,
+				46985B3E27E09CF1003E3958 /* CategoryVC.swift in Sources */,
 				5BB7777927DFC64700ECAC8B /* ProductCell.swift in Sources */,
 				1914DEFB27DFAE9B00931E5D /* CartItem.swift in Sources */,
 				1914DEF627DFAE9B00931E5D /* CartVC.swift in Sources */,
@@ -462,6 +487,7 @@
 				5BB7778C27DFC66500ECAC8B /* HomeVC.swift in Sources */,
 				E264E1C227DFBD8100615EBF /* Orders.swift in Sources */,
 				1914DEF227DFAE9B00931E5D /* ImageButton.swift in Sources */,
+				46985B4127E09CF8003E3958 /* SubCategoryCell.swift in Sources */,
 				5BB7777827DFC64700ECAC8B /* ReviewCollectionCell.swift in Sources */,
 				E264E1BE27DFBD8100615EBF /* moreOrdersVC.swift in Sources */,
 				1914DEF527DFAE9B00931E5D /* DefaultTitleLabel.swift in Sources */,
@@ -471,8 +497,10 @@
 				5BB7777D27DFC64700ECAC8B /* OffersCell.swift in Sources */,
 				1914DEF827DFAE9B00931E5D /* LineView.swift in Sources */,
 				1914DEEF27DFAE9B00931E5D /* CartItemTableViewCell.swift in Sources */,
+				46985B3B27E09CEA003E3958 /* ProductCollectionCell.swift in Sources */,
 				1914DEF427DFAE9B00931E5D /* SeconderyTitleLabel.swift in Sources */,
 				E264E1BC27DFBD8100615EBF /* AddressVC.swift in Sources */,
+				46985B3827E09CE2003E3958 /* CategoryCell.swift in Sources */,
 				E264E1BD27DFBD8100615EBF /* LoginVC.swift in Sources */,
 				1914DEEE27DFAE9B00931E5D /* Constant.swift in Sources */,
 				1914DEF927DFAE9B00931E5D /* DefaultView.swift in Sources */,
