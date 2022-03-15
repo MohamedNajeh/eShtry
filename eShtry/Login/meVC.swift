@@ -47,7 +47,6 @@ class meVC: UIViewController {
     
 
     
-    
     @IBAction func loginRegister(_ sender: Any) {
         let loginVC = storyboard?.instantiateViewController(identifier: "LoginVC") as! LoginVC
         navigationController?.pushViewController(loginVC, animated: true)
