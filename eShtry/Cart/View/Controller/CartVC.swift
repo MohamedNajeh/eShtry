@@ -36,6 +36,8 @@ class CartVC: UIViewController {
     var cellIndex       = 0
     
     
+    let networkShared = NetworkManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -60,6 +62,76 @@ class CartVC: UIViewController {
         configureRefreshForTable()
         
         configureLocationChoiceView()
+        
+        
+        testApi()
+        
+        
+    }
+    
+    
+    func testApi(){
+//        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/products.json", baseModel: ProductsRoot.self) { result in
+//            switch result {
+//            case .success(let products):
+//                print(products.products?.count)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//
+//
+//        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/smart_collections.json", baseModel: SmartCollectionRoot.self) { result  in
+//            switch result{
+//            case .success(let result):
+//                print("collection count \(result.smart_collections?.count)")
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//
+//
+//        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers/5740683427887/addresses.json", baseModel: AddressesRoot.self) { result  in
+//            switch result{
+//            case .success(let result):
+//                print("Address count \(result.addresses?.count)")
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+        
+        
+        
+        let body: [String: Any] = [
+            "customer": [
+              "first_name": "eslam",
+              "last_name": "mohamed",
+              "email": "eslam.lastnameson@example.com",
+              "phone": "+01009452129",
+              "verified_email": true,
+              "addresses": [
+                  "address1": "123 Oak St",
+                  "city": "Ottawa",
+                  "province": "ON",
+                  "phone": "555-1212",
+                  "zip": "123 ABC",
+                  "last_name": "Lastnameson",
+                  "first_name": "Mother",
+                  "country": "CA"
+            
+              ]],
+              "send_email_invite": true
+          ]
+        
+        
+        networkShared.postDataToApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers.json", httpMethod: .post, body: body, baseModel: CustomarRoot.self) { result in
+            switch result{
+            case .success(let customer):
+                print(customer.customer?.addresses)
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         
         
