@@ -1900,7 +1900,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PvQ-wL-428">
-                                <rect key="frame" x="0.0" y="155.5" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="155.5" width="414" height="56"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ia6-Os-oCp">
                                         <rect key="frame" x="8" y="8" width="398" height="40"/>
@@ -1914,7 +1914,7 @@
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="25"/>
+                                                        <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
@@ -1942,9 +1942,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ia6-Os-oCp" secondAttribute="bottom" constant="8" id="B1U-52-4SI"/>
                                     <constraint firstItem="ia6-Os-oCp" firstAttribute="leading" secondItem="PvQ-wL-428" secondAttribute="leading" constant="8" id="DyP-mC-HNG"/>
                                     <constraint firstItem="ia6-Os-oCp" firstAttribute="top" secondItem="PvQ-wL-428" secondAttribute="top" constant="8" id="mmk-ts-iYE"/>
-                                    <constraint firstAttribute="height" constant="70" id="sqw-iu-86D"/>
                                     <constraint firstAttribute="trailing" secondItem="ia6-Os-oCp" secondAttribute="trailing" constant="8" id="u7E-fU-xh2"/>
                                 </constraints>
                             </view>
@@ -1961,18 +1961,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rB-Ar-hH4">
-                                <rect key="frame" x="24" y="249.5" width="366" height="26.5"/>
+                                <rect key="frame" x="24" y="235.5" width="366" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iZs-nC-qON">
-                                <rect key="frame" x="16" y="376.5" width="382" height="34"/>
+                                <rect key="frame" x="16" y="362.5" width="382" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JlI-aN-Yrq">
-                                <rect key="frame" x="16" y="434.5" width="382" height="34"/>
+                                <rect key="frame" x="16" y="420.5" width="382" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip / Postal Code :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6l-Yu-lOY">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="34"/>
@@ -1988,12 +1988,12 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wHL-Wd-xij">
-                                <rect key="frame" x="16" y="284" width="382" height="34"/>
+                                <rect key="frame" x="16" y="270" width="382" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coX-lU-RDw">
-                                <rect key="frame" x="82" y="528.5" width="250" height="48"/>
+                                <rect key="frame" x="82" y="514.5" width="250" height="48"/>
                                 <color key="backgroundColor" red="0.054901960780000002" green="0.35294117650000001" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="ClQ-iu-Cwi"/>
@@ -2008,7 +2008,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWk-N5-pTH">
-                                <rect key="frame" x="24" y="342" width="366" height="26.5"/>
+                                <rect key="frame" x="24" y="328" width="366" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
