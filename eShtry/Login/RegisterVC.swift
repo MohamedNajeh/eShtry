@@ -197,6 +197,7 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         datePicker?.datePickerMode = .date
         datePicker?.maximumDate = NSDate() as Date
         datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+
         dateOfBirthTF.inputView = datePicker
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))

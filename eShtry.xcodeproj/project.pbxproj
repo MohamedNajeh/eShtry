@@ -50,6 +50,10 @@
 		46985B4427E09D56003E3958 /* CategorySB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46985B4327E09D56003E3958 /* CategorySB.storyboard */; };
 		46985B4927E0A046003E3958 /* OnboardingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46985B4827E0A046003E3958 /* OnboardingSB.storyboard */; };
 		46985B4C27E0A07B003E3958 /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B4B27E0A07B003E3958 /* OnBoardingVC.swift */; };
+		46BFE3AF27E191E200E9D5EF /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BFE3AE27E191E100E9D5EF /* SearchResultVC.swift */; };
+		46BFE3B327E1948D00E9D5EF /* SearchSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BFE3B227E1948D00E9D5EF /* SearchSB.storyboard */; };
+		46BFE3B727E199E300E9D5EF /* SearchingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BFE3B627E199E300E9D5EF /* SearchingCell.swift */; };
+		46BFE3BA27E1AA5400E9D5EF /* backgroundVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 46BFE3B927E1AA5400E9D5EF /* backgroundVideo.mp4 */; };
 		5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E127D9785E00C17E57 /* AppDelegate.swift */; };
 		5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E327D9785E00C17E57 /* SceneDelegate.swift */; };
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
@@ -126,6 +130,10 @@
 		46985B4327E09D56003E3958 /* CategorySB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategorySB.storyboard; sourceTree = "<group>"; };
 		46985B4827E0A046003E3958 /* OnboardingSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingSB.storyboard; sourceTree = "<group>"; };
 		46985B4B27E0A07B003E3958 /* OnBoardingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
+		46BFE3AE27E191E100E9D5EF /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
+		46BFE3B227E1948D00E9D5EF /* SearchSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchSB.storyboard; sourceTree = "<group>"; };
+		46BFE3B627E199E300E9D5EF /* SearchingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCell.swift; sourceTree = "<group>"; };
+		46BFE3B927E1AA5400E9D5EF /* backgroundVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = backgroundVideo.mp4; sourceTree = "<group>"; };
 		5BA095DE27D9785E00C17E57 /* eShtry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShtry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095E127D9785E00C17E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA095E327D9785E00C17E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -435,9 +443,20 @@
 			isa = PBXGroup;
 			children = (
 				46985B4B27E0A07B003E3958 /* OnBoardingVC.swift */,
+				46BFE3B927E1AA5400E9D5EF /* backgroundVideo.mp4 */,
 				46985B4827E0A046003E3958 /* OnboardingSB.storyboard */,
 			);
 			path = NewOnboarding;
+			sourceTree = "<group>";
+		};
+		46BFE3B127E1947100E9D5EF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				46BFE3B227E1948D00E9D5EF /* SearchSB.storyboard */,
+				46BFE3AE27E191E100E9D5EF /* SearchResultVC.swift */,
+				46BFE3B627E199E300E9D5EF /* SearchingCell.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		5BA095D527D9785E00C17E57 = {
@@ -459,9 +478,13 @@
 		5BA095E027D9785E00C17E57 /* eShtry */ = {
 			isa = PBXGroup;
 			children = (
+
+				46BFE3B127E1947100E9D5EF /* Search */,
+
 				194E0CD127E0D836005CE014 /* Utilities */,
 				194E0CBD27E0D484005CE014 /* PONSO */,
 				194E0CD027E0D7D2005CE014 /* Model */,
+
 				46985B4727E0A029003E3958 /* NewOnboarding */,
 				46985B3227E09C6D003E3958 /* NewCategory */,
 				5BB7777027DFC5EA00ECAC8B /* Home */,
@@ -597,6 +620,7 @@
 				5BB7778927DFC65600ECAC8B /* OffersCell.xib in Resources */,
 				E264E1C127DFBD8100615EBF /* meVC.storyboard in Resources */,
 				1914DEFC27DFAE9B00931E5D /* Almarai-Bold.ttf in Resources */,
+				46BFE3B327E1948D00E9D5EF /* SearchSB.storyboard in Resources */,
 				5BA095EB27D9786200C17E57 /* Assets.xcassets in Resources */,
 				5BB7778A27DFC65600ECAC8B /* ReviewCollectionCell.xib in Resources */,
 				5BB7778827DFC65600ECAC8B /* SliderCell.xib in Resources */,
@@ -604,6 +628,7 @@
 				5BB7778727DFC65600ECAC8B /* ProductCell.xib in Resources */,
 				1914DEFF27DFAE9B00931E5D /* Almarai-Light.ttf in Resources */,
 				5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */,
+				46BFE3BA27E1AA5400E9D5EF /* backgroundVideo.mp4 in Resources */,
 				1914DEFD27DFAE9B00931E5D /* Almarai-ExtraBold.ttf in Resources */,
 				1914DEFE27DFAE9B00931E5D /* Almarai-Regular.ttf in Resources */,
 				46985B4427E09D56003E3958 /* CategorySB.storyboard in Resources */,
@@ -628,7 +653,11 @@
 				46985B3E27E09CF1003E3958 /* CategoryVC.swift in Sources */,
 				194E0CDC27E0DEBC005CE014 /* ImageForCollection.swift in Sources */,
 				5BB7777927DFC64700ECAC8B /* ProductCell.swift in Sources */,
+
+				46BFE3B727E199E300E9D5EF /* SearchingCell.swift in Sources */,
+
 				194E0CC027E0D53E005CE014 /* ProductsRoot.swift in Sources */,
+
 				1914DEFB27DFAE9B00931E5D /* CartItem.swift in Sources */,
 				1914DEF627DFAE9B00931E5D /* CartVC.swift in Sources */,
 				5BB7778E27DFC66E00ECAC8B /* BrandProductsVC.swift in Sources */,
@@ -669,6 +698,7 @@
 				1914DEED27DFAE9B00931E5D /* UIView+Extension.swift in Sources */,
 				5BB7777B27DFC64700ECAC8B /* HeaderView.swift in Sources */,
 				1914DEF727DFAE9B00931E5D /* CompleteOrderVC.swift in Sources */,
+				46BFE3AF27E191E200E9D5EF /* SearchResultVC.swift in Sources */,
 				5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */,
 				E264E1C027DFBD8100615EBF /* meVC.swift in Sources */,
 				E264E1BF27DFBD8100615EBF /* CountryVC.swift in Sources */,
