@@ -32,6 +32,8 @@
 		46985B3E27E09CF1003E3958 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3D27E09CF1003E3958 /* CategoryVC.swift */; };
 		46985B4127E09CF8003E3958 /* SubCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B4027E09CF8003E3958 /* SubCategoryCell.swift */; };
 		46985B4427E09D56003E3958 /* CategorySB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46985B4327E09D56003E3958 /* CategorySB.storyboard */; };
+		46985B4927E0A046003E3958 /* OnboardingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46985B4827E0A046003E3958 /* OnboardingSB.storyboard */; };
+		46985B4C27E0A07B003E3958 /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B4B27E0A07B003E3958 /* OnBoardingVC.swift */; };
 		5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E127D9785E00C17E57 /* AppDelegate.swift */; };
 		5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E327D9785E00C17E57 /* SceneDelegate.swift */; };
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
@@ -90,6 +92,8 @@
 		46985B3D27E09CF1003E3958 /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		46985B4027E09CF8003E3958 /* SubCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryCell.swift; sourceTree = "<group>"; };
 		46985B4327E09D56003E3958 /* CategorySB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategorySB.storyboard; sourceTree = "<group>"; };
+		46985B4827E0A046003E3958 /* OnboardingSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingSB.storyboard; sourceTree = "<group>"; };
+		46985B4B27E0A07B003E3958 /* OnBoardingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
 		5BA095DE27D9785E00C17E57 /* eShtry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShtry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095E127D9785E00C17E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA095E327D9785E00C17E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -302,6 +306,15 @@
 			path = NewCategory;
 			sourceTree = "<group>";
 		};
+		46985B4727E0A029003E3958 /* NewOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				46985B4B27E0A07B003E3958 /* OnBoardingVC.swift */,
+				46985B4827E0A046003E3958 /* OnboardingSB.storyboard */,
+			);
+			path = NewOnboarding;
+			sourceTree = "<group>";
+		};
 		5BA095D527D9785E00C17E57 = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +334,7 @@
 		5BA095E027D9785E00C17E57 /* eShtry */ = {
 			isa = PBXGroup;
 			children = (
+				46985B4727E0A029003E3958 /* NewOnboarding */,
 				46985B3227E09C6D003E3958 /* NewCategory */,
 				5BB7777027DFC5EA00ECAC8B /* Home */,
 				E264E1B327DFBD5B00615EBF /* Login */,
@@ -451,6 +465,7 @@
 				5BA095EE27D9786200C17E57 /* LaunchScreen.storyboard in Resources */,
 				5BB7778627DFC65600ECAC8B /* HeaderView.xib in Resources */,
 				5BB7778527DFC65600ECAC8B /* BrandCell.xib in Resources */,
+				46985B4927E0A046003E3958 /* OnboardingSB.storyboard in Resources */,
 				5BB7778927DFC65600ECAC8B /* OffersCell.xib in Resources */,
 				E264E1C127DFBD8100615EBF /* meVC.storyboard in Resources */,
 				1914DEFC27DFAE9B00931E5D /* Almarai-Bold.ttf in Resources */,
@@ -483,6 +498,7 @@
 				1914DEFB27DFAE9B00931E5D /* CartItem.swift in Sources */,
 				1914DEF627DFAE9B00931E5D /* CartVC.swift in Sources */,
 				5BB7778E27DFC66E00ECAC8B /* BrandProductsVC.swift in Sources */,
+				46985B4C27E0A07B003E3958 /* OnBoardingVC.swift in Sources */,
 				5BB7777A27DFC64700ECAC8B /* SliderCell.swift in Sources */,
 				5BB7778C27DFC66500ECAC8B /* HomeVC.swift in Sources */,
 				E264E1C227DFBD8100615EBF /* Orders.swift in Sources */,
