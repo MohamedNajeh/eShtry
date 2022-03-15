@@ -21,3 +21,9 @@ enum typeOfButton{
     case minusBtn
     case returnBtn
 }
+
+
+enum httpMethod:String{
+    case post = "POST"
+    case get  = "GET"
+}
