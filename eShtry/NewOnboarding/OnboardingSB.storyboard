@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--On BoardingVC-->
+        <scene sceneID="Zml-uD-NVt">
+            <objects>
+                <viewController id="NgJ-6D-miA" customClass="OnBoardingVC" customModule="eShtry" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pjB-jK-ghQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jL8-nG-uvW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zie-6d-UuW">
+                                        <rect key="frame" x="36" y="346" width="342" height="204"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover new Local Products For this online Shopping Store" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2M5-F8-DND">
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="123"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZl-Xb-cRR">
+                                                <rect key="frame" x="0.0" y="139" width="342" height="65"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="65" id="l9g-j7-2bi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
+                                                <state key="normal" title="Get Started">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="getStartedButtonClicked:" destination="NgJ-6D-miA" eventType="touchUpInside" id="bem-cu-ueF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="zie-6d-UuW" firstAttribute="centerY" secondItem="jL8-nG-uvW" secondAttribute="centerY" id="9zR-V8-WVh"/>
+                                    <constraint firstItem="zie-6d-UuW" firstAttribute="leading" secondItem="jL8-nG-uvW" secondAttribute="leading" constant="36" id="Bqc-qK-CCh"/>
+                                    <constraint firstAttribute="trailing" secondItem="zie-6d-UuW" secondAttribute="trailing" constant="36" id="rzg-OF-CMS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gJh-9o-vBv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jL8-nG-uvW" firstAttribute="trailing" secondItem="gJh-9o-vBv" secondAttribute="trailing" id="2T6-hB-reR"/>
+                            <constraint firstAttribute="bottom" secondItem="jL8-nG-uvW" secondAttribute="bottom" id="Wlh-Fm-MKJ"/>
+                            <constraint firstItem="jL8-nG-uvW" firstAttribute="leading" secondItem="gJh-9o-vBv" secondAttribute="leading" id="hTf-Ky-wpR"/>
+                            <constraint firstItem="jL8-nG-uvW" firstAttribute="top" secondItem="pjB-jK-ghQ" secondAttribute="top" id="hma-t3-RJJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SiN-Vi-Z0Z"/>
+                    <connections>
+                        <outlet property="darkView" destination="jL8-nG-uvW" id="0fU-Xr-qPy"/>
+                        <outlet property="getStartedbutton" destination="XZl-Xb-cRR" id="NN9-LC-Cal"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UVJ-KA-Vf7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="204" y="211"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
