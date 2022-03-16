@@ -28,6 +28,8 @@
 		1914DEFE27DFAE9B00931E5D /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1914DEEA27DFAE9B00931E5D /* Almarai-Regular.ttf */; };
 		1914DEFF27DFAE9B00931E5D /* Almarai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1914DEEB27DFAE9B00931E5D /* Almarai-Light.ttf */; };
 		191D932E27E217DF008D0E89 /* CountriesRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D932D27E217DF008D0E89 /* CountriesRoot.swift */; };
+		191D933027E21ACA008D0E89 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D932F27E21ACA008D0E89 /* Countries.swift */; };
+		191D933227E21AF4008D0E89 /* Provinces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D933127E21AF4008D0E89 /* Provinces.swift */; };
 		194E0CC027E0D53E005CE014 /* ProductsRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CBF27E0D53E005CE014 /* ProductsRoot.swift */; };
 		194E0CC227E0D59D005CE014 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CC127E0D59D005CE014 /* Products.swift */; };
 		194E0CC427E0D5E8005CE014 /* Variants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CC327E0D5E8005CE014 /* Variants.swift */; };
@@ -125,6 +127,8 @@
 		1914DEEA27DFAE9B00931E5D /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
 		1914DEEB27DFAE9B00931E5D /* Almarai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Light.ttf"; sourceTree = "<group>"; };
 		191D932D27E217DF008D0E89 /* CountriesRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesRoot.swift; sourceTree = "<group>"; };
+		191D932F27E21ACA008D0E89 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		191D933127E21AF4008D0E89 /* Provinces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provinces.swift; sourceTree = "<group>"; };
 		194E0CBF27E0D53E005CE014 /* ProductsRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRoot.swift; sourceTree = "<group>"; };
 		194E0CC127E0D59D005CE014 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		194E0CC327E0D5E8005CE014 /* Variants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variants.swift; sourceTree = "<group>"; };
@@ -219,7 +223,6 @@
 			children = (
 				1914DEC827DFAE9B00931E5D /* ViewModel */,
 				1914DECA27DFAE9B00931E5D /* Extension */,
-				1914DECD27DFAE9B00931E5D /* Constant */,
 				1914DECF27DFAE9B00931E5D /* View */,
 				1914DEE527DFAE9B00931E5D /* PONSO */,
 				1914DEE727DFAE9B00931E5D /* Fonts */,
@@ -373,6 +376,8 @@
 			isa = PBXGroup;
 			children = (
 				191D932D27E217DF008D0E89 /* CountriesRoot.swift */,
+				191D932F27E21ACA008D0E89 /* Countries.swift */,
+				191D933127E21AF4008D0E89 /* Provinces.swift */,
 			);
 			path = Countries;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 			children = (
 				46BFE3B127E1947100E9D5EF /* Search */,
 				194E0CD127E0D836005CE014 /* Utilities */,
+				1914DECD27DFAE9B00931E5D /* Constant */,
 				194E0CBD27E0D484005CE014 /* PONSO */,
 				194E0CD027E0D7D2005CE014 /* Model */,
 				46985B4727E0A029003E3958 /* NewOnboarding */,
@@ -754,6 +760,7 @@
 				194E0CC827E0D653005CE014 /* Images.swift in Sources */,
 				194E0CDA27E0DE59005CE014 /* Rules.swift in Sources */,
 				197CA87127E164720032A605 /* CurrentTotalPriceSet.swift in Sources */,
+				191D933027E21ACA008D0E89 /* Countries.swift in Sources */,
 				1914DEFA27DFAE9B00931E5D /* DefaultImageView.swift in Sources */,
 				E264E1C727DFE27B00615EBF /* myCountryProtocol.swift in Sources */,
 				194E0CCA27E0D66F005CE014 /* Image.swift in Sources */,
@@ -764,6 +771,7 @@
 				1914DEF427DFAE9B00931E5D /* SeconderyTitleLabel.swift in Sources */,
 				194E0CD327E0D855005CE014 /* ErrorMessages.swift in Sources */,
 				197CA85727E15DCB0032A605 /* CurrentTotalDiscountsSet.swift in Sources */,
+				191D933227E21AF4008D0E89 /* Provinces.swift in Sources */,
 				197CA86327E160BB0032A605 /* TotalTaxSet.swift in Sources */,
 				E264E1BC27DFBD8100615EBF /* AddressVC.swift in Sources */,
 				46985B3827E09CE2003E3958 /* CategoryCell.swift in Sources */,
