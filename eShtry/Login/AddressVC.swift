@@ -18,7 +18,7 @@ class AddressVC: UIViewController, setCountryProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         countryOutletLabel.text = defaults.object(forKey: "name") as? String ?? "Select Country"
-        flagOutletImage.image = UIImage(named:  defaults.object(forKey: "name") as? String ?? "")
+        flagOutletImage.image = UIImage(named: defaults.object(forKey: "name") as? String ?? "global")
         
     }
 
