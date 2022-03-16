@@ -52,7 +52,7 @@ class CategoryVC: UIViewController {
             textfield.layer.cornerRadius = 10;
             textfield.clipsToBounds = true;
         }
-        
+        searchBar.delegate    = self
         let attributes:[NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white,
             .font: UIFont.systemFont(ofSize: 17)
@@ -119,4 +119,15 @@ extension CategoryVC:UITableViewDelegate,UITableViewDataSource{
 
         return 70
     }
+}
+
+
+extension CategoryVC: UISearchBarDelegate{
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        let searchVC = UIStoryboard(name: "SearchSB", bundle: nil).instantiateViewController(identifier: "SearchResultVC")
+        self.navigationController?.pushViewController(searchVC, animated: true)
+          searchBar.setShowsCancelButton(false, animated: true)
+          return false
+      }
 }

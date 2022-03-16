@@ -27,6 +27,13 @@ class SubCategoryCell:UITableViewCell {
         super.awakeFromNib()
         productCollectionView.delegate   = self
         productCollectionView.dataSource = self
+        selectionStyle = .none
+        contentView.layer.cornerRadius = 8
+        contentView.layer.masksToBounds = true
+        contentView.layer.shadowRadius  = 4.0
+        contentView.layer.shadowOpacity = 0.3
+        contentView.layer.shadowColor   = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).cgColor
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 5)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

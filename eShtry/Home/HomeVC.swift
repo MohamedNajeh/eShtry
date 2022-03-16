@@ -10,7 +10,7 @@ import UIKit
 class HomeVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    let searchBar = UISearchController()
+    let searchController = UISearchController()
     var currentIndex = 0
     var timer:Timer?
     var mov = [1,2,3,2,1,4,5,2,21,21,32,6]
@@ -18,8 +18,10 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         title = "eShtry"
         
-        navigationItem.searchController = searchBar
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(timeAction))
+        
         collectionView.collectionViewLayout = creatCompositionalLayout()
         collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderView")
         collectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "sliderCell")
@@ -272,5 +274,14 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
     }
    
     
+}
+
+extension HomeVC: UISearchBarDelegate{
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        let searchVC = UIStoryboard(name: "SearchSB", bundle: nil).instantiateViewController(identifier: "SearchResultVC")
+        self.navigationController?.pushViewController(searchVC, animated: true)
+          searchBar.setShowsCancelButton(false, animated: true)
+          return false
+      }
 }
 

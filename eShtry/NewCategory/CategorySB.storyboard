@@ -22,7 +22,7 @@
                                 <rect key="frame" x="5" y="54" width="132.5" height="798"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="whJ-Xh-Qbs" customClass="CategoryCell" customModule="Caregory" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="whJ-Xh-Qbs" customClass="CategoryCell" customModule="eShtry" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="132.5" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="whJ-Xh-Qbs" id="od5-V5-3SX">
@@ -57,7 +57,7 @@
                                 <rect key="frame" x="142.5" y="54" width="266.5" height="798"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubCategoryCell" rowHeight="251" id="1dP-Vk-wcl" customClass="SubCategoryCell" customModule="Caregory" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubCategoryCell" rowHeight="251" id="1dP-Vk-wcl" customClass="SubCategoryCell" customModule="eShtry" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="266.5" height="251"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1dP-Vk-wcl" id="mfi-CN-dRa">
@@ -108,7 +108,7 @@
                                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                     </collectionViewFlowLayout>
                                                                     <cells>
-                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCollectionCell" id="Zyw-jO-9O5" customClass="ProductCollectionCell" customModule="Caregory" customModuleProvider="target">
+                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCollectionCell" id="Zyw-jO-9O5" customClass="ProductCollectionCell" customModule="eShtry" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="26.5" width="130" height="141"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ibO-rS-wPq">
@@ -190,7 +190,7 @@
                             <constraint firstItem="lxk-ZH-wcE" firstAttribute="bottom" secondItem="dvn-BN-gTx" secondAttribute="bottom" constant="10" id="RWE-hl-7WZ"/>
                             <constraint firstItem="lxk-ZH-wcE" firstAttribute="bottom" secondItem="FQC-k8-Bee" secondAttribute="bottom" constant="10" id="Sro-u0-yVl"/>
                             <constraint firstItem="dvn-BN-gTx" firstAttribute="top" secondItem="lxk-ZH-wcE" secondAttribute="top" constant="10" id="axC-mC-Ben"/>
-                            <constraint firstItem="dvn-BN-gTx" firstAttribute="width" secondItem="MSE-V7-i6w" secondAttribute="width" multiplier="0.32" id="gBa-a9-xWQ"/>
+                            <constraint firstItem="dvn-BN-gTx" firstAttribute="width" secondItem="MSE-V7-i6w" secondAttribute="width" multiplier="0.28" id="gBa-a9-xWQ"/>
                             <constraint firstItem="dvn-BN-gTx" firstAttribute="leading" secondItem="lxk-ZH-wcE" secondAttribute="leading" constant="5" id="iTJ-Tz-Axz"/>
                             <constraint firstItem="FQC-k8-Bee" firstAttribute="top" secondItem="lxk-ZH-wcE" secondAttribute="top" constant="10" id="uoy-Dk-DsA"/>
                         </constraints>
@@ -225,7 +225,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVx-ZS-L4d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-920" y="86"/>
+            <point key="canvasLocation" x="700" y="-58"/>
         </scene>
     </scenes>
     <resources>
