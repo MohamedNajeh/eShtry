@@ -103,6 +103,9 @@
 		E264E1C227DFBD8100615EBF /* OrdersTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1BA27DFBD8100615EBF /* OrdersTemp.swift */; };
 		E264E1C327DFBD8100615EBF /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1BB27DFBD8100615EBF /* RegisterVC.swift */; };
 		E264E1C727DFE27B00615EBF /* myCountryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1C627DFE27B00615EBF /* myCountryProtocol.swift */; };
+		E274EB4527E2828900923987 /* CurrencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274EB4427E2828900923987 /* CurrencyVC.swift */; };
+		E274EB4827E2987300923987 /* CurrenciesRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274EB4727E2987200923987 /* CurrenciesRoot.swift */; };
+		E274EB4A27E2988700923987 /* currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274EB4927E2988700923987 /* currencies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,6 +208,9 @@
 		E264E1BA27DFBD8100615EBF /* OrdersTemp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTemp.swift; sourceTree = "<group>"; };
 		E264E1BB27DFBD8100615EBF /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		E264E1C627DFE27B00615EBF /* myCountryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myCountryProtocol.swift; sourceTree = "<group>"; };
+		E274EB4427E2828900923987 /* CurrencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyVC.swift; sourceTree = "<group>"; };
+		E274EB4727E2987200923987 /* CurrenciesRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRoot.swift; sourceTree = "<group>"; };
+		E274EB4927E2988700923987 /* currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currencies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +391,7 @@
 		194E0CBD27E0D484005CE014 /* PONSO */ = {
 			isa = PBXGroup;
 			children = (
+				E274EB4627E2980000923987 /* Currencies */,
 				191D932C27E217C6008D0E89 /* Countries */,
 				197CA84E27E15C040032A605 /* Orders */,
 				194E0CDF27E0F591005CE014 /* Customers */,
@@ -622,17 +629,27 @@
 		E264E1B327DFBD5B00615EBF /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E264E1B927DFBD8100615EBF /* meVC.storyboard */,
 				E264E1B427DFBD8000615EBF /* AddressVC.swift */,
 				E264E1B727DFBD8100615EBF /* CountryVC.swift */,
 				E264E1B527DFBD8000615EBF /* LoginVC.swift */,
-				E264E1B927DFBD8100615EBF /* meVC.storyboard */,
 				E264E1B827DFBD8100615EBF /* meVC.swift */,
 				E264E1B627DFBD8100615EBF /* moreOrdersVC.swift */,
 				E264E1BA27DFBD8100615EBF /* OrdersTemp.swift */,
 				E264E1BB27DFBD8100615EBF /* RegisterVC.swift */,
 				E264E1C627DFE27B00615EBF /* myCountryProtocol.swift */,
+				E274EB4427E2828900923987 /* CurrencyVC.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		E274EB4627E2980000923987 /* Currencies */ = {
+			isa = PBXGroup;
+			children = (
+				E274EB4727E2987200923987 /* CurrenciesRoot.swift */,
+				E274EB4927E2988700923987 /* currencies.swift */,
+			);
+			path = Currencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -736,6 +753,7 @@
 				197CA85127E15C8F0032A605 /* OrdersRoot.swift in Sources */,
 				194E0CDC27E0DEBC005CE014 /* ImageForCollection.swift in Sources */,
 				5BB7777927DFC64700ECAC8B /* ProductCell.swift in Sources */,
+				E274EB4A27E2988700923987 /* currencies.swift in Sources */,
 				46BFE3B727E199E300E9D5EF /* SearchingCell.swift in Sources */,
 				194E0CC027E0D53E005CE014 /* ProductsRoot.swift in Sources */,
 				1914DEFB27DFAE9B00931E5D /* CartItem.swift in Sources */,
@@ -755,12 +773,14 @@
 				E264E1BE27DFBD8100615EBF /* moreOrdersVC.swift in Sources */,
 				194E0CE227E0F5D6005CE014 /* AddressesRoot.swift in Sources */,
 				1914DEF527DFAE9B00931E5D /* DefaultTitleLabel.swift in Sources */,
+				E274EB4827E2987300923987 /* CurrenciesRoot.swift in Sources */,
 				1914DEF327DFAE9B00931E5D /* DefaultButton.swift in Sources */,
 				194E0CC427E0D5E8005CE014 /* Variants.swift in Sources */,
 				194E0CC827E0D653005CE014 /* Images.swift in Sources */,
 				194E0CDA27E0DE59005CE014 /* Rules.swift in Sources */,
 				197CA87127E164720032A605 /* CurrentTotalPriceSet.swift in Sources */,
 				191D933027E21ACA008D0E89 /* Countries.swift in Sources */,
+				E274EB4527E2828900923987 /* CurrencyVC.swift in Sources */,
 				1914DEFA27DFAE9B00931E5D /* DefaultImageView.swift in Sources */,
 				E264E1C727DFE27B00615EBF /* myCountryProtocol.swift in Sources */,
 				194E0CCA27E0D66F005CE014 /* Image.swift in Sources */,
