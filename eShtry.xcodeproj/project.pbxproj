@@ -427,6 +427,7 @@
 		194E0CCB27E0D744005CE014 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				19A8C44827E2ABFB00E6D1F6 /* Persistance */,
 				194E0CCC27E0D751005CE014 /* NetworkLayer */,
 			);
 			path = Manager;
@@ -524,6 +525,29 @@
 				197CA87227E166BD0032A605 /* TotalDiscountSet.swift */,
 			);
 			path = Order;
+			sourceTree = "<group>";
+		};
+		19A8C44827E2ABFB00E6D1F6 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				19A8C44A27E2AC6300E6D1F6 /* CoreData */,
+				19A8C44927E2AC2F00E6D1F6 /* UserDefaults */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		19A8C44927E2AC2F00E6D1F6 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		19A8C44A27E2AC6300E6D1F6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		46985B3227E09C6D003E3958 /* NewCategory */ = {
