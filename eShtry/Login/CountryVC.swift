@@ -14,23 +14,23 @@ class CountryVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
     @IBOutlet weak var CountryTableView: UITableView!
     @IBOutlet weak var searchBarOutlet: UISearchBar!
     
-    let Countries : [String] = ["Egypt","Qatar","Saudi Arabia","Kuwait","Lebanon","United Arab Emirates","Jordan","Bahrain"]
+    let myCountries : [String] = ["Egypt","Qatar","Saudi Arabia","Kuwait","Lebanon","United Arab Emirates","Jordan","Bahrain"]
     var filterCountries : [String]!
     var myCountryProtocol : setCountryProtocol!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     filterCountries = Countries
+     filterCountries = myCountries
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterCountries = []
         
         if searchText == "" {
-            filterCountries = Countries
+            filterCountries = myCountries
         }else{
-            for country in Countries{
+            for country in myCountries{
                 if country.contains(searchText) {
                     filterCountries.append(country)
                 }
