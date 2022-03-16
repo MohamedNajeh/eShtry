@@ -73,12 +73,12 @@ class NetworkManager:INetworkManager{
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         
+        urlRequest.httpShouldHandleCookies = false
         
         let jsonData = try? JSONSerialization.data(withJSONObject: body)
         urlRequest.httpBody = jsonData
         
-        print(body)
-        
+        print(url)
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
             if let _ = error {
                 completion(.failure(.noInternet))

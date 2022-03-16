@@ -10,9 +10,9 @@ import UIKit
 
 class meVC: UIViewController {
     
-    var moreOrdersArr : [Orders] = []
-    var myOrder1 : Orders = Orders()
-    var myOrder2 : Orders = Orders()
+    var moreOrdersArr : [OrdersTemp] = []
+    var myOrder1 : OrdersTemp = OrdersTemp()
+    var myOrder2 : OrdersTemp = OrdersTemp()
     
     @IBOutlet weak var order1OutletLabel: UILabel!
     @IBOutlet weak var order2OutletLabel: UILabel!
