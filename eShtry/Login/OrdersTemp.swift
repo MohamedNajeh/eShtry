@@ -7,6 +7,6 @@
 //
 
 import Foundation
-struct Orders {
+struct OrdersTemp {
     var orderName, Price : String?
 }

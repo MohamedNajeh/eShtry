@@ -71,14 +71,14 @@ class CartVC: UIViewController {
     
     
     func testApi(){
-//        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/products.json", baseModel: ProductsRoot.self) { result in
-//            switch result {
-//            case .success(let products):
-//                print(products.products?.count)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/products.json", baseModel: ProductsRoot.self) { result in
+            switch result {
+            case .success(let products):
+                print(products.products?.count)
+            case .failure(let error):
+                print(error)
+            }
+        }
 //
 //
 //        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/smart_collections.json", baseModel: SmartCollectionRoot.self) { result  in
@@ -101,7 +101,7 @@ class CartVC: UIViewController {
 //        }
         
         
-        
+
         let body: [String: Any] = [
             "customer": [
               "first_name": "eslam",
@@ -118,16 +118,16 @@ class CartVC: UIViewController {
                   "last_name": "Lastnameson",
                   "first_name": "Mother",
                   "country": "CA"
-            
+
               ]],
               "send_email_invite": true
           ]
-        
-        
+
+
         networkShared.postDataToApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers.json", httpMethod: .post, body: body, baseModel: CustomarRoot.self) { result in
             switch result{
             case .success(let customer):
-                print(customer.customer?.addresses)
+                print(customer.customer)
             case .failure(let error):
                 print(error)
             }

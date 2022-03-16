@@ -10,13 +10,13 @@ import UIKit
 
 class moreOrdersVC: UITableViewController {
     
-    var myOrders : [Orders] = []
+    var myOrders : [OrdersTemp] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    init?(coder: NSCoder, myOrders : [Orders]) {
+    init?(coder: NSCoder, myOrders : [OrdersTemp]) {
         self.myOrders = myOrders
         super.init(coder: coder)
     }
