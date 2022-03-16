@@ -30,6 +30,7 @@
 		191D932E27E217DF008D0E89 /* CountriesRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D932D27E217DF008D0E89 /* CountriesRoot.swift */; };
 		191D933027E21ACA008D0E89 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D932F27E21ACA008D0E89 /* Countries.swift */; };
 		191D933227E21AF4008D0E89 /* Provinces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D933127E21AF4008D0E89 /* Provinces.swift */; };
+		191D933527E2311B008D0E89 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D933427E2311B008D0E89 /* UIImageView+Extension.swift */; };
 		194E0CC027E0D53E005CE014 /* ProductsRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CBF27E0D53E005CE014 /* ProductsRoot.swift */; };
 		194E0CC227E0D59D005CE014 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CC127E0D59D005CE014 /* Products.swift */; };
 		194E0CC427E0D5E8005CE014 /* Variants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CC327E0D5E8005CE014 /* Variants.swift */; };
@@ -129,6 +130,7 @@
 		191D932D27E217DF008D0E89 /* CountriesRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesRoot.swift; sourceTree = "<group>"; };
 		191D932F27E21ACA008D0E89 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		191D933127E21AF4008D0E89 /* Provinces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provinces.swift; sourceTree = "<group>"; };
+		191D933427E2311B008D0E89 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+Extension.swift"; path = "eShtry/PONSO/Countries/UIImageView+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		194E0CBF27E0D53E005CE014 /* ProductsRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRoot.swift; sourceTree = "<group>"; };
 		194E0CC127E0D59D005CE014 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		194E0CC327E0D5E8005CE014 /* Variants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variants.swift; sourceTree = "<group>"; };
@@ -222,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				1914DEC827DFAE9B00931E5D /* ViewModel */,
-				1914DECA27DFAE9B00931E5D /* Extension */,
 				1914DECF27DFAE9B00931E5D /* View */,
 				1914DEE527DFAE9B00931E5D /* PONSO */,
 				1914DEE727DFAE9B00931E5D /* Fonts */,
@@ -241,6 +242,7 @@
 		1914DECA27DFAE9B00931E5D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				191D933327E230DF008D0E89 /* UIImageView */,
 				1914DECB27DFAE9B00931E5D /* UIView */,
 			);
 			path = Extension;
@@ -380,6 +382,14 @@
 				191D933127E21AF4008D0E89 /* Provinces.swift */,
 			);
 			path = Countries;
+			sourceTree = "<group>";
+		};
+		191D933327E230DF008D0E89 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				191D933427E2311B008D0E89 /* UIImageView+Extension.swift */,
+			);
+			path = UIImageView;
 			sourceTree = "<group>";
 		};
 		194E0CBD27E0D484005CE014 /* PONSO */ = {
@@ -560,9 +570,10 @@
 		5BA095E027D9785E00C17E57 /* eShtry */ = {
 			isa = PBXGroup;
 			children = (
-				46BFE3B127E1947100E9D5EF /* Search */,
+				1914DECA27DFAE9B00931E5D /* Extension */,
 				194E0CD127E0D836005CE014 /* Utilities */,
 				1914DECD27DFAE9B00931E5D /* Constant */,
+				46BFE3B127E1947100E9D5EF /* Search */,
 				194E0CBD27E0D484005CE014 /* PONSO */,
 				194E0CD027E0D7D2005CE014 /* Model */,
 				46985B4727E0A029003E3958 /* NewOnboarding */,
@@ -776,6 +787,7 @@
 				E264E1BC27DFBD8100615EBF /* AddressVC.swift in Sources */,
 				46985B3827E09CE2003E3958 /* CategoryCell.swift in Sources */,
 				E264E1BD27DFBD8100615EBF /* LoginVC.swift in Sources */,
+				191D933527E2311B008D0E89 /* UIImageView+Extension.swift in Sources */,
 				1914DEEE27DFAE9B00931E5D /* Constant.swift in Sources */,
 				1914DEF927DFAE9B00931E5D /* DefaultView.swift in Sources */,
 				197CA86527E160FD0032A605 /* LineItems.swift in Sources */,

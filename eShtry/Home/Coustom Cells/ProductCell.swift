@@ -19,5 +19,16 @@ class ProductCell: UICollectionViewCell {
         productImg.layer.cornerRadius  = 20
         contentView.layer.cornerRadius = 20
     }
+    
+    
+    
+    
+    func downloadImg(from urlString: String){
+        
+        productImg.downloadImg(from: urlString)
+        
+        
+
+    }
 
 }
