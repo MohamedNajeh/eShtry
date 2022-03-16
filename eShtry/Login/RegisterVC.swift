@@ -195,6 +195,7 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     func ConfigurationDatePicker() {
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
+        datePicker?.preferredDatePickerStyle = UIDatePickerStyle.wheels
         datePicker?.maximumDate = NSDate() as Date
         datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
         dateOfBirthTF.inputView = datePicker
