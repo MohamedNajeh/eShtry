@@ -10,7 +10,7 @@ import UIKit
 class SearchingCell: UITableViewCell {
     
     static let reuseID = "SearchingCell"
-    
+    // print
     @IBOutlet weak var productImageView: UIImageView!{
         didSet{
             productImageView.layer.cornerRadius = productImageView.frame.height / 2
