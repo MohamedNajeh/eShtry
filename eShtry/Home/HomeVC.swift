@@ -14,6 +14,12 @@ class HomeVC: UIViewController {
     var currentIndex = 0
     var timer:Timer?
     var mov = [1,2,3,2,1,4,5,2,21,21,32,6]
+    
+    var collectionsArr = [SmartCollection]()
+    var productsArr    = [Products]()
+
+    let networkShared = NetworkManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "eShtry"
@@ -28,12 +34,49 @@ class HomeVC: UIViewController {
         collectionView.register(UINib(nibName: "OffersCell", bundle: nil), forCellWithReuseIdentifier: "offersCell")
         collectionView.register(UINib(nibName: "BrandCell", bundle: nil), forCellWithReuseIdentifier: "brandCell")
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
-        startTimer()
+//        startTimer()
+        
+        getColletionsData()
+        getProductsData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+
+
        
+    }
+    
+    private func getColletionsData(){
+        
+        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/smart_collections.json", baseModel: SmartCollectionRoot.self) { result  in
+            switch result{
+            case .success(let result):
+                guard let smartCollection = result.smart_collections else {return}
+                self.collectionsArr = smartCollection
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    private func getProductsData(){
+        
+        networkShared.getDataFromApi(urlString: productsUrl, baseModel: ProductsRoot.self) { result in
+            switch result {
+            case .success(let products):
+                guard let productsArr = products.products else {return}
+                self.productsArr = productsArr
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func startTimer(){
@@ -209,7 +252,19 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 2 ? 15 : 20
+//        return section == 2 ? 15 : 20
+        switch section {
+        case 0:
+            return 5
+        case 1:
+            return 5
+        case 2:
+            return collectionsArr.count
+        case 3:
+            return productsArr.count
+        default :
+            return 5
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -226,12 +281,12 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             return offersCell
         case 2:
             let brandCell = collectionView.dequeueReusableCell(withReuseIdentifier: "brandCell", for: indexPath) as! BrandCell
-            brandCell.brandImg.image = UIImage(named: "adidas")
+            brandCell.brandImg.downloadImg(from: collectionsArr[indexPath.row].image?.src ?? "")
             brandCell.brandName.text = "Adidas"
             return brandCell
         case 3:
             let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
-            productCell.productImg.image = UIImage(named: "shoes")
+            productCell.downloadImg(from: productsArr[indexPath.row].image?.src ?? "")
             productCell.productName.text = "Shoes"
             productCell.productPrice.text = "15.0 $"
             return productCell
