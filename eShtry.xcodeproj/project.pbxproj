@@ -47,6 +47,8 @@
 		194E0CE427E0F64A005CE014 /* Addresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CE327E0F64A005CE014 /* Addresses.swift */; };
 		194E0CE927E110DA005CE014 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CE827E110DA005CE014 /* Customer.swift */; };
 		194E0CEB27E116EA005CE014 /* CustomarRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CEA27E116EA005CE014 /* CustomarRoot.swift */; };
+		19717E5D27E3B5F900E693C4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19717E5727E3B5F900E693C4 /* CoreDataManager.swift */; };
+		19717E5F27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19717E5B27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld */; };
 		197CA85127E15C8F0032A605 /* OrdersRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA85027E15C8F0032A605 /* OrdersRoot.swift */; };
 		197CA85327E15D0B0032A605 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA85227E15D0B0032A605 /* Orders.swift */; };
 		197CA85527E15D6D0032A605 /* CurrentSubtotalPriceSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA85427E15D6D0032A605 /* CurrentSubtotalPriceSet.swift */; };
@@ -151,6 +153,8 @@
 		194E0CE327E0F64A005CE014 /* Addresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addresses.swift; sourceTree = "<group>"; };
 		194E0CE827E110DA005CE014 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		194E0CEA27E116EA005CE014 /* CustomarRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomarRoot.swift; sourceTree = "<group>"; };
+		19717E5727E3B5F900E693C4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		19717E5C27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EshtryCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		197CA85027E15C8F0032A605 /* OrdersRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersRoot.swift; sourceTree = "<group>"; };
 		197CA85227E15D0B0032A605 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		197CA85427E15D6D0032A605 /* CurrentSubtotalPriceSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSubtotalPriceSet.swift; sourceTree = "<group>"; };
@@ -429,9 +433,7 @@
 		194E0CCB27E0D744005CE014 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-
 				19A8C44B27E2AEEC00E6D1F6 /* Persistance */,
-
 				194E0CCC27E0D751005CE014 /* NetworkLayer */,
 			);
 			path = Manager;
@@ -499,6 +501,31 @@
 			path = Customar;
 			sourceTree = "<group>";
 		};
+		19717E5527E3B5F900E693C4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				19717E5627E3B5F900E693C4 /* CoreDataClasses */,
+				19717E5827E3B5F900E693C4 /* CoreDataModels */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		19717E5627E3B5F900E693C4 /* CoreDataClasses */ = {
+			isa = PBXGroup;
+			children = (
+				19717E5727E3B5F900E693C4 /* CoreDataManager.swift */,
+			);
+			path = CoreDataClasses;
+			sourceTree = "<group>";
+		};
+		19717E5827E3B5F900E693C4 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				19717E5B27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
 		197CA84E27E15C040032A605 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,33 +558,21 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
-
 		19A8C44B27E2AEEC00E6D1F6 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
-				19A8C45027E2B27700E6D1F6 /* CoreData */,
+				19717E5527E3B5F900E693C4 /* CoreData */,
 				19A8C44C27E2AEFA00E6D1F6 /* UserDefaults */,
-
 			);
 			path = Persistance;
 			sourceTree = "<group>";
 		};
-
 		19A8C44C27E2AEFA00E6D1F6 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
 				19A8C44E27E2AF3F00E6D1F6 /* UserDefaultsClass.swift */,
 			);
 			path = UserDefaults;
-			sourceTree = "<group>";
-		};
-
-		19A8C45027E2B27700E6D1F6 /* CoreData */ = {
-
-			isa = PBXGroup;
-			children = (
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		46985B3227E09C6D003E3958 /* NewCategory */ = {
@@ -816,6 +831,7 @@
 				46985B4127E09CF8003E3958 /* SubCategoryCell.swift in Sources */,
 				5BB7777827DFC64700ECAC8B /* ReviewCollectionCell.swift in Sources */,
 				E264E1BE27DFBD8100615EBF /* moreOrdersVC.swift in Sources */,
+				19717E5D27E3B5F900E693C4 /* CoreDataManager.swift in Sources */,
 				194E0CE227E0F5D6005CE014 /* AddressesRoot.swift in Sources */,
 				1914DEF527DFAE9B00931E5D /* DefaultTitleLabel.swift in Sources */,
 				E274EB4827E2987300923987 /* CurrenciesRoot.swift in Sources */,
@@ -843,6 +859,7 @@
 				46985B3827E09CE2003E3958 /* CategoryCell.swift in Sources */,
 				E264E1BD27DFBD8100615EBF /* LoginVC.swift in Sources */,
 				191D933527E2311B008D0E89 /* UIImageView+Extension.swift in Sources */,
+				19717E5F27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld in Sources */,
 				1914DEEE27DFAE9B00931E5D /* Constant.swift in Sources */,
 				1914DEF927DFAE9B00931E5D /* DefaultView.swift in Sources */,
 				197CA86527E160FD0032A605 /* LineItems.swift in Sources */,
@@ -1087,6 +1104,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		19717E5B27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				19717E5C27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 19717E5C27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodel */;
+			path = EshtryCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5BA095D627D9785E00C17E57 /* Project object */;
 }
