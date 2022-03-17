@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeVC: UIViewController {
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
     let searchController = UISearchController()
     var currentIndex = 0
@@ -17,7 +17,7 @@ class HomeVC: UIViewController {
     
     var collectionsArr = [SmartCollection]()
     var productsArr    = [Products]()
-    
+
     let networkShared = NetworkManager.shared
     
     override func viewDidLoad() {
@@ -34,6 +34,7 @@ class HomeVC: UIViewController {
         collectionView.register(UINib(nibName: "OffersCell", bundle: nil), forCellWithReuseIdentifier: "offersCell")
         collectionView.register(UINib(nibName: "BrandCell", bundle: nil), forCellWithReuseIdentifier: "brandCell")
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
+//        startTimer()
         
         getColletionsData()
         getProductsData()
@@ -41,9 +42,9 @@ class HomeVC: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        
-        
+
+
+       
     }
     
     private func getColletionsData(){
@@ -77,35 +78,21 @@ class HomeVC: UIViewController {
             }
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        if collectionView.contentOffset.y == 0 {
-            startTimer()
-        }
-    }
     
     func startTimer(){
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.timeAction), userInfo: nil, repeats: true)
-        }
-    }
-    
-    func stopTimer(){
-        timer?.invalidate()
-        timer = nil
+        
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timeAction), userInfo: nil, repeats: true)
+        
     }
     
     @objc func timeAction(){
-        if collectionView.contentOffset.y > 0 {
-            stopTimer()
+        if currentIndex < 19 {
+            currentIndex += 1
         }else{
-            startTimer()
-            if currentIndex < 19 {
-                currentIndex += 1
-            }else{
-                currentIndex = 0
-            }
-            collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: true)
+            currentIndex = 0
         }
+        collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: true)
+       
     }
     
     
@@ -147,9 +134,9 @@ class HomeVC: UIViewController {
         section.orthogonalScrollingBehavior = .groupPaging
         
         //supplemantary
-        //        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40))
-        //        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: "header", alignment: .top)
-        //        section.boundarySupplementaryItems = [header]
+//        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40))
+//        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: "header", alignment: .top)
+//        section.boundarySupplementaryItems = [header]
         return section
     }
     
@@ -237,7 +224,7 @@ class HomeVC: UIViewController {
         let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize, subitems: [samllItem])
         
         //--- above group
-        
+     
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [largeItem])
         
@@ -256,7 +243,7 @@ class HomeVC: UIViewController {
         section.boundarySupplementaryItems = [header]
         return section
     }
-    
+
 }
 
 extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
@@ -265,7 +252,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        return section == 2 ? 15 : 20
+//        return section == 2 ? 15 : 20
         switch section {
         case 0:
             return 5
@@ -281,7 +268,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
         switch indexPath.section {
         case 0:
@@ -309,8 +296,8 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             return offersCell
             
         }
-        //        cell.backgroundColor = UIColor(hue: CGFloat(drand48()), saturation: 1, brightness: 1, alpha: 1)
-        //  return cell
+//        cell.backgroundColor = UIColor(hue: CGFloat(drand48()), saturation: 1, brightness: 1, alpha: 1)
+      //  return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -340,14 +327,16 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+   
+    
 }
 
 extension HomeVC: UISearchBarDelegate{
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         let searchVC = UIStoryboard(name: "SearchSB", bundle: nil).instantiateViewController(identifier: "SearchResultVC")
         self.navigationController?.pushViewController(searchVC, animated: true)
-        searchBar.setShowsCancelButton(false, animated: true)
-        return false
-    }
+          searchBar.setShowsCancelButton(false, animated: true)
+          return false
+      }
 }
 
