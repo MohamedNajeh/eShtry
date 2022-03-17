@@ -12,7 +12,7 @@ class SliderCell: UICollectionViewCell {
     @IBOutlet weak var sliderImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        sliderImg.layer.cornerRadius = 10        // Initialization code
+        sliderImg.layer.cornerRadius = 8        // Initialization code
     }
 
 }
