@@ -71,6 +71,12 @@ class meVC: UIViewController {
         navigationController?.pushViewController(registerVC, animated: true)
     }
     
+    
+    @IBAction func currencyClick(_ sender: Any) {
+        let currencyVC = storyboard?.instantiateViewController(identifier: "CurrencyVC") as! CurrencyVC
+        navigationController?.pushViewController(currencyVC, animated: true)
+    }
+    
     @IBSegueAction func contactUs(_ coder: NSCoder) -> UIViewController? {
         return UIViewController(coder: coder)
     }
