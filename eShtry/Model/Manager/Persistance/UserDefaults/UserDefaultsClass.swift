@@ -12,17 +12,16 @@ class UserDefaultsClass{
     static let shared = UserDefaultsClass()
     
     
-    static func saveUserID(value: Any, key:String){
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(value, forKey: key)
-        userDefaults.synchronize()
-    }
-    
     func saveValue<V>(value:V,key: String){
         let userDefaults = UserDefaults.standard
         userDefaults.set(value, forKey: key)
         userDefaults.synchronize()
     }
     
-    func getValue
+    func getValue<V>(key:String)->V{
+        let userDefaults = UserDefaults.standard
+        let value = userDefaults.object(forKey: key) as! V
+        return value
+        
+    }
 }

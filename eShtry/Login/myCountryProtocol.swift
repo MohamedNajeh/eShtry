@@ -8,5 +8,5 @@
 
 import Foundation
 protocol setCountryProtocol {
-    func sendCountry(name:String)
+    func sendCountry(name:String,whichScreen:Character)
 }
