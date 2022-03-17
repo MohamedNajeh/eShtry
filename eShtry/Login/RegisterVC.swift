@@ -116,9 +116,12 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         case emailAddressTF:
             if !text.isEmpty {
                 emailAddressLabel.text = " "
-                if !(text.contains(".com") && text.contains("@")) {
-                    emailAddressLabel.text = "Please enter a valid email address !!"
-                }
+                
+                    if isValidEmail(text) == false {
+                        emailAddressLabel.text = "Please enter a valid email address !!"
+                    }
+                    
+                
             }else{
                 emailAddressLabel.text = "Please enter an email address"
             }
@@ -184,6 +187,12 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
            let phoneNumTest = NSPredicate(format: "SELF MATCHES %@", phoneNumRegEx)
            return phoneNumTest.evaluate(with: phoneNumber)
        }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
     
     func textFieldPlaceholder(textField : UITextField, Placeholder : String) {
         textField.attributedPlaceholder = NSAttributedString(
