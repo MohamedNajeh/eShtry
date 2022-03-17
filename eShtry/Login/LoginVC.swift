@@ -44,7 +44,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         case emailOutletTF:
             if !text.isEmpty {
                 emailOutletLabel.text = " "
-                if isValidEmail(text) == false {
+                if !(text.contains(".com") && text.contains("@")) {
                     emailOutletLabel.text = "   "
                 }
             }else{
@@ -82,11 +82,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         let passRegEx = "^(?=.*[a-z\\u0621-\\u064A])(?=.*[A-Z\\u0621-\\u064A])(?=.*[0-9\\u0660-\\u0669])[a-zA-Za-z\\u0621-\\u064A0-9\\u0660-\\u0669]{8,}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
         return passwordTest.evaluate(with: password)
-    }
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
     }
     
     @IBAction func eyeShowPassword(_ sender: Any) {
