@@ -594,7 +594,10 @@
 			path = Favorite;
 
 
+<<<<<<< HEAD
 >>>>>>> origin/develop
+=======
+>>>>>>> develop
 		19A8C44B27E2AEEC00E6D1F6 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,10 +887,14 @@
 				5BB7777827DFC64700ECAC8B /* ReviewCollectionCell.swift in Sources */,
 				E264E1BE27DFBD8100615EBF /* moreOrdersVC.swift in Sources */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				193B182A27E3644C00F133B0 /* CoreDataManager.swift in Sources */,
 =======
 				46822ED927E3126A00049424 /* FavoritesVC.swift in Sources */,
 >>>>>>> origin/develop
+=======
+				46822ED927E3126A00049424 /* FavoritesVC.swift in Sources */,
+>>>>>>> develop
 				194E0CE227E0F5D6005CE014 /* AddressesRoot.swift in Sources */,
 				1914DEF527DFAE9B00931E5D /* DefaultTitleLabel.swift in Sources */,
 				E274EB4827E2987300923987 /* CurrenciesRoot.swift in Sources */,
