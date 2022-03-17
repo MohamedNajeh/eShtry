@@ -12,7 +12,7 @@ class OffersCell: UICollectionViewCell {
     @IBOutlet weak var offerImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        offerImg.layer.cornerRadius = 20
+        offerImg.layer.cornerRadius = 10
         // Initialization code
     }
 
