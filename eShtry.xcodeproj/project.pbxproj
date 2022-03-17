@@ -429,9 +429,7 @@
 		194E0CCB27E0D744005CE014 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-
 				19A8C44B27E2AEEC00E6D1F6 /* Persistance */,
-
 				194E0CCC27E0D751005CE014 /* NetworkLayer */,
 			);
 			path = Manager;
@@ -531,18 +529,15 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
-
 		19A8C44B27E2AEEC00E6D1F6 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
-				19A8C45027E2B27700E6D1F6 /* CoreData */,
+				19C6779327E3AAE300112942 /* CoreData */,
 				19A8C44C27E2AEFA00E6D1F6 /* UserDefaults */,
-
 			);
 			path = Persistance;
 			sourceTree = "<group>";
 		};
-
 		19A8C44C27E2AEFA00E6D1F6 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,9 +546,7 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
-
-		19A8C45027E2B27700E6D1F6 /* CoreData */ = {
-
+		19C6779327E3AAE300112942 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 			);
