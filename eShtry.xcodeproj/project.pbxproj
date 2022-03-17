@@ -64,6 +64,7 @@
 		197CA86F27E164230032A605 /* CurrentTotalTaxSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA86E27E164230032A605 /* CurrentTotalTaxSet.swift */; };
 		197CA87127E164720032A605 /* CurrentTotalPriceSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA87027E164720032A605 /* CurrentTotalPriceSet.swift */; };
 		197CA87327E166BD0032A605 /* TotalDiscountSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA87227E166BD0032A605 /* TotalDiscountSet.swift */; };
+		19A8C44F27E2AF3F00E6D1F6 /* UserDefaultsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8C44E27E2AF3F00E6D1F6 /* UserDefaultsClass.swift */; };
 		46985B3827E09CE2003E3958 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3727E09CE2003E3958 /* CategoryCell.swift */; };
 		46985B3B27E09CEA003E3958 /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3A27E09CEA003E3958 /* ProductCollectionCell.swift */; };
 		46985B3E27E09CF1003E3958 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3D27E09CF1003E3958 /* CategoryVC.swift */; };
@@ -167,6 +168,7 @@
 		197CA86E27E164230032A605 /* CurrentTotalTaxSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTotalTaxSet.swift; sourceTree = "<group>"; };
 		197CA87027E164720032A605 /* CurrentTotalPriceSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTotalPriceSet.swift; sourceTree = "<group>"; };
 		197CA87227E166BD0032A605 /* TotalDiscountSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDiscountSet.swift; sourceTree = "<group>"; };
+		19A8C44E27E2AF3F00E6D1F6 /* UserDefaultsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClass.swift; sourceTree = "<group>"; };
 		46985B3727E09CE2003E3958 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		46985B3A27E09CEA003E3958 /* ProductCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
 		46985B3D27E09CF1003E3958 /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
@@ -427,7 +429,9 @@
 		194E0CCB27E0D744005CE014 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				19A8C44827E2ABFB00E6D1F6 /* Persistance */,
+
+				19A8C44B27E2AEEC00E6D1F6 /* Persistance */,
+
 				194E0CCC27E0D751005CE014 /* NetworkLayer */,
 			);
 			path = Manager;
@@ -527,23 +531,29 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
-		19A8C44827E2ABFB00E6D1F6 /* Persistance */ = {
+
+		19A8C44B27E2AEEC00E6D1F6 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
-				19A8C44A27E2AC6300E6D1F6 /* CoreData */,
-				19A8C44927E2AC2F00E6D1F6 /* UserDefaults */,
+				19A8C45027E2B27700E6D1F6 /* CoreData */,
+				19A8C44C27E2AEFA00E6D1F6 /* UserDefaults */,
+
 			);
 			path = Persistance;
 			sourceTree = "<group>";
 		};
-		19A8C44927E2AC2F00E6D1F6 /* UserDefaults */ = {
+
+		19A8C44C27E2AEFA00E6D1F6 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
+				19A8C44E27E2AF3F00E6D1F6 /* UserDefaultsClass.swift */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
-		19A8C44A27E2AC6300E6D1F6 /* CoreData */ = {
+
+		19A8C45027E2B27700E6D1F6 /* CoreData */ = {
+
 			isa = PBXGroup;
 			children = (
 			);
@@ -823,6 +833,7 @@
 				1914DEF827DFAE9B00931E5D /* LineView.swift in Sources */,
 				1914DEEF27DFAE9B00931E5D /* CartItemTableViewCell.swift in Sources */,
 				46985B3B27E09CEA003E3958 /* ProductCollectionCell.swift in Sources */,
+				19A8C44F27E2AF3F00E6D1F6 /* UserDefaultsClass.swift in Sources */,
 				1914DEF427DFAE9B00931E5D /* SeconderyTitleLabel.swift in Sources */,
 				194E0CD327E0D855005CE014 /* ErrorMessages.swift in Sources */,
 				197CA85727E15DCB0032A605 /* CurrentTotalDiscountsSet.swift in Sources */,
