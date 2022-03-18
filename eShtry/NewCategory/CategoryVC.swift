@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import MobileBuySDK
 
 
 class CategoryVC: UIViewController {
@@ -16,13 +16,15 @@ class CategoryVC: UIViewController {
     
   
     var isHiddenViews:[Bool] = Array(repeating: true, count: 10)
-    
-    
+    var collections:[Storefront.Collection] = []
+    var productTypes:[String] = ["SHOES","T-SHIRTS","ACCESSORIES"]
+    var selectedVendor:String = "VANS"
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Category"
         configureSearchController()
         configureTableViews()
+        fetchCollections()
         
     }
     
@@ -30,6 +32,20 @@ class CategoryVC: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    func fetchCollections(){
+        Client.shared.fetchAllCollections { collections in
+            if let collections = collections {
+                self.collections = collections
+                //print(self.collections)
+                self.categoryTableView.reloadData()
+            }else{
+               print("Wrong")
+            }
+        }
+    }
+    
+    
       
     
     private func configureTableViews(){
@@ -71,9 +87,9 @@ extension CategoryVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case categoryTableView :
-            return 20
+            return collections.count
         case productstableView :
-            return 10
+            return productTypes.count
         default:
             return 0
         }
@@ -85,11 +101,11 @@ extension CategoryVC:UITableViewDelegate,UITableViewDataSource{
         switch tableView {
         case categoryTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.reuseID, for: indexPath)as! CategoryCell
-            cell.categorylabel.text = "Hello ITI mahmoud "
+            cell.categorylabel.text = self.collections[indexPath.row].title
             return cell
         case productstableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: SubCategoryCell.reuseID, for: indexPath) as! SubCategoryCell
-            cell.subCategorynameLabel.text = "sub category \(indexPath.row)"
+            cell.subCategorynameLabel.text = productTypes[indexPath.row]
             cell.bottomView.isHidden = isHiddenViews[indexPath.row]
             if isHiddenViews[indexPath.row] {
                 cell.expandedImageView.image = UIImage(named: "expand")
@@ -106,8 +122,24 @@ extension CategoryVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == productstableView{
-            isHiddenViews[indexPath.row] = !isHiddenViews[indexPath.row]
+            let cell = tableView.cellForRow(at: indexPath) as! SubCategoryCell
+            Client.shared.fetchAllSubCategoryProducts(vendor: self.selectedVendor, type: productTypes[indexPath.row]) { products in
+                if let products = products {
+                    cell.products = products
+                    cell.productCollectionView.reloadData()
+                    //self.productstableView.reloadData()
+                }else{
+                    print("Error")
+                }
+            }
+            self.isHiddenViews[indexPath.row] = !self.isHiddenViews[indexPath.row]
             tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            
+            
+        }
+        if tableView == categoryTableView{
+            selectedVendor = collections[indexPath.row].title
+            productstableView.reloadData()
         }
     }
 
