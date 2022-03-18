@@ -79,7 +79,7 @@ class HomeVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         if collectionView.contentOffset.y == 0 {
-            startTimer()
+           // startTimer()
         }
     }
     

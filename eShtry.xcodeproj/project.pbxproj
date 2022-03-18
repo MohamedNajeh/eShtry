@@ -31,6 +31,7 @@
 		191D933027E21ACA008D0E89 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D932F27E21ACA008D0E89 /* Countries.swift */; };
 		191D933227E21AF4008D0E89 /* Provinces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D933127E21AF4008D0E89 /* Provinces.swift */; };
 		191D933527E2311B008D0E89 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D933427E2311B008D0E89 /* UIImageView+Extension.swift */; };
+		1932DD1427E4CA6100A870BA /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1932DD1327E4CA6100A870BA /* UIViewController+Extension.swift */; };
 		194E0CC027E0D53E005CE014 /* ProductsRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CBF27E0D53E005CE014 /* ProductsRoot.swift */; };
 		194E0CC227E0D59D005CE014 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CC127E0D59D005CE014 /* Products.swift */; };
 		194E0CC427E0D5E8005CE014 /* Variants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CC327E0D5E8005CE014 /* Variants.swift */; };
@@ -47,6 +48,8 @@
 		194E0CE427E0F64A005CE014 /* Addresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CE327E0F64A005CE014 /* Addresses.swift */; };
 		194E0CE927E110DA005CE014 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CE827E110DA005CE014 /* Customer.swift */; };
 		194E0CEB27E116EA005CE014 /* CustomarRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CEA27E116EA005CE014 /* CustomarRoot.swift */; };
+		19717E5D27E3B5F900E693C4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19717E5727E3B5F900E693C4 /* CoreDataManager.swift */; };
+		19717E5F27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19717E5B27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld */; };
 		197CA85127E15C8F0032A605 /* OrdersRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA85027E15C8F0032A605 /* OrdersRoot.swift */; };
 		197CA85327E15D0B0032A605 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA85227E15D0B0032A605 /* Orders.swift */; };
 		197CA85527E15D6D0032A605 /* CurrentSubtotalPriceSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA85427E15D6D0032A605 /* CurrentSubtotalPriceSet.swift */; };
@@ -80,6 +83,8 @@
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
 		5BA095EB27D9786200C17E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095EA27D9786200C17E57 /* Assets.xcassets */; };
 		5BA095EE27D9786200C17E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095EC27D9786200C17E57 /* LaunchScreen.storyboard */; };
+		5BADDD8427E3CB3F00F11550 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADDD8327E3CB3F00F11550 /* Client.swift */; };
+		5BADDD8627E3CBEA00F11550 /* ClientQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADDD8527E3CBEA00F11550 /* ClientQuery.swift */; };
 		5BB7777827DFC64700ECAC8B /* ReviewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7777227DFC64700ECAC8B /* ReviewCollectionCell.swift */; };
 		5BB7777927DFC64700ECAC8B /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7777327DFC64700ECAC8B /* ProductCell.swift */; };
 		5BB7777A27DFC64700ECAC8B /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7777427DFC64700ECAC8B /* SliderCell.swift */; };
@@ -108,6 +113,7 @@
 		E274EB4527E2828900923987 /* CurrencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274EB4427E2828900923987 /* CurrencyVC.swift */; };
 		E274EB4827E2987300923987 /* CurrenciesRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274EB4727E2987200923987 /* CurrenciesRoot.swift */; };
 		E274EB4A27E2988700923987 /* currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274EB4927E2988700923987 /* currencies.swift */; };
+		FAD2BA081DA2C5A5218F1744 /* Pods_eShtry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AE22A783C47B4E8138ED9A /* Pods_eShtry.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +141,7 @@
 		191D932F27E21ACA008D0E89 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		191D933127E21AF4008D0E89 /* Provinces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provinces.swift; sourceTree = "<group>"; };
 		191D933427E2311B008D0E89 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+Extension.swift"; path = "eShtry/Extension/UIImageView/UIImageView+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		1932DD1327E4CA6100A870BA /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		194E0CBF27E0D53E005CE014 /* ProductsRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRoot.swift; sourceTree = "<group>"; };
 		194E0CC127E0D59D005CE014 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		194E0CC327E0D5E8005CE014 /* Variants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variants.swift; sourceTree = "<group>"; };
@@ -151,6 +158,8 @@
 		194E0CE327E0F64A005CE014 /* Addresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addresses.swift; sourceTree = "<group>"; };
 		194E0CE827E110DA005CE014 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		194E0CEA27E116EA005CE014 /* CustomarRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomarRoot.swift; sourceTree = "<group>"; };
+		19717E5727E3B5F900E693C4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		19717E5C27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EshtryCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		197CA85027E15C8F0032A605 /* OrdersRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersRoot.swift; sourceTree = "<group>"; };
 		197CA85227E15D0B0032A605 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		197CA85427E15D6D0032A605 /* CurrentSubtotalPriceSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSubtotalPriceSet.swift; sourceTree = "<group>"; };
@@ -180,6 +189,7 @@
 		46BFE3B227E1948D00E9D5EF /* SearchSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchSB.storyboard; sourceTree = "<group>"; };
 		46BFE3B627E199E300E9D5EF /* SearchingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCell.swift; sourceTree = "<group>"; };
 		46BFE3B927E1AA5400E9D5EF /* backgroundVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = backgroundVideo.mp4; sourceTree = "<group>"; };
+		59AE22A783C47B4E8138ED9A /* Pods_eShtry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShtry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095DE27D9785E00C17E57 /* eShtry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShtry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095E127D9785E00C17E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA095E327D9785E00C17E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +197,8 @@
 		5BA095EA27D9786200C17E57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BA095ED27D9786200C17E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BA095EF27D9786200C17E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BADDD8327E3CB3F00F11550 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		5BADDD8527E3CBEA00F11550 /* ClientQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientQuery.swift; sourceTree = "<group>"; };
 		5BB7777227DFC64700ECAC8B /* ReviewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCollectionCell.swift; sourceTree = "<group>"; };
 		5BB7777327DFC64700ECAC8B /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		5BB7777427DFC64700ECAC8B /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
@@ -215,6 +227,8 @@
 		E274EB4427E2828900923987 /* CurrencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyVC.swift; sourceTree = "<group>"; };
 		E274EB4727E2987200923987 /* CurrenciesRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRoot.swift; sourceTree = "<group>"; };
 		E274EB4927E2988700923987 /* currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currencies.swift; sourceTree = "<group>"; };
+		E3D2A215FC889DBE0105810E /* Pods-eShtry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShtry.debug.xcconfig"; path = "Target Support Files/Pods-eShtry/Pods-eShtry.debug.xcconfig"; sourceTree = "<group>"; };
+		EA078BB554EC25FEF04D6FB2 /* Pods-eShtry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShtry.release.xcconfig"; path = "Target Support Files/Pods-eShtry/Pods-eShtry.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD2BA081DA2C5A5218F1744 /* Pods_eShtry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +265,7 @@
 		1914DECA27DFAE9B00931E5D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1932DD1227E4CA6100A870BA /* UIViewController+Extension */,
 				191D933627E2628F008D0E89 /* UIImageView */,
 				1914DECB27DFAE9B00931E5D /* UIView */,
 			);
@@ -400,6 +416,14 @@
 			path = UIImageView;
 			sourceTree = "<group>";
 		};
+		1932DD1227E4CA6100A870BA /* UIViewController+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1932DD1327E4CA6100A870BA /* UIViewController+Extension.swift */,
+			);
+			path = "UIViewController+Extension";
+			sourceTree = "<group>";
+		};
 		194E0CBD27E0D484005CE014 /* PONSO */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,9 +453,7 @@
 		194E0CCB27E0D744005CE014 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-
 				19A8C44B27E2AEEC00E6D1F6 /* Persistance */,
-
 				194E0CCC27E0D751005CE014 /* NetworkLayer */,
 			);
 			path = Manager;
@@ -499,6 +521,31 @@
 			path = Customar;
 			sourceTree = "<group>";
 		};
+		19717E5527E3B5F900E693C4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				19717E5627E3B5F900E693C4 /* CoreDataClasses */,
+				19717E5827E3B5F900E693C4 /* CoreDataModels */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		19717E5627E3B5F900E693C4 /* CoreDataClasses */ = {
+			isa = PBXGroup;
+			children = (
+				19717E5727E3B5F900E693C4 /* CoreDataManager.swift */,
+			);
+			path = CoreDataClasses;
+			sourceTree = "<group>";
+		};
+		19717E5827E3B5F900E693C4 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				19717E5B27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
 		197CA84E27E15C040032A605 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,33 +578,21 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
-
 		19A8C44B27E2AEEC00E6D1F6 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
-				19A8C45027E2B27700E6D1F6 /* CoreData */,
+				19717E5527E3B5F900E693C4 /* CoreData */,
 				19A8C44C27E2AEFA00E6D1F6 /* UserDefaults */,
-
 			);
 			path = Persistance;
 			sourceTree = "<group>";
 		};
-
 		19A8C44C27E2AEFA00E6D1F6 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
 				19A8C44E27E2AF3F00E6D1F6 /* UserDefaultsClass.swift */,
 			);
 			path = UserDefaults;
-			sourceTree = "<group>";
-		};
-
-		19A8C45027E2B27700E6D1F6 /* CoreData */ = {
-
-			isa = PBXGroup;
-			children = (
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		46985B3227E09C6D003E3958 /* NewCategory */ = {
@@ -597,6 +632,8 @@
 			children = (
 				5BA095E027D9785E00C17E57 /* eShtry */,
 				5BA095DF27D9785E00C17E57 /* Products */,
+				A6942C813375FA2091936573 /* Pods */,
+				A4824424DCCFA4258F4B82E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -611,6 +648,7 @@
 		5BA095E027D9785E00C17E57 /* eShtry */ = {
 			isa = PBXGroup;
 			children = (
+				5BADDD8227E3CB1D00F11550 /* GraphQl */,
 				1914DECA27DFAE9B00931E5D /* Extension */,
 				194E0CD127E0D836005CE014 /* Utilities */,
 				1914DECD27DFAE9B00931E5D /* Constant */,
@@ -630,6 +668,15 @@
 				5BA095EF27D9786200C17E57 /* Info.plist */,
 			);
 			path = eShtry;
+			sourceTree = "<group>";
+		};
+		5BADDD8227E3CB1D00F11550 /* GraphQl */ = {
+			isa = PBXGroup;
+			children = (
+				5BADDD8327E3CB3F00F11550 /* Client.swift */,
+				5BADDD8527E3CBEA00F11550 /* ClientQuery.swift */,
+			);
+			path = GraphQl;
 			sourceTree = "<group>";
 		};
 		5BB7777027DFC5EA00ECAC8B /* Home */ = {
@@ -671,6 +718,23 @@
 			path = "XIB's";
 			sourceTree = "<group>";
 		};
+		A4824424DCCFA4258F4B82E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59AE22A783C47B4E8138ED9A /* Pods_eShtry.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6942C813375FA2091936573 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3D2A215FC889DBE0105810E /* Pods-eShtry.debug.xcconfig */,
+				EA078BB554EC25FEF04D6FB2 /* Pods-eShtry.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E264E1B327DFBD5B00615EBF /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,9 +768,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BA095F227D9786200C17E57 /* Build configuration list for PBXNativeTarget "eShtry" */;
 			buildPhases = (
+				26E703E3B7993A338ED08C97 /* [CP] Check Pods Manifest.lock */,
 				5BA095DA27D9785E00C17E57 /* Sources */,
 				5BA095DB27D9785E00C17E57 /* Frameworks */,
 				5BA095DC27D9785E00C17E57 /* Resources */,
+				4CA340756F1C12DD99AC92DD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -779,6 +845,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26E703E3B7993A338ED08C97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eShtry-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CA340756F1C12DD99AC92DD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eShtry/Pods-eShtry-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eShtry/Pods-eShtry-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eShtry/Pods-eShtry-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5BA095DA27D9785E00C17E57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -812,15 +920,18 @@
 				197CA85327E15D0B0032A605 /* Orders.swift in Sources */,
 				5BB7778C27DFC66500ECAC8B /* HomeVC.swift in Sources */,
 				E264E1C227DFBD8100615EBF /* OrdersTemp.swift in Sources */,
+				5BADDD8427E3CB3F00F11550 /* Client.swift in Sources */,
 				1914DEF227DFAE9B00931E5D /* ImageButton.swift in Sources */,
 				46985B4127E09CF8003E3958 /* SubCategoryCell.swift in Sources */,
 				5BB7777827DFC64700ECAC8B /* ReviewCollectionCell.swift in Sources */,
 				E264E1BE27DFBD8100615EBF /* moreOrdersVC.swift in Sources */,
+				19717E5D27E3B5F900E693C4 /* CoreDataManager.swift in Sources */,
 				194E0CE227E0F5D6005CE014 /* AddressesRoot.swift in Sources */,
 				1914DEF527DFAE9B00931E5D /* DefaultTitleLabel.swift in Sources */,
 				E274EB4827E2987300923987 /* CurrenciesRoot.swift in Sources */,
 				1914DEF327DFAE9B00931E5D /* DefaultButton.swift in Sources */,
 				194E0CC427E0D5E8005CE014 /* Variants.swift in Sources */,
+				1932DD1427E4CA6100A870BA /* UIViewController+Extension.swift in Sources */,
 				194E0CC827E0D653005CE014 /* Images.swift in Sources */,
 				194E0CDA27E0DE59005CE014 /* Rules.swift in Sources */,
 				197CA87127E164720032A605 /* CurrentTotalPriceSet.swift in Sources */,
@@ -835,6 +946,7 @@
 				46985B3B27E09CEA003E3958 /* ProductCollectionCell.swift in Sources */,
 				19A8C44F27E2AF3F00E6D1F6 /* UserDefaultsClass.swift in Sources */,
 				1914DEF427DFAE9B00931E5D /* SeconderyTitleLabel.swift in Sources */,
+				5BADDD8627E3CBEA00F11550 /* ClientQuery.swift in Sources */,
 				194E0CD327E0D855005CE014 /* ErrorMessages.swift in Sources */,
 				197CA85727E15DCB0032A605 /* CurrentTotalDiscountsSet.swift in Sources */,
 				191D933227E21AF4008D0E89 /* Provinces.swift in Sources */,
@@ -843,6 +955,7 @@
 				46985B3827E09CE2003E3958 /* CategoryCell.swift in Sources */,
 				E264E1BD27DFBD8100615EBF /* LoginVC.swift in Sources */,
 				191D933527E2311B008D0E89 /* UIImageView+Extension.swift in Sources */,
+				19717E5F27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld in Sources */,
 				1914DEEE27DFAE9B00931E5D /* Constant.swift in Sources */,
 				1914DEF927DFAE9B00931E5D /* DefaultView.swift in Sources */,
 				197CA86527E160FD0032A605 /* LineItems.swift in Sources */,
@@ -1009,6 +1122,7 @@
 		};
 		5BA095F327D9786200C17E57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3D2A215FC889DBE0105810E /* Pods-eShtry.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1038,6 +1152,7 @@
 		};
 		5BA095F427D9786200C17E57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA078BB554EC25FEF04D6FB2 /* Pods-eShtry.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1087,6 +1202,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		19717E5B27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				19717E5C27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 19717E5C27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodel */;
+			path = EshtryCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5BA095D627D9785E00C17E57 /* Project object */;
 }

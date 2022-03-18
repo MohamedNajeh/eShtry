@@ -14,9 +14,17 @@ protocol INetworkManager{
 
 class NetworkManager:INetworkManager{
     
-    
+    static let orderUpdatedNotification = Notification.Name("orderUpdated")
+
     static let shared = NetworkManager()
     private init(){}
+    
+    
+    var order = [Orders]() {
+        didSet {
+            NotificationCenter.default.post(name:NetworkManager.orderUpdatedNotification,object:nil)
+        }
+    }
     
     func getDataFromApi<B:Codable>(urlString: String,baseModel: B.Type ,completion: @escaping (Result<B,ErrorMessages>)->Void ){
         guard let url = URL(string: urlString) else{
