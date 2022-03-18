@@ -98,7 +98,6 @@ class HomeVC: UIViewController {
         if collectionView.contentOffset.y > 0 {
             stopTimer()
         }else{
-            startTimer()
             if currentIndex < 19 {
                 currentIndex += 1
             }else{
