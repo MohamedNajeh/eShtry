@@ -6,12 +6,12 @@
 //
 
 import UIKit
-
+import MobileBuySDK
 class SubCategoryCell:UITableViewCell {
     
     
     static let reuseID = "SubCategoryCell"
-    
+    var products:[Storefront.Product] = []
     @IBOutlet weak var subCategorynameLabel: UILabel!
     @IBOutlet weak var expandedImageView: UIImageView!
     @IBOutlet weak var productCollectionView: UICollectionView!
@@ -47,12 +47,12 @@ class SubCategoryCell:UITableViewCell {
 
 extension SubCategoryCell: UICollectionViewDelegate , UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionCell.reuseID, for: indexPath) as! ProductCollectionCell
-        cell.configureCell()
+        cell.configureCell(image: products[indexPath.row].featuredImage!.url, title: products[indexPath.row].title)
         return cell
     }
     

@@ -83,6 +83,8 @@
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
 		5BA095EB27D9786200C17E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095EA27D9786200C17E57 /* Assets.xcassets */; };
 		5BA095EE27D9786200C17E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095EC27D9786200C17E57 /* LaunchScreen.storyboard */; };
+		5BADDD8427E3CB3F00F11550 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADDD8327E3CB3F00F11550 /* Client.swift */; };
+		5BADDD8627E3CBEA00F11550 /* ClientQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADDD8527E3CBEA00F11550 /* ClientQuery.swift */; };
 		5BB7777827DFC64700ECAC8B /* ReviewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7777227DFC64700ECAC8B /* ReviewCollectionCell.swift */; };
 		5BB7777927DFC64700ECAC8B /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7777327DFC64700ECAC8B /* ProductCell.swift */; };
 		5BB7777A27DFC64700ECAC8B /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7777427DFC64700ECAC8B /* SliderCell.swift */; };
@@ -111,6 +113,7 @@
 		E274EB4527E2828900923987 /* CurrencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274EB4427E2828900923987 /* CurrencyVC.swift */; };
 		E274EB4827E2987300923987 /* CurrenciesRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274EB4727E2987200923987 /* CurrenciesRoot.swift */; };
 		E274EB4A27E2988700923987 /* currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274EB4927E2988700923987 /* currencies.swift */; };
+		FAD2BA081DA2C5A5218F1744 /* Pods_eShtry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AE22A783C47B4E8138ED9A /* Pods_eShtry.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,6 +189,7 @@
 		46BFE3B227E1948D00E9D5EF /* SearchSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchSB.storyboard; sourceTree = "<group>"; };
 		46BFE3B627E199E300E9D5EF /* SearchingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCell.swift; sourceTree = "<group>"; };
 		46BFE3B927E1AA5400E9D5EF /* backgroundVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = backgroundVideo.mp4; sourceTree = "<group>"; };
+		59AE22A783C47B4E8138ED9A /* Pods_eShtry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShtry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095DE27D9785E00C17E57 /* eShtry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShtry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095E127D9785E00C17E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA095E327D9785E00C17E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 		5BA095EA27D9786200C17E57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BA095ED27D9786200C17E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BA095EF27D9786200C17E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BADDD8327E3CB3F00F11550 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		5BADDD8527E3CBEA00F11550 /* ClientQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientQuery.swift; sourceTree = "<group>"; };
 		5BB7777227DFC64700ECAC8B /* ReviewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCollectionCell.swift; sourceTree = "<group>"; };
 		5BB7777327DFC64700ECAC8B /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		5BB7777427DFC64700ECAC8B /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
@@ -221,6 +227,8 @@
 		E274EB4427E2828900923987 /* CurrencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyVC.swift; sourceTree = "<group>"; };
 		E274EB4727E2987200923987 /* CurrenciesRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRoot.swift; sourceTree = "<group>"; };
 		E274EB4927E2988700923987 /* currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currencies.swift; sourceTree = "<group>"; };
+		E3D2A215FC889DBE0105810E /* Pods-eShtry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShtry.debug.xcconfig"; path = "Target Support Files/Pods-eShtry/Pods-eShtry.debug.xcconfig"; sourceTree = "<group>"; };
+		EA078BB554EC25FEF04D6FB2 /* Pods-eShtry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShtry.release.xcconfig"; path = "Target Support Files/Pods-eShtry/Pods-eShtry.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD2BA081DA2C5A5218F1744 /* Pods_eShtry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +632,8 @@
 			children = (
 				5BA095E027D9785E00C17E57 /* eShtry */,
 				5BA095DF27D9785E00C17E57 /* Products */,
+				A6942C813375FA2091936573 /* Pods */,
+				A4824424DCCFA4258F4B82E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -637,6 +648,7 @@
 		5BA095E027D9785E00C17E57 /* eShtry */ = {
 			isa = PBXGroup;
 			children = (
+				5BADDD8227E3CB1D00F11550 /* GraphQl */,
 				1914DECA27DFAE9B00931E5D /* Extension */,
 				194E0CD127E0D836005CE014 /* Utilities */,
 				1914DECD27DFAE9B00931E5D /* Constant */,
@@ -656,6 +668,15 @@
 				5BA095EF27D9786200C17E57 /* Info.plist */,
 			);
 			path = eShtry;
+			sourceTree = "<group>";
+		};
+		5BADDD8227E3CB1D00F11550 /* GraphQl */ = {
+			isa = PBXGroup;
+			children = (
+				5BADDD8327E3CB3F00F11550 /* Client.swift */,
+				5BADDD8527E3CBEA00F11550 /* ClientQuery.swift */,
+			);
+			path = GraphQl;
 			sourceTree = "<group>";
 		};
 		5BB7777027DFC5EA00ECAC8B /* Home */ = {
@@ -697,6 +718,23 @@
 			path = "XIB's";
 			sourceTree = "<group>";
 		};
+		A4824424DCCFA4258F4B82E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59AE22A783C47B4E8138ED9A /* Pods_eShtry.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6942C813375FA2091936573 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3D2A215FC889DBE0105810E /* Pods-eShtry.debug.xcconfig */,
+				EA078BB554EC25FEF04D6FB2 /* Pods-eShtry.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E264E1B327DFBD5B00615EBF /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,9 +768,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BA095F227D9786200C17E57 /* Build configuration list for PBXNativeTarget "eShtry" */;
 			buildPhases = (
+				26E703E3B7993A338ED08C97 /* [CP] Check Pods Manifest.lock */,
 				5BA095DA27D9785E00C17E57 /* Sources */,
 				5BA095DB27D9785E00C17E57 /* Frameworks */,
 				5BA095DC27D9785E00C17E57 /* Resources */,
+				4CA340756F1C12DD99AC92DD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -805,6 +845,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26E703E3B7993A338ED08C97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eShtry-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CA340756F1C12DD99AC92DD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eShtry/Pods-eShtry-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eShtry/Pods-eShtry-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eShtry/Pods-eShtry-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5BA095DA27D9785E00C17E57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -838,6 +920,7 @@
 				197CA85327E15D0B0032A605 /* Orders.swift in Sources */,
 				5BB7778C27DFC66500ECAC8B /* HomeVC.swift in Sources */,
 				E264E1C227DFBD8100615EBF /* OrdersTemp.swift in Sources */,
+				5BADDD8427E3CB3F00F11550 /* Client.swift in Sources */,
 				1914DEF227DFAE9B00931E5D /* ImageButton.swift in Sources */,
 				46985B4127E09CF8003E3958 /* SubCategoryCell.swift in Sources */,
 				5BB7777827DFC64700ECAC8B /* ReviewCollectionCell.swift in Sources */,
@@ -863,6 +946,7 @@
 				46985B3B27E09CEA003E3958 /* ProductCollectionCell.swift in Sources */,
 				19A8C44F27E2AF3F00E6D1F6 /* UserDefaultsClass.swift in Sources */,
 				1914DEF427DFAE9B00931E5D /* SeconderyTitleLabel.swift in Sources */,
+				5BADDD8627E3CBEA00F11550 /* ClientQuery.swift in Sources */,
 				194E0CD327E0D855005CE014 /* ErrorMessages.swift in Sources */,
 				197CA85727E15DCB0032A605 /* CurrentTotalDiscountsSet.swift in Sources */,
 				191D933227E21AF4008D0E89 /* Provinces.swift in Sources */,
@@ -1038,6 +1122,7 @@
 		};
 		5BA095F327D9786200C17E57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3D2A215FC889DBE0105810E /* Pods-eShtry.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1067,6 +1152,7 @@
 		};
 		5BA095F427D9786200C17E57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA078BB554EC25FEF04D6FB2 /* Pods-eShtry.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

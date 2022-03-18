@@ -20,8 +20,8 @@ class ProductCollectionCell: UICollectionViewCell {
     @IBOutlet weak var productLabel: UILabel!
     
     
-    func configureCell(){
-        productImageView.image = UIImage(named: "product")
-        productLabel.text = "Product"
+    func configureCell(image:URL , title:String){
+        productImageView.downloadImg(from: "\(image)")
+        productLabel.text = title
     }
 }
