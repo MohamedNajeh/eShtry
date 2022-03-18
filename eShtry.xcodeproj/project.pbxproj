@@ -68,6 +68,7 @@
 		197CA87127E164720032A605 /* CurrentTotalPriceSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA87027E164720032A605 /* CurrentTotalPriceSet.swift */; };
 		197CA87327E166BD0032A605 /* TotalDiscountSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA87227E166BD0032A605 /* TotalDiscountSet.swift */; };
 		19A8C44F27E2AF3F00E6D1F6 /* UserDefaultsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8C44E27E2AF3F00E6D1F6 /* UserDefaultsClass.swift */; };
+		19B1845927E50B8A0069B30E /* NetworkReachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B1845827E50B8A0069B30E /* NetworkReachibility.swift */; };
 		46985B3827E09CE2003E3958 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3727E09CE2003E3958 /* CategoryCell.swift */; };
 		46985B3B27E09CEA003E3958 /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3A27E09CEA003E3958 /* ProductCollectionCell.swift */; };
 		46985B3E27E09CF1003E3958 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3D27E09CF1003E3958 /* CategoryVC.swift */; };
@@ -178,6 +179,7 @@
 		197CA87027E164720032A605 /* CurrentTotalPriceSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTotalPriceSet.swift; sourceTree = "<group>"; };
 		197CA87227E166BD0032A605 /* TotalDiscountSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDiscountSet.swift; sourceTree = "<group>"; };
 		19A8C44E27E2AF3F00E6D1F6 /* UserDefaultsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClass.swift; sourceTree = "<group>"; };
+		19B1845827E50B8A0069B30E /* NetworkReachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachibility.swift; sourceTree = "<group>"; };
 		46985B3727E09CE2003E3958 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		46985B3A27E09CEA003E3958 /* ProductCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
 		46985B3D27E09CF1003E3958 /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				194E0CCE27E0D775005CE014 /* NetworkManager.swift */,
+				19B1845827E50B8A0069B30E /* NetworkReachibility.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -963,6 +966,7 @@
 				197CA85927E15F070032A605 /* SubtotalPriceSet.swift in Sources */,
 				191D932E27E217DF008D0E89 /* CountriesRoot.swift in Sources */,
 				E264E1C327DFBD8100615EBF /* RegisterVC.swift in Sources */,
+				19B1845927E50B8A0069B30E /* NetworkReachibility.swift in Sources */,
 				194E0CE427E0F64A005CE014 /* Addresses.swift in Sources */,
 				5BB7779227DFC68800ECAC8B /* ProductDetailsVC.swift in Sources */,
 				197CA85D27E15FB10032A605 /* TotalLineItemsPriceSet.swift in Sources */,
