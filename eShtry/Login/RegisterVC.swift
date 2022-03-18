@@ -26,7 +26,6 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var dateOfBirthLabel: UILabel!
     @IBOutlet weak var registerBtnOutlet: UIButton!
     
-    
     @IBOutlet weak var welcomeUserProfile: UILabel!
     @IBOutlet weak var firstNameProfile: UILabel!
     @IBOutlet weak var lastNameProfile: UILabel!
@@ -36,6 +35,7 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordStackProfile: UIStackView!
     
     var checkWhichScreen : Character = "r"
+    let networkShared = NetworkManager.shared
     
     private var datePicker : UIDatePicker?
     let dateFormatter = DateFormatter()
@@ -58,7 +58,7 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
             registerBtnOutlet?.isUserInteractionEnabled = false
             registerBtnOutlet?.alpha = 0.5
         }
-
+        
         
         dateFormatter.dateFormat = "MM/dd/yyyy"
         ConfigurationDatePicker()
@@ -68,21 +68,33 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     
     @IBAction func eyeShowPassword(_ sender: Any) {
         let pass = passwordTF.text ?? ""
-        if eyeButtonOutLet.currentImage == UIImage(systemName:"eye.slash") {
-            eyeButtonOutLet.setImage(UIImage(systemName:"eye"), for: .normal)
+        if eyeButtonOutLet.currentImage == UIImage(systemName:"eye") {
+            eyeButtonOutLet.setImage(UIImage(systemName:"eye.slash"), for: .normal)
             passwordTF.isSecureTextEntry = true
             if passwordTF.text?.count ?? -1>0 {
                 passwordTF.insertText(pass)
             }
         }else {
-            eyeButtonOutLet.setImage(UIImage(systemName:"eye.slash"), for: .normal)
+            eyeButtonOutLet.setImage(UIImage(systemName:"eye"), for: .normal)
             passwordTF.isSecureTextEntry = false
         }
     }
     
-
+    
     @IBAction func register(_ sender: Any) {
         
+        let customer = Customer(first_name: firstNameTF.text, last_name: lastNameTF.text, email: emailAddressTF.text, phone: phoneNumLabel.text, tags: passwordTF.text, id: nil, verified_email: true, addresses: nil)
+        
+//        customer?.first_name = firstNameTF.text!
+//        customer?.last_name = lastNameTF.text!
+//        customer?.phone = phoneNumLabel.text!
+//        customer?.tags = passwordTF.text!
+//        customer?.email = emailAddressTF.text!
+//        customer?.verified_email = true
+        
+        let newCustomer = CustomarRoot(customer: customer)
+        
+        registerCustomer(newCustomer:newCustomer)
         
     }
     
@@ -117,10 +129,10 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
             if !text.isEmpty {
                 emailAddressLabel.text = " "
                 
-                    if isValidEmail(text) == false {
-                        emailAddressLabel.text = "Please enter a valid email address !!"
-                    }
-                    
+                if isValidEmail(text) == false {
+                    emailAddressLabel.text = "Please enter a valid email address !!"
+                }
+                
                 
             }else{
                 emailAddressLabel.text = "Please enter an email address"
@@ -130,7 +142,7 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
             if !text.isEmpty {
                 passwordLabel.text = " "
                 if isValidPassword(password: text) == false{
-                   passwordLabel.text = "Weak Password!. Minimum of 8 characters with at least 1 uppercase, 1 lowercase, and 1 number"
+                    passwordLabel.text = "Weak Password!. Minimum of 8 characters with at least 1 uppercase, 1 lowercase, and 1 number"
                     passwordLabel.textColor = .red
                 }
             }else{
@@ -151,12 +163,12 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         default:
             textField.text = ""
         }
-
+        
         validationUserInput()
         return true
     }
     
-
+    
     
     
     func validationUserInput() {
@@ -183,10 +195,10 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     }
     
     func isValidPhoneNumber(phoneNumber: String) -> Bool {
-           let phoneNumRegEx = "^(?=.*[0-9\\u0660-\\u0669])[0-9\\u0660-\\u0669]{11,11}$"
-           let phoneNumTest = NSPredicate(format: "SELF MATCHES %@", phoneNumRegEx)
-           return phoneNumTest.evaluate(with: phoneNumber)
-       }
+        let phoneNumRegEx = "^(?=.*[0-9\\u0660-\\u0669])[0-9\\u0660-\\u0669]{11,11}$"
+        let phoneNumTest = NSPredicate(format: "SELF MATCHES %@", phoneNumRegEx)
+        return phoneNumTest.evaluate(with: phoneNumber)
+    }
     
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -200,14 +212,14 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 90/255, blue: 167/255, alpha: 1.0)]
         )
     }
-   
+    
     func ConfigurationDatePicker() {
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.preferredDatePickerStyle = UIDatePickerStyle.wheels
         datePicker?.maximumDate = NSDate() as Date
         datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
-
+        
         dateOfBirthTF.inputView = datePicker
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
@@ -236,7 +248,6 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         passwordStackProfile.isHidden=true
         registerBtnOutlet.setTitle("Save", for: .normal)
         
-        
         firstNameTF.text=firstName
         lastNameTF.text=lastName
         mobileNumTF.text=mobile
@@ -246,5 +257,36 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         emailAddressLabel.text = "Email Address cannot be changed"
         emailAddressLabel.textColor = .darkGray
     }
+    
+    func registerCustomer(newCustomer:CustomarRoot){
+        networkShared.registerCustomer(newCustomer:newCustomer){ [weak self] (data, response, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                if let data = data {
+                    let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+                    print("json: \(json)")
+                    let returnedCustomer = json["customer"] as? Dictionary<String,Any>
+                    let id = returnedCustomer?["id"] as? Int ?? 0
+                    let name = returnedCustomer?["first_name"] as? String ?? ""
+                    print("data: \(data)")
+                    print("id: \(id)")
+                    if id != 0 {
+                        print("name: \(name)")
+                        //                             self?.defaultsRepo.login()
+                        //                             self?.defaultsRepo.addId(id: id)
+                        //                             self?.defaultsRepo.addUserName(userName: name )
+                        DispatchQueue.main.sync {
+                            //                                self?.navigateToMain()
+                        }
+                        print("registered successfully")
+                    }else{
+                        print("An error occurred while registering")
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
