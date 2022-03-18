@@ -7,5 +7,7 @@ target 'eShtry' do
 
   # Pods for eShtry
   pod "Mobile-Buy-SDK"
+  pod 'ReachabilitySwift'
+
 
 end
