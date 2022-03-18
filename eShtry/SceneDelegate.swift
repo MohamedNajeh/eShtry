@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let userDefaults = UserDefaults.standard
+    var orderTabBarItem: UITabBarItem!
 
 
     
@@ -37,10 +38,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
+        orderTabBarItem = (window?.rootViewController as? UITabBarController)?.viewControllers?[2].tabBarItem
+        NotificationCenter.default.addObserver(self, selector:#selector(updateOrderBadge),name: NetworkManager.orderUpdatedNotification, object: nil)
+
         
         
         
     }
+    
+    @objc func updateOrderBadge() {
+        switch NetworkManager.shared.order.count {
+            case 0:
+                orderTabBarItem.badgeValue = nil
+            case let count:
+                orderTabBarItem.badgeValue = String(count)
+        }
+        
+    }
+
     
     
     private func createHomeNC()->UINavigationController{
