@@ -38,6 +38,8 @@ class CartVC: UIViewController {
     
     let networkShared = NetworkManager.shared
     
+    var ordersArr = [Orders]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -127,12 +129,25 @@ class CartVC: UIViewController {
         networkShared.postDataToApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers.json", httpMethod: .post, body: body, baseModel: CustomarRoot.self) { result in
             switch result{
             case .success(let customer):
-                print(customer.customer)
+                print("succeed")
             case .failure(let error):
                 print(error)
             }
         }
         
+        
+        
+        networkShared.getDataFromApi(urlString: orders, baseModel: OrdersRoot.self) { result in
+            switch result{
+            case .success(let orders):
+                guard let orders = orders.orders else{return}
+                self.ordersArr = orders
+                NetworkManager.shared.order = orders
+                print("order arr count \(self.ordersArr.count)")
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         
         
