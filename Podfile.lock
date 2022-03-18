@@ -1,16 +1,20 @@
 PODS:
   - Mobile-Buy-SDK (7.0.0)
+  - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
   - Mobile-Buy-SDK
+  - ReachabilitySwift
 
 SPEC REPOS:
   trunk:
     - Mobile-Buy-SDK
+    - ReachabilitySwift
 
 SPEC CHECKSUMS:
   Mobile-Buy-SDK: 18ee3b74f99a1a5fa42ad3c997af3d0774928438
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: c3cfc7db74fd5a5a9dfc586166167d39b1feb023
+PODFILE CHECKSUM: 589f0e1bcf95b806725609af9bc875303a50256f
 
 COCOAPODS: 1.11.2
