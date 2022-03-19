@@ -46,6 +46,8 @@ class CartVC: UIViewController {
     
     let viewModel = CartViewModel()
     
+    var cartItemPrice = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -476,7 +478,7 @@ class CartVC: UIViewController {
     
     private func configureCashLabel(){
         bottomView.addSubview(cashLabel)
-        cashLabel.text = "EGP 999.999.999.9"
+//        cashLabel.text = "\(viewModel.cartItemPrices)"
         NSLayoutConstraint.activate([
             cashLabel.centerYAnchor.constraint(equalTo: subTotalLabel.centerYAnchor),
             //            cashLabel.leadingAnchor.constraint(equalTo: bottomView.centerXAnchor),

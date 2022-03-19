@@ -85,6 +85,13 @@ class CoreDataManager{
 
     }
     
+    func saveOrderArrToCoreData(cartItemArr: [CartItem]){
+        for cartItem in cartItemArr{
+            insertCartItem(cartItem: cartItem)
+        }
+        
+    }
+    
     
     func updateOrderArr(){
         getAllWithArray { result in
