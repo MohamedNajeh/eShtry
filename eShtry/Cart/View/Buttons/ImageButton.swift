@@ -35,7 +35,10 @@ class ImageButton: UIButton {
 
             setImage(imageIcon, for: .normal)
 
-            
+        case .exitBtn:
+            let imageIcon = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .small))?.withTintColor(.blue, renderingMode: .alwaysOriginal)
+
+            setImage(imageIcon, for: .normal)
         }
     }
     

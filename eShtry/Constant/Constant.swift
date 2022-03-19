@@ -35,10 +35,19 @@ enum typeOfButton{
     case plusBtn
     case minusBtn
     case returnBtn
+    case exitBtn
 }
 
 
 enum httpMethod:String{
     case post = "POST"
     case get  = "GET"
+}
+
+
+enum State{
+    case loading
+    case error
+    case empty
+    case finished
 }
