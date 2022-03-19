@@ -10,7 +10,7 @@ import Foundation
 class HmoeViewModel:NSObject{
     
     let networkShared  = NetworkManager.shared
-    private var brandItems: [SmartCollection] = [SmartCollection]()
+    var brandItems: [SmartCollection] = [SmartCollection]()
 
 
     private var cellViewModdels:[BrandCellViewModel] = [BrandCellViewModel]() {
@@ -70,6 +70,7 @@ class HmoeViewModel:NSObject{
             case .success(let result):
                 guard let smartCollection = result.smart_collections else {return}
                 self.processFetchedBrandItems(brandItems: smartCollection)
+                self.brandItems = smartCollection
             case .failure(let error):
                 print(error)
                 self.showError = error

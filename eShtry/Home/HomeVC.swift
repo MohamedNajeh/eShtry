@@ -69,6 +69,7 @@ class HomeVC: UIViewController {
         viewModel.relodCollectionViewClosure = {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
+                self.collectionsArr = self.viewModel.brandItems
 
             }
         }
@@ -78,11 +79,11 @@ class HomeVC: UIViewController {
         
         viewModel.bindToShowLoadingToView = {
             print("show Loading")
-            DispatchQueue.main.async { self.showLoadingView() }
+//            DispatchQueue.main.async { self.showLoadingView() }
         }
         viewModel.bindToHideLoadingToView = {
             print("hide Loading")
-            DispatchQueue.main.async { self.removeLoadingView() }
+//            DispatchQueue.main.async { self.removeLoadingView() }
         }
 
     }
