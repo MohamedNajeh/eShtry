@@ -11,6 +11,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let userDefaults = UserDefaults.standard
+    var orderTabBarItem: UITabBarItem!
+    
+//    let coreDataManger = CoreDataManager.shared
+//    let cartItemTest   = CartItem(name: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest", price: "100.0", imgUrl: "testImage")
 
 
     
@@ -24,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
+//        coreDataManger.insertCartItem(cartItem: cartItemTest)
         
         if !userDefaults.bool(forKey: "firstTimeToUseApplication"){
             let storyboard = UIStoryboard(name: "OnboardingSB", bundle: .main)
@@ -37,10 +42,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
-        
+        orderTabBarItem = (window?.rootViewController as? UITabBarController)?.viewControllers?[2].tabBarItem
+        NotificationCenter.default.addObserver(self, selector:#selector(updateOrderBadge),name: CoreDataManager.orderUpdatedNotification, object: nil)
+
+        NetworkReachibility.shared.checkNetwork()
+
         
         
     }
+    
+    @objc func updateOrderBadge() {
+        guard let orderTabBarItem = self.orderTabBarItem else {return}
+        switch CoreDataManager.shared.order.count{
+        case 0 :
+            orderTabBarItem.badgeValue = nil
+        default:
+            orderTabBarItem.badgeValue = String(0)
+            
+        }
+        print("CoreDataManager.shared.order.count\(CoreDataManager.shared.order.count)")
+//        switch NetworkManager.shared.order.count {
+//            case 0:
+//                orderTabBarItem.badgeValue = nil
+//            case let count:
+//                orderTabBarItem.badgeValue = String(count)
+//        }
+        
+    }
+
     
     
     private func createHomeNC()->UINavigationController{

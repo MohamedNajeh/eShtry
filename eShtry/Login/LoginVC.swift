@@ -91,14 +91,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func eyeShowPassword(_ sender: Any) {
         let pass = passwordOutletTF.text ?? ""
-        if eyeOutletBtn.currentImage == UIImage(systemName:"eye.slash") {
-            eyeOutletBtn.setImage(UIImage(systemName:"eye"), for: .normal)
+        if eyeOutletBtn.currentImage == UIImage(systemName:"eye") {
+            eyeOutletBtn.setImage(UIImage(systemName:"eye.slash"), for: .normal)
             passwordOutletTF.isSecureTextEntry = true
             if passwordOutletTF.text?.count ?? -1>0 {
                 passwordOutletTF.insertText(pass)
             }
         }else {
-            eyeOutletBtn.setImage(UIImage(systemName:"eye.slash"), for: .normal)
+            eyeOutletBtn.setImage(UIImage(systemName:"eye"), for: .normal)
             passwordOutletTF.isSecureTextEntry = false
         }
     }

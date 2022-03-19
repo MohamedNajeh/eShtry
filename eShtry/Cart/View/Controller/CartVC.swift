@@ -35,8 +35,16 @@ class CartVC: UIViewController {
     let tableViewFooter = DefaultView(color: .clear, raduis: 0)
     var cellIndex       = 0
     
+    let hideLocationBtn = ImageButton(typeOfBtn: .exitBtn)
+    let addressLabel    = SeconderyTitleLabel(textAlignment: .center, fontSize: 25, fontColor: .black)
+    let addNewAddressBtn = DefaultButton(btnTitle: "Add New Address", titleColor: UIColor(red: 37/255, green: 67/255, blue: 150/255, alpha: 1), backgroundColor: .clear, raduis: 0)
+    var addressCollectionView: UICollectionView!
     
     let networkShared = NetworkManager.shared
+    
+    var ordersArr = [Orders]()
+    
+    let viewModel = CartViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +70,27 @@ class CartVC: UIViewController {
         configureRefreshForTable()
         
         configureLocationChoiceView()
+        configureExitBtnForAddressView()
+        configureAddressLabel()
+        configureAddNewAddressBtn()
+        configureAddressCollectionView()
         
         
         testApi()
+        updateViewWithLoadingView()
         
         
     }
     
+    func updateViewWithLoadingView(){
+        viewModel.bindToShowLoadingToView = {
+            print("show Loading")
+        }
+        viewModel.bindToHideLoadingToView = {
+            print("hide Loading")
+
+        }
+    }
     
     func testApi(){
         networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/products.json", baseModel: ProductsRoot.self) { result in
@@ -127,12 +149,25 @@ class CartVC: UIViewController {
         networkShared.postDataToApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers.json", httpMethod: .post, body: body, baseModel: CustomarRoot.self) { result in
             switch result{
             case .success(let customer):
-                print(customer.customer)
+                print("succeed")
             case .failure(let error):
                 print(error)
             }
         }
         
+        
+        
+        networkShared.getDataFromApi(urlString: orders, baseModel: OrdersRoot.self) { result in
+            switch result{
+            case .success(let orders):
+                guard let orders = orders.orders else{return}
+                self.ordersArr = orders
+//                NetworkManager.shared.order = orders
+                print("order arr count \(self.ordersArr.count)")
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         
         
@@ -265,11 +300,61 @@ class CartVC: UIViewController {
     private func configureLocationChoiceView(){
         view.addSubview(locationChoiceView)
         locationChoiceView.isHidden = true
+        locationChoiceView.addBorder(color: UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1))
+
         NSLayoutConstraint.activate([
             locationChoiceView.topAnchor.constraint(equalTo: view.bottomAnchor),
-            locationChoiceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            locationChoiceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            locationChoiceView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            locationChoiceView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             locationChoiceView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+        ])
+    }
+    
+    private func configureExitBtnForAddressView(){
+        locationChoiceView.addSubview(hideLocationBtn)
+        hideLocationBtn.addTarget(self, action: #selector(locationBtnAction), for: .touchUpInside)
+        NSLayoutConstraint.activate([
+            hideLocationBtn.topAnchor.constraint(equalTo: locationChoiceView.topAnchor,constant: 10),
+            hideLocationBtn.trailingAnchor.constraint(equalTo: locationChoiceView.trailingAnchor, constant: -10),
+            hideLocationBtn.widthAnchor.constraint(equalToConstant: 25),
+            hideLocationBtn.heightAnchor.constraint(equalToConstant: 25)
+        ])
+    }
+    
+    private func configureAddressLabel(){
+        locationChoiceView.addSubview(addressLabel)
+        addressLabel.text = "Address"
+        NSLayoutConstraint.activate([
+            addressLabel.centerYAnchor.constraint(equalTo: hideLocationBtn.centerYAnchor),
+            addressLabel.centerXAnchor.constraint(equalTo: locationChoiceView.centerXAnchor)
+        ])
+    }
+    
+    private func configureAddNewAddressBtn(){
+        locationChoiceView.addSubview(addNewAddressBtn)
+        NSLayoutConstraint.activate([
+            addNewAddressBtn.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 10),
+            addNewAddressBtn.leadingAnchor.constraint(equalTo: locationChoiceView.leadingAnchor, constant: 10),
+            addNewAddressBtn.trailingAnchor.constraint(equalTo: locationChoiceView.centerXAnchor, constant: 10)
+            
+        ])
+        
+    }
+    
+    private func configureAddressCollectionView(){
+        addressCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createFlowLayout())
+        addressCollectionView.register(AddressCollectionViewCell.self, forCellWithReuseIdentifier: AddressCollectionViewCell.reuseID)
+        locationChoiceView.addSubview(addressCollectionView)
+        addressCollectionView.backgroundColor = .clear
+        addressCollectionView.delegate   = self
+        addressCollectionView.dataSource = self
+//        addressCollectionView.isPagingEnabled = true
+        addressCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            addressCollectionView.topAnchor.constraint(equalTo: addNewAddressBtn.bottomAnchor, constant: 10),
+            addressCollectionView.leadingAnchor.constraint(equalTo: locationChoiceView.leadingAnchor),
+            addressCollectionView.trailingAnchor.constraint(equalTo: locationChoiceView.trailingAnchor),
+            addressCollectionView.bottomAnchor.constraint(equalTo: locationChoiceView.bottomAnchor, constant: -10),
         ])
     }
     
@@ -525,11 +610,11 @@ class CartVC: UIViewController {
 extension CartVC: UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.numberOfCells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -545,6 +630,8 @@ extension CartVC: UITableViewDataSource{
         //        print(minusBtn.tag)
         //        minusBtn.addTarget(self, action: #selector(minusBtnTapped(sender:)), for: .touchUpInside)
         
+        let cellVM = viewModel.getCellViewModel(at: indexPath)
+        cell.configureCell(cell: cellVM)
         return cell
     }
     
@@ -588,4 +675,47 @@ extension CartVC: UITableViewDelegate{
     //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     //        return "Section Index\(section)"
     //    }
+}
+
+
+extension CartVC: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddressCollectionViewCell.reuseID, for: indexPath) as! AddressCollectionViewCell
+        return cell
+    }
+    
+    
+}
+
+extension CartVC:UICollectionViewDelegate{
+    
+    private func createFlowLayout()-> UICollectionViewLayout{
+        let width                       = view.bounds.width
+//        let padding: CGFloat            = 15
+//        let minimumItemSpacing: CGFloat = 15
+        let availableWidth              = width //- (padding * 2) //- minimumItemSpacing
+        let itemSize                    = availableWidth
+        let height                      = view.bounds.height * 0.28
+        let availableHeight             = height
+        let itemHeight                  = availableHeight
+        let flowLayout                  = UICollectionViewFlowLayout()
+        flowLayout.sectionInset         = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        flowLayout.itemSize             = CGSize(width: itemSize, height: itemHeight)
+        flowLayout.scrollDirection      = .vertical
+        flowLayout.minimumLineSpacing   = 0
+        
+        return flowLayout
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! AddressCollectionViewCell
+        self.updateLocationChoiceView()
+        self.locationLabel.text = cell.address.text
+    }
+    
 }

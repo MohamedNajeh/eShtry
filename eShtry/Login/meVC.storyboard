@@ -892,7 +892,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWE-SX-8bf">
                                                         <rect key="frame" x="329.5" y="0.0" width="29.5" height="27"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="eye" catalog="system">
+                                                        <state key="normal" image="eye.slash" catalog="system">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="19"/>
                                                         </state>
                                                         <connections>
@@ -1225,7 +1225,7 @@
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgn-hD-bqC">
                                                                             <rect key="frame" x="332.5" y="0.0" width="29.5" height="27"/>
                                                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <state key="normal" image="eye" catalog="system">
+                                                                            <state key="normal" image="eye.slash" catalog="system">
                                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="19"/>
                                                                             </state>
                                                                             <connections>
@@ -1766,7 +1766,7 @@
         <image name="career" width="1500" height="500"/>
         <image name="contactUs" width="29" height="29"/>
         <image name="currency" width="40" height="40"/>
-        <image name="eye" catalog="system" width="128" height="81"/>
+        <image name="eye.slash" catalog="system" width="128" height="86"/>
         <image name="gmail" width="512" height="512"/>
         <image name="logOut" width="29" height="29"/>
         <image name="money" width="512" height="512"/>

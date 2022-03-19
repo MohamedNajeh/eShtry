@@ -14,11 +14,21 @@ struct CustomarRoot:Codable{
 
         case customer = "customer"
     }
+    
 
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        customer = try values.decodeIfPresent(Customer.self, forKey: .customer)
+//    init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        customer = try values.decodeIfPresent(Customer.self, forKey: .customer)
+//    }
+
+
+}
+extension Encodable {
+    func asDictionary() throws -> [String: Any] {
+        let data = try JSONEncoder().encode(self)
+        guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+            throw NSError()
+        }
+        return dictionary
     }
-
-
 }
