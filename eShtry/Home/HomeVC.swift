@@ -344,7 +344,8 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
 
 extension HomeVC: UISearchBarDelegate{
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let searchVC = UIStoryboard(name: "SearchSB", bundle: nil).instantiateViewController(identifier: "SearchResultVC")
+        let storyboard = UIStoryboard(name: "SearchSB", bundle: nil)
+        let searchVC = storyboard.instantiateViewController(identifier: "SearchResultVC") as! SearchResultVC
         self.navigationController?.pushViewController(searchVC, animated: true)
         searchBar.setShowsCancelButton(false, animated: true)
         return false
