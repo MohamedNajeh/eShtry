@@ -35,6 +35,11 @@ class CartItemTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
+    func configureCell(cell:CartItemCellViewModel){
+        self.cellTitle.text = cell.name
+        self.cellPrice.text = cell.price
+        self.cellImage.image = UIImage(named: "\(cell.imgUrl)")
+    }
     
     private func configureContainerView(){
         self.backgroundColor = .white
@@ -61,7 +66,10 @@ class CartItemTableViewCell: UITableViewCell {
 //            cellImage.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             cellImage.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             cellImage.widthAnchor.constraint(equalToConstant: 60),
-            cellImage.heightAnchor.constraint(equalToConstant: 80)
+//            cellImage.heightAnchor.constraint(equalToConstant: 120),
+            cellImage.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.5),
+            cellImage.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20)
+
 
         ])
     }
@@ -69,7 +77,7 @@ class CartItemTableViewCell: UITableViewCell {
     
     private func configureCellTitle(){
         containerView.addSubview(cellTitle)
-        cellTitle.numberOfLines = 3
+        cellTitle.numberOfLines = 2
         cellTitle.text = "AddBorder(color: UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1))"
         NSLayoutConstraint.activate([
             cellTitle.topAnchor.constraint(equalTo: cellImage.topAnchor),
@@ -86,7 +94,7 @@ class CartItemTableViewCell: UITableViewCell {
             cellPrice.topAnchor.constraint(equalTo: cellTitle.bottomAnchor, constant: 5),
             cellPrice.leadingAnchor.constraint(equalTo: cellImage.trailingAnchor, constant: 10),
             cellPrice.trailingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 30),
-            cellPrice.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20)
+//            cellPrice.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20)
         ])
     }
 
@@ -99,7 +107,8 @@ class CartItemTableViewCell: UITableViewCell {
             minusBtn.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             minusBtn.widthAnchor.constraint(equalToConstant: 30),
             minusBtn.heightAnchor.constraint(equalToConstant: 30),
-            minusBtn.leadingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 50)
+            minusBtn.leadingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 50),
+//            minusBtn.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20)
         ])
     }
 

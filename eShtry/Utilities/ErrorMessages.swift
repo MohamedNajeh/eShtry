@@ -14,5 +14,6 @@ enum ErrorMessages: String,Error{
     case invalidResponse              = "Invalid response from the server, Please try again later"
     case invalidData                  = "The data recived from the server is invalid"
     case invalidDataAfterDecoding     = "Invalid after decoding"
+    case errorRetivingFromCoreData    = "Couldn't retrive from core data"
 
 }

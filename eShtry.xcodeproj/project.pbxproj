@@ -50,6 +50,7 @@
 		194E0CEB27E116EA005CE014 /* CustomarRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E0CEA27E116EA005CE014 /* CustomarRoot.swift */; };
 		19717E5D27E3B5F900E693C4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19717E5727E3B5F900E693C4 /* CoreDataManager.swift */; };
 		19717E5F27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19717E5B27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodeld */; };
+		197BA51D27E5C53B00859893 /* CartItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197BA51C27E5C53B00859893 /* CartItemCellViewModel.swift */; };
 		197CA85127E15C8F0032A605 /* OrdersRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA85027E15C8F0032A605 /* OrdersRoot.swift */; };
 		197CA85327E15D0B0032A605 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA85227E15D0B0032A605 /* Orders.swift */; };
 		197CA85527E15D6D0032A605 /* CurrentSubtotalPriceSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA85427E15D6D0032A605 /* CurrentSubtotalPriceSet.swift */; };
@@ -67,6 +68,7 @@
 		197CA86F27E164230032A605 /* CurrentTotalTaxSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA86E27E164230032A605 /* CurrentTotalTaxSet.swift */; };
 		197CA87127E164720032A605 /* CurrentTotalPriceSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA87027E164720032A605 /* CurrentTotalPriceSet.swift */; };
 		197CA87327E166BD0032A605 /* TotalDiscountSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA87227E166BD0032A605 /* TotalDiscountSet.swift */; };
+		19A1471927E514F10037C866 /* AddressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A1471827E514F10037C866 /* AddressCollectionViewCell.swift */; };
 		19A8C44F27E2AF3F00E6D1F6 /* UserDefaultsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8C44E27E2AF3F00E6D1F6 /* UserDefaultsClass.swift */; };
 		19B1845927E50B8A0069B30E /* NetworkReachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B1845827E50B8A0069B30E /* NetworkReachibility.swift */; };
 		46985B3827E09CE2003E3958 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3727E09CE2003E3958 /* CategoryCell.swift */; };
@@ -161,6 +163,7 @@
 		194E0CEA27E116EA005CE014 /* CustomarRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomarRoot.swift; sourceTree = "<group>"; };
 		19717E5727E3B5F900E693C4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		19717E5C27E3B5F900E693C4 /* EshtryCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EshtryCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		197BA51C27E5C53B00859893 /* CartItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCellViewModel.swift; sourceTree = "<group>"; };
 		197CA85027E15C8F0032A605 /* OrdersRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersRoot.swift; sourceTree = "<group>"; };
 		197CA85227E15D0B0032A605 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		197CA85427E15D6D0032A605 /* CurrentSubtotalPriceSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSubtotalPriceSet.swift; sourceTree = "<group>"; };
@@ -178,6 +181,7 @@
 		197CA86E27E164230032A605 /* CurrentTotalTaxSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTotalTaxSet.swift; sourceTree = "<group>"; };
 		197CA87027E164720032A605 /* CurrentTotalPriceSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTotalPriceSet.swift; sourceTree = "<group>"; };
 		197CA87227E166BD0032A605 /* TotalDiscountSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDiscountSet.swift; sourceTree = "<group>"; };
+		19A1471827E514F10037C866 /* AddressCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCollectionViewCell.swift; sourceTree = "<group>"; };
 		19A8C44E27E2AF3F00E6D1F6 /* UserDefaultsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClass.swift; sourceTree = "<group>"; };
 		19B1845827E50B8A0069B30E /* NetworkReachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachibility.swift; sourceTree = "<group>"; };
 		46985B3727E09CE2003E3958 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				1914DEC927DFAE9B00931E5D /* CartViewModel.swift */,
+				197BA51C27E5C53B00859893 /* CartItemCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				1914DED427DFAE9B00931E5D /* CartItemCollectionViewCell.swift */,
+				19A1471827E514F10037C866 /* AddressCollectionViewCell.swift */,
 			);
 			path = CollectioViewCells;
 			sourceTree = "<group>";
@@ -944,9 +950,11 @@
 				E264E1C727DFE27B00615EBF /* myCountryProtocol.swift in Sources */,
 				194E0CCA27E0D66F005CE014 /* Image.swift in Sources */,
 				5BB7777D27DFC64700ECAC8B /* OffersCell.swift in Sources */,
+				19A1471927E514F10037C866 /* AddressCollectionViewCell.swift in Sources */,
 				1914DEF827DFAE9B00931E5D /* LineView.swift in Sources */,
 				1914DEEF27DFAE9B00931E5D /* CartItemTableViewCell.swift in Sources */,
 				46985B3B27E09CEA003E3958 /* ProductCollectionCell.swift in Sources */,
+				197BA51D27E5C53B00859893 /* CartItemCellViewModel.swift in Sources */,
 				19A8C44F27E2AF3F00E6D1F6 /* UserDefaultsClass.swift in Sources */,
 				1914DEF427DFAE9B00931E5D /* SeconderyTitleLabel.swift in Sources */,
 				5BADDD8627E3CBEA00F11550 /* ClientQuery.swift in Sources */,
