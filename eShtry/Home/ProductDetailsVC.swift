@@ -12,6 +12,11 @@ class ProductDetailsVC: UITableViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var reviewsCollectionView: UICollectionView!
+    
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var varientsLbl: UILabel!
+    @IBOutlet weak var productPrice: UILabel!
+    @IBOutlet weak var productName: UILabel!
     var isMorePressed = false
     var currentIndex = 0
     var timer:Timer?
@@ -26,6 +31,10 @@ class ProductDetailsVC: UITableViewController {
         infoView.layer.cornerRadius = 20
         addToBagBtnOutlet.layer.cornerRadius = 20
         collectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "sliderCell")
+        productName.text = product?.title
+        productPrice.text = "\(String(describing: product?.priceRange.maxVariantPrice.amount))"
+        descriptionTextView.text = product?.description
+        varientsLbl.text = product?.variants.edges[0].node.title
         
         reviewsCollectionView.register(UINib(nibName: "ReviewCollectionCell", bundle: nil), forCellWithReuseIdentifier: "reviewCell")
         startTimer()
@@ -63,6 +72,9 @@ class ProductDetailsVC: UITableViewController {
             reviewsCollectionView.reloadData()
             tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+    @IBAction func addToBagButtonPressed(_ sender: Any) {
     }
 }
 
