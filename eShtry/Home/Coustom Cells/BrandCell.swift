@@ -13,7 +13,9 @@ class BrandCell: UICollectionViewCell {
     @IBOutlet weak var brandName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        brandImg.layer.cornerRadius = brandImg.frame.width/2
+        brandImg.layer.cornerRadius = 25
+        contentView.layer.cornerRadius = 25
+        contentView.backgroundColor = .lightGray
         // Initialization code
     }
 

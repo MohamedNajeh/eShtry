@@ -319,9 +319,6 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             let offersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "offersCell", for: indexPath) as! OffersCell
             offersCell.offerImg.image = UIImage(named: "offer1")
             return offersCell
-         
-            
-            
         }
         //        cell.backgroundColor = UIColor(hue: CGFloat(drand48()), saturation: 1, brightness: 1, alpha: 1)
         //  return cell
