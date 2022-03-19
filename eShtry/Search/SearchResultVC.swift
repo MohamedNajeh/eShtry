@@ -93,6 +93,24 @@ class SearchResultVC: UIViewController {
     }
     
     
+    private func navigation(categoryTitle:String , productTitle:String){
+        let storyboard = UIStoryboard(name: "HomeSB", bundle: nil)
+        
+        switch segmentControl.selectedSegmentIndex {
+        
+        case 0:
+            let vc = storyboard.instantiateViewController(withIdentifier: "productsVC") as! BrandProductsVC
+            vc.vendor = categoryTitle
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        default:
+            let vc = storyboard.instantiateViewController(withIdentifier: "productDetailsVC") as! ProductDetailsVC
+            vc.titlePro = productTitle
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
+    
 }
 
 extension SearchResultVC:UITableViewDelegate,UITableViewDataSource{
@@ -121,6 +139,7 @@ extension SearchResultVC:UITableViewDelegate,UITableViewDataSource{
     }
     
 }
+ 
 
 
 extension SearchResultVC : UISearchResultsUpdating{
@@ -139,22 +158,24 @@ extension SearchResultVC : UISearchResultsUpdating{
         if segmentControl.selectedSegmentIndex == 0 {
             filteredCategories = self.categories.filter({ ($0.title?.lowercased().contains(filter.lowercased()))!
             })
+            filteredProducts.removeAll()
             
         }else{
             filteredProducts = self.products.filter({ ($0.title?.lowercased().contains(filter.lowercased()))!
             })
+            filteredCategories.removeAll()
         }
         tableView.reloadData()
     }
     
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc:UIViewController!
-        let storyboardname:String!
+        
         if isSearching{
-            storyboardname = segmentControl.selectedSegmentIndex == 0 ? "" : ""
+            self.navigation(categoryTitle: filteredCategories[indexPath.row].title ?? "", productTitle: filteredProducts[indexPath.row].title ?? "" )
         }else{
-            
+            self.navigation(categoryTitle: categories[indexPath.row].title ?? "" , productTitle: products[indexPath.row].title ?? "")
         }
     }
     
