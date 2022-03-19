@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MobileBuySDK
 
 class SearchingCell: UITableViewCell {
     
@@ -37,8 +38,8 @@ class SearchingCell: UITableViewCell {
     }
     
     
-        func configureCell(product:Products){
-            productImageView.downloadImg(from: (product.image?.src)!)
+    func configureCell(product:Storefront.Product){
+        productImageView.downloadImg(from: "\((product.featuredImage?.url)!)")
             productnamelabel.text = product.title
         }
     

@@ -6,13 +6,13 @@
 //
 
 import UIKit
-
+import MobileBuySDK
 class SearchResultVC: UIViewController {
     
     var categories: [SmartCollection]! = []
-    var products  : [Products]! = []
+    var products  : [Storefront.Product]! = []
     var filteredCategories: [SmartCollection] = []
-    var filteredProducts:[Products] = []
+    var filteredProducts:[Storefront.Product] = []
     
     var isSearching = false
     
@@ -35,7 +35,7 @@ class SearchResultVC: UIViewController {
         let navVC =  self.tabBarController?.viewControllers![0] as! UINavigationController
         let homeVC = navVC.viewControllers[0] as! HomeVC
         categories = homeVC.collectionsArr
-        products   = homeVC.productsArr
+        products   = homeVC.products
     }
     
     
@@ -93,25 +93,25 @@ class SearchResultVC: UIViewController {
     }
     
     
-    private func navigation(categoryTitle:String , productTitle:String){
+    private func navigationToCategories(categoryTitle:String){
         let storyboard = UIStoryboard(name: "HomeSB", bundle: nil)
-        
-        switch segmentControl.selectedSegmentIndex {
-        
-        case 0:
-            let vc = storyboard.instantiateViewController(withIdentifier: "productsVC") as! BrandProductsVC
-            vc.vendor = categoryTitle
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-        default:
-            let vc = storyboard.instantiateViewController(withIdentifier: "productDetailsVC") as! ProductDetailsVC
-            vc.titlePro = productTitle
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = storyboard.instantiateViewController(withIdentifier: "productsVC") as! BrandProductsVC
+        vc.vendor = categoryTitle
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
+    
+    private func naigateToProductDetails(product:Storefront.Product){
+        let storyboard = UIStoryboard(name: "HomeSB", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "productDetailsVC") as! ProductDetailsVC
+        vc.product =  product
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
+
+
+
 
 extension SearchResultVC:UITableViewDelegate,UITableViewDataSource{
     
@@ -128,10 +128,10 @@ extension SearchResultVC:UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchingCell.reuseID, for: indexPath) as! SearchingCell
         
         if segmentControl.selectedSegmentIndex == 0 {
-            var activeCategory = isSearching ? filteredCategories[indexPath.row] : categories[indexPath.row]
+            let activeCategory = isSearching ? filteredCategories[indexPath.row] : categories[indexPath.row]
             cell.configureCell(category: activeCategory)
         }else{
-            var activeProduct = isSearching ? filteredProducts[indexPath.row] : products[indexPath.row]
+            let activeProduct = isSearching ? filteredProducts[indexPath.row] : products[indexPath.row]
             cell.configureCell(product: activeProduct)
         }
         
@@ -139,7 +139,7 @@ extension SearchResultVC:UITableViewDelegate,UITableViewDataSource{
     }
     
 }
- 
+
 
 
 extension SearchResultVC : UISearchResultsUpdating{
@@ -156,26 +156,33 @@ extension SearchResultVC : UISearchResultsUpdating{
         isSearching = true
         
         if segmentControl.selectedSegmentIndex == 0 {
-            filteredCategories = self.categories.filter({ ($0.title?.lowercased().contains(filter.lowercased()))!
-            })
+            filteredCategories = self.categories.filter({($0.title?.lowercased().contains(filter.lowercased()))!})
             filteredProducts.removeAll()
-            
         }else{
-            filteredProducts = self.products.filter({ ($0.title?.lowercased().contains(filter.lowercased()))!
-            })
+            filteredProducts = self.products.filter({ ($0.title.lowercased().contains(filter.lowercased()))})
             filteredCategories.removeAll()
         }
+        print(" filtered categories count = \(filteredCategories.count)")
         tableView.reloadData()
+        
     }
     
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    
         if isSearching{
-            self.navigation(categoryTitle: filteredCategories[indexPath.row].title ?? "", productTitle: filteredProducts[indexPath.row].title ?? "" )
+            if segmentControl.selectedSegmentIndex == 0 {
+                self.navigationToCategories(categoryTitle: self.filteredCategories[indexPath.row].title ?? "")
+            }else{
+                self.naigateToProductDetails(product: self.filteredProducts[indexPath.row])
+            }
         }else{
-            self.navigation(categoryTitle: categories[indexPath.row].title ?? "" , productTitle: products[indexPath.row].title ?? "")
+            if segmentControl.selectedSegmentIndex == 0 {
+                self.navigationToCategories(categoryTitle: self.categories[indexPath.row].title ?? "")
+            }else{
+                self.naigateToProductDetails(product: self.products[indexPath.row])
+            }
         }
     }
     
