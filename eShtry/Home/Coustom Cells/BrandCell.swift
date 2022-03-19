@@ -18,5 +18,11 @@ class BrandCell: UICollectionViewCell {
         contentView.backgroundColor = .lightGray
         // Initialization code
     }
+    
+    
+    func configureCell(cell:BrandCellViewModel){
+        self.brandName.text = cell.name
+        self.brandImg.downloadImg(from: "\(cell.imgUrl)")
+    }
 
 }

@@ -94,6 +94,7 @@ class CoreDataManager{
     
     
     func updateOrderArr(){
+        self.order = [CartItem]()
         getAllWithArray { result in
             switch result{
             case .success(let cartItem):
