@@ -122,23 +122,21 @@ extension CategoryVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == productstableView{
+            self.isHiddenViews[indexPath.row] = !self.isHiddenViews[indexPath.row]
+            tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
             let cell = tableView.cellForRow(at: indexPath) as! SubCategoryCell
             Client.shared.fetchAllSubCategoryProducts(vendor: self.selectedVendor, type: productTypes[indexPath.row]) { products in
                 if let products = products {
-                    cell.products = products
-                    cell.productCollectionView.reloadData()
-                    //self.productstableView.reloadData()
+                        cell.products = products
                 }else{
                     print("Error")
                 }
             }
-            self.isHiddenViews[indexPath.row] = !self.isHiddenViews[indexPath.row]
-            tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-            
             
         }
         if tableView == categoryTableView{
             selectedVendor = collections[indexPath.row].title
+            isHiddenViews = Array(repeating: true, count: 10)
             productstableView.reloadData()
         }
     }
@@ -146,7 +144,7 @@ extension CategoryVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == productstableView && !isHiddenViews[indexPath.row]{
-            return 200
+            return 250
         }
 
         return 70

@@ -11,7 +11,11 @@ class SubCategoryCell:UITableViewCell {
     
     
     static let reuseID = "SubCategoryCell"
-    var products:[Storefront.Product] = []
+    var products:[Storefront.Product] = [] {
+        didSet{
+            self.productCollectionView.reloadData()
+        }
+    }
     @IBOutlet weak var subCategorynameLabel: UILabel!
     @IBOutlet weak var expandedImageView: UIImageView!
     @IBOutlet weak var productCollectionView: UICollectionView!
