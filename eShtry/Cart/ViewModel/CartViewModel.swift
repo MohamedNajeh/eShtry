@@ -66,8 +66,9 @@ class CartViewModel: NSObject{
     }
     
     
-    private func fetchCartItems(){
+     func fetchCartItems(){
         print("fetchCartItems function ViewModel \n")
+         CoreDataManager.shared.updateOrderArr()
         state = .loading
         coreDataShared.getAllWithArray { [weak self] result in
             guard let self = self else{return}

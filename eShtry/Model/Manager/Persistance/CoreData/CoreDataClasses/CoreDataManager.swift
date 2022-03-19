@@ -54,11 +54,9 @@ class CoreDataManager{
         favoriteProduct.setValue("\(product.id ?? 0)", forKey: "id")
         favoriteProduct.setValue(product.title, forKey: "name")
         favoriteProduct.setValue(product.image?.src, forKey: "imageUrl")
-
-        print("new product saved")
         do{
             try managedObjectContext.save()
-            
+            print("new product saved")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -76,15 +74,29 @@ class CoreDataManager{
 
         
 
-        print("new product saved")
         do{
             try managedObjectContext.save()
+            print("new product saved")
+            updateOrderArr()
             
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
 
     }
+    
+    
+    func updateOrderArr(){
+        getAllWithArray { result in
+            switch result{
+            case .success(let cartItem):
+                CoreDataManager.shared.order = cartItem
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
     
     private func getAllOfNSManageObjectArr(completion:@escaping((Result<[NSManagedObject],ErrorMessages>)->Void)){
         var objects = [NSManagedObject]()

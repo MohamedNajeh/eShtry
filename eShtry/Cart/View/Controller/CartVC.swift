@@ -83,6 +83,12 @@ class CartVC: UIViewController {
     }
     
     func updateViewWithLoadingView(){
+        
+        viewModel.relodTableViewClosure = {
+            print("reload table view executed")
+            self.cartItemsTableView.reloadData()
+        }
+        
         viewModel.bindToShowLoadingToView = {
             print("show Loading")
         }
@@ -176,6 +182,7 @@ class CartVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureView()
+        viewModel.fetchCartItems()
         
     }
     

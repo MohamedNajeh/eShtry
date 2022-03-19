@@ -47,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         NetworkReachibility.shared.checkNetwork()
 
-        
+        CoreDataManager.shared.updateOrderArr()
         
     }
     
@@ -57,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         case 0 :
             orderTabBarItem.badgeValue = nil
         default:
-            orderTabBarItem.badgeValue = String(0)
+            orderTabBarItem.badgeValue = String(CoreDataManager.shared.order.count)
             
         }
         print("CoreDataManager.shared.order.count\(CoreDataManager.shared.order.count)")

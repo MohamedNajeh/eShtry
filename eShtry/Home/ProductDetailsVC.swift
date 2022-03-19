@@ -32,7 +32,7 @@ class ProductDetailsVC: UITableViewController {
         addToBagBtnOutlet.layer.cornerRadius = 20
         collectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "sliderCell")
         productName.text = product?.title
-        productPrice.text = "\(String(describing: product?.priceRange.maxVariantPrice.amount))"
+        productPrice.text = "\(String(describing: (product?.priceRange.minVariantPrice.amount)!))"
         descriptionTextView.text = product?.description
         varientsLbl.text = product?.variants.edges[0].node.title
         
@@ -75,6 +75,12 @@ class ProductDetailsVC: UITableViewController {
     }
     
     @IBAction func addToBagButtonPressed(_ sender: Any) {
+        let title = product?.title
+        let price = product?.priceRange.minVariantPrice.amount
+        let image = product?.images.edges[0].node.url
+        
+        let item = CartItem(name: title!, price: "\(String(describing: price))", imgUrl: "\(String(describing: image))")
+        CoreDataManager.shared.insertCartItem(cartItem: item)
     }
 }
 
