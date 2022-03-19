@@ -32,7 +32,7 @@ class ProductDetailsVC: UITableViewController {
         addToBagBtnOutlet.layer.cornerRadius = 20
         collectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "sliderCell")
         productName.text = product?.title
-        productPrice.text = "\(String(describing: product?.priceRange.maxVariantPrice.amount))"
+        productPrice.text = "\(String(describing: (product?.priceRange.minVariantPrice.amount)!))"
         descriptionTextView.text = product?.description
         varientsLbl.text = product?.variants.edges[0].node.title
         
