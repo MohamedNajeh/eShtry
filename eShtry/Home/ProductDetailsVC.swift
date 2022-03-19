@@ -6,37 +6,40 @@
 //
 
 import UIKit
-
+import MobileBuySDK
 class ProductDetailsVC: UITableViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var reviewsCollectionView: UICollectionView!
-    
     var isMorePressed = false
     var currentIndex = 0
     var timer:Timer?
+    var titlePro:String = " "
+    var product:Storefront.Product?
     @IBOutlet weak var infoView: UIView!
-    
     @IBOutlet weak var addToBagBtnOutlet: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Adidas Shoes"
-        pageControl.numberOfPages = 9
+        pageControl.numberOfPages = (product?.images.edges.count)!
         infoView.layer.cornerRadius = 20
         addToBagBtnOutlet.layer.cornerRadius = 20
         collectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "sliderCell")
         
         reviewsCollectionView.register(UINib(nibName: "ReviewCollectionCell", bundle: nil), forCellWithReuseIdentifier: "reviewCell")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         startTimer()
     }
+//    func fetchProductDetails(title:String){
+//        Client.shared.fetchProductDetails(title:title) { product in
+//            if let product = product {
+//                self.product = product
+//                print(self.product)
+//            }else {
+//                print("SomethingErrorHappened")
+//            }
+//        }
+//    }
     func startTimer(){
         
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timeAction), userInfo: nil, repeats: true)
@@ -44,7 +47,7 @@ class ProductDetailsVC: UITableViewController {
     }
     
     @objc func timeAction(){
-        if currentIndex < 9 {
+        if currentIndex < (product?.images.edges.count)! - 1 {
             currentIndex += 1
         }else{
             currentIndex = 0
@@ -70,7 +73,7 @@ extension ProductDetailsVC : UICollectionViewDelegate , UICollectionViewDataSour
             return reviewCell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCell", for: indexPath) as! SliderCell
-        cell.sliderImg.image = UIImage(named: "shoes")
+        cell.sliderImg.downloadImg(from:"\((product?.images.edges[indexPath.row].node.url)!)")
         return cell
     }
     
@@ -80,7 +83,7 @@ extension ProductDetailsVC : UICollectionViewDelegate , UICollectionViewDataSour
                 return 2
             }
         }
-        return 10
+        return (product?.images.edges.count)!
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
