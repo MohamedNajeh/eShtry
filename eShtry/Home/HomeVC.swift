@@ -6,13 +6,14 @@
 //
 
 import UIKit
-
+import MobileBuySDK
 class HomeVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     let searchController = UISearchController()
     var currentIndex = 0
     var timer:Timer?
+    var products:[Storefront.Product] = []
     var mov = [1,2,3,2,1,4,5,2,21,21,32,6]
     
     var collectionsArr = [SmartCollection]()
@@ -36,14 +37,26 @@ class HomeVC: UIViewController {
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
         
         getColletionsData()
-        getProductsData()
+        fetchProductsUsingGrapgQL()
+        //getProductsData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        
-        
+    }
+    
+    func fetchProductsUsingGrapgQL(){
+        Client.shared.fetchAllProducts { products in
+            if let products = products {
+                self.products = products
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+            else{
+                print("Error Happened while loading products")
+            }
+        }
     }
     
     private func getColletionsData(){
@@ -273,7 +286,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
         case 2:
             return collectionsArr.count
         case 3:
-            return productsArr.count
+            return products.count
         default :
             return 5
         }
@@ -298,9 +311,9 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             return brandCell
         case 3:
             let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
-            productCell.downloadImg(from: productsArr[indexPath.row].image?.src ?? "")
-            productCell.productName.text = "Shoes"
-            productCell.productPrice.text = "15.0 $"
+            productCell.downloadImg(from:"\((products[indexPath.row].featuredImage?.url)!)")
+            productCell.productName.text = products[indexPath.row].title
+            productCell.productPrice.text = "\(products[indexPath.row].priceRange.minVariantPrice.amount)"
             return productCell
         default:
             let offersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "offersCell", for: indexPath) as! OffersCell
