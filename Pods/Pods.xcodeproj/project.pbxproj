@@ -529,7 +529,11 @@
 		64169C52722BAA5F74F649E992E5DF8A /* CheckoutCustomerDisassociateV2Payload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckoutCustomerDisassociateV2Payload.swift; path = Buy/Generated/Storefront/CheckoutCustomerDisassociateV2Payload.swift; sourceTree = "<group>"; };
 		647B936A5B40E68B0FFB87419A76C224 /* FulfillmentLineItemConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FulfillmentLineItemConnection.swift; path = Buy/Generated/Storefront/FulfillmentLineItemConnection.swift; sourceTree = "<group>"; };
 		6493349C2A58EEE12E4F969ACA1E4148 /* Graph.RetryHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Graph.RetryHandler.swift; path = Buy/Client/Graph.RetryHandler.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		6504D24881E2D17114A6F8949B62AF62 /* Pods_eShtry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShtry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
 		6504D24881E2D17114A6F8949B62AF62 /* Pods-eShtry */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-eShtry"; path = Pods_eShtry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> origin
 		657B683EED180FB9C4AB8D25B7D96347 /* UserError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserError.swift; path = Buy/Generated/Storefront/UserError.swift; sourceTree = "<group>"; };
 		6607F44A909CFE6AF4FE2DE816DC2091 /* DiscountApplicationTargetSelection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiscountApplicationTargetSelection.swift; path = Buy/Generated/Storefront/DiscountApplicationTargetSelection.swift; sourceTree = "<group>"; };
 		6688435E2FE2D062B24C1470560EF3C0 /* AttributeInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AttributeInput.swift; path = Buy/Generated/Storefront/AttributeInput.swift; sourceTree = "<group>"; };
@@ -609,7 +613,11 @@
 		9B78103A59CC2A0D4D230185A41DDAE3 /* CartErrorCode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CartErrorCode.swift; path = Buy/Generated/Storefront/CartErrorCode.swift; sourceTree = "<group>"; };
 		9BA81D110E9EEED1167DBE5733A51585 /* CheckoutShippingAddressUpdatePayload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckoutShippingAddressUpdatePayload.swift; path = Buy/Generated/Storefront/CheckoutShippingAddressUpdatePayload.swift; sourceTree = "<group>"; };
 		9D2E70A6A2CCB4D75562BF19E72C28BB /* Optional+Input.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Optional+Input.swift"; path = "Buy/Custom/Optional+Input.swift"; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+=======
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+>>>>>>> origin
 		9EB4258BC119B2FA98E5C5AFF9F566F2 /* CheckoutAttributesUpdateInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckoutAttributesUpdateInput.swift; path = Buy/Generated/Storefront/CheckoutAttributesUpdateInput.swift; sourceTree = "<group>"; };
 		9F1B45359699C627DB5163C524CC35EB /* CustomerResetPayload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomerResetPayload.swift; path = Buy/Generated/Storefront/CustomerResetPayload.swift; sourceTree = "<group>"; };
 		9FBEAD25A6F437FAC3F8D105C36502E5 /* DiscountApplication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiscountApplication.swift; path = Buy/Generated/Storefront/DiscountApplication.swift; sourceTree = "<group>"; };
@@ -1158,7 +1166,10 @@
 				D28F3B248E0D3920CBF96C4EC1F1EEE9 /* WeightUnit.swift */,
 				06EA9EEBC50C42EFFCE83EADCFC45164 /* Support Files */,
 			);
+<<<<<<< HEAD
+=======
 			name = "Mobile-Buy-SDK";
+>>>>>>> origin
 			path = "Mobile-Buy-SDK";
 			sourceTree = "<group>";
 		};
@@ -1167,7 +1178,11 @@
 			children = (
 				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
 				40DEAEEF8EB2468E9D4F1E88D2158353 /* Mobile-Buy-SDK */,
+<<<<<<< HEAD
+				6504D24881E2D17114A6F8949B62AF62 /* Pods_eShtry.framework */,
+=======
 				6504D24881E2D17114A6F8949B62AF62 /* Pods-eShtry */,
+>>>>>>> origin
 				21B03CA622E690725A6626C088E1D09F /* ReachabilitySwift */,
 			);
 			name = Products;
@@ -1214,7 +1229,10 @@
 				6B1FC797B5686A832A13C523036A15F5 /* Validation.swift */,
 				3AD54C6BEE5928E549FB55FCFEB36DD0 /* Support Files */,
 			);
+<<<<<<< HEAD
+=======
 			name = Alamofire;
+>>>>>>> origin
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1224,7 +1242,10 @@
 				139B562D4B8BF9E393F30C00D4FA5F6C /* Reachability.swift */,
 				EFEE6BA6324947683FBCD9FFDD62A471 /* Support Files */,
 			);
+<<<<<<< HEAD
+=======
 			name = ReachabilitySwift;
+>>>>>>> origin
 			path = ReachabilitySwift;
 			sourceTree = "<group>";
 		};
@@ -1335,7 +1356,43 @@
 			);
 			name = "Pods-eShtry";
 			productName = Pods_eShtry;
-			productReference = 6504D24881E2D17114A6F8949B62AF62 /* Pods-eShtry */;
+			productReference = 6504D24881E2D17114A6F8949B62AF62 /* Pods_eShtry.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0B00B2C167CD783351BD1D00BD5AD1F8 /* ReachabilitySwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14DE1166A8B9C02D036523FB495E1984 /* Build configuration list for PBXNativeTarget "ReachabilitySwift" */;
+			buildPhases = (
+				A07235E1E88D103EFDEB6510A0BCE7A8 /* Headers */,
+				000885395D0D686A060DD76E35D874C2 /* Sources */,
+				1C23E2775A268AF03AB4FB35BFC953FA /* Frameworks */,
+				332B7A37F1A79B4B578E4145341A0E1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReachabilitySwift;
+			productName = Reachability;
+			productReference = 21B03CA622E690725A6626C088E1D09F /* ReachabilitySwift */;
+			productType = "com.apple.product-type.framework";
+		};
+		EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A212264186B8822192F9C369D7DE4BB /* Build configuration list for PBXNativeTarget "Alamofire" */;
+			buildPhases = (
+				52E6F7B26483BE3BC9393C6C05D32424 /* Headers */,
+				F5D2A45FBA06D86A537CB441D5BF4FF4 /* Sources */,
+				15DC142A7EE833251AA37FC8E2B8E01F /* Frameworks */,
+				E9D4145FA41F60FFAB33A07796D9ED97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Alamofire;
+			productName = Alamofire;
+			productReference = 5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */;
 			productType = "com.apple.product-type.framework";
 		};
 		0B00B2C167CD783351BD1D00BD5AD1F8 /* ReachabilitySwift */ = {
