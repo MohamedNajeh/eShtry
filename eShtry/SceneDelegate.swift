@@ -13,8 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let userDefaults = UserDefaults.standard
     var orderTabBarItem: UITabBarItem!
     
-    let coreDataManger = CoreDataManager.shared
-    let cartItemTest   = CartItem(name: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest", price: "100.0", imgUrl: "testImage")
+//    let coreDataManger = CoreDataManager.shared
+//    let cartItemTest   = CartItem(name: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest", price: "100.0", imgUrl: "testImage")
 
 
     
@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        coreDataManger.insertCartItem(cartItem: cartItemTest)
+//        coreDataManger.insertCartItem(cartItem: cartItemTest)
         
         if !userDefaults.bool(forKey: "firstTimeToUseApplication"){
             let storyboard = UIStoryboard(name: "OnboardingSB", bundle: .main)
