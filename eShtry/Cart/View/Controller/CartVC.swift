@@ -83,6 +83,11 @@ class CartVC: UIViewController {
     }
     
     func updateViewWithLoadingView(){
+        
+        viewModel.relodTableViewClosure = {
+            print("reload table view executed")
+        }
+        
         viewModel.bindToShowLoadingToView = {
             print("show Loading")
         }
