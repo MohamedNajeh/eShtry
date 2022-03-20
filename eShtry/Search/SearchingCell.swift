@@ -34,8 +34,20 @@ class SearchingCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
+    
+        func configureCell(product:Products){
+            productImageView.downloadImg(from: (product.image?.src)!)
+            productnamelabel.text = product.title
+        }
+    
+    
+        
+        func configureCell(category:SmartCollection){
+            productImageView.downloadImg(from: (category.image?.src)!)
+            productnamelabel.text = category.title
+        }
+    
 
 }
