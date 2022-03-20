@@ -21,6 +21,8 @@ class HomeVC: UIViewController {
     
     let networkShared = NetworkManager.shared
     
+    let viewModel = HmoeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "eShtry"
@@ -38,17 +40,14 @@ class HomeVC: UIViewController {
         
         getColletionsData()
         fetchProductsUsingGrapgQL()
+        updateViewWithLoadingView()
         //getProductsData()
     }
     
+    
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.searchController?.searchBar.isHidden = false
     }
     
     func fetchProductsUsingGrapgQL(){
@@ -67,19 +66,28 @@ class HomeVC: UIViewController {
     
     private func getColletionsData(){
         
-        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/smart_collections.json", baseModel: SmartCollectionRoot.self) { result  in
-            switch result{
-            case .success(let result):
-                guard let smartCollection = result.smart_collections else {return}
-                self.collectionsArr = smartCollection
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
+        viewModel.relodCollectionViewClosure = {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                self.collectionsArr = self.viewModel.brandItems
+
             }
         }
     }
+    
+    private func updateViewWithLoadingView(){
+        
+        viewModel.bindToShowLoadingToView = {
+            print("show Loading")
+//            DispatchQueue.main.async { self.showLoadingView() }
+        }
+        viewModel.bindToHideLoadingToView = {
+            print("hide Loading")
+//            DispatchQueue.main.async { self.removeLoadingView() }
+        }
+
+    }
+
     
     private func getProductsData(){
         
@@ -96,11 +104,12 @@ class HomeVC: UIViewController {
             }
         }
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        if collectionView.contentOffset.y == 0 {
-//           // startTimer()
-//        }
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        if collectionView.contentOffset.y == 0 {
+           // startTimer()
+            viewModel.fetchData()
+        }
+    }
     
     func startTimer(){
         DispatchQueue.main.async {
@@ -290,7 +299,8 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
         case 1:
             return 5
         case 2:
-            return collectionsArr.count
+//            return collectionsArr.count
+            return viewModel.numberOfCells
         case 3:
             return products.count
         default :
@@ -312,8 +322,10 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             return offersCell
         case 2:
             let brandCell = collectionView.dequeueReusableCell(withReuseIdentifier: "brandCell", for: indexPath) as! BrandCell
-            brandCell.brandImg.downloadImg(from: collectionsArr[indexPath.row].image?.src ?? "")
-            brandCell.brandName.text = "Adidas"
+//            brandCell.brandImg.downloadImg(from: collectionsArr[indexPath.row].image?.src ?? "")
+//            brandCell.brandName.text = "Adidas"
+            let cellVM = viewModel.getCellViewModel(at: indexPath)
+            brandCell.configureCell(cell: cellVM)
             return brandCell
         case 3:
             let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
@@ -325,9 +337,6 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             let offersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "offersCell", for: indexPath) as! OffersCell
             offersCell.offerImg.image = UIImage(named: "offer1")
             return offersCell
-         
-            
-            
         }
         //        cell.backgroundColor = UIColor(hue: CGFloat(drand48()), saturation: 1, brightness: 1, alpha: 1)
         //  return cell

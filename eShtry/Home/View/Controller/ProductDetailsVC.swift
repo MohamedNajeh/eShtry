@@ -81,6 +81,7 @@ class ProductDetailsVC: UITableViewController {
         
         let item = CartItem(name: title!, price: "\(String(describing: price))", imgUrl: "\(String(describing: image))")
         CoreDataManager.shared.insertCartItem(cartItem: item)
+        CoreDataManager.shared.updateOrderArr()
     }
 }
 

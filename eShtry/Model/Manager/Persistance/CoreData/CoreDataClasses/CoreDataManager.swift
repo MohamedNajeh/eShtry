@@ -141,8 +141,16 @@ class CoreDataManager{
         
     }
     
+    func saveOrderArrToCoreData(cartItemArr: [CartItem]){
+        for cartItem in cartItemArr{
+            insertCartItem(cartItem: cartItem)
+        }
+        
+    }
+    
     
     func updateOrderArr(){
+        self.order = [CartItem]()
         getAllWithArray { result in
             switch result{
             case .success(let cartItem):

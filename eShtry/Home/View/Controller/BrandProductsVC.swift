@@ -13,19 +13,16 @@ class BrandProductsVC: UIViewController {
     let searchBar = UISearchController()
     var vendor:String = ""
     var products:[Storefront.Product] = []
+    var brnadProductViewModel:BrandProductViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Products"
         navigationItem.searchController = searchBar
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
-        self.fetchProducts(vendor: self.vendor)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.searchController?.searchBar.isHidden = true
-        self.collectionView.reloadData()
+
+        fetchProducts(vendor: self.vendor)
+        brnadProductViewModel = BrandProductViewModel(vendor: self.vendor)
     }
     
     func fetchProducts(vendor:String){
@@ -54,36 +51,10 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
         item.productImg.downloadImg(from: "\(products[indexPath.row].featuredImage!.url)")
-        print("image url\(products[indexPath.row].featuredImage!.url)")
         item.productName.text = products[indexPath.row].title
         item.productPrice.text = "\(products[indexPath.row].priceRange.minVariantPrice.amount)"
-       
-        if(CoreDataManager.shared.isInFovorite(productId: "\(products[indexPath.row].id)")){
-            item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        }else{
-            item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
-        
-        item.addToFavorites = { [weak self] in
-            guard let self = self else { return }
-            let product = Product(id: "\(self.products[indexPath.row].id)", imageUrl: "\(self.products[indexPath.row].featuredImage!.url)", name: "\(self.products[indexPath.row].title)")
-            print("product = \(product)")
-            if(CoreDataManager.shared.isInFovorite(productId: "\(self.products[indexPath.row].id)")){
-                CoreDataManager.shared.deleteProduct(product: product)
-                item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
-                BrandProductsVC.showToast(controller: self, message: "product removed from favorites 🤨", seconds: 2.0)
-            }else{
-                CoreDataManager.shared.insert(product: product)
-                BrandProductsVC.showToast(controller: self, message: "product added to favorites 😉", seconds: 2.0)
-                item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            }
-            
-        }
-        
         return item
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
