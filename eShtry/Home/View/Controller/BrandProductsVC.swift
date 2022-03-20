@@ -25,6 +25,12 @@ class BrandProductsVC: UIViewController {
         brnadProductViewModel = BrandProductViewModel(vendor: self.vendor)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.searchController?.searchBar.isHidden = true
+        self.collectionView.reloadData()
+    }
+    
     func fetchProducts(vendor:String){
         Client.shared.fetchBrandProducts(vendor:vendor) { response in
             if let products = response {
@@ -53,6 +59,28 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
         item.productImg.downloadImg(from: "\(products[indexPath.row].featuredImage!.url)")
         item.productName.text = products[indexPath.row].title
         item.productPrice.text = "\(products[indexPath.row].priceRange.minVariantPrice.amount)"
+        
+        if(CoreDataManager.shared.isInFovorite(productId: "\(products[indexPath.row].id)")){
+            item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }else{
+            item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+        
+        item.addToFavorites = { [weak self] in
+            guard let self = self else { return }
+            let product = Product(id: "\(self.products[indexPath.row].id)", imageUrl: "\(self.products[indexPath.row].featuredImage!.url)", name: "\(self.products[indexPath.row].title)")
+            print("product = \(product)")
+            if(CoreDataManager.shared.isInFovorite(productId: "\(self.products[indexPath.row].id)")){
+                CoreDataManager.shared.deleteProduct(product: product)
+                item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                BrandProductsVC.showToast(controller: self, message: "product removed from favorites 🤨", seconds: 1.0)
+            }else{
+                CoreDataManager.shared.insert(product: product)
+                BrandProductsVC.showToast(controller: self, message: "product added to favorites 😉", seconds: 1.0)
+                item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            }
+            
+        }
         return item
     }
     

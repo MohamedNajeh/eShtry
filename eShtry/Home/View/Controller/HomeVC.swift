@@ -332,7 +332,29 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             productCell.downloadImg(from:"\((products[indexPath.row].featuredImage?.url)!)")
             productCell.productName.text = products[indexPath.row].title
             productCell.productPrice.text = "\(products[indexPath.row].priceRange.minVariantPrice.amount)"
+            if(CoreDataManager.shared.isInFovorite(productId: "\(products[indexPath.row].id)")){
+                productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            }else{
+                productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+            
+            productCell.addToFavorites = { [weak self] in
+                guard let self = self else { return }
+                let product = Product(id: "\(self.products[indexPath.row].id)", imageUrl: "\(self.products[indexPath.row].featuredImage!.url)", name: "\(self.products[indexPath.row].title)")
+                print("product = \(product)")
+                if(CoreDataManager.shared.isInFovorite(productId: "\(self.products[indexPath.row].id)")){
+                    CoreDataManager.shared.deleteProduct(product: product)
+                    productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                    BrandProductsVC.showToast(controller: self, message: "product removed from favorites 🤨", seconds: 1.0)
+                }else{
+                    CoreDataManager.shared.insert(product: product)
+                    BrandProductsVC.showToast(controller: self, message: "product added to favorites 😉", seconds: 1.0)
+                    productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                }
+                
+            }
             return productCell
+            
         default:
             let offersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "offersCell", for: indexPath) as! OffersCell
             offersCell.offerImg.image = UIImage(named: "offer1")
