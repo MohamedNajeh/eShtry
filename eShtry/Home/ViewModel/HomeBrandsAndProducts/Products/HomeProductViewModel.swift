@@ -85,7 +85,8 @@ class HomeProductViewModel: NSObject{
         let imageUrl = "\((homeProduct.featuredImage?.url)!)"
         let title    = homeProduct.title
         let price    = "\(homeProduct.priceRange.minVariantPrice.amount)"
-        return HomeProductCellViewModel(name: title, price: price, imgUrl: imageUrl)
+        let id       = "\(homeProduct.id)"
+        return HomeProductCellViewModel(name: title, price: price, imgUrl: imageUrl,id:id )
     }
     
     

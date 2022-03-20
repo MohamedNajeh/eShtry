@@ -11,4 +11,5 @@ struct HomeProductCellViewModel{
     let name: String
     let price:String
     let imgUrl:String
+    let id:String
 }

@@ -348,7 +348,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
 //            productCell.productName.text = products[indexPath.row].title
 //            productCell.productPrice.text = "\(products[indexPath.row].priceRange.minVariantPrice.amount)"
             productCell.configureHomeProduct(cellVM: productViewModel.getCellViewModel(at: indexPath))
-            if(CoreDataManager.shared.isInFovorite(productId: "\(products[indexPath.row].id)")){
+            if(CoreDataManager.shared.isInFovorite(productId: "\(productViewModel.getCellViewModel(at: indexPath).id)")){
                 productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             }else{
                 productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -356,9 +356,9 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             
             productCell.addToFavorites = { [weak self] in
                 guard let self = self else { return }
-                let product = Product(id: "\(self.products[indexPath.row].id)", imageUrl: "\(self.products[indexPath.row].featuredImage!.url)", name: "\(self.products[indexPath.row].title)")
+                let product = Product(id: "\(self.productViewModel.getCellViewModel(at: indexPath).id)", imageUrl: "\(self.productViewModel.getCellViewModel(at: indexPath).imgUrl)", name: "\(self.productViewModel.getCellViewModel(at: indexPath).name)")
                 print("product = \(product)")
-                if(CoreDataManager.shared.isInFovorite(productId: "\(self.products[indexPath.row].id)")){
+                if(CoreDataManager.shared.isInFovorite(productId: "\(self.productViewModel.getCellViewModel(at: indexPath).id)")){
                     CoreDataManager.shared.deleteProduct(product: product)
                     productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
                     BrandProductsVC.showToast(controller: self, message: "product removed from favorites 🤨", seconds: 1.0)
