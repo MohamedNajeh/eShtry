@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "302A96C3-E676-4108-AB6C-D4AC3E4C1A22"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "eShtry/Home/ViewModel/BrandProduct/BrandProductViewModel.swift"
@@ -17,6 +17,22 @@
             startingLineNumber = "70"
             endingLineNumber = "70"
             landmarkName = "fetchProducts(vendor:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "07EB486D-D5D3-4B47-B11A-FCBC46FCECF1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "eShtry/NewCategory/ViewModel/Category/CategoryViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "fetchCategories()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
