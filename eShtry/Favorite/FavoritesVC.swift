@@ -12,11 +12,20 @@ class FavoritesVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emtyStateView: UIView!
     
-    var favorites = ["IPhone 5" , "Iphone 6" , "Macbook Pro" , "Lenovo Ideapad" , "Dell" ]
+    var favorites:[Product] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        configureTableView()
-        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.favorites = CoreDataManager.shared.getAllFavoriteProducts()
+       
+     //   print("product id = \(id)")
+        tableView.reloadData()
     }
     
   
@@ -47,11 +56,17 @@ extension FavoritesVC:UITableViewDelegate , UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCell.reuseID, for: indexPath)as! FavoriteCell
-        cell.productNameLabel.text = favorites[indexPath.row]
+        cell.productNameLabel.text = favorites[indexPath.row].name
+        print("image url = \((favorites[indexPath.row].imageUrl))")
+        cell.productImageView.downloadImg(from: favorites[indexPath.row].imageUrl)
         cell.productCreationDateLabel.text = "20/12/2021"
         cell.removeFromFavorites = { [weak self] in
-            self?.favorites.remove(at: indexPath.row)
-            self?.tableView.reloadData()
+            FavoritesVC.presentAlert(controller: self!, title: "Delete Product ⛔️", message: "Are sure you want to delet product from favorites", style: .actionSheet, actionTitle: "Yes") { (_) in
+                CoreDataManager.shared.deleteProduct(product: (self?.favorites[indexPath.row])!)
+                self?.favorites.remove(at: indexPath.row)
+                self?.tableView.reloadData()
+            }
+            
         }
         return cell
     }

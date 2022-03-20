@@ -45,6 +45,12 @@ class HomeVC: UIViewController {
         super.viewDidLayoutSubviews()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.searchController?.searchBar.isHidden = false
+    }
+    
     func fetchProductsUsingGrapgQL(){
         Client.shared.fetchAllProducts { products in
             if let products = products {
@@ -90,11 +96,11 @@ class HomeVC: UIViewController {
             }
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        if collectionView.contentOffset.y == 0 {
-           // startTimer()
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        if collectionView.contentOffset.y == 0 {
+//           // startTimer()
+//        }
+//    }
     
     func startTimer(){
         DispatchQueue.main.async {
