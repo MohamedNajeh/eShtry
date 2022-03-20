@@ -26,6 +26,18 @@ class ProductCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 10
     }
     
+    func configure(cellVM:BrandProductCellViewModel){
+        self.productName.text = cellVM.name
+        self.productPrice.text = cellVM.price
+        self.productImg.downloadImg(from: cellVM.imgUrl)
+    }
+    
+    
+    func configureHomeProduct(cellVM:HomeProductCellViewModel){
+        self.productName.text = cellVM.name
+        self.productPrice.text = cellVM.price
+        self.productImg.downloadImg(from: cellVM.imgUrl)
+    }
     
     
     

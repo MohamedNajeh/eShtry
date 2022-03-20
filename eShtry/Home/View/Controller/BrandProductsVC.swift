@@ -13,7 +13,7 @@ class BrandProductsVC: UIViewController {
     let searchBar = UISearchController()
     var vendor:String = ""
     var products:[Storefront.Product] = []
-    var brnadProductViewModel:BrandProductViewModel!
+    var brnadProductViewModel = BrandProductViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +23,16 @@ class BrandProductsVC: UIViewController {
 
         fetchProducts(vendor: self.vendor)
         brnadProductViewModel = BrandProductViewModel(vendor: self.vendor)
+        updateViewWithData()
+    }
+    
+    func updateViewWithData(){
+        self.brnadProductViewModel.relodCollectionViewClosure = {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+
+            }
+        }
     }
     
     func fetchProducts(vendor:String){
@@ -45,14 +55,15 @@ class BrandProductsVC: UIViewController {
 
 extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return products.count
+        return brnadProductViewModel.numberOfCells
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
-        item.productImg.downloadImg(from: "\(products[indexPath.row].featuredImage!.url)")
-        item.productName.text = products[indexPath.row].title
-        item.productPrice.text = "\(products[indexPath.row].priceRange.minVariantPrice.amount)"
+//        item.productImg.downloadImg(from: "\(products[indexPath.row].featuredImage!.url)")
+//        item.productName.text = products[indexPath.row].title
+//        item.productPrice.text = "\(products[indexPath.row].priceRange.minVariantPrice.amount)"
+        item.configure(cellVM: brnadProductViewModel.getBrandProductCell(at: indexPath))
         return item
     }
     
