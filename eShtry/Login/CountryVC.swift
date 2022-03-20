@@ -10,7 +10,6 @@ import UIKit
 
 class CountryVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
-    
     @IBOutlet weak var CountryTableView: UITableView!
     @IBOutlet weak var searchBarOutlet: UISearchBar!
     @IBOutlet weak var chooseOutletLabel: UILabel!
@@ -118,17 +117,17 @@ class CountryVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
         default:
             return cell
         }
-        
-        
+
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch checkWhichTable {
         case "0":
-            myCountryProtocol.sendCountry(name:filterCountries[indexPath.row],whichScreen:"0")
             if filterCountries[indexPath.row] == "Egypt"{
+                myCountryProtocol.sendCountry(name:filterCountries[indexPath.row],whichScreen:"0")
                 dismiss(animated: true, completion: nil)
             }else{
-                displayAlert(title: filterCountries[indexPath.row])
+                displayAlert(title: filterCountries[indexPath.row], message: "This country is not available on eShtryApp yet")
             }
         case "1":
             myCountryProtocol.sendCountry(name:filterCities[indexPath.row].name ?? "",whichScreen:"1")
@@ -189,10 +188,10 @@ class CountryVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
         dismiss(animated: true, completion: nil)
     }
     
-    func displayAlert(title : String) {
-        let alert = UIAlertController(title: title,message:"This country is not available on eShtryApp yet",preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
+    func displayAlert(title: String,message: String) {
+           let alert = UIAlertController(title: title,message:message,preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "OK",style: .default, handler: nil))
+           self.present(alert, animated: true, completion: nil)
+       }
     
 }
