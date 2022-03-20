@@ -1455,10 +1455,10 @@
             </objects>
             <point key="canvasLocation" x="-1186" y="795"/>
         </scene>
-        <!--Add AddressVC-->
+        <!--New AddressVC-->
         <scene sceneID="LU2-ap-pLY">
             <objects>
-                <viewController storyboardIdentifier="AddAddressVC" id="sDW-68-Sx9" customClass="AddAddressVC" customModule="eShtry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewAddressVC" id="sDW-68-Sx9" customClass="NewAddressVC" customModule="eShtry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XNA-Uq-upq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

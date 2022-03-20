@@ -1,13 +1,13 @@
 //
-//  AddAddressVC.swift
+//  NewAddressVC.swift
 //  eShtry
 //
-//  Created by Pola on 3/19/22.
+//  Created by Pola on 3/20/22.
 //
 
 import UIKit
 
-class AddAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class NewAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var imageNoAddressesOutlet: UIImageView!
     @IBOutlet weak var titleScreenAddressesOutlet: UILabel!
