@@ -75,6 +75,9 @@
 		19B1845927E50B8A0069B30E /* NetworkReachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B1845827E50B8A0069B30E /* NetworkReachibility.swift */; };
 		19CDC88927E73BEA009B0E9F /* BrandProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CDC88827E73BEA009B0E9F /* BrandProductViewModel.swift */; };
 		19CDC88B27E73D44009B0E9F /* BrandProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CDC88A27E73D44009B0E9F /* BrandProductCellViewModel.swift */; };
+		19CDC88F27E750E1009B0E9F /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CDC88E27E750E1009B0E9F /* ProductDetailsViewModel.swift */; };
+		19CDC89427E75C07009B0E9F /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CDC89327E75C07009B0E9F /* CategoryViewModel.swift */; };
+		19CDC89627E75CD9009B0E9F /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CDC89527E75CD9009B0E9F /* CategoryCellViewModel.swift */; };
 		4663974627E704FA00080728 /* FavoriteSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4663974527E704FA00080728 /* FavoriteSB.storyboard */; };
 		4663974927E7051C00080728 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4663974827E7051C00080728 /* FavoritesVC.swift */; };
 		4663974C27E7052300080728 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4663974B27E7052300080728 /* FavoriteCell.swift */; };
@@ -196,6 +199,9 @@
 		19B1845827E50B8A0069B30E /* NetworkReachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachibility.swift; sourceTree = "<group>"; };
 		19CDC88827E73BEA009B0E9F /* BrandProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductViewModel.swift; sourceTree = "<group>"; };
 		19CDC88A27E73D44009B0E9F /* BrandProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductCellViewModel.swift; sourceTree = "<group>"; };
+		19CDC88E27E750E1009B0E9F /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
+		19CDC89327E75C07009B0E9F /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		19CDC89527E75CD9009B0E9F /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
 		4663974527E704FA00080728 /* FavoriteSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteSB.storyboard; sourceTree = "<group>"; };
 		4663974827E7051C00080728 /* FavoritesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		4663974B27E7052300080728 /* FavoriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 		1907960C27E688EA00276BB4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				19CDC88C27E750BB009B0E9F /* ProductDetails */,
 				19CDC88727E73BC3009B0E9F /* BrandProduct */,
 				1907960D27E688F900276BB4 /* Home */,
 			);
@@ -740,6 +747,39 @@
 			path = BrandProduct;
 			sourceTree = "<group>";
 		};
+		19CDC88C27E750BB009B0E9F /* ProductDetails */ = {
+			isa = PBXGroup;
+			children = (
+				19CDC88E27E750E1009B0E9F /* ProductDetailsViewModel.swift */,
+			);
+			path = ProductDetails;
+			sourceTree = "<group>";
+		};
+		19CDC89027E75B33009B0E9F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				19CDC89227E75B53009B0E9F /* SubCategory */,
+				19CDC89127E75B4D009B0E9F /* Category */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		19CDC89127E75B4D009B0E9F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				19CDC89327E75C07009B0E9F /* CategoryViewModel.swift */,
+				19CDC89527E75CD9009B0E9F /* CategoryCellViewModel.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		19CDC89227E75B53009B0E9F /* SubCategory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubCategory;
+			sourceTree = "<group>";
+		};
 		4663974327E704C000080728 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
@@ -753,6 +793,7 @@
 		46985B3227E09C6D003E3958 /* NewCategory */ = {
 			isa = PBXGroup;
 			children = (
+				19CDC89027E75B33009B0E9F /* ViewModel */,
 				46985B3D27E09CF1003E3958 /* CategoryVC.swift */,
 				46985B4027E09CF8003E3958 /* SubCategoryCell.swift */,
 				46985B3A27E09CEA003E3958 /* ProductCollectionCell.swift */,
@@ -1061,6 +1102,7 @@
 				197CA85B27E15F440032A605 /* TotalDiscountsSet.swift in Sources */,
 				197CA87327E166BD0032A605 /* TotalDiscountSet.swift in Sources */,
 				197CA85F27E15FFA0032A605 /* TotalPriceSet.swift in Sources */,
+				19CDC89427E75C07009B0E9F /* CategoryViewModel.swift in Sources */,
 				46985B4C27E0A07B003E3958 /* OnBoardingVC.swift in Sources */,
 				5BB7777A27DFC64700ECAC8B /* SliderCell.swift in Sources */,
 				197CA85327E15D0B0032A605 /* Orders.swift in Sources */,
@@ -1115,9 +1157,11 @@
 				191D932E27E217DF008D0E89 /* CountriesRoot.swift in Sources */,
 				E264E1C327DFBD8100615EBF /* RegisterVC.swift in Sources */,
 				19B1845927E50B8A0069B30E /* NetworkReachibility.swift in Sources */,
+				19CDC88F27E750E1009B0E9F /* ProductDetailsViewModel.swift in Sources */,
 				194E0CE427E0F64A005CE014 /* Addresses.swift in Sources */,
 				5BB7779227DFC68800ECAC8B /* ProductDetailsVC.swift in Sources */,
 				19CDC88B27E73D44009B0E9F /* BrandProductCellViewModel.swift in Sources */,
+				19CDC89627E75CD9009B0E9F /* CategoryCellViewModel.swift in Sources */,
 				197CA85D27E15FB10032A605 /* TotalLineItemsPriceSet.swift in Sources */,
 				197CA86127E160490032A605 /* TotalShippingPriceSet.swift in Sources */,
 				194E0CEB27E116EA005CE014 /* CustomarRoot.swift in Sources */,

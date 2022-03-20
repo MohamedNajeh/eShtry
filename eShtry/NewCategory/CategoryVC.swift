@@ -19,6 +19,9 @@ class CategoryVC: UIViewController {
     var collections:[Storefront.Collection] = []
     var productTypes:[String] = ["SHOES","T-SHIRTS","ACCESSORIES"]
     var selectedVendor:String = "VANS"
+    
+    let viewModel = CategoryViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Category"
