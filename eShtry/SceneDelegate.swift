@@ -12,6 +12,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     let userDefaults = UserDefaults.standard
     var orderTabBarItem: UITabBarItem!
+    
+//    let coreDataManger = CoreDataManager.shared
+//    let cartItemTest   = CartItem(name: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest", price: "100.0", imgUrl: "testImage")
 
 
     
@@ -25,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
+//        coreDataManger.insertCartItem(cartItem: cartItemTest)
         
         if !userDefaults.bool(forKey: "firstTimeToUseApplication"){
             let storyboard = UIStoryboard(name: "OnboardingSB", bundle: .main)
@@ -38,21 +42,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
-        orderTabBarItem = (window?.rootViewController as? UITabBarController)?.viewControllers?[2].tabBarItem
-        NotificationCenter.default.addObserver(self, selector:#selector(updateOrderBadge),name: NetworkManager.orderUpdatedNotification, object: nil)
+        orderTabBarItem = (window?.rootViewController as? UITabBarController)?.viewControllers?[3].tabBarItem
+        NotificationCenter.default.addObserver(self, selector:#selector(updateOrderBadge),name: CoreDataManager.orderUpdatedNotification, object: nil)
 
-        
-        
+        NetworkReachibility.shared.checkNetwork()
+
+        CoreDataManager.shared.updateOrderArr()
         
     }
     
     @objc func updateOrderBadge() {
-        switch NetworkManager.shared.order.count {
-            case 0:
-                orderTabBarItem.badgeValue = nil
-            case let count:
-                orderTabBarItem.badgeValue = String(count)
+        guard let orderTabBarItem = self.orderTabBarItem else {return}
+        switch CoreDataManager.shared.order.count{
+        case 0 :
+            orderTabBarItem.badgeValue = nil
+        default:
+            orderTabBarItem.badgeValue = String(CoreDataManager.shared.order.count)
+            
         }
+        print("CoreDataManager.shared.order.count\(CoreDataManager.shared.order.count)")
+//        switch NetworkManager.shared.order.count {
+//            case 0:
+//                orderTabBarItem.badgeValue = nil
+//            case let count:
+//                orderTabBarItem.badgeValue = String(count)
+//        }
         
     }
 
@@ -76,10 +90,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return cateegoriesNC as! UINavigationController
     }
     
+    private func createFavoriteNC() -> UINavigationController{
+        let storyboard = UIStoryboard(name: "FavoriteSB", bundle: .main)
+        let favNC     = storyboard.instantiateViewController(withIdentifier: "navigationController")
+        let imageIcon = UIImage(systemName: "star")
+        favNC.tabBarItem = UITabBarItem(title: "Favorite", image: imageIcon, tag: 3)
+
+        return favNC as! UINavigationController
+    }
+    
+    
     private func createCartNC()-> UINavigationController{
         let cartNC = CartVC()
         let imageIcon = UIImage(systemName: "cart")
-        cartNC.tabBarItem = UITabBarItem(title: "Cart", image: imageIcon, tag: 3)
+        cartNC.tabBarItem = UITabBarItem(title: "Cart", image: imageIcon, tag: 4)
         return UINavigationController(rootViewController: cartNC)
     }
     
@@ -87,16 +111,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "meVC", bundle: .main)
         let moreNC     = storyboard.instantiateViewController(withIdentifier: "me")
         let imageIcon = UIImage(systemName: "list.bullet")
-        moreNC.tabBarItem = UITabBarItem(title: "More", image: imageIcon, tag: 4)
+        moreNC.tabBarItem = UITabBarItem(title: "More", image: imageIcon, tag: 5)
 
         return UINavigationController(rootViewController: moreNC)
     }
 
     
+    
+    
     func createTabBarController() -> UITabBarController{
         let tabBar = UITabBarController()
         UITabBar.appearance().tintColor = UIColor.init(red: 0/255, green: 59/255, blue: 118/255, alpha: 1)
-        tabBar.viewControllers = [createHomeNC(),createCategoriesNC(),createCartNC(),createMoreNC()]
+        tabBar.viewControllers = [createHomeNC(),createCategoriesNC(),createFavoriteNC(),createCartNC(),createMoreNC()]
 //        UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().backgroundColor = .white
         

@@ -15,17 +15,17 @@ protocol INetworkManager{
 
 class NetworkManager:INetworkManager{
     
-    static let orderUpdatedNotification = Notification.Name("orderUpdated")
+//    static let orderUpdatedNotification = Notification.Name("orderUpdated")
 
     static let shared = NetworkManager()
     private init(){}
     
     
-    var order = [Orders]() {
-        didSet {
-            NotificationCenter.default.post(name:NetworkManager.orderUpdatedNotification,object:nil)
-        }
-    }
+//    var order = [Orders]() {
+//        didSet {
+//            NotificationCenter.default.post(name:NetworkManager.orderUpdatedNotification,object:nil)
+//        }
+//    }
     
     func getDataFromApi<B:Codable>(urlString: String,baseModel: B.Type ,completion: @escaping (Result<B,ErrorMessages>)->Void ){
         guard let url = URL(string: urlString) else{
@@ -138,7 +138,7 @@ class NetworkManager:INetworkManager{
         let jsonData = try? JSONSerialization.data(withJSONObject: body)
         urlRequest.httpBody = jsonData
         
-        print(url)
+//        print(url)
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
             if let _ = error {
                 completion(.failure(.noInternet))
@@ -149,7 +149,7 @@ class NetworkManager:INetworkManager{
                 //                print("response \(response)")
                 return
             }
-            print(response)
+//            print(response)
             guard let data = data else {
                 completion(.failure(.invalidData))
                 return

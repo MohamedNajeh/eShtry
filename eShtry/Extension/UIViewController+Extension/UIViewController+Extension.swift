@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate var containerView: DefaultView!
+
 extension UIViewController{
     
     
@@ -32,5 +34,38 @@ extension UIViewController{
          controller.present(alert, animated: true, completion: nil)
         
         
+    }
+    
+    
+    
+    func showLoadingView(){
+        containerView = DefaultView(color: .darkGray, raduis: 15)
+        view.addSubview(containerView)
+        containerView.alpha           = 0
+        UIView.animate(withDuration: 0.25) {containerView.alpha = 0.4}
+        let activityIndecator = UIActivityIndicatorView(style: .large)
+        containerView.addSubview(activityIndecator)
+        activityIndecator.color = .black
+        activityIndecator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            
+            containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//            containerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
+            containerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15),
+            
+            activityIndecator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            activityIndecator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
+        ])
+        activityIndecator.startAnimating()
+    }
+    
+    func removeLoadingView(){
+        DispatchQueue.main.async {
+            containerView.removeFromSuperview()
+            containerView = nil
+        }
     }
 }

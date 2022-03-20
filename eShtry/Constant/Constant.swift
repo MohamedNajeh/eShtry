@@ -53,6 +53,7 @@ enum typeOfButton{
     case plusBtn
     case minusBtn
     case returnBtn
+    case exitBtn
 }
 
 
@@ -93,3 +94,10 @@ func textFieldPlaceholder(textField : UITextField, Placeholder : String) {
     )
 }
 
+
+enum State{
+    case loading
+    case error
+    case empty
+    case finished
+}
