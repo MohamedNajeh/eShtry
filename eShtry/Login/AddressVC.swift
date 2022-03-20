@@ -218,7 +218,7 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
                     if id == 0 {
                         self?.displayAlert(title: "user not supported", message: "An error occured while adding your address")
                     }else {
-                        NewAddAddress.showToast(controller: self!, message: "successful added new address", seconds: 3)
+                        NewAddAddressVCC.showToast(controller: self!, message: "successful added new address", seconds: 3)
                     }
                 }
             }
