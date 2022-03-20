@@ -20,9 +20,14 @@ struct CustomarRoot:Codable{
 //        let values = try decoder.container(keyedBy: CodingKeys.self)
 //        customer = try values.decodeIfPresent(Customer.self, forKey: .customer)
 //    }
-
-
 }
+
+struct LoginResponse: Codable {
+    let customers: [Customer]
+}
+
+
+
 extension Encodable {
     func asDictionary() throws -> [String: Any] {
         let data = try JSONEncoder().encode(self)

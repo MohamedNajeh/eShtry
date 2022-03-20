@@ -35,16 +35,34 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordStackProfile: UIStackView!
     
     var checkWhichScreen : Character = "r"
+    var userId : Int?
     let networkShared = NetworkManager.shared
     
     private var datePicker : UIDatePicker?
     let dateFormatter = DateFormatter()
+    let userDefaults = UserDefaults.standard
+    //var customer : Customer!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if checkWhichScreen == "p" {
-            appeareProfileLabels(firstName: " ", lastName: " ", email: " ", mobile: " ", date: " ")
+            let userDate = userDefaults.object(forKey: "userDate") as? String ?? ""
+            networkShared.getDataFromApi(urlString: customerById(userId: userId ?? 0), baseModel: CustomarRoot.self) { (result) in
+                switch result {
+                case .success(let data):
+ 
+                    DispatchQueue.main.async {
+                        self.appeareProfileLabels(firstName:data.customer?.first_name ?? "", lastName: data.customer?.last_name ?? "", email: data.customer?.email ?? "", mobile: data.customer?.phone ?? "", date: userDate)
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                }
+            }
+
         }else{
             passwordTF.isSecureTextEntry = true
             
@@ -64,38 +82,18 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         ConfigurationDatePicker()
     }
     
-    
-    
-    @IBAction func eyeShowPassword(_ sender: Any) {
-        let pass = passwordTF.text ?? ""
-        if eyeButtonOutLet.currentImage == UIImage(systemName:"eye") {
-            eyeButtonOutLet.setImage(UIImage(systemName:"eye.slash"), for: .normal)
-            passwordTF.isSecureTextEntry = true
-            if passwordTF.text?.count ?? -1>0 {
-                passwordTF.insertText(pass)
-            }
-        }else {
-            eyeButtonOutLet.setImage(UIImage(systemName:"eye"), for: .normal)
-            passwordTF.isSecureTextEntry = false
-        }
-    }
-    
+
     
     @IBAction func register(_ sender: Any) {
+        if checkWhichScreen == "p" {
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            let customer = Customer(first_name: firstNameTF.text, last_name: lastNameTF.text, email: emailAddressTF.text, phone: mobileNumTF.text, tags: passwordTF.text, id: nil, verified_email: true, addresses: nil)
+            
+            let newCustomer = CustomarRoot(customer: customer)
+            registerCustomer(newCustomer:newCustomer)
         
-        let customer = Customer(first_name: firstNameTF.text, last_name: lastNameTF.text, email: emailAddressTF.text, phone: phoneNumLabel.text, tags: passwordTF.text, id: nil, verified_email: true, addresses: nil)
-        
-//        customer?.first_name = firstNameTF.text!
-//        customer?.last_name = lastNameTF.text!
-//        customer?.phone = phoneNumLabel.text!
-//        customer?.tags = passwordTF.text!
-//        customer?.email = emailAddressTF.text!
-//        customer?.verified_email = true
-        
-        let newCustomer = CustomarRoot(customer: customer)
-        
-        registerCustomer(newCustomer:newCustomer)
-        
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -120,24 +118,18 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
                 if isValidPhoneNumber(phoneNumber: text) == false{
                     phoneNumLabel.text = "Please enter a valid phone number !!"
                 }
-                
             }else{
                 phoneNumLabel.text = "Please enter a phone number"
             }
-            
         case emailAddressTF:
             if !text.isEmpty {
                 emailAddressLabel.text = " "
-                
                 if isValidEmail(text) == false {
                     emailAddressLabel.text = "Please enter a valid email address !!"
                 }
-                
-                
             }else{
                 emailAddressLabel.text = "Please enter an email address"
             }
-            
         case passwordTF:
             if !text.isEmpty {
                 passwordLabel.text = " "
@@ -149,7 +141,6 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
                 passwordLabel.text = "Minimum of 8 characters with at least 1 uppercase, 1 lowercase, and 1 number"
                 passwordLabel.textColor = .gray
             }
-            
         case dateOfBirthTF:
             if !text.isEmpty {
                 if text != dateFormatter.string(from: datePicker!.date) {
@@ -174,11 +165,11 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     func validationUserInput() {
         if (
             firstNameLabel.text    == " " &&
-            lastNameLabel.text     == " " &&
-            phoneNumLabel.text     == " " &&
-            emailAddressLabel.text == " " &&
-            passwordLabel.text     == " " &&
-            dateOfBirthLabel.text  == " ")
+                lastNameLabel.text     == " " &&
+                phoneNumLabel.text     == " " &&
+                emailAddressLabel.text == " " &&
+                passwordLabel.text     == " " &&
+                dateOfBirthLabel.text  == " ")
         {
             registerBtnOutlet.isUserInteractionEnabled = true
             registerBtnOutlet?.alpha = 1.0
@@ -188,30 +179,20 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
             registerBtnOutlet?.alpha = 0.5
         }
     }
-    func isValidPassword(password: String) -> Bool {
-        let passRegEx = "^(?=.*[a-z\\u0621-\\u064A])(?=.*[A-Z\\u0621-\\u064A])(?=.*[0-9\\u0660-\\u0669])[a-zA-Za-z\\u0621-\\u064A0-9\\u0660-\\u0669]{8,}$"
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
-        return passwordTest.evaluate(with: password)
+    
+    func navigateToMain() {
+        let keyWindow = UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .compactMap({$0 as? UIWindowScene})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+        let tabBarController = keyWindow?.rootViewController as! UITabBarController
+        tabBarController.selectedIndex = 0
+        self.dismiss(animated: true, completion: {
+            self.navigationController?.popToRootViewController(animated: false)
+        })
     }
     
-    func isValidPhoneNumber(phoneNumber: String) -> Bool {
-        let phoneNumRegEx = "^(?=.*[0-9\\u0660-\\u0669])[0-9\\u0660-\\u0669]{11,11}$"
-        let phoneNumTest = NSPredicate(format: "SELF MATCHES %@", phoneNumRegEx)
-        return phoneNumTest.evaluate(with: phoneNumber)
-    }
-    
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
-    
-    func textFieldPlaceholder(textField : UITextField, Placeholder : String) {
-        textField.attributedPlaceholder = NSAttributedString(
-            string: Placeholder,
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 90/255, blue: 167/255, alpha: 1.0)]
-        )
-    }
     
     func ConfigurationDatePicker() {
         datePicker = UIDatePicker()
@@ -220,15 +201,23 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         datePicker?.maximumDate = NSDate() as Date
         datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
         
+        let toolBar = UIToolbar()
+        
+        let btnDone = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(closePicker))
+        toolBar.setItems([btnDone], animated: true)
+        
+        dateOfBirthTF.inputAccessoryView = toolBar
         dateOfBirthTF.inputView = datePicker
+        toolBar.sizeToFit()
+        
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
     }
     
+    @objc func closePicker(){ view.endEditing(true) }
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
+        view.endEditing(true) }
     
     @objc func dateChanged(datePicker: UIDatePicker) {
         //let dateFormatter = DateFormatter()
@@ -246,16 +235,18 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         emailProfile.isHidden=false
         dateProfile.isHidden=false
         passwordStackProfile.isHidden=true
-        registerBtnOutlet.setTitle("Save", for: .normal)
+        registerBtnOutlet.setTitle("Back", for: .normal)
         
         firstNameTF.text=firstName
         lastNameTF.text=lastName
         mobileNumTF.text=mobile
         emailAddressTF.text=email
         dateOfBirthTF.text=date
+        firstNameTF.isUserInteractionEnabled = false
+        lastNameTF.isUserInteractionEnabled = false
+        mobileNumTF.isUserInteractionEnabled = false
         emailAddressTF.isUserInteractionEnabled = false
-        emailAddressLabel.text = "Email Address cannot be changed"
-        emailAddressLabel.textColor = .darkGray
+        dateOfBirthTF.isUserInteractionEnabled = false
     }
     
     func registerCustomer(newCustomer:CustomarRoot){
@@ -264,23 +255,33 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
                 print(error!)
             } else {
                 if let data = data {
+                    print(data)
                     let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
-                    print("json: \(json)")
+                    print(json)
                     let returnedCustomer = json["customer"] as? Dictionary<String,Any>
                     let id = returnedCustomer?["id"] as? Int ?? 0
                     let name = returnedCustomer?["first_name"] as? String ?? ""
-                    print("data: \(data)")
-                    print("id: \(id)")
+                    print(returnedCustomer ?? "")
+                    print(id)
                     if id != 0 {
                         print("name: \(name)")
-                        //                             self?.defaultsRepo.login()
-                        //                             self?.defaultsRepo.addId(id: id)
-                        //                             self?.defaultsRepo.addUserName(userName: name )
-                        DispatchQueue.main.sync {
-                            //                                self?.navigateToMain()
+                        self?.userDefaults.set(id, forKey: "userId")
+                        self?.userDefaults.set(true, forKey: "login")
+                        self?.userDefaults.set(name, forKey: "userName")
+                        DispatchQueue.main.async {
+                            RegisterVC.showToast(controller: self!, message: "Registered Successfully", seconds: 3)
+                            self?.userDefaults.set(self?.dateOfBirthTF.text, forKey: "userDate")
+                            self?.navigateToMain()
                         }
+                        
                         print("registered successfully")
                     }else{
+                        DispatchQueue.main.async {
+                            RegisterVC.presentAlert(controller: self!, title: "Registration error", message: "Make sure you enter your Email correctly", style: .alert, actionTitle: "OK") { (action) in
+                                self?.dismiss(animated: true, completion: nil)
+                            }
+                        }
+                        
                         print("An error occurred while registering")
                     }
                 }
@@ -288,5 +289,20 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func eyeShowPassword(_ sender: Any) {
+        let pass = passwordTF.text ?? ""
+        if eyeButtonOutLet.currentImage == UIImage(systemName:"eye") {
+            eyeButtonOutLet.setImage(UIImage(systemName:"eye.slash"), for: .normal)
+            passwordTF.isSecureTextEntry = true
+            if passwordTF.text?.count ?? -1>0 {
+                passwordTF.insertText(pass)
+            }
+        }else {
+            eyeButtonOutLet.setImage(UIImage(systemName:"eye"), for: .normal)
+            passwordTF.isSecureTextEntry = false
+        }
+    }
+    
 }
+
 

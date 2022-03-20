@@ -40,10 +40,28 @@ struct Customer: Codable {
     let verified_email: Bool?
     let addresses:  [Addresses]?
 }
+
+struct Addresses : Codable {
+    var address1, city, province, phone: String?
+    var zip, name, country: String?
+    var id: Int!
+}
+
+struct CustomerAddress: Codable {
+    var addresses: [Addresses]?
+}
+
+struct UpdateAddress: Codable {
+    var address: Addresses
+}
+
+struct PutAddress: Codable {
+    let customer: CustomerAddress?
+}
+
     
 
     enum CodingKeys: String, CodingKey {
-
         case id = "id"
         case email = "email"
         case accepts_marketing = "accepts_marketing"
