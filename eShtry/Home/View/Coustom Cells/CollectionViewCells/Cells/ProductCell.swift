@@ -12,6 +12,10 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var productImg: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
+    var addToFavorites: (()->())?
+    
+    @IBOutlet weak var favoriteButtonOutlet: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,9 +32,11 @@ class ProductCell: UICollectionViewCell {
     func downloadImg(from urlString: String){
         
         productImg.downloadImg(from: urlString)
-        
-        
 
     }
 
+    @IBAction func addToFavoriteButtonClicked(_ sender: Any) {
+        self.addToFavorites?()
+    }
+    
 }

@@ -13,7 +13,7 @@ class CoreDataManager{
     
     static let shared = CoreDataManager()
     static let orderUpdatedNotification = Notification.Name("orderUpdated")
-
+    
     
     var order = [CartItem]() {
         didSet {
@@ -31,8 +31,8 @@ class CoreDataManager{
         })
         return container
     }()
-
-
+    
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -46,22 +46,78 @@ class CoreDataManager{
     }
     
     
-    func insert(product: Products){
+    func isInFovorite(productId: String)-> Bool{
+        var results:[NSManagedObject] = []
+        do {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteProduct")
+            fetchRequest.predicate = NSPredicate(format: "id == %@", productId)
+            let context = persistentContainer.viewContext
+            
+            results = try context.fetch(fetchRequest)
+            print(results.first)
+        } catch let error {
+            print("unable to complete  :", error)
+        }
+        return results.count > 0
+    }
+    
+    
+    
+    func deleteProduct(product: Product){
+       
+            do {
+                let context = self.persistentContainer.viewContext
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteProduct")
+                
+                fetchRequest.predicate = NSPredicate(format: "id == %@", product.id ?? "1"  )
+                let result = try context.fetch(fetchRequest)
+                context.delete((result as! [NSManagedObject]).first!)
+                try context.save()
+                print("product deleted successfully")
+            } catch let error {
+                print("error while deleting product :", error)
+            }
+        
+    }
+    
+    
+    func insert(product: Product){
         let managedObjectContext = persistentContainer.viewContext
         let entity          = NSEntityDescription.entity(forEntityName: "FavoriteProduct", in: managedObjectContext)!
         let favoriteProduct = NSManagedObject(entity: entity, insertInto: managedObjectContext)
         
-        favoriteProduct.setValue("\(product.id ?? 0)", forKey: "id")
-        favoriteProduct.setValue(product.title, forKey: "name")
-        favoriteProduct.setValue(product.image?.src, forKey: "imageUrl")
+        favoriteProduct.setValue("\(product.id)", forKey: "id")
+        favoriteProduct.setValue(product.name, forKey: "name")
+        favoriteProduct.setValue(product.imageUrl, forKey: "imageUrl")
         do{
             try managedObjectContext.save()
             print("new product saved")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-
+        
     }
+    
+    
+    func getAllFavoriteProducts() -> [Product]
+    {
+        let context = self.persistentContainer.viewContext
+        var objects:[NSManagedObject] = []
+        var products:[Product] = []
+        let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "FavoriteProduct")
+        do{
+            objects = try context.fetch(fetchReq)
+            for product in objects{
+                let p = Product(id: product.value(forKey: "id") as! String, imageUrl: product.value(forKey: "imageUrl") as! String , name: product.value(forKey: "name") as! String)
+                products.append(p)
+            }
+        }catch let error as NSError{
+            print(error)
+        }
+        return products
+    }
+    
+    
     
     func insertCartItem(cartItem: CartItem){
         let managedObjectContext = persistentContainer.viewContext
@@ -71,9 +127,9 @@ class CoreDataManager{
         cartItemCoreData.setValue(cartItem.name, forKey: "name")
         cartItemCoreData.setValue(cartItem.imgUrl, forKey: "imgUrl")
         cartItemCoreData.setValue(cartItem.price, forKey: "price")
-
         
-
+        
+        
         do{
             try managedObjectContext.save()
             print("new product saved")
@@ -82,7 +138,7 @@ class CoreDataManager{
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-
+        
     }
     
     func saveOrderArrToCoreData(cartItemArr: [CartItem]){
@@ -104,14 +160,14 @@ class CoreDataManager{
             }
         }
     }
-
+    
     
     private func getAllOfNSManageObjectArr(completion:@escaping((Result<[NSManagedObject],ErrorMessages>)->Void)){
         var objects = [NSManagedObject]()
         let managedObjectContext = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Cart")
         do{
-         objects = try managedObjectContext.fetch(fetchRequest)
+            objects = try managedObjectContext.fetch(fetchRequest)
             completion(.success(objects))
         }catch let error as NSError {
             print("Could not retrive data . \(error), \(error.userInfo)")
@@ -138,12 +194,12 @@ class CoreDataManager{
         
         
         
-//
-//        for item in getAllOfNSManageObjectArr(){
-//            let cartItem = CartItem(name: item.value(forKey: "name") as! String, price: item.value(forKey: "price") as! String, imgUrl: item.value(forKey: "imgUrl") as! String )
-//            arrOfCartItem.append(cartItem)
-//        }
-//        completion(arrOfCartItem)
+        //
+        //        for item in getAllOfNSManageObjectArr(){
+        //            let cartItem = CartItem(name: item.value(forKey: "name") as! String, price: item.value(forKey: "price") as! String, imgUrl: item.value(forKey: "imgUrl") as! String )
+        //            arrOfCartItem.append(cartItem)
+        //        }
+        //        completion(arrOfCartItem)
     }
     
     func deleteAll(){
@@ -154,7 +210,7 @@ class CoreDataManager{
                 managedObjectContext.delete(object)
             }
         }
-
+        
         do {
             try managedObjectContext.save()
         } catch let error as NSError {

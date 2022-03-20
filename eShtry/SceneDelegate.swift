@@ -90,10 +90,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return cateegoriesNC as! UINavigationController
     }
     
+    private func createFavoriteNC() -> UINavigationController{
+        let storyboard = UIStoryboard(name: "FavoriteSB", bundle: .main)
+        let favNC     = storyboard.instantiateViewController(withIdentifier: "navigationController")
+        let imageIcon = UIImage(systemName: "star")
+        favNC.tabBarItem = UITabBarItem(title: "Favorite", image: imageIcon, tag: 3)
+
+        return favNC as! UINavigationController
+    }
+    
+    
     private func createCartNC()-> UINavigationController{
         let cartNC = CartVC()
         let imageIcon = UIImage(systemName: "cart")
-        cartNC.tabBarItem = UITabBarItem(title: "Cart", image: imageIcon, tag: 3)
+        cartNC.tabBarItem = UITabBarItem(title: "Cart", image: imageIcon, tag: 4)
         return UINavigationController(rootViewController: cartNC)
     }
     
@@ -101,16 +111,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "meVC", bundle: .main)
         let moreNC     = storyboard.instantiateViewController(withIdentifier: "me")
         let imageIcon = UIImage(systemName: "list.bullet")
-        moreNC.tabBarItem = UITabBarItem(title: "More", image: imageIcon, tag: 4)
+        moreNC.tabBarItem = UITabBarItem(title: "More", image: imageIcon, tag: 5)
 
         return UINavigationController(rootViewController: moreNC)
     }
 
     
+    
+    
     func createTabBarController() -> UITabBarController{
         let tabBar = UITabBarController()
         UITabBar.appearance().tintColor = UIColor.init(red: 0/255, green: 59/255, blue: 118/255, alpha: 1)
-        tabBar.viewControllers = [createHomeNC(),createCategoriesNC(),createCartNC(),createMoreNC()]
+        tabBar.viewControllers = [createHomeNC(),createCategoriesNC(),createFavoriteNC(),createCartNC(),createMoreNC()]
 //        UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().backgroundColor = .white
         
