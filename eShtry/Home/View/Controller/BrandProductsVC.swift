@@ -13,6 +13,7 @@ class BrandProductsVC: UIViewController {
     let searchBar = UISearchController()
     var vendor:String = ""
     var products:[Storefront.Product] = []
+    var brnadProductViewModel:BrandProductViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,7 +22,7 @@ class BrandProductsVC: UIViewController {
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
 
         fetchProducts(vendor: self.vendor)
-        
+        brnadProductViewModel = BrandProductViewModel(vendor: self.vendor)
     }
     
     func fetchProducts(vendor:String){
