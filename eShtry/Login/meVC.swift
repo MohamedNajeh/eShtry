@@ -52,7 +52,7 @@ class meVC: UIViewController {
     
 
     @IBAction func myAddressClick(_ sender: Any) {
-        let addAddressVC = storyboard?.instantiateViewController(identifier: "AllAddressVC") as! AllAddressVC
+        let addAddressVC = storyboard?.instantiateViewController(identifier: "AllAddressesVC") as! AllAddressesVC
         navigationController?.pushViewController(addAddressVC, animated: true)
     }
     
