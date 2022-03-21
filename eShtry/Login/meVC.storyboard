@@ -12,7 +12,7 @@
             <objects>
                 <viewController id="KvP-Wq-MfR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="24l-u4-LUv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="career" translatesAutoresizingMaskIntoConstraints="NO" id="kXi-6L-SYO">
@@ -203,7 +203,7 @@
             <objects>
                 <viewController storyboardIdentifier="me" id="QRQ-0g-wFY" customClass="meVC" customModule="eShtry" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OsH-a0-idD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDm-4z-zLE">
@@ -1415,7 +1415,7 @@
             <objects>
                 <tableViewController id="aGG-oj-ndI" customClass="moreOrdersVC" customModule="eShtry" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="McB-xz-sea">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -1612,7 +1612,7 @@
             <objects>
                 <viewController storyboardIdentifier="AddressVC" id="uhO-nb-Tqc" customClass="AddressVC" customModule="eShtry" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wQB-f2-G80">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-PP-aH7">
