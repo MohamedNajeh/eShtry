@@ -24,16 +24,26 @@ class CategoryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Category"
-        configureSearchController()
+        //self.title = "Category"
+        //configureSearchController()
         configureTableViews()
         fetchCollections()
+        let color:UIColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)
+        configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "Category", preferredLargeTitle: true)
+        let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchButtonPressed))
         
+        navigationItem.rightBarButtonItem = searchButton
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    @objc func searchButtonPressed(){
+        let storyboard = UIStoryboard(name: "SearchSB", bundle: nil)
+        let searchVC = storyboard.instantiateViewController(identifier: "SearchResultVC") as! SearchResultVC
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
     func fetchCollections(){

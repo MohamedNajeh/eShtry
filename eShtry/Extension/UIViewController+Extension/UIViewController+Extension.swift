@@ -92,6 +92,7 @@ func configureNavigationBar(largeTitleColor: UIColor, backgoundColor: UIColor, t
     } else {
         // Fallback on earlier versions
         navigationController?.navigationBar.barTintColor = backgoundColor
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.tintColor = tintColor
         navigationController?.navigationBar.isTranslucent = false
         navigationItem.title = title

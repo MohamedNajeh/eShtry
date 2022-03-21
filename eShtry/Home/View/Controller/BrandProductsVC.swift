@@ -103,7 +103,7 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width - 10)/2, height: collectionView.frame.height/4)
+        return CGSize(width: (collectionView.frame.width - 10)/2, height: collectionView.frame.height/3.4)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
