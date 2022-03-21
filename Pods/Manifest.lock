@@ -1,24 +1,32 @@
 PODS:
   - Alamofire (5.5.0)
+  - Cosmos (23.0.0)
+  - Kingfisher (7.1.2)
   - Mobile-Buy-SDK (7.0.0)
   - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Cosmos
+  - Kingfisher
   - Mobile-Buy-SDK
   - ReachabilitySwift
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Cosmos
+    - Kingfisher
     - Mobile-Buy-SDK
     - ReachabilitySwift
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
   Mobile-Buy-SDK: 18ee3b74f99a1a5fa42ad3c997af3d0774928438
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: afb772e764283556208bddce3c81ad558d66bc35
+PODFILE CHECKSUM: d4bae444bf55ee8fa5462ebcae735dc0d6d341e0
 
 COCOAPODS: 1.11.2

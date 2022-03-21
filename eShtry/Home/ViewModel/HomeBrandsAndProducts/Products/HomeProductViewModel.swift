@@ -11,9 +11,11 @@ import MobileBuySDK
 class HomeProductViewModel: NSObject{
     
     
+        var products:[Storefront.Product] = []
         var homeProductViewModel:[HomeProductCellViewModel] = [HomeProductCellViewModel](){
         didSet{
             self.relodCollectionViewClosure()
+            self.bindProductAsGraphQlobject()
         }
     }
     
@@ -51,6 +53,7 @@ class HomeProductViewModel: NSObject{
     var showErrorMessage: (()->()) = {}
     var bindToShowLoadingToView:  (()->()) = {}
     var bindToHideLoadingToView: (()->())  = {}
+    var bindProductAsGraphQlobject: (()->())  = {}
 
     
     
@@ -91,7 +94,7 @@ class HomeProductViewModel: NSObject{
     
     
     func processFetchedHomeProducts(homeProducts:[Storefront.Product]){
-        
+        self.products = homeProducts
         var cellVM = [HomeProductCellViewModel]()
         for product in homeProducts{
             cellVM.append(createHomeProductCellViewModel(homeProduct: product))

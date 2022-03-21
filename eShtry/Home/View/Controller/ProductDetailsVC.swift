@@ -107,7 +107,7 @@ extension ProductDetailsVC : UICollectionViewDelegate , UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == reviewsCollectionView{
-            return CGSize(width: reviewsCollectionView.frame.width, height: reviewsCollectionView.frame.height / 3)
+            return CGSize(width: reviewsCollectionView.frame.width, height: reviewsCollectionView.frame.height / 2.5)
         }
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }

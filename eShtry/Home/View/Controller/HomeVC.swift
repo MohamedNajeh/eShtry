@@ -74,6 +74,7 @@ class HomeVC: UIViewController {
     func updateHomeWithProducts(){
         productViewModel.relodCollectionViewClosure = {
             DispatchQueue.main.async {
+                self.products = self.productViewModel.products
                 self.collectionView.reloadData()
             }
         }
@@ -428,6 +429,11 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
         if indexPath.section == 2 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "productsVC") as! BrandProductsVC
             vc.vendor = collectionsArr[indexPath.row].title!
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        if indexPath.section == 3 {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "productDetailsVC") as! ProductDetailsVC
+            vc.product = products[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

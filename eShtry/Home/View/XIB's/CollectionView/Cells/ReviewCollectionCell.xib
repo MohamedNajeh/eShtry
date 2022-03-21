@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,22 +17,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="553" height="177"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="g32-7Z-bRd">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="56H-Fy-z6W">
                         <rect key="frame" x="5" y="5" width="543" height="167"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.91" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch5-d6-6K4">
-                                <rect key="frame" x="0.0" y="0.0" width="82" height="48"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lf2-hw-dSn">
-                                <rect key="frame" x="0.0" y="53" width="240" height="27.5"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fgN-eg-umo">
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="72.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.91" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch5-d6-6K4">
+                                        <rect key="frame" x="0.0" y="12.5" width="170" height="48"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lf2-hw-dSn" customClass="CosmosView" customModule="Cosmos">
+                                        <rect key="frame" x="180" y="21.5" width="170" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                                <color key="value" red="0.96954315899999999" green="0.72800815109999995" blue="0.1848095357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdq-cW-DoM">
-                                <rect key="frame" x="0.0" y="85.5" width="502.5" height="81.5"/>
-                                <string key="text">Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label</string>
+                                <rect key="frame" x="0.0" y="94.5" width="485.5" height="72.5"/>
+                                <string key="text">really like it! The only downside to having a ridge is its a popular conversation piece. I'm always asked about it
+and have conversations with everyone everytime I pull it out.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,18 +65,18 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="g32-7Z-bRd" secondAttribute="bottom" constant="5" id="20I-7H-JtT"/>
-                <constraint firstItem="g32-7Z-bRd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="JZM-vN-biN"/>
-                <constraint firstAttribute="trailing" secondItem="g32-7Z-bRd" secondAttribute="trailing" constant="5" id="OkD-pP-QCW"/>
-                <constraint firstItem="g32-7Z-bRd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="fHa-tG-DGR"/>
+                <constraint firstAttribute="bottom" secondItem="56H-Fy-z6W" secondAttribute="bottom" constant="5" id="U31-x6-iCn"/>
+                <constraint firstItem="56H-Fy-z6W" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="eFY-FA-2Vg"/>
+                <constraint firstItem="56H-Fy-z6W" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="v76-ds-XrR"/>
+                <constraint firstAttribute="trailing" secondItem="56H-Fy-z6W" secondAttribute="trailing" constant="5" id="xHf-IF-BnA"/>
             </constraints>
             <size key="customSize" width="553" height="177"/>
             <point key="canvasLocation" x="190.57971014492756" y="82.03125"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
+    <designables>
+        <designable name="Lf2-hw-dSn">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+    </designables>
 </document>

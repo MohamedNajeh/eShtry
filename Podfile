@@ -9,6 +9,8 @@ target 'eShtry' do
   pod "Mobile-Buy-SDK"
   pod 'ReachabilitySwift'
   pod 'Alamofire'
+  pod 'Cosmos'
+  pod 'Kingfisher'
 
 
 end
