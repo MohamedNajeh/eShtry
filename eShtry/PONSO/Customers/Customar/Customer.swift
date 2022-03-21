@@ -42,7 +42,7 @@ struct Customer: Codable {
 }
 
 struct Addresses : Codable {
-    var address1, city, province, phone: String?
+    var address1, address2, city, province, phone: String?
     var zip, name, country: String?
     var id: Int!
 }

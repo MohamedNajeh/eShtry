@@ -1057,7 +1057,7 @@
         <scene sceneID="S2S-iD-CJd">
             <objects>
                 <tableViewController storyboardIdentifier="RegisterVC" id="Jgf-3t-Dvy" customClass="RegisterVC" customModule="eShtry" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PaF-jA-8pD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PaF-jA-8pD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1113,11 +1113,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="610" id="5Pw-Si-16W">
-                                        <rect key="frame" x="0.0" y="208" width="414" height="610"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="500" id="5Pw-Si-16W">
+                                        <rect key="frame" x="0.0" y="208" width="414" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Pw-Si-16W" id="jqu-mk-fuj">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="610"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="aNk-kZ-BAS">
@@ -1455,16 +1455,16 @@
             </objects>
             <point key="canvasLocation" x="-1186" y="795"/>
         </scene>
-        <!--New AddressVC-->
+        <!--New Add AddressVCC-->
         <scene sceneID="LU2-ap-pLY">
             <objects>
-                <viewController storyboardIdentifier="NewAddressVC" id="sDW-68-Sx9" customClass="NewAddressVC" customModule="eShtry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewAddressVC" id="sDW-68-Sx9" customClass="NewAddAddressVCC" customModule="eShtry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XNA-Uq-upq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Addresses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFy-0G-GfZ">
-                                <rect key="frame" x="0.0" y="80" width="414" height="26.5"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="26.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" red="0.054901960780000002" green="0.35294117650000001" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1489,7 +1489,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wzC-ES-fiw">
-                                <rect key="frame" x="0.0" y="126.5" width="414" height="641.5"/>
+                                <rect key="frame" x="0.0" y="130.5" width="414" height="637.5"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -1582,7 +1582,7 @@
                         <constraints>
                             <constraint firstItem="ec1-eX-Dyf" firstAttribute="trailing" secondItem="wzC-ES-fiw" secondAttribute="trailing" id="52Q-fc-fSt"/>
                             <constraint firstItem="u8T-R9-Vbz" firstAttribute="top" secondItem="ec1-eX-Dyf" secondAttribute="top" id="6tB-MZ-fPx"/>
-                            <constraint firstItem="TFy-0G-GfZ" firstAttribute="top" secondItem="ec1-eX-Dyf" secondAttribute="top" constant="36" id="Ckt-W5-bLG"/>
+                            <constraint firstItem="TFy-0G-GfZ" firstAttribute="top" secondItem="ec1-eX-Dyf" secondAttribute="top" constant="40" id="Ckt-W5-bLG"/>
                             <constraint firstItem="u8T-R9-Vbz" firstAttribute="leading" secondItem="ec1-eX-Dyf" secondAttribute="leading" id="GCa-rR-9MN"/>
                             <constraint firstItem="ec1-eX-Dyf" firstAttribute="trailing" secondItem="TFy-0G-GfZ" secondAttribute="trailing" id="JK1-Um-kAx"/>
                             <constraint firstItem="tfM-od-lWv" firstAttribute="top" secondItem="wzC-ES-fiw" secondAttribute="bottom" constant="20" id="Kbm-MU-fbj"/>

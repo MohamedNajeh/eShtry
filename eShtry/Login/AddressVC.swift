@@ -9,7 +9,7 @@
 import UIKit
 
 class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
-
+    
     @IBOutlet weak var stackCustomAddressTitle: UIStackView!
     @IBOutlet weak var flagOutletImage: UIImageView!
     
@@ -20,7 +20,7 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     @IBOutlet weak var customAddressTitleTF: UITextField!
     @IBOutlet weak var receiverNameOutletTF: UITextField!
     @IBOutlet weak var receiverPhoneOutletTF: UITextField!
-
+    
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var zipCodeLabel: UILabel!
     @IBOutlet weak var receiverPhoneLabel: UILabel!
@@ -32,24 +32,24 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     
     let userDefaults = UserDefaults.standard
     let networkShared = NetworkManager.shared
+    var addressTitle = "Home"
+    var isDefaultAddress = false
+    var isCustomTitle = false
+    var userId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         confirmButtonOutlet?.isUserInteractionEnabled = false
         confirmButtonOutlet?.alpha = 0.5
         
+        userId = userDefaults.object(forKey: "userId") as? Int ?? 0
+        print(userId)
         
         textFieldPlaceholder(textField: addressOutletTF, Placeholder: "Address")
         textFieldPlaceholder(textField: zipCodeOutletTF, Placeholder: "Zip / Postal code")
         textFieldPlaceholder(textField: receiverNameOutletTF, Placeholder: "Receiver Name")
         textFieldPlaceholder(textField: receiverPhoneOutletTF, Placeholder: "Mobile Number")
         textFieldPlaceholder(textField: customAddressTitleTF, Placeholder: "Custom Address Label")
-        
-//        countryOutletLabel.text = defaults.object(forKey: "country") as? String ?? "Select Country"
-//        flagOutletImage.image = UIImage(named: defaults.object(forKey: "country") as? String ?? "global")
-//        cityOutletLabel.text = defaults.object(forKey: "city") as? String ?? "Select City"
-//        addressOutletTF.text = defaults.object(forKey: "address") as? String ?? ""
-//        zipCodeOutletTF.text = defaults.object(forKey: "zipCode") as? String ?? ""
         
         
         if countryOutletLabel.text != "Select Country" {
@@ -63,39 +63,38 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     
     
     @IBAction func confirmAddressClick(_ sender: Any) {
-//        defaults.set(addressOutletTF.text, forKey: "address")
-//        defaults.set(zipCodeOutletTF.text, forKey: "zipCode")
-//        defaults.set(countryOutletLabel.text, forKey: "country")
-//        defaults.set(cityOutletLabel.text, forKey: "city")
+        if isCustomTitle {
+            addressTitle = customAddressTitleTF.text ?? "Home"
+        }
+        if isDefaultAddress {
+            addressTitle += " (Default)"
+        }
         
-        let address = Addresses(address1: addressOutletTF.text, city: cityOutletLabel.text, province: "", phone: receiverPhoneOutletTF.text, zip: zipCodeOutletTF.text, name: receiverNameOutletTF.text, country: countryOutletLabel.text)
+        let address = Addresses(address1: addressOutletTF.text, address2: addressTitle, city: cityOutletLabel.text, province: "", phone: receiverPhoneOutletTF.text, zip: zipCodeOutletTF.text, name: receiverNameOutletTF.text, country: countryOutletLabel.text)
         addAddress(address: address)
         
-        
-        navigationController?.popViewController(animated: true)
     }
     
-
+    
     @IBAction func addressTitleChoose(_ sender: Any) {
         switch segmentControl.selectedSegmentIndex {
         case 0:
-            print(segmentControl.titleForSegment(at: 0) ?? "")
+            addressTitle = segmentControl.titleForSegment(at: 0) ?? "Home"
             stackCustomAddressTitle.isHidden = true
         case 1:
-            print(segmentControl.titleForSegment(at: 1) ?? "")
+            addressTitle = segmentControl.titleForSegment(at: 1) ?? "Home"
             stackCustomAddressTitle.isHidden = true
         case 2:
-            print(segmentControl.titleForSegment(at: 2) ?? "")
+            isCustomTitle = true
             stackCustomAddressTitle.isHidden = false
-//            customAddressTitleTF.text
         default:
-            print("")
+            print("addressTitle")
         }
-
+        
     }
     
     @IBAction func defaultAddress(_ sender: UISwitch) {
-        print("state = \(sender.isOn)")
+        isDefaultAddress = sender.isOn
     }
     
     
@@ -126,7 +125,7 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     
     @IBAction func changeCity(_ sender: Any) {
         let countryVC = storyboard?.instantiateViewController(identifier: "CountryVC") as! CountryVC
-         countryVC.checkWhichTable = "1"
+        countryVC.checkWhichTable = "1"
         countryVC.myCountryProtocol = self
         self.present(countryVC, animated: true, completion: nil)
     }
@@ -145,12 +144,12 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
             }
         case zipCodeOutletTF:
             if !text.isEmpty {
-               zipCodeLabel.text = " "
+                zipCodeLabel.text = " "
                 if isValidZipCode(zipCode: text) == false {
                     zipCodeLabel.text = "Please enter valid zip / postal code"
                 }
             }else{
-               zipCodeLabel.text = "Please enter your zip / postal code"
+                zipCodeLabel.text = "Please enter your zip / postal code"
             }
         case receiverNameOutletTF:
             if !text.isEmpty {
@@ -170,8 +169,8 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
         default:
             textField.text = ""
         }
-
-       validationUserInput()
+        
+        validationUserInput()
         return true
     }
     
@@ -187,42 +186,40 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     }
     
     
-
+    
     func addAddress(address: Addresses){
-            let id = userDefaults.object(forKey: "userId") as? Int ?? 0
-            var newAddress = address
-            networkShared.addAddress(id: id, address: address) { [weak self] (data, response, error) in
-                if error != nil {
-                    print("error while adding address \(error!)")
-                    return
+        var newAddress = address
+        print(userId)
+        networkShared.addAddress(id: userId, address: address) { [weak self] (data, response, error) in
+            if error != nil {
+                print("error while adding address \(error!)")
+                return
+            }
+            if let data = data{
+                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+                let returnedCustomer = json["customer"] as? Dictionary<String,Any>
+                do{
+                    let returnedCust = try JSONDecoder().decode(CustomarRoot.self, from: data)
+                    
+                    newAddress.id = returnedCust.customer?.addresses?.last?.id ?? 0
+                }catch{
+                    print("could parse response: \(error.localizedDescription)")
                 }
-                if let data = data{
-                    print("data: \(data)")
-                    let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
-                    print("json: \(json)")
-                    let returnedCustomer = json["customer"] as? Dictionary<String,Any>
-                    do{
-                        let returnedCust = try JSONDecoder().decode(CustomarRoot.self, from: data)
-                        
-                        print("***********")
-                        print("result customer \(String(describing: returnedCust))")
-                        print("***********")
-                        print("new address id \(String(describing: returnedCust.customer?.addresses?.last?.id ?? 0))")
-                        print("***********")
-                        newAddress.id = returnedCust.customer?.addresses?.last?.id ?? 0
-                    }catch{
-                        print("could parse response: \(error.localizedDescription)")
-                    }
-                    let id = returnedCustomer?["id"] as? Int ?? 0
-    //                let addresses = returnedCustomer?["addresses"] as? Int ?? 0
-                    if id == 0 {
+                let id = returnedCustomer?["id"] as? Int ?? 0
+                //                let addresses = returnedCustomer?["addresses"] as? Int ?? 0
+                if id == 0 {
+                    DispatchQueue.main.async {
                         self?.displayAlert(title: "user not supported", message: "An error occured while adding your address")
-                    }else {
-                        NewAddAddressVCC.showToast(controller: self!, message: "successful added new address", seconds: 3)
                     }
+                }else {
+                    DispatchQueue.main.async {
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                    
                 }
             }
         }
+    }
     
     func displayAlert(title: String,message: String) {
         let alert = UIAlertController(title: title,message:message,preferredStyle: .alert)
