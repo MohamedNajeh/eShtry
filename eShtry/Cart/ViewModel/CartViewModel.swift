@@ -31,6 +31,12 @@ class CartViewModel: NSObject{
         return cellViewModdels.count
     }
     
+    var totalPrice:Int = 0{
+        didSet{
+            self.updateCashPriceLabel()
+        }
+    }
+    
     
     var state:State!{
         didSet{
@@ -55,6 +61,7 @@ class CartViewModel: NSObject{
     var bindToShowLoadingToView:  (()->()) = {}
     var bindToHideLoadingToView: (()->())  = {}
     var updateLoadingStatus: (()->())  = {}
+    var updateCashPriceLabel: (()->())  = {}
 
     
     
@@ -97,9 +104,8 @@ class CartViewModel: NSObject{
     func createCartItemCellViewModel(cartItem:CartItem)->CartItemCellViewModel{
         
         //here i can manipulte cartItem like making calculations and so on
-        
-        
-        return CartItemCellViewModel(name: cartItem.name, price: cartItem.price, imgUrl: cartItem.imgUrl)
+        let cartItem = CartItemCellViewModel(name: cartItem.name, price: cartItem.price, imgUrl: cartItem.imgUrl,id: cartItem.id,qty: cartItem.qty)
+        return cartItem
     }
     
     private func processFetchedCartItems(cartItems: [CartItem]){
@@ -109,7 +115,20 @@ class CartViewModel: NSObject{
             viewModelCells.append(createCartItemCellViewModel(cartItem: cartItem))
         }
         self.cellViewModdels = viewModelCells
+        calculateTotalPrice()
     }
+    
+    
+    func calculateTotalPrice(){
+        var cartItemPrice = 0
+        for item in cellViewModdels{
+            guard let price = Int(item.price) else {return}
+            guard let qty   = Int(item.qty) else {return}
+            cartItemPrice += (price * qty)
+        }
+        self.totalPrice = cartItemPrice
+    }
+    
     
 }
 

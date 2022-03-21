@@ -96,8 +96,9 @@ class BrandProductViewModel:NSObject{
         let title = brnadProduct.title
         let price = brnadProduct.priceRange.minVariantPrice.amount
         let image = brnadProduct.images.edges[0].node.url
-        
-        return BrandProductCellViewModel(name: title, price: "\(String(describing: price))", imgUrl: "\(String(describing: image))")
+        let id    = "\(brnadProduct.id)"
+
+        return BrandProductCellViewModel(name: title, price: "\(String(describing: price))", imgUrl: "\(String(describing: image))",id: id)
     }
     
     

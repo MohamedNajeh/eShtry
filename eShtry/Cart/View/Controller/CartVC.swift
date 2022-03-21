@@ -98,6 +98,16 @@ class CartVC: UIViewController {
             print("hide Loading")
 
         }
+        
+        viewModel.updateCashPriceLabel = {
+            DispatchQueue.main.async {
+                self.cashLabel.text      = "\(self.viewModel.totalPrice)"
+                self.numberOfItems.text  = "( \(self.viewModel.numberOfCells) Items )"
+            }
+        }
+        
+        
+        
     }
     
     func testApi(){
@@ -469,7 +479,7 @@ class CartVC: UIViewController {
     
     private func configureNumberOfItemsLabel(){
         bottomView.addSubview(numberOfItems)
-        numberOfItems.text = "( 10 items)"
+        numberOfItems.text = ""
         NSLayoutConstraint.activate([
             numberOfItems.centerYAnchor.constraint(equalTo: subTotalLabel.centerYAnchor),
             numberOfItems.leadingAnchor.constraint(equalTo: subTotalLabel.trailingAnchor, constant: 10),
@@ -569,7 +579,17 @@ class CartVC: UIViewController {
         let cell = cartItemsTableView.cellForRow(at: IndexPath(row: sender.indexPath.row, section: sender.indexPath.section)) as! CartItemTableViewCell
         
         if cell.amountLabel.text != "1"{
-            cell.amountLabel.text = String((Int(cell.amountLabel.text ?? "0") ?? 0) - 1)
+            let qty = String((Int(cell.amountLabel.text ?? "0") ?? 0) - 1)
+            cell.amountLabel.text = qty
+            let cartToBeUpdated = viewModel.getCellViewModel(at: sender.indexPath)
+            
+            let item = CartItem(name: cartToBeUpdated.name, price: cartToBeUpdated.price, imgUrl: cartToBeUpdated.imgUrl,id:cartToBeUpdated.id,qty: qty)
+            CoreDataManager.shared.insertCartItem(cartItem: item,qtyTypeProcess: .subtraction)
+            
+            guard let price = Int(item.price) else {return}
+            var  cash = Int(self.cashLabel.text!)!
+            cash -= price
+            self.cashLabel.text = "\(cash)"
             performAnimationForCartButtons(button: cell.minusBtn)
         }
         
@@ -582,8 +602,18 @@ class CartVC: UIViewController {
         print("plus Btn ")
         print("indexPath is \(sender.indexPath)")
         let cell = cartItemsTableView.cellForRow(at: IndexPath(row: sender.indexPath.row, section: sender.indexPath.section)) as! CartItemTableViewCell
-        cell.amountLabel.text = String((Int(cell.amountLabel.text ?? "0") ?? 0) + 1)
-        print("plus is : \(cell.amountLabel.text!)")
+        let qty = String((Int(cell.amountLabel.text ?? "0") ?? 0) + 1)
+        cell.amountLabel.text = qty
+        print("plus is : \(qty)")
+        let cartToBeUpdated = viewModel.getCellViewModel(at: sender.indexPath)
+        
+        let item = CartItem(name: cartToBeUpdated.name, price: cartToBeUpdated.price, imgUrl: cartToBeUpdated.imgUrl,id:cartToBeUpdated.id,qty: qty)
+        CoreDataManager.shared.insertCartItem(cartItem: item,qtyTypeProcess: .addition)
+        
+        guard let price = Int(item.price) else {return}
+        var  cash = Int(self.cashLabel.text!)!
+        cash += price
+        self.cashLabel.text = "\(cash)"
         performAnimationForCartButtons(button: cell.plusBtn)
         
         

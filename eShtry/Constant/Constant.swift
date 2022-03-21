@@ -56,6 +56,11 @@ enum typeOfButton{
     case exitBtn
 }
 
+enum qtyTypeProcess{
+    case addition
+    case subtraction
+}
+
 
 enum httpMethod:String{
     case post = "POST"
