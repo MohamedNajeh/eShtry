@@ -97,6 +97,8 @@
 		46BFE3BA27E1AA5400E9D5EF /* backgroundVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 46BFE3B927E1AA5400E9D5EF /* backgroundVideo.mp4 */; };
 		5B31820327E8CDF800322531 /* AddressVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31820227E8CDF800322531 /* AddressVM.swift */; };
 		5B31820527E8CE2900322531 /* AddressCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31820427E8CE2900322531 /* AddressCellVM.swift */; };
+		5B91FA0927E9280300355D14 /* VarientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B91FA0727E9280300355D14 /* VarientCell.swift */; };
+		5B91FA0A27E9280300355D14 /* VarientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B91FA0827E9280300355D14 /* VarientCell.xib */; };
 		5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E127D9785E00C17E57 /* AppDelegate.swift */; };
 		5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E327D9785E00C17E57 /* SceneDelegate.swift */; };
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
@@ -228,6 +230,8 @@
 		59AE22A783C47B4E8138ED9A /* Pods_eShtry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShtry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B31820227E8CDF800322531 /* AddressVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressVM.swift; sourceTree = "<group>"; };
 		5B31820427E8CE2900322531 /* AddressCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellVM.swift; sourceTree = "<group>"; };
+		5B91FA0727E9280300355D14 /* VarientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VarientCell.swift; sourceTree = "<group>"; };
+		5B91FA0827E9280300355D14 /* VarientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VarientCell.xib; sourceTree = "<group>"; };
 		5BA095DE27D9785E00C17E57 /* eShtry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShtry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095E127D9785E00C17E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA095E327D9785E00C17E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -338,6 +342,7 @@
 				5BB7777427DFC64700ECAC8B /* SliderCell.swift */,
 				5BB7777627DFC64700ECAC8B /* BrandCell.swift */,
 				5BB7777727DFC64700ECAC8B /* OffersCell.swift */,
+				5B91FA0727E9280300355D14 /* VarientCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -358,6 +363,7 @@
 				5BB7778327DFC65600ECAC8B /* OffersCell.xib */,
 				5BB7778427DFC65600ECAC8B /* ReviewCollectionCell.xib */,
 				5BB7777F27DFC65600ECAC8B /* BrandCell.xib */,
+				5B91FA0827E9280300355D14 /* VarientCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1055,6 +1061,7 @@
 				4663974627E704FA00080728 /* FavoriteSB.storyboard in Resources */,
 				1914DEFF27DFAE9B00931E5D /* Almarai-Light.ttf in Resources */,
 				5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */,
+				5B91FA0A27E9280300355D14 /* VarientCell.xib in Resources */,
 				46BFE3BA27E1AA5400E9D5EF /* backgroundVideo.mp4 in Resources */,
 				1914DEFD27DFAE9B00931E5D /* Almarai-ExtraBold.ttf in Resources */,
 				1914DEFE27DFAE9B00931E5D /* Almarai-Regular.ttf in Resources */,
@@ -1137,6 +1144,7 @@
 				5B31820527E8CE2900322531 /* AddressCellVM.swift in Sources */,
 				197CA85B27E15F440032A605 /* TotalDiscountsSet.swift in Sources */,
 				197CA87327E166BD0032A605 /* TotalDiscountSet.swift in Sources */,
+				5B91FA0927E9280300355D14 /* VarientCell.swift in Sources */,
 				197CA85F27E15FFA0032A605 /* TotalPriceSet.swift in Sources */,
 				19CDC89427E75C07009B0E9F /* CategoryViewModel.swift in Sources */,
 				46985B4C27E0A07B003E3958 /* OnBoardingVC.swift in Sources */,

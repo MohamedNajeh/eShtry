@@ -11,10 +11,8 @@ class ReviewCollectionCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.layer.borderWidth = 1
-        contentView.layer.cornerRadius = 8
-        contentView.layer.shadowColor = UIColor.black.cgColor
-        contentView.backgroundColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 0.75)
+        contentView.layer.cornerRadius = 20
+        contentView.backgroundColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)
     }
 
 }

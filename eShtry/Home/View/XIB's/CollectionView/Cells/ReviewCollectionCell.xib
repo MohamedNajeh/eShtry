@@ -17,20 +17,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="553" height="177"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="56H-Fy-z6W">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="56H-Fy-z6W">
                         <rect key="frame" x="5" y="5" width="543" height="167"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fgN-eg-umo">
-                                <rect key="frame" x="0.0" y="0.0" width="350" height="72.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fgN-eg-umo">
+                                <rect key="frame" x="0.0" y="0.0" width="237" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.91" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch5-d6-6K4">
-                                        <rect key="frame" x="0.0" y="12.5" width="170" height="48"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="2" width="62" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lf2-hw-dSn" customClass="CosmosView" customModule="Cosmos">
-                                        <rect key="frame" x="180" y="21.5" width="170" height="30"/>
+                                        <rect key="frame" x="67" y="5" width="170" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -51,11 +51,11 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdq-cW-DoM">
-                                <rect key="frame" x="0.0" y="94.5" width="485.5" height="72.5"/>
+                                <rect key="frame" x="0.0" y="62" width="543" height="105"/>
                                 <string key="text">really like it! The only downside to having a ridge is its a popular conversation piece. I'm always asked about it
 and have conversations with everyone everytime I pull it out.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

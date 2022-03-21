@@ -89,7 +89,7 @@ class ClientQuery {
                 .id()
                 .title()
                 .description()
-                .variants(first:2){ $0
+                .variants(first:5){ $0
                 .edges{ $0
                 .node { $0
                 .title()

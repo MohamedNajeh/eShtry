@@ -9,6 +9,7 @@ import UIKit
 import MobileBuySDK
 class ProductDetailsVC: UITableViewController {
 
+    @IBOutlet weak var varientCollectionView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var reviewsCollectionView: UICollectionView!
@@ -27,6 +28,10 @@ class ProductDetailsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Adidas Shoes"
+        descriptionTextView.layer.borderColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 0.75).cgColor
+        descriptionTextView.layer.borderWidth = 1
+        descriptionTextView.layer.cornerRadius = 15
+        
         pageControl.numberOfPages = (product?.images.edges.count)!
         infoView.layer.cornerRadius = 20
         addToBagBtnOutlet.layer.cornerRadius = 20
@@ -34,9 +39,10 @@ class ProductDetailsVC: UITableViewController {
         productName.text = product?.title
         productPrice.text = "\(String(describing: (product?.priceRange.minVariantPrice.amount)!))"
         descriptionTextView.text = product?.description
-        varientsLbl.text = product?.variants.edges[0].node.title
+//        varientsLbl.text = product?.variants.edges[0].node.title
         
         reviewsCollectionView.register(UINib(nibName: "ReviewCollectionCell", bundle: nil), forCellWithReuseIdentifier: "reviewCell")
+        varientCollectionView.register(UINib(nibName: "VarientCell", bundle: nil), forCellWithReuseIdentifier: "VarientCell")
         startTimer()
     }
 //    func fetchProductDetails(title:String){
@@ -93,7 +99,13 @@ extension ProductDetailsVC : UICollectionViewDelegate , UICollectionViewDataSour
             let reviewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as! ReviewCollectionCell
             return reviewCell
         }
+        if collectionView == varientCollectionView {
+            let varCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VarientCell", for: indexPath) as! VarientCell
+            varCell.varientTitle.text = product?.variants.edges[indexPath.row].node.title
+            return varCell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCell", for: indexPath) as! SliderCell
+        cell.sliderImg.contentMode = .scaleAspectFit
         cell.sliderImg.downloadImg(from:"\((product?.images.edges[indexPath.row].node.url)!)")
         return cell
     }
@@ -104,12 +116,18 @@ extension ProductDetailsVC : UICollectionViewDelegate , UICollectionViewDataSour
                 return 2
             }
         }
+        if collectionView == varientCollectionView {
+            return product?.variants.edges.count ?? 0
+        }
         return (product?.images.edges.count)!
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == reviewsCollectionView{
             return CGSize(width: reviewsCollectionView.frame.width, height: reviewsCollectionView.frame.height / 2.5)
+        }
+        if collectionView == varientCollectionView {
+            return CGSize(width: varientCollectionView.frame.width / 2.5, height: varientCollectionView.frame.height)
         }
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
