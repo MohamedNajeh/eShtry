@@ -21,26 +21,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="186" height="217.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="mXf-IQ-OVL">
-                        <rect key="frame" x="10" y="217.5" width="166" height="64.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mXf-IQ-OVL">
+                        <rect key="frame" x="10" y="222.5" width="166" height="59.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zV3-h1-G0K">
-                                <rect key="frame" x="0.0" y="0.0" width="156" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zV3-h1-G0K">
+                                <rect key="frame" x="0.0" y="0.0" width="49.5" height="34.5"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awt-bi-JsN">
-                                <rect key="frame" x="0.0" y="38.5" width="39" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awt-bi-JsN">
+                                <rect key="frame" x="0.0" y="39.5" width="48.5" height="20"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="zV3-h1-G0K" firstAttribute="height" secondItem="mXf-IQ-OVL" secondAttribute="height" multiplier="0.6" id="Kqa-dc-ViP"/>
-                            <constraint firstAttribute="trailing" secondItem="zV3-h1-G0K" secondAttribute="trailing" constant="10" id="wp3-g8-ec5"/>
-                        </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXe-Ah-ZNa">
                         <rect key="frame" x="151" y="5" width="30" height="30"/>
@@ -62,7 +56,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="oIl-FP-7ZZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="81q-ja-vnd"/>
-                <constraint firstItem="mXf-IQ-OVL" firstAttribute="top" secondItem="oIl-FP-7ZZ" secondAttribute="bottom" id="96F-OD-N0Z"/>
+                <constraint firstItem="mXf-IQ-OVL" firstAttribute="top" secondItem="oIl-FP-7ZZ" secondAttribute="bottom" constant="5" id="96F-OD-N0Z"/>
                 <constraint firstAttribute="bottom" secondItem="mXf-IQ-OVL" secondAttribute="bottom" constant="8" id="WTc-Kr-reR"/>
                 <constraint firstItem="mXf-IQ-OVL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="c8l-Ee-RbQ"/>
                 <constraint firstItem="oIl-FP-7ZZ" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.75" id="j2R-jL-LWT"/>

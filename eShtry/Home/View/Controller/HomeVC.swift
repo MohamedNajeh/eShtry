@@ -18,7 +18,8 @@ class HomeVC: UIViewController {
     
     var collectionsArr = [SmartCollection]()
     var productsArr    = [Products]()
-    
+    var offersImages = ["of1","of2","of3","of4","of5"]
+    var addsImages = ["s1","s2","s3","s4","s5"]
     let networkShared = NetworkManager.shared
     
     let viewModel = HomeViewModel()
@@ -349,11 +350,11 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
         switch indexPath.section {
         case 0:
             let sliderCell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCell", for: indexPath) as! SliderCell
-            sliderCell.sliderImg.image = UIImage(named: "add")
+            sliderCell.sliderImg.image = UIImage(named: addsImages[indexPath.row])
             return sliderCell
         case 1:
             let offersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "offersCell", for: indexPath) as! OffersCell
-            offersCell.offerImg.image = UIImage(named: "offer2")
+            offersCell.offerImg.image = UIImage(named: offersImages[indexPath.row])
             return offersCell
         case 2:
             let brandCell = collectionView.dequeueReusableCell(withReuseIdentifier: "brandCell", for: indexPath) as! BrandCell
@@ -395,7 +396,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             
         default:
             let offersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "offersCell", for: indexPath) as! OffersCell
-            offersCell.offerImg.image = UIImage(named: "offer1")
+            offersCell.offerImg.image = UIImage(named: offersImages[indexPath.row])
             return offersCell
         }
         //        cell.backgroundColor = UIColor(hue: CGFloat(drand48()), saturation: 1, brightness: 1, alpha: 1)
