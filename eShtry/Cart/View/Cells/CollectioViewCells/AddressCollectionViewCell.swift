@@ -41,7 +41,13 @@ class AddressCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    
+    func configure(cellVM: AddressCellViewModel){
+        self.addressTitle.text = cellVM.addressTitle
+        self.owner.text        = cellVM.owner
+        self.phoneNumber.text  = cellVM.phoneNumber
+        self.address.text      = "\(cellVM.cityCountry) \n \(cellVM.address) "
+        
+    }
     
     private func configure(){
         contentView.addSubview(cellView)
@@ -68,7 +74,7 @@ class AddressCollectionViewCell: UICollectionViewCell {
     
     private func configureAddressTitle(){
         cellView.addSubview(addressTitle)
-        addressTitle.text = "Address Title"
+        addressTitle.text = ""
         NSLayoutConstraint.activate([
             addressTitle.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 15),
             addressTitle.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10),
@@ -79,7 +85,7 @@ class AddressCollectionViewCell: UICollectionViewCell {
     
     private func configureOwner(){
         cellView.addSubview(owner)
-        owner.text = "Address owner"
+        owner.text = ""
         NSLayoutConstraint.activate([
             owner.topAnchor.constraint(equalTo: addressTitle.bottomAnchor, constant: 10),
             owner.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10),
@@ -90,7 +96,7 @@ class AddressCollectionViewCell: UICollectionViewCell {
     
     private func configurePhoneNumber(){
         cellView.addSubview(phoneNumber)
-        phoneNumber.text = "01009452129"
+        phoneNumber.text = ""
         NSLayoutConstraint.activate([
             phoneNumber.topAnchor.constraint(equalTo: owner.bottomAnchor, constant: 10),
             phoneNumber.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10),
@@ -101,7 +107,7 @@ class AddressCollectionViewCell: UICollectionViewCell {
     
     private func configureAddress(){
         cellView.addSubview(address)
-        address.text = "AddressAddressAddressAddressAddressAddressAddressAddressAddressAddressAddressAddressAddressAddressAddressAddressAddressAddressAddress"
+        address.text = ""
         address.numberOfLines = 3
         NSLayoutConstraint.activate([
             address.topAnchor.constraint(equalTo: phoneNumber.bottomAnchor),
