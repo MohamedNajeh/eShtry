@@ -95,6 +95,8 @@
 		46BFE3B327E1948D00E9D5EF /* SearchSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BFE3B227E1948D00E9D5EF /* SearchSB.storyboard */; };
 		46BFE3B727E199E300E9D5EF /* SearchingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BFE3B627E199E300E9D5EF /* SearchingCell.swift */; };
 		46BFE3BA27E1AA5400E9D5EF /* backgroundVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 46BFE3B927E1AA5400E9D5EF /* backgroundVideo.mp4 */; };
+		5B31820327E8CDF800322531 /* AddressVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31820227E8CDF800322531 /* AddressVM.swift */; };
+		5B31820527E8CE2900322531 /* AddressCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31820427E8CE2900322531 /* AddressCellVM.swift */; };
 		5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E127D9785E00C17E57 /* AppDelegate.swift */; };
 		5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E327D9785E00C17E57 /* SceneDelegate.swift */; };
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
@@ -224,6 +226,8 @@
 		46BFE3B627E199E300E9D5EF /* SearchingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingCell.swift; sourceTree = "<group>"; };
 		46BFE3B927E1AA5400E9D5EF /* backgroundVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = backgroundVideo.mp4; sourceTree = "<group>"; };
 		59AE22A783C47B4E8138ED9A /* Pods_eShtry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShtry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B31820227E8CDF800322531 /* AddressVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressVM.swift; sourceTree = "<group>"; };
+		5B31820427E8CE2900322531 /* AddressCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellVM.swift; sourceTree = "<group>"; };
 		5BA095DE27D9785E00C17E57 /* eShtry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShtry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095E127D9785E00C17E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA095E327D9785E00C17E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 		1914DEC827DFAE9B00931E5D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5B31820127E8CDE400322531 /* AddressVM */,
 				1914DEC927DFAE9B00931E5D /* CartViewModel.swift */,
 				197BA51C27E5C53B00859893 /* CartItemCellViewModel.swift */,
 			);
@@ -842,6 +847,15 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		5B31820127E8CDE400322531 /* AddressVM */ = {
+			isa = PBXGroup;
+			children = (
+				5B31820227E8CDF800322531 /* AddressVM.swift */,
+				5B31820427E8CE2900322531 /* AddressCellVM.swift */,
+			);
+			path = AddressVM;
+			sourceTree = "<group>";
+		};
 		5BA095D527D9785E00C17E57 = {
 			isa = PBXGroup;
 			children = (
@@ -1120,6 +1134,7 @@
 				1914DEFB27DFAE9B00931E5D /* CartItem.swift in Sources */,
 				1914DEF627DFAE9B00931E5D /* CartVC.swift in Sources */,
 				5BB7778E27DFC66E00ECAC8B /* BrandProductsVC.swift in Sources */,
+				5B31820527E8CE2900322531 /* AddressCellVM.swift in Sources */,
 				197CA85B27E15F440032A605 /* TotalDiscountsSet.swift in Sources */,
 				197CA87327E166BD0032A605 /* TotalDiscountSet.swift in Sources */,
 				197CA85F27E15FFA0032A605 /* TotalPriceSet.swift in Sources */,
@@ -1144,6 +1159,7 @@
 				1932DD1427E4CA6100A870BA /* UIViewController+Extension.swift in Sources */,
 				194E0CC827E0D653005CE014 /* Images.swift in Sources */,
 				194E0CDA27E0DE59005CE014 /* Rules.swift in Sources */,
+				5B31820327E8CDF800322531 /* AddressVM.swift in Sources */,
 				197CA87127E164720032A605 /* CurrentTotalPriceSet.swift in Sources */,
 				4663974C27E7052300080728 /* FavoriteCell.swift in Sources */,
 				191D933027E21ACA008D0E89 /* Countries.swift in Sources */,

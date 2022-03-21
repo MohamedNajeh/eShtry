@@ -44,7 +44,8 @@ class CartVC: UIViewController {
     
     var ordersArr = [Orders]()
     
-    let viewModel = CartViewModel()
+    let viewModel        = CartViewModel()
+    let addressViewModel = AddressViewModel()
     
     var cartItemPrice = 0
     
@@ -80,6 +81,7 @@ class CartVC: UIViewController {
         
         testApi()
         updateViewWithLoadingView()
+        updateLocationViewWithAddress()
         
         
     }
@@ -108,6 +110,14 @@ class CartVC: UIViewController {
         
         
         
+    }
+    
+    func updateLocationViewWithAddress(){
+        addressViewModel.relodCollectionViewClosure = {
+            DispatchQueue.main.async {
+                self.addressCollectionView.reloadData()
+            }
+        }
     }
     
     func testApi(){
@@ -195,6 +205,7 @@ class CartVC: UIViewController {
         super.viewWillAppear(animated)
         configureView()
         viewModel.fetchCartItems()
+        addressViewModel.fetchDataFromApi()
         
     }
     
@@ -719,11 +730,12 @@ extension CartVC: UITableViewDelegate{
 
 extension CartVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return addressViewModel.numberOfCells
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddressCollectionViewCell.reuseID, for: indexPath) as! AddressCollectionViewCell
+        cell.configure(cellVM: addressViewModel.getCellViewModel(at: indexPath))
         return cell
     }
     
