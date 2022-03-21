@@ -672,8 +672,7 @@
 		6323C519A8DE0D80088F8E8926F2B969 /* SellingPlanOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SellingPlanOption.swift; path = Buy/Generated/Storefront/SellingPlanOption.swift; sourceTree = "<group>"; };
 		6395EEF70D5655B8B7FA7BE5B49ECF67 /* PaymentTokenType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentTokenType.swift; path = Buy/Generated/Storefront/PaymentTokenType.swift; sourceTree = "<group>"; };
 		63C43CA58EE09166EF6F5466AB672AE2 /* ReachabilitySwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ReachabilitySwift-Info.plist"; sourceTree = "<group>"; };
-
-		6504D24881E2D17114A6F8949B62AF62 /* Pods_eShtry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eShtry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6504D24881E2D17114A6F8949B62AF62 /* Pods-eShtry */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-eShtry"; path = Pods_eShtry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E5068F1C49BE34298F0623173C1CCD /* UnitSystem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnitSystem.swift; path = Buy/Generated/Storefront/UnitSystem.swift; sourceTree = "<group>"; };
 		670790A467D68D8D00AA345145E049F7 /* SizeExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SizeExtensions.swift; path = Sources/Utility/SizeExtensions.swift; sourceTree = "<group>"; };
 		67B184FEE69A06B360FADFEEBEF67030 /* CallbackQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CallbackQueue.swift; path = Sources/Utility/CallbackQueue.swift; sourceTree = "<group>"; };
@@ -760,8 +759,7 @@
 		9D5158209B91FAD9E20B1F83E0B8DA77 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		9D51AA9B500BBD3818F62165CE52619F /* CartCreatePayload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CartCreatePayload.swift; path = Buy/Generated/Storefront/CartCreatePayload.swift; sourceTree = "<group>"; };
 		9D65B262F2EC41A7BC1216E2331B4066 /* FulfillmentLineItemConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FulfillmentLineItemConnection.swift; path = Buy/Generated/Storefront/FulfillmentLineItemConnection.swift; sourceTree = "<group>"; };
-
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EE424939C39B0A56AC150B1FEB36F07 /* SellingPlanAllocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SellingPlanAllocation.swift; path = Buy/Generated/Storefront/SellingPlanAllocation.swift; sourceTree = "<group>"; };
 		9F228E761A1439797931F97BBE6DA99F /* RedirectHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RedirectHandler.swift; path = Sources/Networking/RedirectHandler.swift; sourceTree = "<group>"; };
 		9F295065FAE99E572858728D6E500241 /* CosmosAccessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosAccessibility.swift; path = Cosmos/CosmosAccessibility.swift; sourceTree = "<group>"; };
@@ -1035,8 +1033,7 @@
 				05C4280976BF93DA8B36818DE2E2A5E0 /* Cosmos */,
 				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
 				40DEAEEF8EB2468E9D4F1E88D2158353 /* Mobile-Buy-SDK */,
-
-				6504D24881E2D17114A6F8949B62AF62 /* Pods_eShtry.framework */,
+				6504D24881E2D17114A6F8949B62AF62 /* Pods-eShtry */,
 				21B03CA622E690725A6626C088E1D09F /* ReachabilitySwift */,
 			);
 			name = Products;
@@ -1063,6 +1060,7 @@
 				A3C240028DB2C5EDEC3F30807AC9B5CA /* Reachability.swift */,
 				CF346DBB7160A8C0913E56F6D1141F61 /* Support Files */,
 			);
+			name = ReachabilitySwift;
 			path = ReachabilitySwift;
 			sourceTree = "<group>";
 		};
@@ -1107,6 +1105,7 @@
 				366229A167FBD8D054E811D9E79060C1 /* Validation.swift */,
 				F7B6A3725F6AC59A8EEA27B4293C3954 /* Support Files */,
 			);
+			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1158,7 +1157,6 @@
 			sourceTree = "<group>";
 		};
 		A7A1F57AD60F6219E288F2698F4CC4EB /* Kingfisher */ = {
-
 			isa = PBXGroup;
 			children = (
 				6243F04F8A4F10F646B4958FE3646805 /* AnimatedImageView.swift */,
@@ -1588,7 +1586,7 @@
 				4E798E96B37C536A62AB840ED669A15C /* WeightUnit.swift */,
 				5B072AB1623BE40FA6BA618F5818A691 /* Support Files */,
 			);
-
+			name = "Mobile-Buy-SDK";
 			path = "Mobile-Buy-SDK";
 			sourceTree = "<group>";
 		};
@@ -1711,7 +1709,7 @@
 			);
 			name = "Pods-eShtry";
 			productName = Pods_eShtry;
-			productReference = 6504D24881E2D17114A6F8949B62AF62 /* Pods_eShtry.framework */;
+			productReference = 6504D24881E2D17114A6F8949B62AF62 /* Pods-eShtry */;
 			productType = "com.apple.product-type.framework";
 		};
 		0B00B2C167CD783351BD1D00BD5AD1F8 /* ReachabilitySwift */ = {
