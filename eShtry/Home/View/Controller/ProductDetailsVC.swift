@@ -75,12 +75,14 @@ class ProductDetailsVC: UITableViewController {
     }
     
     @IBAction func addToBagButtonPressed(_ sender: Any) {
-        let title = product?.title
-        let price = product?.priceRange.minVariantPrice.amount
-        let image = product?.images.edges[0].node.url
+        guard let title = product?.title else{return}
+        guard let price = product?.priceRange.minVariantPrice.amount else{return}
+        guard let image = product?.images.edges[0].node.url else {return}
+        guard let id    = product?.id else{return}
+        let qty         = 1
         
-        let item = CartItem(name: title!, price: "\(String(describing: price))", imgUrl: "\(String(describing: image))")
-        CoreDataManager.shared.insertCartItem(cartItem: item)
+        let item = CartItem(name: title, price: "\(price)", imgUrl: "\(image)",id:"\(id)",qty: "\(qty)")
+        CoreDataManager.shared.insertCartItem(cartItem: item,qtyTypeProcess: .addition)
         CoreDataManager.shared.updateOrderArr()
     }
 }

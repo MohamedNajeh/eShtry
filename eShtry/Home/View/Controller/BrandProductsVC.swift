@@ -73,7 +73,7 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
         item.configure(cellVM: brnadProductViewModel.getBrandProductCell(at: indexPath))
 
         
-        if(CoreDataManager.shared.isInFovorite(productId: "\(products[indexPath.row].id)")){
+        if(CoreDataManager.shared.isInFovorite(productId: "\(brnadProductViewModel.getBrandProductCell(at: indexPath).id)")){
             item.favoriteButtonOutlet.setImage(UIImage(named: "filldHeart"), for: .normal)
         }else{
             item.favoriteButtonOutlet.setImage(UIImage(named: "emptyHeart"), for: .normal)
@@ -81,9 +81,9 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
         
         item.addToFavorites = { [weak self] in
             guard let self = self else { return }
-            let product = Product(id: "\(self.products[indexPath.row].id)", imageUrl: "\(self.products[indexPath.row].featuredImage!.url)", name: "\(self.products[indexPath.row].title)")
+            let product = Product(id: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).id)", imageUrl: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).imgUrl)", name: "\(self.products[indexPath.row].title)")
             print("product = \(product)")
-            if(CoreDataManager.shared.isInFovorite(productId: "\(self.products[indexPath.row].id)")){
+            if(CoreDataManager.shared.isInFovorite(productId: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).id)")){
                 CoreDataManager.shared.deleteProduct(product: product)
                 item.favoriteButtonOutlet.setImage(UIImage(named: "emptyHeart"), for: .normal)
                 BrandProductsVC.showToast(controller: self, message: "product removed from favorites 🤨", seconds: 1.0)
