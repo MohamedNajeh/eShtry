@@ -19,7 +19,7 @@ class ProductCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        contentView.backgroundColor = UIColor(red: 14/255, green: 90/255, blue: 167/255, alpha: 0.25)
+        contentView.backgroundColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 0.75)
         
 
         productImg.layer.cornerRadius  = 10
