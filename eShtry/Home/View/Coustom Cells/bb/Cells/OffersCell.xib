@@ -18,15 +18,15 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Drd-Tw-B1l">
-                        <rect key="frame" x="5" y="2" width="229" height="118"/>
+                        <rect key="frame" x="2" y="2" width="235" height="118"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="Drd-Tw-B1l" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="Yh2-V0-SG3"/>
-                <constraint firstItem="Drd-Tw-B1l" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="aHs-Zh-23Y"/>
-                <constraint firstAttribute="trailing" secondItem="Drd-Tw-B1l" secondAttribute="trailing" constant="5" id="buu-JB-Tou"/>
+                <constraint firstItem="Drd-Tw-B1l" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="aHs-Zh-23Y"/>
+                <constraint firstAttribute="trailing" secondItem="Drd-Tw-B1l" secondAttribute="trailing" constant="2" id="buu-JB-Tou"/>
                 <constraint firstAttribute="bottom" secondItem="Drd-Tw-B1l" secondAttribute="bottom" constant="2" id="zA1-ua-9Kl"/>
             </constraints>
             <size key="customSize" width="239" height="122"/>

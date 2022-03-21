@@ -17,15 +17,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="105" height="121"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wRK-LN-vkq">
-                        <rect key="frame" x="0.0" y="0.0" width="105" height="70"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="70" id="UyE-XP-bls"/>
-                        </constraints>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wRK-LN-vkq">
+                        <rect key="frame" x="0.0" y="0.0" width="105" height="121"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS8-es-2PH">
-                        <rect key="frame" x="0.0" y="75" width="105" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="0.0" y="99" width="105" height="20"/>
+                        <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="20"/>
+                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -33,12 +31,13 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="yS8-es-2PH" secondAttribute="trailing" id="KGd-BE-Dn3"/>
-                <constraint firstItem="yS8-es-2PH" firstAttribute="top" secondItem="wRK-LN-vkq" secondAttribute="bottom" constant="5" id="OhY-WH-DVg"/>
-                <constraint firstItem="yS8-es-2PH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TDP-OE-uYv"/>
-                <constraint firstItem="wRK-LN-vkq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="n8d-ml-uQl"/>
-                <constraint firstItem="wRK-LN-vkq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ufG-FL-ypw"/>
-                <constraint firstAttribute="trailing" secondItem="wRK-LN-vkq" secondAttribute="trailing" id="yhf-Nd-oiu"/>
+                <constraint firstItem="wRK-LN-vkq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0Bp-jk-npL"/>
+                <constraint firstItem="wRK-LN-vkq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2hU-1z-Ciu"/>
+                <constraint firstAttribute="bottom" secondItem="yS8-es-2PH" secondAttribute="bottom" constant="2" id="B7F-2l-T9x"/>
+                <constraint firstAttribute="trailing" secondItem="yS8-es-2PH" secondAttribute="trailing" id="PNQ-RB-7Jr"/>
+                <constraint firstAttribute="bottom" secondItem="wRK-LN-vkq" secondAttribute="bottom" id="YOK-4P-AJg"/>
+                <constraint firstAttribute="trailing" secondItem="wRK-LN-vkq" secondAttribute="trailing" id="hmn-kQ-E9x"/>
+                <constraint firstItem="yS8-es-2PH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mpe-Xp-WyQ"/>
             </constraints>
             <size key="customSize" width="105" height="121"/>
             <connections>

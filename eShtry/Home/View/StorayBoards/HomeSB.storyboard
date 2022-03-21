@@ -41,7 +41,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8xN-IA-h9X"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="wGa-Z2-ap9" firstAttribute="trailing" secondItem="8xN-IA-h9X" secondAttribute="trailing" id="2ma-rM-S1y"/>
                             <constraint firstItem="wGa-Z2-ap9" firstAttribute="top" secondItem="8xN-IA-h9X" secondAttribute="top" id="Gcp-C7-1uq"/>
@@ -187,7 +187,7 @@
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q44-0f-Cqn">
                                                                     <rect key="frame" x="0.0" y="131.5" width="291" height="60.5"/>
-                                                                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                                    <color key="backgroundColor" red="0.1675863564" green="0.37245666979999997" blue="0.57704728839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </view>
                                                             </subviews>
                                                         </stackView>
@@ -257,7 +257,7 @@
                                         <rect key="frame" x="0.0" y="905" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h2F-yP-pwu" id="A85-uY-K0g">
-                                            <rect key="frame" x="0.0" y="0.0" width="396.5" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="395" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="See More" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtH-cW-aLl">
@@ -389,6 +389,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

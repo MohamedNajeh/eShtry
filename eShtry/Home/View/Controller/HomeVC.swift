@@ -26,19 +26,21 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "eShtry"
         
+        let color:UIColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)
         searchController.searchBar.delegate = self
-        navigationItem.searchController = searchController
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(timeAction))
+       // navigationItem.searchController = searchController
+        configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "eShtry", preferredLargeTitle: true)
+        let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchButtonPressed))
         
-        collectionView.collectionViewLayout = creatCompositionalLayout()
-        collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderView")
-        collectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "sliderCell")
-        collectionView.register(UINib(nibName: "OffersCell", bundle: nil), forCellWithReuseIdentifier: "offersCell")
-        collectionView.register(UINib(nibName: "BrandCell", bundle: nil), forCellWithReuseIdentifier: "brandCell")
-        collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
+        navigationItem.rightBarButtonItem = searchButton
+              
+       
+//        navigationController?.navigationBar.barTintColor = .yellow
+//
         
+        
+        configureCollectionCells()
         getColletionsData()
 //        fetchProductsUsingGrapgQL()
         updateViewWithLoadingView()
@@ -50,6 +52,21 @@ class HomeVC: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    @objc func searchButtonPressed(){
+        let storyboard = UIStoryboard(name: "SearchSB", bundle: nil)
+        let searchVC = storyboard.instantiateViewController(identifier: "SearchResultVC") as! SearchResultVC
+        self.navigationController?.pushViewController(searchVC, animated: true)
+    }
+    
+    func configureCollectionCells(){
+        collectionView.collectionViewLayout = creatCompositionalLayout()
+        collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderView")
+        collectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "sliderCell")
+        collectionView.register(UINib(nibName: "OffersCell", bundle: nil), forCellWithReuseIdentifier: "offersCell")
+        collectionView.register(UINib(nibName: "BrandCell", bundle: nil), forCellWithReuseIdentifier: "brandCell")
+        collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
     }
     
     
@@ -119,9 +136,13 @@ class HomeVC: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchData()
+        collectionView.reloadData()
         if collectionView.contentOffset.y == 0 {
            // startTimer()
-            viewModel.fetchData()
+            
+            
         }
     }
     
@@ -214,15 +235,15 @@ class HomeVC: UIViewController {
     
     func creatThirdSection() -> NSCollectionLayoutSection {
         //smallItems
-        let smallItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.33))
+        let smallItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
         let samllItem = NSCollectionLayoutItem(layoutSize: smallItemSize)
-        samllItem.contentInsets = NSDirectionalEdgeInsets(top: 2.5, leading: 2.5, bottom: 2.5, trailing: 2.5)
+        samllItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
         let largeItem = NSCollectionLayoutItem(layoutSize: largeItemSize)
-        largeItem.contentInsets = NSDirectionalEdgeInsets(top: 2.5, leading: 2.5, bottom: 2.5, trailing: 2.5)
+        largeItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         //Configure Groups
-        let verticalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33), heightDimension: .fractionalHeight(1))
+        let verticalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
         let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize, subitems: [samllItem])
         
         let horizantilGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.4))
@@ -349,9 +370,9 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
 //            productCell.productPrice.text = "\(products[indexPath.row].priceRange.minVariantPrice.amount)"
             productCell.configureHomeProduct(cellVM: productViewModel.getCellViewModel(at: indexPath))
             if(CoreDataManager.shared.isInFovorite(productId: "\(productViewModel.getCellViewModel(at: indexPath).id)")){
-                productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                productCell.favoriteButtonOutlet.setImage(UIImage(named: "filldHeart"), for: .normal)
             }else{
-                productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                productCell.favoriteButtonOutlet.setImage(UIImage(named: "emptyHeart"), for: .normal)
             }
             
             productCell.addToFavorites = { [weak self] in
@@ -360,12 +381,12 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
                 print("product = \(product)")
                 if(CoreDataManager.shared.isInFovorite(productId: "\(self.productViewModel.getCellViewModel(at: indexPath).id)")){
                     CoreDataManager.shared.deleteProduct(product: product)
-                    productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                    productCell.favoriteButtonOutlet.setImage(UIImage(named: "emptyHeart"), for: .normal)
                     BrandProductsVC.showToast(controller: self, message: "product removed from favorites 🤨", seconds: 1.0)
                 }else{
                     CoreDataManager.shared.insert(product: product)
                     BrandProductsVC.showToast(controller: self, message: "product added to favorites 😉", seconds: 1.0)
-                    productCell.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    productCell.favoriteButtonOutlet.setImage(UIImage(named: "filldHeart"), for: .normal)
                 }
                 
             }

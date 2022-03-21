@@ -15,7 +15,7 @@ class BrandCell: UICollectionViewCell {
         super.awakeFromNib()
         brandImg.layer.cornerRadius = 25
         contentView.layer.cornerRadius = 25
-        contentView.backgroundColor = .lightGray
+        contentView.backgroundColor = .white
         // Initialization code
     }
     

@@ -74,9 +74,9 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
 
         
         if(CoreDataManager.shared.isInFovorite(productId: "\(products[indexPath.row].id)")){
-            item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            item.favoriteButtonOutlet.setImage(UIImage(named: "filldHeart"), for: .normal)
         }else{
-            item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+            item.favoriteButtonOutlet.setImage(UIImage(named: "emptyHeart"), for: .normal)
         }
         
         item.addToFavorites = { [weak self] in
@@ -85,12 +85,12 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
             print("product = \(product)")
             if(CoreDataManager.shared.isInFovorite(productId: "\(self.products[indexPath.row].id)")){
                 CoreDataManager.shared.deleteProduct(product: product)
-                item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                item.favoriteButtonOutlet.setImage(UIImage(named: "emptyHeart"), for: .normal)
                 BrandProductsVC.showToast(controller: self, message: "product removed from favorites 🤨", seconds: 1.0)
             }else{
                 CoreDataManager.shared.insert(product: product)
                 BrandProductsVC.showToast(controller: self, message: "product added to favorites 😉", seconds: 1.0)
-                item.favoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                item.favoriteButtonOutlet.setImage(UIImage(named: "filldHeart"), for: .normal)
             }
             
         }
