@@ -157,7 +157,7 @@ extension CategoryVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == productstableView && !isHiddenViews[indexPath.row]{
-            return 250
+            return 220
         }
 
         return 70

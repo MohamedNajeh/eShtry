@@ -39,14 +39,14 @@ class SearchingCell: UITableViewCell {
     
     
     func configureCell(product:Storefront.Product){
-        productImageView.downloadImg(from: "\((product.featuredImage?.url)!)")
+        productImageView.setImage(with: "\((product.featuredImage?.url)!)")
             productnamelabel.text = product.title
         }
     
     
         
         func configureCell(category:SmartCollection){
-            productImageView.downloadImg(from: (category.image?.src)!)
+            productImageView.setImage(with: (category.image?.src)!)
             productnamelabel.text = category.title
         }
     

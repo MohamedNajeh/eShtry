@@ -22,7 +22,8 @@ class BrandCell: UICollectionViewCell {
     
     func configureCell(cell:BrandCellViewModel){
         self.brandName.text = cell.name
-        self.brandImg.downloadImg(from: "\(cell.imgUrl)")
+//        self.brandImg.downloadImg(from: "\(cell.imgUrl)")
+        self.brandImg.setImage(with: "\(cell.imgUrl)")
     }
 
 }
