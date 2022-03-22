@@ -12,14 +12,15 @@ class HomeVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var currentIndex = 0
     var timer:Timer?
+    var shouldAnimate = true
     var products:[Storefront.Product] = []
     var mov = [1,2,3,2,1,4,5,2,21,21,32,6]
     let color:UIColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)
     
     var collectionsArr = [SmartCollection]()
     var productsArr    = [Products]()
-    var offersImages = ["of1","of2","of3","of4","of5"]
-    var addsImages = ["s1","s2","s3","s4","s5"]
+    var offersImages = ["of1","s2","s1","s1","of5"]
+    var addsImages = ["s1","s2","of1","s4","s5"]
     let networkShared = NetworkManager.shared
     
     let viewModel = HomeViewModel()
@@ -114,17 +115,11 @@ class HomeVC: UIViewController {
         super.viewWillAppear(animated)
         viewModel.fetchData()
         collectionView.reloadData()
-        if collectionView.contentOffset.y == 0 {
-            // startTimer()
-            
-            
-        }
+        startTimer()
     }
     
     func startTimer(){
-        DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.timeAction), userInfo: nil, repeats: true)
-        }
     }
     
     func stopTimer(){
@@ -133,10 +128,8 @@ class HomeVC: UIViewController {
     }
     
     @objc func timeAction(){
-        if collectionView.contentOffset.y > 0 {
-            stopTimer()
-        }else{
-            if currentIndex < 19 {
+        if shouldAnimate {
+        if currentIndex < addsImages.count - 1 {
                 currentIndex += 1
             }else{
                 currentIndex = 0
@@ -314,6 +307,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
+            shouldAnimate = true
             let sliderCell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCell", for: indexPath) as! SliderCell
             sliderCell.sliderImg.image = UIImage(named: addsImages[indexPath.row])
             return sliderCell
@@ -354,6 +348,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             return productCell
             
         default:
+            shouldAnimate = false
             let offersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "offersCell", for: indexPath) as! OffersCell
             offersCell.offerImg.image = UIImage(named: offersImages[indexPath.row])
             return offersCell

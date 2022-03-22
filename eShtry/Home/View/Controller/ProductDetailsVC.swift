@@ -30,6 +30,7 @@ class ProductDetailsVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerCollectionCells()
         configureVCComponent()
         startTimer()
     }
