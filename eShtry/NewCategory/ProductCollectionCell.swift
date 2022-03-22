@@ -21,7 +21,8 @@ class ProductCollectionCell: UICollectionViewCell {
     
     
     func configureCell(image:URL , title:String){
-        productImageView.downloadImg(from: "\(image)")
+//        productImageView.downloadImg(from: "\(image)")
+        productImageView.setImage(with: "\(image)")
         productLabel.text = title
     }
 }

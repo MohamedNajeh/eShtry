@@ -38,7 +38,8 @@ class CartItemTableViewCell: UITableViewCell {
     func configureCell(cell:CartItemCellViewModel){
         self.cellTitle.text = cell.name
         self.cellPrice.text = cell.price
-        self.cellImage.downloadImg(from: "\(cell.imgUrl)")
+//        self.cellImage.downloadImg(from: "\(cell.imgUrl)")
+        self.cellImage.setImage(with: "\(cell.imgUrl)")
         self.amountLabel.text = cell.qty
     }
     

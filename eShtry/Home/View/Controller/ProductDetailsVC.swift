@@ -106,7 +106,7 @@ extension ProductDetailsVC : UICollectionViewDelegate , UICollectionViewDataSour
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCell", for: indexPath) as! SliderCell
         cell.sliderImg.contentMode = .scaleAspectFit
-        cell.sliderImg.downloadImg(from:"\((product?.images.edges[indexPath.row].node.url)!)")
+        cell.sliderImg.setImage(with:"\((product?.images.edges[indexPath.row].node.url)!)")
         return cell
     }
     

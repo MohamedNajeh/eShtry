@@ -13,10 +13,11 @@ class FavoritesVC: UIViewController {
     @IBOutlet weak var emtyStateView: UIView!
     
     var favorites:[Product] = []
-    
+    let color:UIColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
        configureTableView()
+       configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "Favorites", preferredLargeTitle: true)
     }
     
     
@@ -58,7 +59,8 @@ extension FavoritesVC:UITableViewDelegate , UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCell.reuseID, for: indexPath)as! FavoriteCell
         cell.productNameLabel.text = favorites[indexPath.row].name
         print("image url = \((favorites[indexPath.row].imageUrl))")
-        cell.productImageView.downloadImg(from: favorites[indexPath.row].imageUrl)
+//        cell.productImageView.downloadImg(from: favorites[indexPath.row].imageUrl)
+        cell.productImageView.setImage(with: favorites[indexPath.row].imageUrl)
         cell.productCreationDateLabel.text = "20/12/2021"
         cell.removeFromFavorites = { [weak self] in
             FavoritesVC.presentAlert(controller: self!, title: "Delete Product ⛔️", message: "Are sure you want to delet product from favorites", style: .actionSheet, actionTitle: "Yes") { (_) in

@@ -29,21 +29,24 @@ class ProductCell: UICollectionViewCell {
     func configure(cellVM:BrandProductCellViewModel){
         self.productName.text = cellVM.name
         self.productPrice.text = cellVM.price
-        self.productImg.downloadImg(from: cellVM.imgUrl)
+//        self.productImg.downloadImg(from: cellVM.imgUrl)
+        self.productImg.setImage(with: cellVM.imgUrl)
     }
     
     
     func configureHomeProduct(cellVM:HomeProductCellViewModel){
         self.productName.text = cellVM.name
         self.productPrice.text = cellVM.price
-        self.productImg.downloadImg(from: cellVM.imgUrl)
+//        self.productImg.downloadImg(from: cellVM.imgUrl)
+        self.productImg.setImage(with: cellVM.imgUrl)
     }
     
     
     
     func downloadImg(from urlString: String){
         
-        productImg.downloadImg(from: urlString)
+//        productImg.downloadImg(from: urlString).
+        productImg.setImage(with: urlString)
 
     }
 
