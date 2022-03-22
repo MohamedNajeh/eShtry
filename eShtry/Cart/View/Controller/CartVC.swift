@@ -241,7 +241,9 @@ class CartVC: UIViewController {
             headerView.topAnchor.constraint(equalTo: view.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 60)
+//            headerView.heightAnchor.constraint(equalToConstant: 60)
+            headerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1)
+
         ])
     }
     
@@ -552,11 +554,9 @@ class CartVC: UIViewController {
     }
     
     @objc func pushCompleteCartVC(){
-        guard let addressToSave = addressToSave else{return}
         let completeCartVC = CompleteOrderVC()
         
          
-        CoreDataManager.shared.saveAddress(address:addressToSave )
         self.navigationController?.pushViewController(completeCartVC, animated: true)
         
         
@@ -857,6 +857,7 @@ extension CartVC:UICollectionViewDelegate{
         self.locationLabel.text = cell.address.text
         self.addressIndexPath = indexPath
         self.addressToSave = AddressCellViewModel(addressTitle: cell.addressTitle.text!, owner: cell.owner.text!, phoneNumber: cell.phoneNumber.text!, cityCountry: "egypt", address: cell.address.text!, isDefault: "isDefault")
+        CoreDataManager.shared.saveAddress(address:addressToSave )
     }
     
 }

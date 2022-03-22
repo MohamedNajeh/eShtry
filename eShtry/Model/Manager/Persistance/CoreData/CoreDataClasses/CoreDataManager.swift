@@ -355,10 +355,12 @@ class CoreDataManager{
                 addressUpdate.setValue(address.owner, forKey: "owner")
                 addressUpdate.setValue(address.phoneNumber, forKey: "phoneNumber")
                 addressUpdate.setValue(address.cityCountry, forKey: "cityCountry")
-                
-                }
                 self.saveContext()
                 success = true
+            }else{
+                success = false
+            }
+
             }
 
         catch let error as NSError {

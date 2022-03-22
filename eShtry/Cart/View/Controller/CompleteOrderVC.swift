@@ -104,16 +104,18 @@ class CompleteOrderVC: UIViewController {
     }
     
     func updateAddress(){
-        viewModel.updateShipmentAddressClosure = {
-            print("address should be updated")
-            self.shipmentDescription.text = self.viewModel.getShipmentAddress()
-        }
         
         viewModel.updateTitleAddressClosure = {
             print("updateTitleAddressClosure")
             self.shipmentTitle.text = self.viewModel.getTitle()
 
         }
+
+        viewModel.updateShipmentAddressClosure = {
+            print("address should be updated")
+            self.shipmentDescription.text = self.viewModel.getShipmentAddress()
+        }
+        
         
         viewModel.reloadCollectionViewClosure = {
             DispatchQueue.main.async {
@@ -142,7 +144,9 @@ class CompleteOrderVC: UIViewController {
             headerView.topAnchor.constraint(equalTo: view.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 60)
+//            headerView.heightAnchor.constraint(equalToConstant: 60)
+            headerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1)
+
         ])
     }
     
@@ -152,8 +156,8 @@ class CompleteOrderVC: UIViewController {
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
 //            usernameLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
-//            usernameLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10)
-            titleLabel.topAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.topAnchor, constant: 10)
+            titleLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10)
+//            titleLabel.topAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
     }
     
