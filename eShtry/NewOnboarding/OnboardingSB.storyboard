@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zie-6d-UuW">
-                                        <rect key="frame" x="36" y="346" width="342" height="204"/>
+                                        <rect key="frame" x="36" y="386.5" width="342" height="123"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover new Local Products For this online Shopping Store" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2M5-F8-DND">
                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="123"/>
@@ -29,27 +29,31 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZl-Xb-cRR">
-                                                <rect key="frame" x="0.0" y="139" width="342" height="65"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="65" id="l9g-j7-2bi"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
-                                                <state key="normal" title="Get Started">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="getStartedButtonClicked:" destination="NgJ-6D-miA" eventType="touchUpInside" id="bem-cu-ueF"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZl-Xb-cRR">
+                                        <rect key="frame" x="20" y="718" width="374" height="60"/>
+                                        <color key="backgroundColor" red="0.16736128929999999" green="0.36786946650000002" blue="0.56931060550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Pvu-Dw-urO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
+                                        <state key="normal" title="Get Started">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getStartedButtonClicked:" destination="NgJ-6D-miA" eventType="touchUpInside" id="bem-cu-ueF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="zie-6d-UuW" firstAttribute="centerY" secondItem="jL8-nG-uvW" secondAttribute="centerY" id="9zR-V8-WVh"/>
                                     <constraint firstItem="zie-6d-UuW" firstAttribute="leading" secondItem="jL8-nG-uvW" secondAttribute="leading" constant="36" id="Bqc-qK-CCh"/>
+                                    <constraint firstItem="XZl-Xb-cRR" firstAttribute="leading" secondItem="jL8-nG-uvW" secondAttribute="leading" constant="20" id="FtE-7u-yLe"/>
+                                    <constraint firstAttribute="bottom" secondItem="XZl-Xb-cRR" secondAttribute="bottom" constant="118" id="Nq0-9W-0bL"/>
+                                    <constraint firstAttribute="trailing" secondItem="XZl-Xb-cRR" secondAttribute="trailing" constant="20" id="ZHd-c8-yyj"/>
+                                    <constraint firstItem="XZl-Xb-cRR" firstAttribute="centerX" secondItem="jL8-nG-uvW" secondAttribute="centerX" id="rhx-xb-ipK"/>
                                     <constraint firstAttribute="trailing" secondItem="zie-6d-UuW" secondAttribute="trailing" constant="36" id="rzg-OF-CMS"/>
                                 </constraints>
                             </view>
@@ -67,19 +71,17 @@
                     <connections>
                         <outlet property="darkView" destination="jL8-nG-uvW" id="0fU-Xr-qPy"/>
                         <outlet property="getStartedbutton" destination="XZl-Xb-cRR" id="NN9-LC-Cal"/>
+                        <outlet property="welcomeLbl" destination="2M5-F8-DND" id="1z8-XM-FVg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVJ-KA-Vf7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="211"/>
+            <point key="canvasLocation" x="202.89855072463769" y="210.9375"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

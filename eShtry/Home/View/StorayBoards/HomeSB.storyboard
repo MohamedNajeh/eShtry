@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Wm-U1-BrJ">
-                                <rect key="frame" x="10" y="44" width="384" height="852"/>
+                                <rect key="frame" x="5" y="89" width="399" height="807"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TWc-ag-vBn">
                                     <size key="itemSize" width="128" height="128"/>
@@ -90,18 +90,29 @@
                                     <outlet property="delegate" destination="YWM-UB-vcm" id="Cpb-vH-l38"/>
                                 </connections>
                             </collectionView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tiP-ba-SBb">
+                                <rect key="frame" x="18" y="49" width="378" height="31"/>
+                                <color key="tintColor" red="0.16736128929999999" green="0.36786946650000002" blue="0.56931060550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="sliderValueChanges:" destination="YWM-UB-vcm" eventType="valueChanged" id="ov3-Cu-jj6"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bLL-Xa-E4H"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="5Wm-U1-BrJ" secondAttribute="bottom" id="VOV-je-liY"/>
-                            <constraint firstItem="5Wm-U1-BrJ" firstAttribute="trailing" secondItem="bLL-Xa-E4H" secondAttribute="trailing" constant="-20" id="Xgd-g6-ibb"/>
-                            <constraint firstItem="5Wm-U1-BrJ" firstAttribute="top" secondItem="bLL-Xa-E4H" secondAttribute="top" id="Z9d-h3-61a"/>
-                            <constraint firstItem="5Wm-U1-BrJ" firstAttribute="leading" secondItem="bLL-Xa-E4H" secondAttribute="leading" constant="10" id="yak-Ul-7SM"/>
+                            <constraint firstItem="5Wm-U1-BrJ" firstAttribute="trailing" secondItem="bLL-Xa-E4H" secondAttribute="trailing" constant="-10" id="SXN-QU-Wo8"/>
+                            <constraint firstItem="5Wm-U1-BrJ" firstAttribute="top" secondItem="tiP-ba-SBb" secondAttribute="bottom" constant="10" id="Wwd-yb-rs7"/>
+                            <constraint firstItem="5Wm-U1-BrJ" firstAttribute="leading" secondItem="bLL-Xa-E4H" secondAttribute="leading" constant="5" id="Z7b-dq-3I6"/>
+                            <constraint firstItem="bLL-Xa-E4H" firstAttribute="trailing" secondItem="tiP-ba-SBb" secondAttribute="trailing" constant="20" id="aeZ-5a-L4R"/>
+                            <constraint firstItem="tiP-ba-SBb" firstAttribute="leading" secondItem="bLL-Xa-E4H" secondAttribute="leading" constant="20" id="bNP-tV-4V2"/>
+                            <constraint firstAttribute="bottom" secondItem="5Wm-U1-BrJ" secondAttribute="bottom" id="bjR-0I-2A6"/>
+                            <constraint firstItem="tiP-ba-SBb" firstAttribute="top" secondItem="bLL-Xa-E4H" secondAttribute="top" constant="5" id="bxI-pi-dyh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="5Wm-U1-BrJ" id="zBb-Ba-uh9"/>
+                        <outlet property="sliderOutlet" destination="tiP-ba-SBb" id="Mkh-nJ-CQK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kc1-9E-xHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -174,19 +185,19 @@
                                                             <rect key="frame" x="15" y="5" width="364" height="136"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adidas New shoes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atf-az-ZzZ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="243" height="44.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="243" height="40.5"/>
                                                                     <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="30"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1250.0 LE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsv-xQ-Eoc">
-                                                                    <rect key="frame" x="0.0" y="44.5" width="113.5" height="41"/>
+                                                                    <rect key="frame" x="0.0" y="40.5" width="113.5" height="37.5"/>
                                                                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q44-0f-Cqn" customClass="CosmosView" customModule="Cosmos">
-                                                                    <rect key="frame" x="0.0" y="85.5" width="220" height="50.5"/>
+                                                                    <rect key="frame" x="0.0" y="78" width="220" height="58"/>
                                                                     <color key="backgroundColor" red="0.1675863564" green="0.37245666979999997" blue="0.57704728839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="rating">
@@ -411,11 +422,6 @@
             <point key="canvasLocation" x="2975.36231884058" y="-89.0625"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Q44-0f-Cqn">
-            <size key="intrinsicContentSize" width="220" height="40"/>
-        </designable>
-    </designables>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

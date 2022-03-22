@@ -8,9 +8,10 @@
 import UIKit
 import AVFoundation
 import Combine
-
+import Lottie
 class OnBoardingVC: UIViewController {
     
+    @IBOutlet weak var welcomeLbl: UILabel!
     @IBOutlet weak var darkView: UIView!
     @IBOutlet weak var getStartedbutton: UIButton!
     
@@ -18,6 +19,7 @@ class OnBoardingVC: UIViewController {
     private var playerlayer: AVPlayerLayer?
     private let notificationCenter = NotificationCenter.default
     private var appEventSubscribers = [AnyCancellable]()
+    var animationView:AnimationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,7 @@ class OnBoardingVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeAppEventSubscribers()
-        removePlayer()
+        //removePlayer()
     }
     
     
@@ -48,7 +50,7 @@ class OnBoardingVC: UIViewController {
     
     
     private func configureUI(){
-        getStartedbutton.layer.cornerRadius = 28
+        getStartedbutton.layer.cornerRadius = 15
         getStartedbutton.layer.borderWidth = 1
         getStartedbutton.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         darkView.backgroundColor = UIColor.init(white: 0.1, alpha: 0.4)
@@ -136,11 +138,18 @@ class OnBoardingVC: UIViewController {
     
     
     @IBAction func getStartedButtonClicked(_ sender: UIButton) {
-        UserDefaults.standard.set(true, forKey: "firstTimeToUseApplication")
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CategoryVC" ) as! CategoryVC
-//        self.navigationController?.pushViewController(vc, animated: true)
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        sceneDelegate!.window?.rootViewController = sceneDelegate?.createTabBarController()
+        welcomeLbl.isHidden = true
+        animationView = .init(name: "cartMove")
+        animationView?.frame = view.bounds
+        view.addSubview(animationView!)
+        animationView?.animationSpeed = 1
+        animationView?.play()
+        Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { (timer) in
+            self.animationView?.removeFromSuperview()
+            UserDefaults.standard.set(true, forKey: "firstTimeToUseApplication")
+            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+            sceneDelegate!.window?.rootViewController = sceneDelegate?.createTabBarController()
+        }
     }
     
 }

@@ -9,6 +9,7 @@ import UIKit
 import MobileBuySDK
 class BrandProductsVC: UIViewController {
 
+    @IBOutlet weak var sliderOutlet: UISlider!
     @IBOutlet weak var collectionView: UICollectionView!
     let searchBar = UISearchController()
     var vendor:String = ""
@@ -54,6 +55,11 @@ class BrandProductsVC: UIViewController {
     }
     
     
+    @IBAction func sliderValueChanges(_ sender: UISlider) {
+        
+        let currentVlue = Int(sender.value)
+        print(currentVlue)
+    }
     
 
 
