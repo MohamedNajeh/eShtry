@@ -15,3 +15,10 @@ target 'eShtry' do
 
 
 end
+
+target 'eShtryTests' do
+
+ pod 'Alamofire'
+ pod "Mobile-Buy-SDK" 
+
+end
