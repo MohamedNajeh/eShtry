@@ -184,6 +184,30 @@ class NetworkManager:INetworkManager{
         }
         task.resume()
     }
+    
+    
+    
+    func postOrder(order: APIOrder, completion: @escaping (Data?, URLResponse?, Error?)->()){
+        guard let url = URL(string: orders) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let session = URLSession.shared
+        request.httpShouldHandleCookies = false
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: order.asDictionary(), options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        //HTTP Headers
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        session.dataTask(with: request) { (data, response, error) in
+            completion(data, response, error)
+        }.resume()
+
+    }
 
     
 }

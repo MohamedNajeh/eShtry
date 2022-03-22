@@ -14,6 +14,7 @@ struct AddressCellViewModel{
     let phoneNumber:String // phone
     let cityCountry:String // city/Country
     let address:String // address1
+    let isDefault:String
     
     
 }

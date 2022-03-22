@@ -79,7 +79,7 @@ class AddressViewModel:NSObject{
         let cityCountry = "\(address.city!) , \(address.country!)"
         let address = address.address1
         
-        return AddressCellViewModel(addressTitle: title!, owner: owner!, phoneNumber: phone!, cityCountry: cityCountry, address: address!)
+        return AddressCellViewModel(addressTitle: title!, owner: owner!, phoneNumber: phone!, cityCountry: cityCountry, address: address!, isDefault: "isDefault")
     }
     
     

@@ -46,8 +46,14 @@ class CartVC: UIViewController {
     
     let viewModel        = CartViewModel()
     let addressViewModel = AddressViewModel()
+    var addressIndexPath:IndexPath!
+    var addressToSave:AddressCellViewModel!
     
     var cartItemPrice = 0
+    
+    let emptyStateView  = DefaultView(color: .white, raduis: 0)
+    let emptyStateImage = DefaultImageView(frame: .zero)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,11 +83,13 @@ class CartVC: UIViewController {
         configureAddressLabel()
         configureAddNewAddressBtn()
         configureAddressCollectionView()
+        configureShowEmptyStateView()
         
         
         testApi()
         updateViewWithLoadingView()
         updateLocationViewWithAddress()
+        updateViewWithEmotyStateView()
         
         
     }
@@ -90,6 +98,8 @@ class CartVC: UIViewController {
         
         viewModel.relodTableViewClosure = {
             print("reload table view executed")
+            self.cartItemsTableView.isHidden = false
+            self.emptyStateView.isHidden     = true
             self.cartItemsTableView.reloadData()
         }
         
@@ -110,6 +120,16 @@ class CartVC: UIViewController {
         
         
         
+    }
+    
+    func updateViewWithEmotyStateView(){
+        viewModel.showEmptyStateClosure = {
+            DispatchQueue.main.async {
+                self.cartItemsTableView.isHidden = true
+                self.emptyStateView.isHidden     = false
+                
+            }
+        }
     }
     
     func updateLocationViewWithAddress(){
@@ -280,7 +300,7 @@ class CartVC: UIViewController {
     
     private func configureLocationTitle(){
         locationView.addSubview(locationLabel)
-        locationLabel.text = "configureLocationTitle()configureLocationTitle()configureLocationTitle()configureLocationTitle()configureLocationTitle()"
+        locationLabel.text = ""
         NSLayoutConstraint.activate([
             locationLabel.centerYAnchor.constraint(equalTo: locationView.centerYAnchor),
             locationLabel.leadingAnchor.constraint(equalTo: locationImage.trailingAnchor, constant: 10),
@@ -463,7 +483,7 @@ class CartVC: UIViewController {
     
     @objc func refresh(_ sender: AnyObject) {
         print("refresh")
-        cartItemsTableView.reloadData()
+        viewModel.fetchCartItems()
         refreshControl.endRefreshing()
     }
     
@@ -532,8 +552,47 @@ class CartVC: UIViewController {
     }
     
     @objc func pushCompleteCartVC(){
+        guard let addressToSave = addressToSave else{return}
         let completeCartVC = CompleteOrderVC()
+        
+         
+        CoreDataManager.shared.saveAddress(address:addressToSave )
         self.navigationController?.pushViewController(completeCartVC, animated: true)
+        
+        
+//        let id = UserDefaults.standard.value(forKey: "userId") as? Int ?? 0
+//        let userName = UserDefaults.standard.value(forKey: "userName") as? String ?? ""
+//        let orderCustomer = OrderCustomer(id: id, first_name: userName)
+//        let order = Order(line_items: viewModel.getCellViewModel(), customer: orderCustomer)
+//
+//        let myOrder = APIOrder(order: order)
+//
+//
+//        NetworkManager.shared.postOrder(order: myOrder) {(data, response, error) in
+//            if error != nil{
+//                print("error while posting order \(error!.localizedDescription)")
+//            }
+//            if let data = data{
+//                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+//                print("json: \(json)")
+////                print("call empty cart")
+//
+//                let returnedOrder = json["order"] as? Dictionary<String,Any>
+//                let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>
+//                let id = returnedCustomer?["id"] as? Int ?? 0
+////                print("customer id: \(id)")
+//                if id != 0 {
+//                    print("call empty cart")
+//
+//                }
+//            }
+//        }
+
+        
+        
+        
+        
+        
     }
     
     
@@ -566,7 +625,7 @@ class CartVC: UIViewController {
         let backgrounView = DefaultView(color: .white, raduis: 10)
         view.translatesAutoresizingMaskIntoConstraints = true
         let sectionLabel = SeconderyTitleLabel(textAlignment: .center, fontSize: 18, fontColor: .black)
-        sectionLabel.text = "Sub total for section \(section)"
+        sectionLabel.text = "Sub total  \(viewModel.totalPrice)"
         backgrounView.addSubview(sectionLabel)
         view.addSubview(backgrounView)
         NSLayoutConstraint.activate([
@@ -588,24 +647,32 @@ class CartVC: UIViewController {
         print("minus Btn ")
         print("indexPath is \(sender.indexPath)")
         let cell = cartItemsTableView.cellForRow(at: IndexPath(row: sender.indexPath.row, section: sender.indexPath.section)) as! CartItemTableViewCell
-        
         if cell.amountLabel.text != "1"{
             let qty = String((Int(cell.amountLabel.text ?? "0") ?? 0) - 1)
             cell.amountLabel.text = qty
             let cartToBeUpdated = viewModel.getCellViewModel(at: sender.indexPath)
             
-            let item = CartItem(name: cartToBeUpdated.name, price: cartToBeUpdated.price, imgUrl: cartToBeUpdated.imgUrl,id:cartToBeUpdated.id,qty: qty)
+            let item = CartItem(name: cartToBeUpdated.name, price: cartToBeUpdated.price, imgUrl: cartToBeUpdated.imgUrl,id:cartToBeUpdated.id,qty: qty,variant_id: cartToBeUpdated.variant_id)
             CoreDataManager.shared.insertCartItem(cartItem: item,qtyTypeProcess: .subtraction)
             
             guard let price = Int(item.price) else {return}
             var  cash = Int(self.cashLabel.text!)!
             cash -= price
             self.cashLabel.text = "\(cash)"
+            let imageIcon = UIImage(systemName: "minus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .small))?.withTintColor(.red, renderingMode: .alwaysOriginal)
+            cell.minusBtn.setImage(imageIcon, for: .normal)
             performAnimationForCartButtons(button: cell.minusBtn)
+        }else{
+            viewModel.deleteItem(at: sender.indexPath)
         }
         
         
         print("minus is : \(cell.amountLabel.text!)")
+        let qty = String((Int(cell.amountLabel.text ?? "0") ?? 0) )
+        if qty == "1"{
+            let imageIcon = UIImage(systemName: "trash", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .small))?.withTintColor(.red, renderingMode: .alwaysOriginal)
+            cell.minusBtn.setImage(imageIcon, for: .normal)
+        }
         
     }
     
@@ -618,13 +685,15 @@ class CartVC: UIViewController {
         print("plus is : \(qty)")
         let cartToBeUpdated = viewModel.getCellViewModel(at: sender.indexPath)
         
-        let item = CartItem(name: cartToBeUpdated.name, price: cartToBeUpdated.price, imgUrl: cartToBeUpdated.imgUrl,id:cartToBeUpdated.id,qty: qty)
+        let item = CartItem(name: cartToBeUpdated.name, price: cartToBeUpdated.price, imgUrl: cartToBeUpdated.imgUrl,id:cartToBeUpdated.id,qty: qty,variant_id: cartToBeUpdated.variant_id)
         CoreDataManager.shared.insertCartItem(cartItem: item,qtyTypeProcess: .addition)
         
         guard let price = Int(item.price) else {return}
         var  cash = Int(self.cashLabel.text!)!
         cash += price
         self.cashLabel.text = "\(cash)"
+        let imageIcon = UIImage(systemName: "minus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .small))?.withTintColor(.red, renderingMode: .alwaysOriginal)
+        cell.minusBtn.setImage(imageIcon, for: .normal)
         performAnimationForCartButtons(button: cell.plusBtn)
         
         
@@ -651,6 +720,25 @@ class CartVC: UIViewController {
 
 }
 
+    
+    private func configureShowEmptyStateView(){
+        view.addSubview(emptyStateView)
+        emptyStateView.addSubview(emptyStateImage)
+        emptyStateImage.image       = UIImage(named: "emptyCart")
+        emptyStateImage.contentMode = .center
+        emptyStateView.isHidden = true
+        NSLayoutConstraint.activate([
+            emptyStateView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            emptyStateView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            emptyStateView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            emptyStateView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            emptyStateImage.topAnchor.constraint(equalTo: emptyStateView.topAnchor),
+            emptyStateImage.leadingAnchor.constraint(equalTo: emptyStateView.leadingAnchor),
+            emptyStateImage.trailingAnchor.constraint(equalTo: emptyStateView.trailingAnchor),
+            emptyStateImage.bottomAnchor.constraint(equalTo: emptyStateView.bottomAnchor),
+            
+        ])
+    }
     
     
     
@@ -767,6 +855,8 @@ extension CartVC:UICollectionViewDelegate{
         let cell = collectionView.cellForItem(at: indexPath) as! AddressCollectionViewCell
         self.updateLocationChoiceView()
         self.locationLabel.text = cell.address.text
+        self.addressIndexPath = indexPath
+        self.addressToSave = AddressCellViewModel(addressTitle: cell.addressTitle.text!, owner: cell.owner.text!, phoneNumber: cell.phoneNumber.text!, cityCountry: "egypt", address: cell.address.text!, isDefault: "isDefault")
     }
     
 }

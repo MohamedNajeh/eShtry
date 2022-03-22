@@ -80,8 +80,10 @@ class ProductDetailsVC: UITableViewController {
         guard let image = product?.images.edges[0].node.url else {return}
         guard let id    = product?.id else{return}
         let qty         = 1
-        
-        let item = CartItem(name: title, price: "\(price)", imgUrl: "\(image)",id:"\(id)",qty: "\(qty)")
+//        let varientID   = product?.variants.edges[0].node.id
+        let varientID   = "40617425469487"
+
+        let item = CartItem(name: title, price: "\(price)", imgUrl: "\(image)",id:"\(id)",qty: "\(qty)",variant_id: "40617425469487")
         CoreDataManager.shared.insertCartItem(cartItem: item,qtyTypeProcess: .addition)
         CoreDataManager.shared.updateOrderArr()
     }
