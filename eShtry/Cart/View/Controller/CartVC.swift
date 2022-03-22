@@ -251,8 +251,8 @@ class CartVC: UIViewController {
         NSLayoutConstraint.activate([
             usernameLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
             //            usernameLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
-            //            usernameLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10)
-            usernameLabel.topAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.topAnchor, constant: 10)
+                        usernameLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10)
+//            usernameLabel.topAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
     }
     
