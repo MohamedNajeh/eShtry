@@ -8,7 +8,7 @@
 import UIKit
 import MobileBuySDK
 class ProductDetailsVC: UITableViewController {
-
+    
     @IBOutlet weak var varientCollectionView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -18,43 +18,41 @@ class ProductDetailsVC: UITableViewController {
     @IBOutlet weak var varientsLbl: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productName: UILabel!
+    
     var isMorePressed = false
     var currentIndex = 0
     var timer:Timer?
     var titlePro:String = " "
     var product:Storefront.Product?
+    
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var addToBagBtnOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Adidas Shoes"
+        configureVCComponent()
+        startTimer()
+    }
+    
+    func configureVCComponent(){
+        title = product?.title
         descriptionTextView.layer.borderColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 0.75).cgColor
         descriptionTextView.layer.borderWidth = 1
         descriptionTextView.layer.cornerRadius = 15
-        
-        pageControl.numberOfPages = (product?.images.edges.count)!
+        pageControl.numberOfPages = (product?.images.edges.count) ?? 0
         infoView.layer.cornerRadius = 20
         addToBagBtnOutlet.layer.cornerRadius = 20
-        collectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "sliderCell")
         productName.text = product?.title
         productPrice.text = "\(String(describing: (product?.priceRange.minVariantPrice.amount)!))"
         descriptionTextView.text = product?.description
-//        varientsLbl.text = product?.variants.edges[0].node.title
         
+    }
+    
+    func registerCollectionCells(){
+        collectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "sliderCell")
         reviewsCollectionView.register(UINib(nibName: "ReviewCollectionCell", bundle: nil), forCellWithReuseIdentifier: "reviewCell")
         varientCollectionView.register(UINib(nibName: "VarientCell", bundle: nil), forCellWithReuseIdentifier: "VarientCell")
-        startTimer()
     }
-//    func fetchProductDetails(title:String){
-//        Client.shared.fetchProductDetails(title:title) { product in
-//            if let product = product {
-//                self.product = product
-//                print(self.product)
-//            }else {
-//                print("SomethingErrorHappened")
-//            }
-//        }
-//    }
     func startTimer(){
         
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timeAction), userInfo: nil, repeats: true)
@@ -69,7 +67,7 @@ class ProductDetailsVC: UITableViewController {
         }
         collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0), at: .centeredHorizontally, animated: true)
         pageControl.currentPage = currentIndex
-       
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

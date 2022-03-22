@@ -68,7 +68,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Wm-U1-BrJ">
                                 <rect key="frame" x="10" y="44" width="384" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TWc-ag-vBn">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -92,7 +92,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bLL-Xa-E4H"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="5Wm-U1-BrJ" secondAttribute="bottom" id="VOV-je-liY"/>
                             <constraint firstItem="5Wm-U1-BrJ" firstAttribute="trailing" secondItem="bLL-Xa-E4H" secondAttribute="trailing" constant="-20" id="Xgd-g6-ibb"/>
@@ -345,10 +345,10 @@
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="NhT-SL-Sd6" secondAttribute="bottom" constant="5" id="Fs6-uU-1QD"/>
-                                                <constraint firstItem="NhT-SL-Sd6" firstAttribute="leading" secondItem="XOG-wH-uxe" secondAttribute="leading" constant="5" id="MyO-oE-Wcy"/>
-                                                <constraint firstAttribute="trailing" secondItem="NhT-SL-Sd6" secondAttribute="trailing" constant="5" id="Nd8-G3-cwa"/>
-                                                <constraint firstItem="NhT-SL-Sd6" firstAttribute="top" secondItem="XOG-wH-uxe" secondAttribute="top" constant="5" id="Z40-xt-nfL"/>
+                                                <constraint firstItem="NhT-SL-Sd6" firstAttribute="top" secondItem="XOG-wH-uxe" secondAttribute="top" constant="5" id="Dwu-gu-HRT"/>
+                                                <constraint firstAttribute="trailing" secondItem="NhT-SL-Sd6" secondAttribute="trailing" constant="5" id="MLl-Rm-wyz"/>
+                                                <constraint firstItem="NhT-SL-Sd6" firstAttribute="leading" secondItem="XOG-wH-uxe" secondAttribute="leading" constant="5" id="gvR-cT-HKz"/>
+                                                <constraint firstAttribute="bottom" secondItem="NhT-SL-Sd6" secondAttribute="bottom" constant="5" id="n3B-aO-WBg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -422,6 +422,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
