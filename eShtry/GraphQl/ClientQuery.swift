@@ -93,6 +93,7 @@ class ClientQuery {
                 .edges{ $0
                 .node { $0
                 .title()
+                .id()
                 }
                 }
                 }

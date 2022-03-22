@@ -53,6 +53,8 @@ class CompleteOrderVC: UIViewController {
     let globalLeading: CGFloat  = 20
     let globalTrailing: CGFloat = -20
     
+    
+    let viewModel = CompleteOrderViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,13 +91,43 @@ class CompleteOrderVC: UIViewController {
         configureGrandTotalLabel()
         configureCashLabel()
         configureCheckoutBtn()
+        updateAddress()
 
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.fetchData()
         configureView()
+        updateAddress()
+    }
+    
+    func updateAddress(){
+        viewModel.updateShipmentAddressClosure = {
+            print("address should be updated")
+            self.shipmentDescription.text = self.viewModel.getShipmentAddress()
+        }
+        
+        viewModel.updateTitleAddressClosure = {
+            print("updateTitleAddressClosure")
+            self.shipmentTitle.text = self.viewModel.getTitle()
+
+        }
+        
+        viewModel.reloadCollectionViewClosure = {
+            DispatchQueue.main.async {
+                self.itemsCollection.reloadData()
+            }
+        }
+        
+        viewModel.updateCashPriceLabel = {
+            DispatchQueue.main.async {
+                self.subtotal.text      = "\(self.viewModel.totalPrice)"
+                self.cashLabel.text     = "\(self.viewModel.totalPrice + 50 )"
+            }
+        }
+        
     }
 
     private func configureView(){
@@ -361,7 +393,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureDelivery(){
         orderSummaryView.addSubview(delivery)
-        delivery.text = "EGP 999.999.999"
+        delivery.text = "50"
         NSLayoutConstraint.activate([
             delivery.centerYAnchor.constraint(equalTo: deliveryLabel.centerYAnchor),
             delivery.trailingAnchor.constraint(equalTo: orderSummaryView.trailingAnchor, constant: -10)
@@ -407,7 +439,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureCashLabel(){
         bottomView.addSubview(cashLabel)
-        cashLabel.text = "EGP 999.999.999.9"
+        cashLabel.text = ""
         NSLayoutConstraint.activate([
             cashLabel.centerYAnchor.constraint(equalTo: grandTotalLabel.centerYAnchor),
 //            cashLabel.leadingAnchor.constraint(equalTo: bottomView.centerXAnchor),
@@ -437,12 +469,12 @@ class CompleteOrderVC: UIViewController {
 
 extension CompleteOrderVC:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.numberOfCells
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CartItemCollectionViewCell.reuseID, for: indexPath) as! CartItemCollectionViewCell
-        
+        cell.configureCell(cellVM: viewModel.getCellViewModel(at: indexPath))
         return cell
     }
     

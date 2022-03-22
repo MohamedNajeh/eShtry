@@ -133,6 +133,7 @@ class CoreDataManager{
             cartItemCoreData.setValue(cartItem.price, forKey: "price")
             cartItemCoreData.setValue(cartItem.id, forKey: "id")
             cartItemCoreData.setValue(cartItem.qty, forKey: "quantity")
+            cartItemCoreData.setValue(cartItem.variant_id, forKey: "variantId")
 
             
             
@@ -224,7 +225,7 @@ class CoreDataManager{
             switch result{
             case .success(let arr):
                 for item in arr{
-                    let cartItem = CartItem(name: item.value(forKey: "name") as! String, price: item.value(forKey: "price") as! String, imgUrl: item.value(forKey: "imgUrl") as! String,id: item.value(forKey: "id") as! String,qty: item.value(forKey: "quantity") as! String )
+                    let cartItem = CartItem(name: item.value(forKey: "name") as! String, price: item.value(forKey: "price") as! String, imgUrl: item.value(forKey: "imgUrl") as! String,id: item.value(forKey: "id") as! String,qty: item.value(forKey: "quantity") as! String,variant_id: item.value(forKey: "variantId") as! String )
                     arrOfCartItem.append(cartItem)
                 }
                 completion(.success(arrOfCartItem))
@@ -244,6 +245,23 @@ class CoreDataManager{
         //        completion(arrOfCartItem)
     }
     
+    func deleteCartItem(cartItem: CartItemCellViewModel){
+       
+            do {
+                let context = self.persistentContainer.viewContext
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
+                
+                fetchRequest.predicate = NSPredicate(format: "id == %@", cartItem.id  )
+                let result = try context.fetch(fetchRequest)
+                context.delete((result as! [NSManagedObject]).first!)
+                try context.save()
+                print("product deleted successfully")
+            } catch let error {
+                print("error while deleting product :", error)
+            }
+        
+    }
+    
     func deleteAll(){
         let managedObjectContext = persistentContainer.viewContext
         let fetchRequest         = NSFetchRequest<NSManagedObject>(entityName: "FavoriteProduct")
@@ -259,5 +277,96 @@ class CoreDataManager{
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    
+    func saveAddress(address:AddressCellViewModel){
+        
+        if checkAddressBeforeInsert(address: address){
+            print("address updated")
+        }else{
+        
+        let managedObjectContext = persistentContainer.viewContext
+        let entity               = NSEntityDescription.entity(forEntityName: "Address", in: managedObjectContext)!
+        let addressToSave        = NSManagedObject(entity: entity, insertInto: managedObjectContext)
+        
+        addressToSave.setValue(address.address, forKey: "address")
+        addressToSave.setValue(address.isDefault, forKey: "isDefault")
+        addressToSave.setValue(address.addressTitle, forKey: "name")
+        addressToSave.setValue(address.owner, forKey: "owner")
+        addressToSave.setValue(address.phoneNumber, forKey: "phoneNumber")
+        addressToSave.setValue(address.cityCountry, forKey: "cityCountry")
+
+        
+
+        do{
+            try managedObjectContext.save()
+            print("new address saved")
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        }
+    }
+    
+    private func getAllOfAddressNSManageObjectArr(completion:@escaping((Result<[NSManagedObject],ErrorMessages>)->Void)){
+        var objects = [NSManagedObject]()
+        let managedObjectContext = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Address")
+        do{
+            objects = try managedObjectContext.fetch(fetchRequest)
+            completion(.success(objects))
+        }catch let error as NSError {
+            print("Could not retrive data . \(error), \(error.userInfo)")
+            completion(.failure(.errorRetivingFromCoreData))
+        }
+    }
+    
+    func getAllAddressWithArray( completion: @escaping ((Result<[AddressCellViewModel], ErrorMessages>)->Void)){
+        var arrOfAddress = [AddressCellViewModel]()
+        
+        getAllOfAddressNSManageObjectArr { result in
+            switch result{
+            case .success(let arr):
+                for item in arr{
+                    let address = AddressCellViewModel(addressTitle: item.value(forKey: "name") as! String, owner: item.value(forKey: "owner") as! String, phoneNumber: item.value(forKey: "phoneNumber") as! String, cityCountry: item.value(forKey: "cityCountry") as! String, address: item.value(forKey: "address") as! String, isDefault: item.value(forKey: "isDefault") as! String)
+                    arrOfAddress.append(address)
+                }
+                completion(.success(arrOfAddress))
+            case .failure(let error):
+                print(error)
+                completion(.failure(error))
+            }
+        }
+        
+    }
+    
+    
+    func checkAddressBeforeInsert(address: AddressCellViewModel)->Bool{
+        var success = false
+        let managedObjectContext = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Address")
+        fetchRequest.predicate = NSPredicate(format: "isDefault == %@", address.isDefault)
+        do{
+           let objects = try managedObjectContext.fetch(fetchRequest)
+            if objects.count == 1 {
+                let addressUpdate = objects[0]
+                addressUpdate.setValue(address.address, forKey: "address")
+                addressUpdate.setValue(address.isDefault, forKey: "isDefault")
+                addressUpdate.setValue(address.addressTitle, forKey: "name")
+                addressUpdate.setValue(address.owner, forKey: "owner")
+                addressUpdate.setValue(address.phoneNumber, forKey: "phoneNumber")
+                addressUpdate.setValue(address.cityCountry, forKey: "cityCountry")
+                
+                }
+                self.saveContext()
+                success = true
+            }
+
+        catch let error as NSError {
+            print("Could not retrive data . \(error), \(error.userInfo)")
+            success = false
+        }
+        return success
+    }
+   
     
 }

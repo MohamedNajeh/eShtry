@@ -14,12 +14,21 @@ class CartViewModel: NSObject{
     private var cartItems: [CartItem] = [CartItem]()
     
     
-    private var cellViewModdels:[CartItemCellViewModel] = [CartItemCellViewModel]() {
+     private var cellViewModdels:[CartItemCellViewModel] = [CartItemCellViewModel]() {
         didSet{
             self.relodTableViewClosure()
         }
     }
     
+    func getCellViewModel()->[CartItemCellViewModel]{
+        return self.cellViewModdels
+    }
+    
+    var showEmptyStateView:Bool = true{
+        didSet{
+            self.showEmptyStateClosure()
+        }
+    }
     
     var showError:ErrorMessages!{
         didSet{
@@ -104,11 +113,14 @@ class CartViewModel: NSObject{
     func createCartItemCellViewModel(cartItem:CartItem)->CartItemCellViewModel{
         
         //here i can manipulte cartItem like making calculations and so on
-        let cartItem = CartItemCellViewModel(name: cartItem.name, price: cartItem.price, imgUrl: cartItem.imgUrl,id: cartItem.id,qty: cartItem.qty)
+        let cartItem = CartItemCellViewModel(name: cartItem.name, price: cartItem.price, imgUrl: cartItem.imgUrl,id: cartItem.id,qty: cartItem.qty,variant_id:cartItem.variant_id)
         return cartItem
     }
     
     private func processFetchedCartItems(cartItems: [CartItem]){
+        if cartItems.count == 0{
+            showEmptyStateView = true
+        }
         self.cartItems     = cartItems
         var viewModelCells = [CartItemCellViewModel]()
         for cartItem in cartItems {
@@ -129,6 +141,11 @@ class CartViewModel: NSObject{
         self.totalPrice = cartItemPrice
     }
     
+    
+    func deleteItem(at indexPath:IndexPath){
+        CoreDataManager.shared.deleteCartItem(cartItem: cellViewModdels[indexPath.row])
+        self.fetchCartItems()
+    }
     
 }
 

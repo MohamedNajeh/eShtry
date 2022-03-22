@@ -14,6 +14,8 @@ struct CartItem{
     let imgUrl: String
     let id: String
     let qty:String
+    let variant_id:String
+
     
     
 }
