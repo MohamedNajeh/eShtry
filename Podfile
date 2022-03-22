@@ -11,6 +11,7 @@ target 'eShtry' do
   pod 'Alamofire'
   pod 'Cosmos'
   pod 'Kingfisher'
+  pod 'lottie-ios'
 
 
 end
