@@ -300,7 +300,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tif-Uq-WVt">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tif-Uq-WVt">
                                                     <rect key="frame" x="5" y="0.0" width="404" height="57"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="78t-eH-UwK">
@@ -335,7 +335,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="158"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NhT-SL-Sd6">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NhT-SL-Sd6">
                                                     <rect key="frame" x="5" y="5" width="404" height="148"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco l.</string>
@@ -345,10 +345,10 @@
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="NhT-SL-Sd6" secondAttribute="bottom" constant="5" id="Fs6-uU-1QD"/>
-                                                <constraint firstItem="NhT-SL-Sd6" firstAttribute="leading" secondItem="XOG-wH-uxe" secondAttribute="leading" constant="5" id="MyO-oE-Wcy"/>
-                                                <constraint firstAttribute="trailing" secondItem="NhT-SL-Sd6" secondAttribute="trailing" constant="5" id="Nd8-G3-cwa"/>
-                                                <constraint firstItem="NhT-SL-Sd6" firstAttribute="top" secondItem="XOG-wH-uxe" secondAttribute="top" constant="5" id="Z40-xt-nfL"/>
+                                                <constraint firstItem="NhT-SL-Sd6" firstAttribute="top" secondItem="XOG-wH-uxe" secondAttribute="top" constant="5" id="Dwu-gu-HRT"/>
+                                                <constraint firstAttribute="trailing" secondItem="NhT-SL-Sd6" secondAttribute="trailing" constant="5" id="MLl-Rm-wyz"/>
+                                                <constraint firstItem="NhT-SL-Sd6" firstAttribute="leading" secondItem="XOG-wH-uxe" secondAttribute="leading" constant="5" id="gvR-cT-HKz"/>
+                                                <constraint firstAttribute="bottom" secondItem="NhT-SL-Sd6" secondAttribute="bottom" constant="5" id="n3B-aO-WBg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

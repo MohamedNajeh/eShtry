@@ -10,11 +10,11 @@ import MobileBuySDK
 class HomeVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    let searchController = UISearchController()
     var currentIndex = 0
     var timer:Timer?
     var products:[Storefront.Product] = []
     var mov = [1,2,3,2,1,4,5,2,21,21,32,6]
+    let color:UIColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)
     
     var collectionsArr = [SmartCollection]()
     var productsArr    = [Products]()
@@ -27,26 +27,18 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let color:UIColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)
-        searchController.searchBar.delegate = self
-       // navigationItem.searchController = searchController
-        configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "eShtry", preferredLargeTitle: true)
-        let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchButtonPressed))
-        
-        navigationItem.rightBarButtonItem = searchButton
-              
-       
-//        navigationController?.navigationBar.barTintColor = .yellow
-//
-        
-        
+        configureNavBar()
         configureCollectionCells()
         getColletionsData()
-//        fetchProductsUsingGrapgQL()
         updateViewWithLoadingView()
-        //getProductsData()
         updateHomeWithProducts()
+    }
+    
+    func configureNavBar(){
+        configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "eShtry", preferredLargeTitle: true)
+        let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchButtonPressed))
+        navigationItem.rightBarButtonItem = searchButton
+        
     }
     
     
@@ -80,30 +72,13 @@ class HomeVC: UIViewController {
         }
     }
     
-    
-    
-    
-//    func fetchProductsUsingGrapgQL(){
-//        Client.shared.fetchAllProducts { products in
-//            if let products = products {
-//                self.products = products
-//                DispatchQueue.main.async {
-//                    self.collectionView.reloadData()
-//                }
-//            }
-//            else{
-//                print("Error Happened while loading products")
-//            }
-//        }
-//    }
-    
     private func getColletionsData(){
         
         viewModel.relodCollectionViewClosure = {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
                 self.collectionsArr = self.viewModel.brandItems
-
+                
             }
         }
     }
@@ -112,15 +87,13 @@ class HomeVC: UIViewController {
         
         viewModel.bindToShowLoadingToView = {
             print("show Loading")
-//            DispatchQueue.main.async { self.showLoadingView() }
         }
         viewModel.bindToHideLoadingToView = {
             print("hide Loading")
-//            DispatchQueue.main.async { self.removeLoadingView() }
         }
-
+        
     }
-
+    
     
     private func getProductsData(){
         
@@ -142,7 +115,7 @@ class HomeVC: UIViewController {
         viewModel.fetchData()
         collectionView.reloadData()
         if collectionView.contentOffset.y == 0 {
-           // startTimer()
+            // startTimer()
             
             
         }
@@ -209,11 +182,6 @@ class HomeVC: UIViewController {
         //section
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
-        
-        //supplemantary
-        //        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40))
-        //        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: "header", alignment: .top)
-        //        section.boundarySupplementaryItems = [header]
         return section
     }
     
@@ -329,14 +297,12 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        return section == 2 ? 15 : 20
         switch section {
         case 0:
             return 5
         case 1:
             return 5
         case 2:
-//            return collectionsArr.count
             return viewModel.numberOfCells
         case 3:
             return productViewModel.numberOfCells
@@ -346,8 +312,6 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        
         switch indexPath.section {
         case 0:
             let sliderCell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCell", for: indexPath) as! SliderCell
@@ -359,17 +323,11 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             return offersCell
         case 2:
             let brandCell = collectionView.dequeueReusableCell(withReuseIdentifier: "brandCell", for: indexPath) as! BrandCell
-//            brandCell.brandImg.downloadImg(from: collectionsArr[indexPath.row].image?.src ?? "")
-//            brandCell.brandName.text = "Adidas"
             let cellVM = viewModel.getCellViewModel(at: indexPath)
             brandCell.configureCell(cell: cellVM)
             return brandCell
         case 3:
             let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
-
-//            productCell.downloadImg(from:"\((products[indexPath.row].featuredImage?.url)!)")
-//            productCell.productName.text = products[indexPath.row].title
-//            productCell.productPrice.text = "\(products[indexPath.row].priceRange.minVariantPrice.amount)"
             productCell.configureHomeProduct(cellVM: productViewModel.getCellViewModel(at: indexPath))
             if(CoreDataManager.shared.isInFovorite(productId: "\(productViewModel.getCellViewModel(at: indexPath).id)")){
                 productCell.favoriteButtonOutlet.setImage(UIImage(named: "filldHeart"), for: .normal)
@@ -392,7 +350,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
                 }
                 
             }
-
+            
             return productCell
             
         default:
@@ -400,8 +358,6 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             offersCell.offerImg.image = UIImage(named: offersImages[indexPath.row])
             return offersCell
         }
-        //        cell.backgroundColor = UIColor(hue: CGFloat(drand48()), saturation: 1, brightness: 1, alpha: 1)
-        //  return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -436,16 +392,6 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
             vc.product = products[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
-    }
-}
-
-extension HomeVC: UISearchBarDelegate{
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let storyboard = UIStoryboard(name: "SearchSB", bundle: nil)
-        let searchVC = storyboard.instantiateViewController(identifier: "SearchResultVC") as! SearchResultVC
-        self.navigationController?.pushViewController(searchVC, animated: true)
-        searchBar.setShowsCancelButton(false, animated: true)
-        return false
     }
 }
 
