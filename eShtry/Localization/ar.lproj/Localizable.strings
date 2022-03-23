@@ -1,0 +1,73 @@
+/* 
+  Localizable.strings
+  eShtry
+
+  Created by eslam mohamed on 23/03/2022.
+  
+*/
+
+"eshtry" = "اشترى";
+"home"   = "الرئيسية";
+"categories" = "المجموعات";
+"favorite" = "المفضلة";
+"cart" = "السلة";
+"more" = "المزيد";
+"offers" = "العروض";
+"brands" = "الماركات";
+"recommended" = "المقترحة";
+"what's new?" = "ما الجديد ؟";
+
+"shoes" = "احذيه";
+"T-Shirts" = "تيشيرتات";
+"accessories" = "اكسسوارات";
+
+"contactUs" = "تواصل معنا ";
+"terms&conditions" = "الاحكام والشروط ";
+"privacyPolicy" = "سياسة الخصوصيه";
+"version" = "نسخه ١٫٠١";
+
+"Logged out" = "تم تسجيل الخروج";
+"welcome" = "مرحبا ";
+"home" = "المنزل";
+"OK" = "تم";
+
+"address" = "العنوان";
+"Zip / Postal code" = "الرمز البريدى";
+"Receiver Name" = "اسم المستلم";
+"Mobile Number" = "رقم الهاتف";
+"Custom Address Label" = "عنوان مخصص";
+"(Default)" = "(الافتراضى)";
+"Please enter your address" = "من فضلك ادخل عنوان صحيح";
+"Please enter valid zip / postal code" = "من فضلك ادخل رمز تعريفى صحيح";
+"Please enter your zip / postal code" =  "من فضلك ادخل الرمز البريدى الخاص بك";
+"Please enter a receiver name" = "من فضلك ادخل اسم المستلم";
+"Please enter a valid phone number!" = "من فضلك ادخل رقم هاتف صحيح";
+
+"Please enter a receiver mobile number" = "من فضلك ادخل هاتف المستلم";
+
+
+
+"Delete Product ⛔️" = "⛔️ مسح المنتج";
+
+"Are sure you want to delet product from favorites" = "هل انت متأكد انك تريدازاله العنصر من المفضله";
+
+"Email Address" = "البريد الالكترونى" ;
+"Password" = "كلمه المرور";
+
+"Wrong password please try again" = "خطأ فى كلمه المرور من فضلك حاول مره اخرى";
+
+"Wrong Login!" = "حدث خطأ ما !";
+
+"Check your email or password and try logging in again" = "من فضلك حاول مره اخرى";
+
+
+"Login Succeeded" = "تم تسجيل الدخول بنجاح";
+
+"Please enter an email address" = "من فضلك ادخل بريد الكترونى صحيح";
+
+"Please enter your Password" = "من فضلك ادخل كلمه المرور";
+
+"loginOrRegister" = "قم بتسجيل الدخول او قم بأنشاء بريد الكترونى جديد";
+
+
+"loginOrRegisterBtn" = "تسجيل الدخول";

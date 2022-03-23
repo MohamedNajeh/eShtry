@@ -27,10 +27,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: false)
         passwordOutletTF.isSecureTextEntry = true
         
-        textFieldPlaceholder(textField: emailOutletTF, Placeholder: "Email Address")
-        textFieldPlaceholder(textField: passwordOutletTF, Placeholder: "Password")
+        textFieldPlaceholder(textField: emailOutletTF, Placeholder: "Email Address".localized)
+        textFieldPlaceholder(textField: passwordOutletTF, Placeholder: "Password".localized)
         
         continueOutletBtn?.isUserInteractionEnabled = false
         continueOutletBtn?.alpha = 0.5
@@ -42,7 +43,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         let myPassword = passwordOutletTF.text ?? ""
         
         if isValidPassword(password: myPassword) == false{
-            passwordOutletLabel.text = "Wrong password please try again"
+            passwordOutletLabel.text = "Wrong password please try again".localized
         }else{
             self.activityIndicatorLoading()
             networkShared.login(email: myEmail, password: myPassword) { [weak self] (response) in
@@ -56,19 +57,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         let comingPassword = customer.tags ?? ""
                         if comingMail == myEmail && comingPassword == myPassword {
                             print("found")
-                            print(customer.phone ?? "notFound")
+                            
                             self?.userDefaults.set(customer.id, forKey: "userId")
                             self?.userDefaults.set(true, forKey: "login")
                             self?.userDefaults.set(customer.first_name, forKey: "userName")
                             DispatchQueue.main.async {
                                 self!.activityIndecator.stopAnimating()
                             }
-                            //if customer.addresses?.count ?? 0 > 0 &&           customer.addresses?[0].address1 != "" {
-                            ////save address
-                            //for address in customer.addresses! {
-                            // self?.dataRepository.addAddress(address: address)
-                            //  }
-                            // }
+                
                             self?.isValidLogin = true
                             break
                         }
@@ -79,11 +75,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 
                 if self?.isValidLogin == false {
                     self!.activityIndecator.stopAnimating()
-                    LoginVC.presentAlert(controller: self!, title: "Wrong Login !!", message: "Check your email and password and try logging in again", style: .alert, actionTitle: "OK") { (action) in
+                    LoginVC.presentAlert(controller: self!, title: "Wrong Login!".localized, message: "Check your email or password and try logging in again".localized, style: .alert, actionTitle: "OK".localized) { (action) in
                         self?.dismiss(animated: true, completion: nil)
                     }
                 }else{
-                    LoginVC.showToast(controller: self!, message: "Login Succeeded", seconds: 2.5)
+
+                    LoginVC.showToast(controller: self!, message: "Login Succeeded".localized, seconds: 3)
+
                     self?.navigateToMain()
                 }
             }
@@ -105,7 +103,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func register(_ sender: Any) {
+    @IBAction func navigateToRegisterScreen(_ sender: Any) {
         let registerVC = storyboard?.instantiateViewController(identifier: "RegisterVC") as! RegisterVC
         navigationController?.pushViewController(registerVC, animated: true)
     }
@@ -122,13 +120,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     emailOutletLabel.text = "   "
                 }
             }else{
-                emailOutletLabel.text = "Please enter an email address"
+                emailOutletLabel.text = "Please enter an email address".localized
             }
         case passwordOutletTF:
             if !text.isEmpty {
                 passwordOutletLabel.text = " "
             }else{
-                passwordOutletLabel.text = "Please enter your Password"
+                passwordOutletLabel.text = "Please enter your Password".localized
             }
             
         default:

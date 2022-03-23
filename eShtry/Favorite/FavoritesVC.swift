@@ -17,7 +17,7 @@ class FavoritesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        configureTableView()
-       configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "Favorites", preferredLargeTitle: true)
+        configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "favorite".localized, preferredLargeTitle: true)
     }
     
     
@@ -63,7 +63,7 @@ extension FavoritesVC:UITableViewDelegate , UITableViewDataSource{
         cell.productImageView.setImage(with: favorites[indexPath.row].imageUrl)
         cell.productCreationDateLabel.text = "20/12/2021"
         cell.removeFromFavorites = { [weak self] in
-            FavoritesVC.presentAlert(controller: self!, title: "Delete Product ⛔️", message: "Are sure you want to delet product from favorites", style: .actionSheet, actionTitle: "Yes") { (_) in
+            FavoritesVC.presentAlert(controller: self!, title: "Delete Product ⛔️".localized, message: "Are sure you want to delet product from favorites".localized, style: .actionSheet, actionTitle: "Yes") { (_) in
                 CoreDataManager.shared.deleteProduct(product: (self?.favorites[indexPath.row])!)
                 self?.favorites.remove(at: indexPath.row)
                 self?.tableView.reloadData()

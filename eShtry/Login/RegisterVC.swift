@@ -41,21 +41,20 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     private var datePicker : UIDatePicker?
     let dateFormatter = DateFormatter()
     let userDefaults = UserDefaults.standard
-    //var customer : Customer!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.setNavigationBarHidden(false, animated: false)
         if checkWhichScreen == "p" {
-            let userDate = userDefaults.object(forKey: "userDate") as? String ?? ""
+            
             networkShared.getDataFromApi(urlString: customerById(userId: userId ?? 0), baseModel: CustomarRoot.self) { (result) in
                 switch result {
                 case .success(let data):
  
                     DispatchQueue.main.async {
-                        self.appeareProfileLabels(firstName:data.customer?.first_name ?? "", lastName: data.customer?.last_name ?? "", email: data.customer?.email ?? "", mobile: data.customer?.phone ?? "", date: userDate)
+                        self.appeareProfileLabels(firstName:data.customer?.first_name ?? "", lastName: data.customer?.last_name ?? "", email: data.customer?.email ?? "", mobile: data.customer?.phone ?? "", date: data.customer?.note ?? "")
                     }
                     
                 case .failure(let error):
@@ -88,7 +87,8 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         if checkWhichScreen == "p" {
             self.navigationController?.popViewController(animated: true)
         }else{
-            let customer = Customer(first_name: firstNameTF.text, last_name: lastNameTF.text, email: emailAddressTF.text, phone: mobileNumTF.text, tags: passwordTF.text, id: nil, verified_email: true, addresses: nil)
+            
+            let customer = Customer(first_name: firstNameTF.text, last_name: lastNameTF.text, email: emailAddressTF.text, phone: mobileNumTF.text,tags: passwordTF.text, note: dateOfBirthTF.text, id: nil, verified_email: true, addresses: nil)
             
             let newCustomer = CustomarRoot(customer: customer)
             registerCustomer(newCustomer:newCustomer)
@@ -163,13 +163,12 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     
     
     func validationUserInput() {
-        if (
-            firstNameLabel.text    == " " &&
-                lastNameLabel.text     == " " &&
-                phoneNumLabel.text     == " " &&
-                emailAddressLabel.text == " " &&
-                passwordLabel.text     == " " &&
-                dateOfBirthLabel.text  == " ")
+        if (firstNameLabel.text    == " " &&
+            lastNameLabel.text     == " " &&
+            phoneNumLabel.text     == " " &&
+            emailAddressLabel.text == " " &&
+            passwordLabel.text     == " " &&
+            dateOfBirthLabel.text  == " ")
         {
             registerBtnOutlet.isUserInteractionEnabled = true
             registerBtnOutlet?.alpha = 1.0
@@ -202,7 +201,6 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
         
         let toolBar = UIToolbar()
-        
         let btnDone = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(closePicker))
         toolBar.setItems([btnDone], animated: true)
         
@@ -270,7 +268,6 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
                         self?.userDefaults.set(name, forKey: "userName")
                         DispatchQueue.main.async {
                             RegisterVC.showToast(controller: self!, message: "Registered Successfully", seconds: 3)
-                            self?.userDefaults.set(self?.dateOfBirthTF.text, forKey: "userDate")
                             self?.navigateToMain()
                         }
                         

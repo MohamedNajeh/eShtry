@@ -35,7 +35,7 @@ import Foundation
 //    let default_address : Addresses?
 
 struct Customer: Codable {
-    let first_name, last_name, email, phone, tags: String?
+    let first_name, last_name, email, phone, tags, note: String?
     let id: Int?
     let verified_email: Bool?
     let addresses:  [Addresses]?

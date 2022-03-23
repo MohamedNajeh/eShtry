@@ -76,7 +76,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let storyboard = UIStoryboard(name: "HomeSB", bundle: .main)
         let homeNC     = storyboard.instantiateViewController(withIdentifier: "HomeVC")
-        homeNC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "homeIcon"), tag: 1)
+        homeNC.tabBarItem = UITabBarItem(title: "home".localized, image: UIImage(named: "homeIcon"), tag: 1)
         
         return UINavigationController(rootViewController: homeNC)
     }
@@ -86,7 +86,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "CategorySB", bundle: .main)
         let cateegoriesNC = storyboard.instantiateViewController(withIdentifier: "navigationController")
         let imageIcon = UIImage(systemName: "text.alignleft")
-        cateegoriesNC.tabBarItem = UITabBarItem(title: "Categories", image: imageIcon, tag: 2)
+        cateegoriesNC.tabBarItem = UITabBarItem(title: "categories".localized, image: imageIcon, tag: 2)
         return cateegoriesNC as! UINavigationController
     }
     
@@ -94,7 +94,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "FavoriteSB", bundle: .main)
         let favNC     = storyboard.instantiateViewController(withIdentifier: "navigationController")
         let imageIcon = UIImage(systemName: "star")
-        favNC.tabBarItem = UITabBarItem(title: "Favorite", image: imageIcon, tag: 3)
+        favNC.tabBarItem = UITabBarItem(title: "favorite".localized, image: imageIcon, tag: 3)
 
         return favNC as! UINavigationController
     }
@@ -103,7 +103,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func createCartNC()-> UINavigationController{
         let cartNC = CartVC()
         let imageIcon = UIImage(systemName: "cart")
-        cartNC.tabBarItem = UITabBarItem(title: "Cart", image: imageIcon, tag: 4)
+        cartNC.tabBarItem = UITabBarItem(title: "cart".localized, image: imageIcon, tag: 4)
         return UINavigationController(rootViewController: cartNC)
     }
     
@@ -111,7 +111,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "meVC", bundle: .main)
         let moreNC     = storyboard.instantiateViewController(withIdentifier: "me")
         let imageIcon = UIImage(systemName: "list.bullet")
-        moreNC.tabBarItem = UITabBarItem(title: "More", image: imageIcon, tag: 5)
+        moreNC.tabBarItem = UITabBarItem(title: "more".localized, image: imageIcon, tag: 5)
 
         return UINavigationController(rootViewController: moreNC)
     }
