@@ -30,15 +30,17 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     @IBOutlet weak var confirmButtonOutlet: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    @IBOutlet weak var viewSupport: UIView!
+    
     let userDefaults = UserDefaults.standard
     let networkShared = NetworkManager.shared
     var addressTitle = "Home"
-    var isDefaultAddress = false
     var isCustomTitle = false
     var userId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         confirmButtonOutlet?.isUserInteractionEnabled = false
         confirmButtonOutlet?.alpha = 0.5
         
@@ -59,15 +61,19 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
             changeCityOutletButton?.isUserInteractionEnabled = false
             changeCityOutletButton?.alpha = 0.5
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+               view.addGestureRecognizer(tapGesture)
+    }
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+        viewSupport.isHidden=true
     }
     
     
     @IBAction func confirmAddressClick(_ sender: Any) {
         if isCustomTitle {
             addressTitle = customAddressTitleTF.text ?? "Home"
-        }
-        if isDefaultAddress {
-            addressTitle += " (Default)"
         }
         
         let address = Addresses(address1: addressOutletTF.text, address2: addressTitle, city: cityOutletLabel.text, province: "", phone: receiverPhoneOutletTF.text, zip: zipCodeOutletTF.text, name: receiverNameOutletTF.text, country: countryOutletLabel.text)
@@ -79,9 +85,11 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     @IBAction func addressTitleChoose(_ sender: Any) {
         switch segmentControl.selectedSegmentIndex {
         case 0:
+            isCustomTitle = false
             addressTitle = segmentControl.titleForSegment(at: 0) ?? "Home"
             stackCustomAddressTitle.isHidden = true
         case 1:
+            isCustomTitle = false
             addressTitle = segmentControl.titleForSegment(at: 1) ?? "Home"
             stackCustomAddressTitle.isHidden = true
         case 2:
@@ -91,10 +99,6 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
             print("addressTitle")
         }
         
-    }
-    
-    @IBAction func defaultAddress(_ sender: UISwitch) {
-        isDefaultAddress = sender.isOn
     }
     
     
@@ -166,6 +170,8 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
             }else{
                 receiverPhoneLabel.text = "Please enter a receiver mobile number"
             }
+        case customAddressTitleTF:
+            print("")
         default:
             textField.text = ""
         }
@@ -206,7 +212,7 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
                     print("could parse response: \(error.localizedDescription)")
                 }
                 let id = returnedCustomer?["id"] as? Int ?? 0
-                //                let addresses = returnedCustomer?["addresses"] as? Int ?? 0
+                // let addresses = returnedCustomer?["addresses"] as? Int ?? 0
                 if id == 0 {
                     DispatchQueue.main.async {
                         self?.displayAlert(title: "user not supported", message: "An error occured while adding your address")
@@ -226,5 +232,15 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "OK",style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    func displayAlertTwoAction(title: String,message: String, action: UIAlertAction) {
+        
+    }
+    
+        func textFieldDidBeginEditing(_ textField: UITextField) {
+            if textField == customAddressTitleTF {
+                viewSupport.isHidden=false
+            }
+        }
+    
     
 }
