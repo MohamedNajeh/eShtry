@@ -45,7 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         orderTabBarItem = (window?.rootViewController as? UITabBarController)?.viewControllers?[3].tabBarItem
         NotificationCenter.default.addObserver(self, selector:#selector(updateOrderBadge),name: CoreDataManager.orderUpdatedNotification, object: nil)
 
-        NetworkReachibility.shared.checkNetwork()
+        //NetworkReachibility.shared.checkNetwork()
 
         CoreDataManager.shared.updateOrderArr()
         

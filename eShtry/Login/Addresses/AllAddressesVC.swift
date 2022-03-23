@@ -13,6 +13,7 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var titleScreenAddressesOutlet: UILabel!
     @IBOutlet weak var addressTableOutlet: UITableView!
     
+    let activityIndecator = UIActivityIndicatorView(style:.large)
     let networkShared = NetworkManager.shared
     let userDefaults = UserDefaults.standard
     var userId = 0
@@ -21,6 +22,7 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: false)
         addressTableOutlet.tableFooterView = UIView()
         
     }
@@ -28,7 +30,7 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         userId = userDefaults.object(forKey: "userId") as? Int ?? 0
         
-        //print(userId)
+        activityIndicatorLoading()
         networkShared.getDataFromApi(urlString: allAddresses(userId: userId), baseModel: AddressesRoot.self) { (result) in
             switch result {
             case .success(let data):
@@ -39,11 +41,19 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                 DispatchQueue.main.async {
                     if self.allAddressesApi.count == 0 {
                         self.imageNoAddressesOutlet.isHidden=false
+                        self.titleScreenAddressesOutlet.isHidden=true
                     } else {
                         self.imageNoAddressesOutlet.isHidden=true
+                        self.titleScreenAddressesOutlet.isHidden=false
                     }
                     self.addressTableOutlet.reloadData()
+                    self.activityIndecator.stopAnimating()
                 }
+//                DispatchQueue.main.async {
+//                    if !self.allAddressesApi.isEmpty{
+//
+//                    }
+//                }
                 
             case .failure(let error):
                 print(error)
@@ -73,12 +83,9 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cityCountry = cell.viewWithTag(4) as? UILabel
         let address = cell.viewWithTag(5) as? UILabel
 
-        if indexPath.row == 0 {
-            title?.text = allAddressesApi[indexPath.row].address2 ?? "" + " (Default)"
-        }else{
-            title?.text = allAddressesApi[indexPath.row].address2
-        }
-        
+     
+        self.allAddressesApi[0].address2?.append(" (Default)")
+        title?.text = allAddressesApi[indexPath.row].address2
         name?.text = allAddressesApi[indexPath.row].name
         phone?.text = allAddressesApi[indexPath.row].phone
         cityCountry?.text = "\(allAddressesApi[indexPath.row].city ?? "") , \(allAddressesApi[indexPath.row].country ?? "")"
@@ -141,4 +148,9 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.present(alert, animated: true, completion: nil)
     }
     
+    func activityIndicatorLoading() { // loading...
+        activityIndecator.center = view.center
+        view.addSubview(activityIndecator)
+        activityIndecator.startAnimating()
+    }
 }

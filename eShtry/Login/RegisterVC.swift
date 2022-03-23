@@ -41,20 +41,21 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     private var datePicker : UIDatePicker?
     let dateFormatter = DateFormatter()
     let userDefaults = UserDefaults.standard
-    
+    let activityIndecator = UIActivityIndicatorView(style:.large)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
         if checkWhichScreen == "p" {
-            
+            activityIndicatorLoading()
             networkShared.getDataFromApi(urlString: customerById(userId: userId ?? 0), baseModel: CustomarRoot.self) { (result) in
                 switch result {
                 case .success(let data):
  
                     DispatchQueue.main.async {
                         self.appeareProfileLabels(firstName:data.customer?.first_name ?? "", lastName: data.customer?.last_name ?? "", email: data.customer?.email ?? "", mobile: data.customer?.phone ?? "", date: data.customer?.note ?? "")
+                        self.activityIndecator.stopAnimating()
                     }
                     
                 case .failure(let error):
@@ -248,6 +249,7 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     }
     
     func registerCustomer(newCustomer:CustomarRoot){
+        activityIndicatorLoading()
         networkShared.registerCustomer(newCustomer:newCustomer){ [weak self] (data, response, error) in
             if error != nil {
                 print(error!)
@@ -267,6 +269,7 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
                         self?.userDefaults.set(true, forKey: "login")
                         self?.userDefaults.set(name, forKey: "userName")
                         DispatchQueue.main.async {
+                            self?.activityIndecator.stopAnimating()
                             RegisterVC.showToast(controller: self!, message: "Registered Successfully", seconds: 3)
                             self?.navigateToMain()
                         }
@@ -300,6 +303,11 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    func activityIndicatorLoading() { // loading...
+        activityIndecator.center = view.center
+        view.addSubview(activityIndecator)
+        activityIndecator.startAnimating()
+    }
 }
 
 
