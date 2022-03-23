@@ -9,8 +9,8 @@ import Foundation
 import MobileBuySDK
 class Client {
     
-    static let shopDomain = "jets-ismailia.myshopify.com"
-    static let apiKey     = "70adb96961fe55ab1ce308476d536e01"
+    static let shopDomain = "graphql.myshopify.com"
+    static let apiKey     = "8e2fef6daed4b93cf4e731f580799dd1"
     
     static let shared = Client()
     let client:Graph.Client = Graph.Client(shopDomain: shopDomain, apiKey: apiKey)
