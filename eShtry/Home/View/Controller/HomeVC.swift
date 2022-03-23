@@ -333,6 +333,10 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
                 guard let self = self else { return }
                 let product = Product(id: "\(self.productViewModel.getCellViewModel(at: indexPath).id)", imageUrl: "\(self.productViewModel.getCellViewModel(at: indexPath).imgUrl)", name: "\(self.productViewModel.getCellViewModel(at: indexPath).name)")
                 print("product = \(product)")
+                guard let isLogedIn = UserDefaults.standard.object(forKey: "login") as? Bool , isLogedIn else{
+                    BrandProductsVC.showToast(controller: self, message: "you must bo logged in to favorite products", seconds: 1)
+                    return
+                }
                 if(CoreDataManager.shared.isInFovorite(productId: "\(self.productViewModel.getCellViewModel(at: indexPath).id)")){
                     CoreDataManager.shared.deleteProduct(product: product)
                     productCell.favoriteButtonOutlet.setImage(UIImage(named: "emptyHeart"), for: .normal)

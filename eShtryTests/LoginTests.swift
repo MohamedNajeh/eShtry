@@ -27,8 +27,8 @@ class LoginTests: XCTestCase {
         var error:String?
         var userIsFound:Bool?
         
-        let userEmail = "user@gamil.com"
-        let userPassword = "123456789As"
+        let userEmail = "user1@yahoo.com"
+        let userPassword = "Aa123456"
         
         sut.login(email: userEmail , password: userPassword ) { (response) in
             switch response.result{
@@ -70,7 +70,7 @@ class LoginTests: XCTestCase {
         var errorMessage:String?
         var registerationSuccedeed:Bool?
         
-        let customer = Customer(first_name: "mahmoud", last_name: "yousef_Ghoneim", email: "mahmoud1911@gmail.com", phone: "01078954123", tags: "123456789Ax", id: nil, verified_email: true, addresses: nil)
+        let customer = Customer(first_name: "mahmoud", last_name: "yousef_Ghoneim", email: "mahmoud1911@gmail.com", phone: "01078954123", tags: "123456789Ax", note: "20-12-1996", id: nil, verified_email: true, addresses: nil)
         let newCustomer = CustomarRoot(customer: customer)
         
         sut.registerCustomer(newCustomer: newCustomer) { (data, response, error) in
