@@ -62,7 +62,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.028981261479999999" green="0.2650777835" blue="0.43945541890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.025844079123206413" green="0.24841167128379635" blue="0.41895256357005073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Fk2-Tz-AEg" firstAttribute="leading" secondItem="Bld-Zg-JNW" secondAttribute="leading" constant="16" id="3P6-2g-euV"/>
                                     <constraint firstItem="Fk2-Tz-AEg" firstAttribute="top" secondItem="63e-HC-m0L" secondAttribute="bottom" constant="6" id="E3T-Pg-TeS"/>
@@ -113,7 +113,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.02898126147694843" green="0.26507778354138278" blue="0.43945541890614115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.025221481009765123" green="0.24242729717780573" blue="0.40885976535284174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="DBH-Is-97R" firstAttribute="leading" secondItem="eDx-bi-mc6" secondAttribute="leading" constant="12" id="52u-Of-s1l"/>
                                     <constraint firstItem="dxh-DD-U7K" firstAttribute="leading" secondItem="hAI-wz-sRZ" secondAttribute="trailing" constant="6" id="LlE-BQ-00W"/>
@@ -164,7 +164,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.028981261479999999" green="0.2650777835" blue="0.43945541890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.024909570362973452" green="0.23942923155931925" blue="0.40380345189492384" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="oIU-KC-UnD" firstAttribute="centerY" secondItem="Bf7-Lk-q2V" secondAttribute="centerY" id="1aO-TZ-AYg"/>
                                     <constraint firstItem="qNb-ZP-sWg" firstAttribute="leading" secondItem="ORK-Zi-GcR" secondAttribute="leading" constant="12" id="1pJ-Zd-oUe"/>
@@ -215,7 +215,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.028981261479999999" green="0.2650777835" blue="0.43945541890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.025221481009386284" green="0.24242729717416434" blue="0.40885976534670043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="7xP-S2-MSw" firstAttribute="leading" secondItem="fXJ-fj-c6P" secondAttribute="leading" constant="16" id="AsK-gZ-7dX"/>
                                     <constraint firstItem="W23-Ws-tSn" firstAttribute="leading" secondItem="7xP-S2-MSw" secondAttribute="trailing" constant="6" id="Gt2-vY-Cuv"/>
@@ -1569,7 +1569,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Addresses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFy-0G-GfZ">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Addresses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFy-0G-GfZ">
                                 <rect key="frame" x="0.0" y="84" width="414" height="26.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" red="0.054901960780000002" green="0.35294117650000001" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1682,6 +1682,7 @@
                             </tableView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="noAddress" translatesAutoresizingMaskIntoConstraints="NO" id="u8T-R9-Vbz">
                                 <rect key="frame" x="0.0" y="44" width="414" height="744"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

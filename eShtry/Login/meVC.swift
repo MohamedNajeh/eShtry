@@ -37,6 +37,7 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     let userDefaults = UserDefaults.standard
     let coreData = CoreDataManager.shared
+    let connection = NetworkReachibility.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,7 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
      override func viewWillAppear(_ animated: Bool) {
+        connection.checkNetwork(target: self)
         navigationController?.setNavigationBarHidden(true, animated: false)
         ifLogin()
            

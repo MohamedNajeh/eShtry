@@ -14,7 +14,7 @@ class NetworkReachibility{
     static let shared = NetworkReachibility()
     private init(){}
     
-    func checkNetwork(){
+    func checkNetwork(target:UIViewController){
         
         guard let reachability = reachability else{return}
         reachability.whenReachable = { reachability in
@@ -26,7 +26,9 @@ class NetworkReachibility{
             }
         }
         reachability.whenUnreachable = { _ in
-            print("Not reachable")
+            let alert = UIAlertController(title: "No Connection !",message:"Please Check Your Intenet Connection",preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss",style: .default, handler: nil))
+            target.present(alert, animated: true, completion: nil)
         }
         
         do {
