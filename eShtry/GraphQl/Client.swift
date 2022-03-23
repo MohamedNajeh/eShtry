@@ -16,7 +16,7 @@ class Client {
     let client:Graph.Client = Graph.Client(shopDomain: shopDomain, apiKey: apiKey)
     
     
-    func fetchAllCollections(completion: @escaping ([Storefront.Collection]?) -> Void) {
+    func fetchAllCollections(completion: @escaping ([Storefront.Collection]?) -> Void) -> Task{
         let query = ClientQuery.queryToGetAllCollections()
         let task = client.queryGraphWith(query) { response, error in
          let collection = response?.collections.edges.map { $0.node }
@@ -29,10 +29,10 @@ class Client {
             completion(result)
         }
         task.resume()
-        
+        return task
     }
     
-    func fetchAllSubCategoryProducts(vendor:String , type:String , completion: @escaping ([Storefront.Product]?) -> Void)  {
+    func fetchAllSubCategoryProducts(vendor:String , type:String , completion: @escaping ([Storefront.Product]?) -> Void) -> Task {
         let query = ClientQuery.getSubCategoryProductsQuery(vendor: vendor, type: type)
         let task = client.queryGraphWith(query) { response, error in
             let products  = response?.products.edges.map { $0.node }
@@ -44,10 +44,10 @@ class Client {
             completion(result)
         }
         task.resume()
-        
+        return task
     }
     
-    func fetchBrandProducts(vendor:String , completion:@escaping ([Storefront.Product]?) -> Void)  {
+    func fetchBrandProducts(vendor:String , completion:@escaping ([Storefront.Product]?) -> Void) -> Task {
         let query = ClientQuery.queryToGetBrandProducts(vendor: vendor)
         let task = client.queryGraphWith(query) { response, error in
             if let response = response {
@@ -60,10 +60,10 @@ class Client {
             }
         }
         task.resume()
-        
+        return task
     }
     
-    func fetchAllProducts(completion: @escaping ([Storefront.Product]?)->Void) {
+    func fetchAllProducts(completion: @escaping ([Storefront.Product]?)->Void) -> Task {
         let query = ClientQuery.getAllProducts()
         let task = client.queryGraphWith(query) {response, error in
             if let response = response {
@@ -75,6 +75,7 @@ class Client {
             }
         }
         task.resume()
+        return task
     }
     
     func fetchProductDetails(title:String,completion: @escaping ([Storefront.Product]?) -> Void) -> Task{
