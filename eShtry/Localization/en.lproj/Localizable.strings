@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  eShtry
+
+  Created by eslam mohamed on 23/03/2022.
+  
+*/
+
+"eshtry" = "eShtry";
+"home"   = "Home";
+"categories" = "Categories";
+"favorite" = "Favorite";
+"cart" = "Cart";
+"more" = "More";
+"offers" = "Offers";
+"brands" = "Brands";
+"recommended" = "Recommended";
+"what's new?" = "What's new?";
+
+"shoes" = "Shoes";
+"T-Shirts" = "T-Shirts";
+"accessories" = "Accessories";
+
+"contactUs" = "Contact Us";
+"terms&conditions" = "Terms & Conditions";
+"privacyPolicy" = "Privacy Policy";
+"version" = "version 1.01";
+
+
+"Loggedout" = "Logged out";
+
+"welcome" = "Welcome";
+"home" = "Home";
+
+
+"address" = "Address";
+"Zip / Postal code" = "Zip / Postal code";
+"Receiver Name" = "Receiver Name";
+"Mobile Number" = "Mobile Number";
+"Custom Address Label" = "Custom Address Label";
+"(Default)" = "(Default)";
+"Please enter your address" = "Please enter your address";
+"Please enter valid zip / postal code" = "Please enter valid zip / postal code";
+"Please enter your zip / postal code" =  "Please enter your zip / postal code";
+"Please enter a receiver name" = "Please enter a receiver name";
+
+"Please enter a valid phone number!" = "Please enter a valid phone number!";
+
+"Please enter a receiver mobile number" = "Please enter a receiver mobile number";
+"OK" = "OK";
+
+
+
+"Delete Product ⛔️" = "Delete Product ⛔️";
+
+"Are sure you want to delet product from favorites" = "Are sure you want to delet product from favorites";
+
+"Email Address" = "Email Address";
+"Password" = "Password";
+
+"Wrong password please try again" = "Wrong password please try again";
+
+"Wrong Login!" = "Wrong Login!";
+"Check your email or password and try logging in again" = "Check your email or password and try logging in again";
+
+"Login Succeeded" = "Login Succeeded";
+
+"Please enter an email address" = "Please enter an email address";
+
+"Please enter your Password" = "Please enter your Password";
+
+"loginOrRegister" = "Login to your account or Register a new one ";
+
+
+"loginOrRegisterBtn" = "loginOrRegisterBtn";

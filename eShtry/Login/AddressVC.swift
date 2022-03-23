@@ -34,7 +34,9 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     
     let userDefaults = UserDefaults.standard
     let networkShared = NetworkManager.shared
-    var addressTitle = "Home"
+
+    var addressTitle = "home".localized
+    var isDefaultAddress = false
     var isCustomTitle = false
     var userId = 0
     
@@ -47,10 +49,10 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
         userId = userDefaults.object(forKey: "userId") as? Int ?? 0
         print(userId)
         
-        textFieldPlaceholder(textField: addressOutletTF, Placeholder: "Address")
-        textFieldPlaceholder(textField: zipCodeOutletTF, Placeholder: "Zip / Postal code")
-        textFieldPlaceholder(textField: receiverNameOutletTF, Placeholder: "Receiver Name")
-        textFieldPlaceholder(textField: receiverPhoneOutletTF, Placeholder: "Mobile Number")
+        textFieldPlaceholder(textField: addressOutletTF, Placeholder: "address".localized)
+        textFieldPlaceholder(textField: zipCodeOutletTF, Placeholder: "Zip / Postal code".localized)
+        textFieldPlaceholder(textField: receiverNameOutletTF, Placeholder: "Receiver Name".localized)
+        textFieldPlaceholder(textField: receiverPhoneOutletTF, Placeholder: "Mobile Number".localized)
         textFieldPlaceholder(textField: customAddressTitleTF, Placeholder: "Custom Address Label")
         
         
@@ -73,8 +75,13 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     
     @IBAction func confirmAddressClick(_ sender: Any) {
         if isCustomTitle {
-            addressTitle = customAddressTitleTF.text ?? "Home"
+            addressTitle = customAddressTitleTF.text ?? "home".localized
         }
+
+        if isDefaultAddress {
+            addressTitle += "(Default)".localized
+        }
+
         
         let address = Addresses(address1: addressOutletTF.text, address2: addressTitle, city: cityOutletLabel.text, province: "", phone: receiverPhoneOutletTF.text, zip: zipCodeOutletTF.text, name: receiverNameOutletTF.text, country: countryOutletLabel.text)
         addAddress(address: address)
@@ -85,12 +92,19 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     @IBAction func addressTitleChoose(_ sender: Any) {
         switch segmentControl.selectedSegmentIndex {
         case 0:
+
+            
+            stackCustomAddressTitle.isHidden = true
+        case 1:
+            addressTitle = segmentControl.titleForSegment(at: 1) ?? "home".localized
+
             isCustomTitle = false
-            addressTitle = segmentControl.titleForSegment(at: 0) ?? "Home"
+            addressTitle = segmentControl.titleForSegment(at: 0) ?? "home".localized
             stackCustomAddressTitle.isHidden = true
         case 1:
             isCustomTitle = false
             addressTitle = segmentControl.titleForSegment(at: 1) ?? "Home"
+
             stackCustomAddressTitle.isHidden = true
         case 2:
             isCustomTitle = true
@@ -144,31 +158,31 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
             if !text.isEmpty {
                 addressLabel.text = " "
             }else{
-                addressLabel.text = "Please enter your address"
+                addressLabel.text = "Please enter your address".localized
             }
         case zipCodeOutletTF:
             if !text.isEmpty {
                 zipCodeLabel.text = " "
                 if isValidZipCode(zipCode: text) == false {
-                    zipCodeLabel.text = "Please enter valid zip / postal code"
+                    zipCodeLabel.text = "Please enter valid zip / postal code".localized
                 }
             }else{
-                zipCodeLabel.text = "Please enter your zip / postal code"
+                zipCodeLabel.text = "Please enter your zip / postal code".localized
             }
         case receiverNameOutletTF:
             if !text.isEmpty {
                 receiverNameLabel.text = " "
             }else{
-                receiverNameLabel.text = "Please enter a receiver name"
+                receiverNameLabel.text = "Please enter a receiver name".localized
             }
         case receiverPhoneOutletTF:
             if !text.isEmpty {
                 receiverPhoneLabel.text = " "
                 if isValidPhoneNumber(phoneNumber: text) == false{
-                    receiverPhoneLabel.text = "Please enter a valid phone number !!"
+                    receiverPhoneLabel.text = "Please enter a valid phone number!".localized
                 }
             }else{
-                receiverPhoneLabel.text = "Please enter a receiver mobile number"
+                receiverPhoneLabel.text = "Please enter a receiver mobile number".localized
             }
         case customAddressTitleTF:
             print("")
@@ -229,7 +243,7 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     
     func displayAlert(title: String,message: String) {
         let alert = UIAlertController(title: title,message:message,preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK".localized,style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     

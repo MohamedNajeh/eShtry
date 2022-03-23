@@ -36,7 +36,7 @@ class HomeVC: UIViewController {
     }
     
     func configureNavBar(){
-        configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "eShtry", preferredLargeTitle: true)
+        configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "eshtry".localized, preferredLargeTitle: true)
         let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchButtonPressed))
         navigationItem.rightBarButtonItem = searchButton
         
@@ -363,13 +363,13 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
         case 0:
             view.title = " "
         case 1:
-            view.title = "Offers"
+            view.title = "offers".localized
         case 2:
-            view.title = "Brands"
+            view.title = "brands".localized
         case 3:
-            view.title = "Recommended"
+            view.title = "recommended".localized
         case 4:
-            view.title = "what's new?"
+            view.title = "what's new?".localized
         default:
             print("NO Thing")
         }

@@ -23,10 +23,17 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var logOutButtonOutlet: UIButton!
     @IBOutlet weak var stackViewLoggingIn: UIStackView!
     
+
+    
+    @IBOutlet weak var headerViewLoginLabel: UILabel!
+    
+    @IBOutlet weak var headerViewLoginBtn: UIButton!
+
     @IBOutlet weak var holderImgOrders: UIImageView!
     @IBOutlet weak var holderImgWishList: UIImageView!
     @IBOutlet weak var orderTableView: UITableView!
     @IBOutlet weak var wishListTableView: UITableView!
+
     
     let userDefaults = UserDefaults.standard
     let coreData = CoreDataManager.shared
@@ -57,6 +64,11 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         wishListTableView.reloadData()
         }
         
+
+        headerViewLoginLabel.text = "loginOrRegister".localized
+        headerViewLoginBtn.setTitle("loginOrRegisterBtn".localized, for: .normal)
+    }
+
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -164,12 +176,14 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }
     
     @IBAction func logOutClick(_ sender: Any) {
+
         displayAlertTwoAction(title: "LOG OUT", message: "Are You Sure You Want To Log Out?", action: UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
             self.userDefaults.set(false, forKey:"login")
-            meVC.showToast(controller: self, message: "Logged Out", seconds: 3)
+            meVC.showToast(controller: self, message: "Loggedout".localized, seconds: 3)
             self.navigateToTabBarBYIndex(index: 0)
         }))
         
+
     }
     
     
@@ -178,7 +192,7 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let isLoggedIn = userDefaults.object(forKey: "login") as? Bool ?? false
 
         if isLoggedIn {
-            welcomeUserLabelOtlet.text = "Welcome \(userName)"
+            welcomeUserLabelOtlet.text = "\("Welcome".localized) \(userName)"
             welcomeUserViewOutlet.isHidden = false
             loginViewOutlet.isHidden = true
             myOrdersViewOutlet.isHidden = false
