@@ -80,10 +80,14 @@
 		19CDC88F27E750E1009B0E9F /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CDC88E27E750E1009B0E9F /* ProductDetailsViewModel.swift */; };
 		19CDC89427E75C07009B0E9F /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CDC89327E75C07009B0E9F /* CategoryViewModel.swift */; };
 		19CDC89627E75CD9009B0E9F /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CDC89527E75CD9009B0E9F /* CategoryCellViewModel.swift */; };
+		4651584227E96F9F007901C6 /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651584127E96F9F007901C6 /* ClientTests.swift */; };
+		4651588927E98D49007901C6 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651588827E98D49007901C6 /* LoginTests.swift */; };
+		4651589827E9C8FF007901C6 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651589727E9C8FF007901C6 /* AddressTests.swift */; };
 		4663974627E704FA00080728 /* FavoriteSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4663974527E704FA00080728 /* FavoriteSB.storyboard */; };
 		4663974927E7051C00080728 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4663974827E7051C00080728 /* FavoritesVC.swift */; };
 		4663974C27E7052300080728 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4663974B27E7052300080728 /* FavoriteCell.swift */; };
 		4663975127E727E100080728 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4663975027E727E100080728 /* Product.swift */; };
+		4691983427EA903500904906 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691983327EA903500904906 /* CoreDataTests.swift */; };
 		46985B3827E09CE2003E3958 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3727E09CE2003E3958 /* CategoryCell.swift */; };
 		46985B3B27E09CEA003E3958 /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3A27E09CEA003E3958 /* ProductCollectionCell.swift */; };
 		46985B3E27E09CF1003E3958 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46985B3D27E09CF1003E3958 /* CategoryVC.swift */; };
@@ -120,6 +124,7 @@
 		5BB7778E27DFC66E00ECAC8B /* BrandProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7778D27DFC66E00ECAC8B /* BrandProductsVC.swift */; };
 		5BB7779027DFC67D00ECAC8B /* HomeSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB7778F27DFC67D00ECAC8B /* HomeSB.storyboard */; };
 		5BB7779227DFC68800ECAC8B /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7779127DFC68800ECAC8B /* ProductDetailsVC.swift */; };
+		B4B6FD9B370339984F9E761E /* libPods-eShtryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD4F95B2232B4D2AFE559CF /* libPods-eShtryTests.a */; };
 		E23D329A27E832D300CA96F6 /* AllAddressesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23D329927E832D300CA96F6 /* AllAddressesVC.swift */; };
 		E264E1BC27DFBD8100615EBF /* AddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1B427DFBD8000615EBF /* AddressVC.swift */; };
 		E264E1BD27DFBD8100615EBF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264E1B527DFBD8000615EBF /* LoginVC.swift */; };
@@ -135,6 +140,16 @@
 		E274EB4A27E2988700923987 /* currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E274EB4927E2988700923987 /* currencies.swift */; };
 		FAD2BA081DA2C5A5218F1744 /* Pods_eShtry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AE22A783C47B4E8138ED9A /* Pods_eShtry.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4651583A27E96F56007901C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BA095D627D9785E00C17E57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA095DD27D9785E00C17E57;
+			remoteInfo = eShtry;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1914DEC927DFAE9B00931E5D /* CartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -210,10 +225,19 @@
 		19CDC88E27E750E1009B0E9F /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		19CDC89327E75C07009B0E9F /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		19CDC89527E75CD9009B0E9F /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
+		4651583527E96F56007901C6 /* eShtryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eShtryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4651583927E96F56007901C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4651584127E96F9F007901C6 /* ClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTests.swift; sourceTree = "<group>"; };
+		4651584727E979AC007901C6 /* MobileBuySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MobileBuySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4651584B27E97A2C007901C6 /* MobileBuySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MobileBuySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4651585827E97B07007901C6 /* MobileBuySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MobileBuySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4651588827E98D49007901C6 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		4651589727E9C8FF007901C6 /* AddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
 		4663974527E704FA00080728 /* FavoriteSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteSB.storyboard; sourceTree = "<group>"; };
 		4663974827E7051C00080728 /* FavoritesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		4663974B27E7052300080728 /* FavoriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		4663975027E727E100080728 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		4691983327EA903500904906 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		46985B3727E09CE2003E3958 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		46985B3A27E09CEA003E3958 /* ProductCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
 		46985B3D27E09CF1003E3958 /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
@@ -253,6 +277,8 @@
 		5BB7778D27DFC66E00ECAC8B /* BrandProductsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandProductsVC.swift; sourceTree = "<group>"; };
 		5BB7778F27DFC67D00ECAC8B /* HomeSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeSB.storyboard; sourceTree = "<group>"; };
 		5BB7779127DFC68800ECAC8B /* ProductDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
+		6473E323D474301E6FAF8464 /* Pods-eShtryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShtryTests.release.xcconfig"; path = "Target Support Files/Pods-eShtryTests/Pods-eShtryTests.release.xcconfig"; sourceTree = "<group>"; };
+		978953532F5B5F1905E03468 /* Pods-eShtryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShtryTests.debug.xcconfig"; path = "Target Support Files/Pods-eShtryTests/Pods-eShtryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E23D329927E832D300CA96F6 /* AllAddressesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressesVC.swift; sourceTree = "<group>"; };
 		E264E1B427DFBD8000615EBF /* AddressVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressVC.swift; sourceTree = "<group>"; };
 		E264E1B527DFBD8000615EBF /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -268,9 +294,18 @@
 		E274EB4927E2988700923987 /* currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currencies.swift; sourceTree = "<group>"; };
 		E3D2A215FC889DBE0105810E /* Pods-eShtry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShtry.debug.xcconfig"; path = "Target Support Files/Pods-eShtry/Pods-eShtry.debug.xcconfig"; sourceTree = "<group>"; };
 		EA078BB554EC25FEF04D6FB2 /* Pods-eShtry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eShtry.release.xcconfig"; path = "Target Support Files/Pods-eShtry/Pods-eShtry.release.xcconfig"; sourceTree = "<group>"; };
+		FCD4F95B2232B4D2AFE559CF /* libPods-eShtryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-eShtryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4651583227E96F56007901C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4B6FD9B370339984F9E761E /* libPods-eShtryTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5BA095DB27D9785E00C17E57 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -786,6 +821,18 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		4651583627E96F56007901C6 /* eShtryTests */ = {
+			isa = PBXGroup;
+			children = (
+				4651583927E96F56007901C6 /* Info.plist */,
+				4651584127E96F9F007901C6 /* ClientTests.swift */,
+				4651588827E98D49007901C6 /* LoginTests.swift */,
+				4651589727E9C8FF007901C6 /* AddressTests.swift */,
+				4691983327EA903500904906 /* CoreDataTests.swift */,
+			);
+			path = eShtryTests;
+			sourceTree = "<group>";
+		};
 		4663974327E704C000080728 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
@@ -860,6 +907,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA095E027D9785E00C17E57 /* eShtry */,
+				4651583627E96F56007901C6 /* eShtryTests */,
 				5BA095DF27D9785E00C17E57 /* Products */,
 				A6942C813375FA2091936573 /* Pods */,
 				A4824424DCCFA4258F4B82E9 /* Frameworks */,
@@ -870,6 +918,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA095DE27D9785E00C17E57 /* eShtry.app */,
+				4651583527E96F56007901C6 /* eShtryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -930,7 +979,11 @@
 		A4824424DCCFA4258F4B82E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4651585827E97B07007901C6 /* MobileBuySDK.framework */,
+				4651584B27E97A2C007901C6 /* MobileBuySDK.framework */,
+				4651584727E979AC007901C6 /* MobileBuySDK.framework */,
 				59AE22A783C47B4E8138ED9A /* Pods_eShtry.framework */,
+				FCD4F95B2232B4D2AFE559CF /* libPods-eShtryTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -940,6 +993,8 @@
 			children = (
 				E3D2A215FC889DBE0105810E /* Pods-eShtry.debug.xcconfig */,
 				EA078BB554EC25FEF04D6FB2 /* Pods-eShtry.release.xcconfig */,
+				978953532F5B5F1905E03468 /* Pods-eShtryTests.debug.xcconfig */,
+				6473E323D474301E6FAF8464 /* Pods-eShtryTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -982,6 +1037,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4651583427E96F56007901C6 /* eShtryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4651583E27E96F56007901C6 /* Build configuration list for PBXNativeTarget "eShtryTests" */;
+			buildPhases = (
+				B301D2F497C483E7D1B0F941 /* [CP] Check Pods Manifest.lock */,
+				4651583127E96F56007901C6 /* Sources */,
+				4651583227E96F56007901C6 /* Frameworks */,
+				4651583327E96F56007901C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4651583B27E96F56007901C6 /* PBXTargetDependency */,
+			);
+			name = eShtryTests;
+			productName = eShtryTests;
+			productReference = 4651583527E96F56007901C6 /* eShtryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5BA095DD27D9785E00C17E57 /* eShtry */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BA095F227D9786200C17E57 /* Build configuration list for PBXNativeTarget "eShtry" */;
@@ -1008,9 +1082,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					4651583427E96F56007901C6 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 5BA095DD27D9785E00C17E57;
+					};
 					5BA095DD27D9785E00C17E57 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -1030,11 +1108,19 @@
 			projectRoot = "";
 			targets = (
 				5BA095DD27D9785E00C17E57 /* eShtry */,
+				4651583427E96F56007901C6 /* eShtryTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4651583327E96F56007901C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5BA095DC27D9785E00C17E57 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1104,9 +1190,42 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eShtry/Pods-eShtry-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B301D2F497C483E7D1B0F941 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eShtryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4651583127E96F56007901C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4691983427EA903500904906 /* CoreDataTests.swift in Sources */,
+				4651584227E96F9F007901C6 /* ClientTests.swift in Sources */,
+				4651588927E98D49007901C6 /* LoginTests.swift in Sources */,
+				4651589827E9C8FF007901C6 /* AddressTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5BA095DA27D9785E00C17E57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1222,6 +1341,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4651583B27E96F56007901C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BA095DD27D9785E00C17E57 /* eShtry */;
+			targetProxy = 4651583A27E96F56007901C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		5BA095E727D9785E00C17E57 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1242,6 +1369,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4651583C27E96F56007901C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 978953532F5B5F1905E03468 /* Pods-eShtryTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J3QHX87NG7;
+				INFOPLIST_FILE = eShtryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mahmoud1911.eShtryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eShtry.app/eShtry";
+			};
+			name = Debug;
+		};
+		4651583D27E96F56007901C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6473E323D474301E6FAF8464 /* Pods-eShtryTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J3QHX87NG7;
+				INFOPLIST_FILE = eShtryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mahmoud1911.eShtryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eShtry.app/eShtry";
+			};
+			name = Release;
+		};
 		5BA095F027D9786200C17E57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1421,6 +1594,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4651583E27E96F56007901C6 /* Build configuration list for PBXNativeTarget "eShtryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4651583C27E96F56007901C6 /* Debug */,
+				4651583D27E96F56007901C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5BA095D927D9785E00C17E57 /* Build configuration list for PBXProject "eShtry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
