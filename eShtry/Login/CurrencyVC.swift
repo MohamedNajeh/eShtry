@@ -14,7 +14,7 @@ class CurrencyVC: UIViewController,setCountryProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.setNavigationBarHidden(false, animated: false)
       currencyOutletLabel.text = defaults.object(forKey: "currency") as? String ?? "Select Currency"
     }
     

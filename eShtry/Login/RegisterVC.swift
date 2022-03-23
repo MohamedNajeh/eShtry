@@ -46,7 +46,7 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.setNavigationBarHidden(false, animated: false)
         if checkWhichScreen == "p" {
             
             networkShared.getDataFromApi(urlString: customerById(userId: userId ?? 0), baseModel: CustomarRoot.self) { (result) in
