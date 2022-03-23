@@ -8,43 +8,43 @@
 import Foundation
 import UIKit
 
-let productsUrl = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/products.json"
+let productsUrl = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/products.json"
 
-let singleProductUrl = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/products/6905518063663.json"
+let singleProductUrl = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/products/6905518063663.json"
 
-let customers = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers.json"
+let customers = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/customers.json"
 
-let customerInfo = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers/5748952236079.json"
+let customerInfo = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/customers/5748952236079.json"
 
-let customCollections = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/custom_collections.json"
+let customCollections = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/custom_collections.json"
 
-let productsForCustomCollection = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/products.json?collection_id=272068870191"
-
-
-let orders = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/orders.json"
+let productsForCustomCollection = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/products.json?collection_id=272068870191"
 
 
-let orderInfo = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/orders/4412317073455.json"
+let orders = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/orders.json"
 
 
-let countries = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/countries.json"
+let orderInfo = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/orders/4412317073455.json"
 
-let currencies = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/currencies.json"
+
+let countries = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/countries.json"
+
+let currencies = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/currencies.json"
 
 
 func addressById(userId : Int,addressId : Int)->String{
-    let url = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers/\(userId)/addresses/\(addressId).json"
+    let url = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/customers/\(userId)/addresses/\(addressId).json"
     return url
 }
 
 
 func allAddresses (userId : Int)->String{
-    let url = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers/\(userId)/addresses.json"
+    let url = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/customers/\(userId)/addresses.json"
     return url
 }
 
 func customerById (userId : Int)->String{
-    let url = "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers/\(userId).json"
+    let url = "https://892d3c2f6c574cc05542710e59d952b4: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@ahmadmazen-5960.myshopify.com/admin/api/2022-01/customers/\(userId).json"
     return url
 }
 
