@@ -62,12 +62,13 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
         
         wishListTableView.reloadData()
+//         headerViewLoginLabel.text = "loginOrRegister".localized
+//         headerViewLoginBtn.setTitle("loginOrRegisterBtn".localized, for: .normal)
         }
         
 
-        headerViewLoginLabel.text = "loginOrRegister".localized
-        headerViewLoginBtn.setTitle("loginOrRegisterBtn".localized, for: .normal)
-    }
+
+    
 
     
     
