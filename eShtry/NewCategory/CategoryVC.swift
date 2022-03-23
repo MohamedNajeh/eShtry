@@ -17,7 +17,7 @@ class CategoryVC: UIViewController {
   
     var isHiddenViews:[Bool] = Array(repeating: true, count: 10)
     var collections:[Storefront.Collection] = []
-    var productTypes:[String] = ["SHOES","T-SHIRTS","ACCESSORIES"]
+    var productTypes:[String] = ["shoes".localized,"T-Shirts".localized,"accessories".localized]
     var selectedVendor:String = "VANS"
     
     let viewModel = CategoryViewModel()
@@ -29,7 +29,7 @@ class CategoryVC: UIViewController {
         configureTableViews()
         fetchCollections()
         let color:UIColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)
-        configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "Category", preferredLargeTitle: true)
+        configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "categories".localized, preferredLargeTitle: true)
         let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchButtonPressed))
         
         navigationItem.rightBarButtonItem = searchButton

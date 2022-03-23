@@ -27,6 +27,11 @@ class meVC: UIViewController {
     @IBOutlet weak var logOutButtonOutlet: UIButton!
     @IBOutlet weak var stackViewLoggingIn: UIStackView!
     
+    
+    @IBOutlet weak var headerViewLoginLabel: UILabel!
+    
+    @IBOutlet weak var headerViewLoginBtn: UIButton!
+    
     let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
@@ -40,6 +45,8 @@ class meVC: UIViewController {
         moreOrdersArr.append(myOrder1)
         moreOrdersArr.append(myOrder2)
         
+        headerViewLoginLabel.text = "loginOrRegister".localized
+        headerViewLoginBtn.setTitle("loginOrRegisterBtn".localized, for: .normal)
     }
     
 
@@ -104,7 +111,7 @@ class meVC: UIViewController {
     
     @IBAction func logOutClick(_ sender: Any) {
         userDefaults.set(false, forKey:"login")
-        meVC.showToast(controller: self, message: "Logged out", seconds: 3)
+        meVC.showToast(controller: self, message: "Loggedout".localized, seconds: 3)
         navigateToMain()
     }
     
@@ -115,7 +122,7 @@ class meVC: UIViewController {
         let isLoggedIn = userDefaults.object(forKey: "login") as? Bool ?? false
 
         if isLoggedIn {
-            welcomeUserLabelOtlet.text = "Welcome \(userName)"
+            welcomeUserLabelOtlet.text = "\("Welcome".localized) \(userName)"
             welcomeUserViewOutlet.isHidden = false
             loginViewOutlet.isHidden = true
             myOrdersViewOutlet.isHidden = false
