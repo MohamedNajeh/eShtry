@@ -82,7 +82,7 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             let img = cell.viewWithTag(2) as? UIImageView
             
             orderName?.text = coreData.getAllFavoriteProducts()[indexPath.row].name
-            img?.downloadImg(from: coreData.getAllFavoriteProducts()[indexPath.row].imageUrl)
+            img?.setImage(with: coreData.getAllFavoriteProducts()[indexPath.row].imageUrl)
 
             return cell
         }
