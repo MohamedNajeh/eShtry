@@ -80,7 +80,7 @@ class CartItemTableViewCell: UITableViewCell {
     private func configureCellTitle(){
         containerView.addSubview(cellTitle)
         cellTitle.numberOfLines = 2
-        cellTitle.text = "AddBorder(color: UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1))"
+        cellTitle.text = ""
         NSLayoutConstraint.activate([
             cellTitle.topAnchor.constraint(equalTo: cellImage.topAnchor),
             cellTitle.leadingAnchor.constraint(equalTo: cellImage.trailingAnchor, constant: 10),
@@ -91,7 +91,7 @@ class CartItemTableViewCell: UITableViewCell {
     
     private func configureCellPrice(){
         containerView.addSubview(cellPrice)
-        cellPrice.text = "EGP 999.999"
+        cellPrice.text = ""
         NSLayoutConstraint.activate([
             cellPrice.topAnchor.constraint(equalTo: cellTitle.bottomAnchor, constant: 5),
             cellPrice.leadingAnchor.constraint(equalTo: cellImage.trailingAnchor, constant: 10),
@@ -132,7 +132,7 @@ class CartItemTableViewCell: UITableViewCell {
     
     private func configureAmountLabel(){
         containerView.addSubview(amountLabel)
-        amountLabel.text = "1"
+        amountLabel.text = ""
 
         amountLabel.textAlignment = .center
         NSLayoutConstraint.activate([

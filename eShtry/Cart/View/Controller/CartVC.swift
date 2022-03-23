@@ -53,6 +53,7 @@ class CartVC: UIViewController {
     
     let emptyStateView  = DefaultView(color: .white, raduis: 0)
     let emptyStateImage = DefaultImageView(frame: .zero)
+    let loginImage      = DefaultImageView(frame: .zero)
     
     
     override func viewDidLoad() {
@@ -141,14 +142,14 @@ class CartVC: UIViewController {
     }
     
     func testApi(){
-        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/products.json", baseModel: ProductsRoot.self) { result in
-            switch result {
-            case .success(let products):
-                print(products.products?.count)
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/products.json", baseModel: ProductsRoot.self) { result in
+//            switch result {
+//            case .success(let products):
+//                print(products.products?.count)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
 //
 //
 //        networkShared.getDataFromApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/smart_collections.json", baseModel: SmartCollectionRoot.self) { result  in
@@ -169,53 +170,53 @@ class CartVC: UIViewController {
 //                print(error)
 //            }
 //        }
-        
-        
-
-        let body: [String: Any] = [
-            "customer": [
-              "first_name": "eslam",
-              "last_name": "mohamed",
-              "email": "eslam.lastnameson@example.com",
-              "phone": "+01009452129",
-              "verified_email": true,
-              "addresses": [
-                  "address1": "123 Oak St",
-                  "city": "Ottawa",
-                  "province": "ON",
-                  "phone": "555-1212",
-                  "zip": "123 ABC",
-                  "last_name": "Lastnameson",
-                  "first_name": "Mother",
-                  "country": "CA"
-
-              ]],
-              "send_email_invite": true
-          ]
-
-
-        networkShared.postDataToApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers.json", httpMethod: .post, body: body, baseModel: CustomarRoot.self) { result in
-            switch result{
-            case .success(let customer):
-                print("succeed")
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        
-        
-        networkShared.getDataFromApi(urlString: orders, baseModel: OrdersRoot.self) { result in
-            switch result{
-            case .success(let orders):
-                guard let orders = orders.orders else{return}
-                self.ordersArr = orders
-//                NetworkManager.shared.order = orders
-                print("order arr count \(self.ordersArr.count)")
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        
+//        
+//
+//        let body: [String: Any] = [
+//            "customer": [
+//              "first_name": "eslam",
+//              "last_name": "mohamed",
+//              "email": "eslam.lastnameson@example.com",
+//              "phone": "+01009452129",
+//              "verified_email": true,
+//              "addresses": [
+//                  "address1": "123 Oak St",
+//                  "city": "Ottawa",
+//                  "province": "ON",
+//                  "phone": "555-1212",
+//                  "zip": "123 ABC",
+//                  "last_name": "Lastnameson",
+//                  "first_name": "Mother",
+//                  "country": "CA"
+//
+//              ]],
+//              "send_email_invite": true
+//          ]
+//
+//
+//        networkShared.postDataToApi(urlString: "https://f36da23eb91a2fd4cba11b9a30ff124f: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@jets-ismailia.myshopify.com/admin/api/2022-01/customers.json", httpMethod: .post, body: body, baseModel: CustomarRoot.self) { result in
+//            switch result{
+//            case .success(let customer):
+//                print("succeed")
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//        
+//        
+//        
+//        networkShared.getDataFromApi(urlString: orders, baseModel: OrdersRoot.self) { result in
+//            switch result{
+//            case .success(let orders):
+//                guard let orders = orders.orders else{return}
+//                self.ordersArr = orders
+////                NetworkManager.shared.order = orders
+//                print("order arr count \(self.ordersArr.count)")
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
         
         
@@ -384,6 +385,7 @@ class CartVC: UIViewController {
     
     private func configureAddNewAddressBtn(){
         locationChoiceView.addSubview(addNewAddressBtn)
+        addNewAddressBtn.addTarget(self, action: #selector(pushAddNewAddressVC), for: .touchUpInside)
         NSLayoutConstraint.activate([
             addNewAddressBtn.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 10),
             addNewAddressBtn.leadingAnchor.constraint(equalTo: locationChoiceView.leadingAnchor, constant: 10),
@@ -391,6 +393,14 @@ class CartVC: UIViewController {
             
         ])
         
+    }
+    
+    @objc func pushAddNewAddressVC(){
+        
+        let storyboard = UIStoryboard(name: "meVC", bundle: .main)
+        let addressVC  = storyboard.instantiateViewController(withIdentifier: "AddressVC") as! AddressVC
+        addressVC.modalPresentationStyle = .automatic
+        self.present(addressVC, animated: true, completion: nil)
     }
     
     private func configureAddressCollectionView(){
@@ -554,10 +564,17 @@ class CartVC: UIViewController {
     }
     
     @objc func pushCompleteCartVC(){
-        let completeCartVC = CompleteOrderVC()
         
-         
-        self.navigationController?.pushViewController(completeCartVC, animated: true)
+        if addressViewModel.numberOfCells > 0 {
+            let completeCartVC = CompleteOrderVC()
+            self.navigationController?.pushViewController(completeCartVC, animated: true)
+        }else{
+            CartVC.presentAlert(controller: self, title: "Sorry", message: "Please press location button above to add address", style: .alert, actionTitle: "OK") { action in
+                self.dismiss(animated: true)
+            }
+        }
+        
+
         
         
 //        let id = UserDefaults.standard.value(forKey: "userId") as? Int ?? 0
