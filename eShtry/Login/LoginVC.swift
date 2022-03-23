@@ -56,19 +56,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         let comingPassword = customer.tags ?? ""
                         if comingMail == myEmail && comingPassword == myPassword {
                             print("found")
-                            print(customer.phone ?? "notFound")
+                            
                             self?.userDefaults.set(customer.id, forKey: "userId")
                             self?.userDefaults.set(true, forKey: "login")
                             self?.userDefaults.set(customer.first_name, forKey: "userName")
                             DispatchQueue.main.async {
                                 self!.activityIndecator.stopAnimating()
                             }
-                            //if customer.addresses?.count ?? 0 > 0 &&           customer.addresses?[0].address1 != "" {
-                            ////save address
-                            //for address in customer.addresses! {
-                            // self?.dataRepository.addAddress(address: address)
-                            //  }
-                            // }
+                
                             self?.isValidLogin = true
                             break
                         }
@@ -83,7 +78,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         self?.dismiss(animated: true, completion: nil)
                     }
                 }else{
-                    LoginVC.showToast(controller: self!, message: "Login Succeeded", seconds: 2.5)
+                    LoginVC.showToast(controller: self!, message: "Login Succeeded", seconds: 3)
                     self?.navigateToMain()
                 }
             }
@@ -105,7 +100,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func register(_ sender: Any) {
+    @IBAction func navigateToRegisterScreen(_ sender: Any) {
         let registerVC = storyboard?.instantiateViewController(identifier: "RegisterVC") as! RegisterVC
         navigationController?.pushViewController(registerVC, animated: true)
     }

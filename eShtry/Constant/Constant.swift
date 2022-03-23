@@ -90,7 +90,7 @@ func isValidEmail(_ email: String) -> Bool {
 func textFieldPlaceholder(textField : UITextField, Placeholder : String) {
     textField.attributedPlaceholder = NSAttributedString(
         string: Placeholder,
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 90/255, blue: 167/255, alpha: 1.0)]
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 90/255, blue: 167/255, alpha: 0.55)]
     )
 }
 

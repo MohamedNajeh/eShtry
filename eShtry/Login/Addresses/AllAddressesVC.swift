@@ -11,7 +11,7 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBOutlet weak var imageNoAddressesOutlet: UIImageView!
     @IBOutlet weak var titleScreenAddressesOutlet: UILabel!
-    @IBOutlet weak var addresseTableOutlet: UITableView!
+    @IBOutlet weak var addressTableOutlet: UITableView!
     
     let networkShared = NetworkManager.shared
     let userDefaults = UserDefaults.standard
@@ -21,20 +21,19 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addresseTableOutlet.tableFooterView = UIView()
-        
-        
+        addressTableOutlet.tableFooterView = UIView()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         userId = userDefaults.object(forKey: "userId") as? Int ?? 0
-        print(userId)
+        
+        //print(userId)
         networkShared.getDataFromApi(urlString: allAddresses(userId: userId), baseModel: AddressesRoot.self) { (result) in
             switch result {
             case .success(let data):
                 if let allAdds = data.addresses {
-                    print(allAdds)
+                    //print(allAdds)
                     self.allAddressesApi = allAdds
                 }
                 DispatchQueue.main.async {
@@ -43,12 +42,14 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                     } else {
                         self.imageNoAddressesOutlet.isHidden=true
                     }
-                    self.addresseTableOutlet.reloadData()
+                    self.addressTableOutlet.reloadData()
                 }
+                
             case .failure(let error):
                 print(error)
             }
         }
+        
     }
     
     
@@ -58,7 +59,10 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {return allAddressesApi.count}
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allAddressesApi.count
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath)
@@ -68,61 +72,69 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         let phone = cell.viewWithTag(3) as? UILabel
         let cityCountry = cell.viewWithTag(4) as? UILabel
         let address = cell.viewWithTag(5) as? UILabel
-        if let selectBtn : UIButton = cell.viewWithTag(6) as? UIButton{
-            selectBtn.tag = indexPath.row
-            selectBtn.addTarget(self, action: #selector(editAddress(sender:)), for: .touchUpInside)
-        }
+
         
-        
-        title?.text = "\(allAddressesApi[indexPath.row].address2 ?? "") \(allAddressesApi[indexPath.row].province ?? "")"
+        title?.text = allAddressesApi[indexPath.row].address2
         name?.text = allAddressesApi[indexPath.row].name
         phone?.text = allAddressesApi[indexPath.row].phone
-        cityCountry?.text = "\(allAddressesApi[indexPath.row].city ?? ""), \(allAddressesApi[indexPath.row].country ?? "")"
+        cityCountry?.text = "\(allAddressesApi[indexPath.row].city ?? "") , \(allAddressesApi[indexPath.row].country ?? "")"
         address?.text = allAddressesApi[indexPath.row].address1
         
         return cell
     }
     
-    @objc func editAddress(sender : UIButton)  {
-        
-    }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {return 190}
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {return 185}
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            let alert = UIAlertController(title: "Alert",message:"Are You Sure to delete this address?",preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel",style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
-                
-                tableView.beginUpdates()
-                tableView.deleteRows(at:[indexPath], with: .automatic)
-                
-                self.addressId = self.allAddressesApi[indexPath.row].id
-                self.allAddressesApi.remove(at: indexPath.row)
-                self.networkShared.deleteAddress(userId: self.userId, addressId: self.addressId) { (data, response, error) in
-                    let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! Dictionary<String,Any>
-                    if json.isEmpty {
-                        print("deleted")
-                    }else{
-                        print("cant delete")
+            if indexPath.row == 0 {
+                displayAlert(title: "DELETE", message: "You Can't Delete This Address")
+            }else{
+                displayAlertTwoAction(title: "DELETE", message: "Are You Sure You Want To Delete This Address?", action: UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+                    
+                    tableView.beginUpdates()
+                    tableView.deleteRows(at:[indexPath], with: .automatic)
+                    
+                    self.addressId = self.allAddressesApi[indexPath.row].id
+                    self.allAddressesApi.remove(at: indexPath.row)
+                    self.networkShared.deleteAddress(userId: self.userId, addressId: self.addressId) { (data, response, error) in
+                        let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! Dictionary<String,Any>
+                        if json.isEmpty {
+                            print("deleted")
+                        }else{
+                            print("cant delete")
+                        }
                     }
-                }
+                    
+                    tableView.endUpdates()
+                    tableView.reloadData()
+                    
+                    if self.allAddressesApi.count==0 {
+                        self.imageNoAddressesOutlet.isHidden=false
+                    } else {
+                        self.imageNoAddressesOutlet.isHidden=true
+                    }
+                    
+                }))
                 
-                tableView.endUpdates()
-                tableView.reloadData()
-                
-                if self.allAddressesApi.count==0 {
-                    self.imageNoAddressesOutlet.isHidden=false
-                } else {
-                    self.imageNoAddressesOutlet.isHidden=true
-                }
-            }))
-
-            self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
+    
+    func displayAlertTwoAction(title: String,message: String, action: UIAlertAction) {
+        let alert = UIAlertController(title: title,message:message,preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel",style: .default, handler: nil))
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    func displayAlert(title: String,message: String) {
+        let alert = UIAlertController(title: title,message:message,preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }
