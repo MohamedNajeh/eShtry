@@ -33,25 +33,26 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        
 //        moreOrdersArr.append(myOrder1)
 //        moreOrdersArr.append(myOrder2)
         
     }
     
      override func viewWillAppear(_ animated: Bool) {
-            ifLogin()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        ifLogin()
            
-            switch coreData.getAllFavoriteProducts().count {
-            case 0:
-                wishListTableView.isHidden=true
-                holderImgWishList.isHidden=false
-            case 0...:
-                holderImgWishList.isHidden=true
-                wishListTableView.isHidden=false
-            default:
-                print("")
-            }
+        switch coreData.getAllFavoriteProducts().count {
+        case 0:
+            wishListTableView.isHidden=true
+            holderImgWishList.isHidden=false
+        case 0...:
+            holderImgWishList.isHidden=true
+            wishListTableView.isHidden=false
+        default:
+            print("")
+        }
         
         wishListTableView.reloadData()
         }

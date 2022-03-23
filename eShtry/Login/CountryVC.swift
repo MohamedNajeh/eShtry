@@ -29,7 +29,7 @@ class CountryVC: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.setNavigationBarHidden(false, animated: false)
         if checkWhichTable == "0" || checkWhichTable == "1" {
             networkShared.getDataFromApi(urlString: countries, baseModel: CountriesRoot.self) { (result) in
                 switch result {

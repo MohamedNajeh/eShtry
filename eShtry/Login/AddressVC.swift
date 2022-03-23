@@ -40,7 +40,7 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.setNavigationBarHidden(false, animated: false)
         confirmButtonOutlet?.isUserInteractionEnabled = false
         confirmButtonOutlet?.alpha = 0.5
         
@@ -232,15 +232,12 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "OK",style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    func displayAlertTwoAction(title: String,message: String, action: UIAlertAction) {
-        
-    }
     
-        func textFieldDidBeginEditing(_ textField: UITextField) {
-            if textField == customAddressTitleTF {
-                viewSupport.isHidden=false
-            }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == customAddressTitleTF {
+            viewSupport.isHidden=false
         }
+    }
     
     
 }

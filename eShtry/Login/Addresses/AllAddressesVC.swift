@@ -73,8 +73,12 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cityCountry = cell.viewWithTag(4) as? UILabel
         let address = cell.viewWithTag(5) as? UILabel
 
+        if indexPath.row == 0 {
+            title?.text = allAddressesApi[indexPath.row].address2 ?? "" + " (Default)"
+        }else{
+            title?.text = allAddressesApi[indexPath.row].address2
+        }
         
-        title?.text = allAddressesApi[indexPath.row].address2
         name?.text = allAddressesApi[indexPath.row].name
         phone?.text = allAddressesApi[indexPath.row].phone
         cityCountry?.text = "\(allAddressesApi[indexPath.row].city ?? "") , \(allAddressesApi[indexPath.row].country ?? "")"
