@@ -8,16 +8,12 @@
 
 import UIKit
 
-class meVC: UIViewController {
+
+class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var moreOrdersArr : [OrdersTemp] = []
     var myOrder1 : OrdersTemp = OrdersTemp()
     var myOrder2 : OrdersTemp = OrdersTemp()
-    
-    @IBOutlet weak var order1OutletLabel: UILabel!
-    @IBOutlet weak var order2OutletLabel: UILabel!
-    @IBOutlet weak var price1OutletLabel: UILabel!
-    @IBOutlet weak var prive2OutletLabel: UILabel!
     
     @IBOutlet weak var welcomeUserLabelOtlet: UILabel!
     @IBOutlet weak var welcomeUserViewOutlet: UIView!
@@ -27,35 +23,97 @@ class meVC: UIViewController {
     @IBOutlet weak var logOutButtonOutlet: UIButton!
     @IBOutlet weak var stackViewLoggingIn: UIStackView!
     
+
     
     @IBOutlet weak var headerViewLoginLabel: UILabel!
     
     @IBOutlet weak var headerViewLoginBtn: UIButton!
+
+    @IBOutlet weak var holderImgOrders: UIImageView!
+    @IBOutlet weak var holderImgWishList: UIImageView!
+    @IBOutlet weak var orderTableView: UITableView!
+    @IBOutlet weak var wishListTableView: UITableView!
+
     
     let userDefaults = UserDefaults.standard
+    let coreData = CoreDataManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+//        moreOrdersArr.append(myOrder1)
+//        moreOrdersArr.append(myOrder2)
         
-        myOrder1.orderName = order1OutletLabel.text
-        myOrder1.Price = price1OutletLabel.text
-        myOrder2.orderName = order2OutletLabel.text
-        myOrder2.Price = prive2OutletLabel.text
+    }
+    
+     override func viewWillAppear(_ animated: Bool) {
+            ifLogin()
+           
+            switch coreData.getAllFavoriteProducts().count {
+            case 0:
+                wishListTableView.isHidden=true
+                holderImgWishList.isHidden=false
+            case 0...:
+                holderImgWishList.isHidden=true
+                wishListTableView.isHidden=false
+            default:
+                print("")
+            }
         
-        moreOrdersArr.append(myOrder1)
-        moreOrdersArr.append(myOrder2)
+        wishListTableView.reloadData()
+        }
         
+
         headerViewLoginLabel.text = "loginOrRegister".localized
         headerViewLoginBtn.setTitle("loginOrRegisterBtn".localized, for: .normal)
     }
-    
 
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+          if tableView == orderTableView{
+              return 0
+          }else if tableView == wishListTableView{
+            return coreData.getAllFavoriteProducts().count
+        }
+        return 0
+      }
+      
+      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if tableView == orderTableView{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath)
+            //let orderName = cell.viewWithTag(1) as? UILabel
+            //let price = cell.viewWithTag(2) as? UILabel
+            
+            
+            return cell
+        }else if tableView == wishListTableView{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "wishListCell", for: indexPath)
+            let orderName = cell.viewWithTag(1) as? UILabel
+            let img = cell.viewWithTag(2) as? UIImageView
+            
+            orderName?.text = coreData.getAllFavoriteProducts()[indexPath.row].name
+            img?.setImage(with: coreData.getAllFavoriteProducts()[indexPath.row].imageUrl)
+
+            return cell
+        }
+
+        return UITableViewCell()
+      }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return 70}
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == wishListTableView{
+            
+            navigateToTabBarBYIndex(index: 2)
+          }
+    }
     
     @IBAction func loginRegister(_ sender: Any) {
         let loginVC = storyboard?.instantiateViewController(identifier: "LoginVC") as! LoginVC
         navigationController?.pushViewController(loginVC, animated: true)
     }
-    
     
 
     @IBAction func myAddressClick(_ sender: Any) {
@@ -64,10 +122,14 @@ class meVC: UIViewController {
     }
     
     
-    @IBSegueAction func moreOrdersClick(_ coder: NSCoder) -> moreOrdersVC? {
-        return moreOrdersVC(coder: coder, myOrders: moreOrdersArr)
+    @IBAction func myOrdersClick(_ sender: Any) {
+        //navigateToTabBarBYIndex(index: <#T##Int#>)
     }
     
+    
+    @IBAction func myWishListClick(_ sender: Any) {
+        navigateToTabBarBYIndex(index: 2)
+    }
     
     @IBAction func profileClick(_ sender: Any) {
         let registerVC = storyboard?.instantiateViewController(identifier: "RegisterVC") as! RegisterVC
@@ -76,6 +138,9 @@ class meVC: UIViewController {
         navigationController?.pushViewController(registerVC, animated: true)
     }
     
+    @IBAction func myCartClick(_ sender: Any) {
+        navigateToTabBarBYIndex(index: 3)
+    }
     
     @IBAction func currencyClick(_ sender: Any) {
         let currencyVC = storyboard?.instantiateViewController(identifier: "CurrencyVC") as! CurrencyVC
@@ -110,12 +175,16 @@ class meVC: UIViewController {
             }
     
     @IBAction func logOutClick(_ sender: Any) {
-        userDefaults.set(false, forKey:"login")
-        meVC.showToast(controller: self, message: "Loggedout".localized, seconds: 3)
-        navigateToMain()
+
+        displayAlertTwoAction(title: "LOG OUT", message: "Are You Sure You Want To Log Out?", action: UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+            self.userDefaults.set(false, forKey:"login")
+            meVC.showToast(controller: self, message: "Loggedout".localized, seconds: 3)
+            self.navigateToTabBarBYIndex(index: 0)
+        }))
+        
+
     }
     
-    override func viewWillAppear(_ animated: Bool) { ifLogin() }
     
     func ifLogin() {
         let userName = userDefaults.object(forKey: "userName") as? String ?? ""
@@ -141,16 +210,41 @@ class meVC: UIViewController {
         
     }
     
-    func navigateToMain() {
+    func displayAlertTwoAction(title: String,message: String, action: UIAlertAction) {
+        let alert = UIAlertController(title: title,message:message,preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel",style: .default, handler: nil))
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func navigateToTabBarBYIndex(index : Int) {
         let keyWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
         .compactMap({$0 as? UIWindowScene})
         .first?.windows
         .filter({$0.isKeyWindow}).first
         let tabBarController = keyWindow?.rootViewController as! UITabBarController
-        tabBarController.selectedIndex = 0
+        tabBarController.selectedIndex = index
         self.dismiss(animated: true, completion: {
             self.navigationController?.popToRootViewController(animated: false)
         })
+    }
+    
+    func prepare() {
+        
+        //disAppear img
+        holderImgOrders.isHidden=true
+        holderImgWishList.isHidden=true
+        
+        //disAppear orders
+        orderTableView.isHidden=true
+
+        //Appear img
+        holderImgOrders.isHidden=false
+        holderImgWishList.isHidden=false
+        
+        //Appear orders
+        orderTableView.isHidden=false
+
     }
 }
