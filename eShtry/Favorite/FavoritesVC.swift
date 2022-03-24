@@ -32,7 +32,7 @@ class FavoritesVC: UIViewController {
             tableView.reloadData()
             return
         }
-        
+        tableView.reloadData()
     }
     
   
