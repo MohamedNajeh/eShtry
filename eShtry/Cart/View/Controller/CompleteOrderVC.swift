@@ -33,7 +33,7 @@ class CompleteOrderVC: UIViewController {
     let cashLabel         = DefaultTitleLabel(textAlignment: .left, fontSize: 18, fontColor: .black)
     let descriptionLabel  = SeconderyTitleLabel(textAlignment: .left, fontSize: 15, fontColor: .black)
     
-    let checkoutBtn       = DefaultButton(btnTitle: "PLACE ORDER", titleColor: .white, backgroundColor: UIColor(red: 255/255, green: 0, blue: 5/255, alpha: 1), raduis: 10)
+    let checkoutBtn       = DefaultButton(btnTitle: "PLACE ORDER".localized, titleColor: .white, backgroundColor: UIColor(red: 255/255, green: 0, blue: 5/255, alpha: 1), raduis: 10)
 
     let paymentMethodLabel = DefaultTitleLabel(textAlignment: .left, fontSize: 18, fontColor: .black)
     let paymentView        = DefaultView(color: .white, raduis: 10)
@@ -152,7 +152,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureTitleLabel(){
         headerView.addSubview(titleLabel)
-        titleLabel.text = "Complete your order"
+        titleLabel.text = "Complete your order".localized
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
 //            usernameLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
@@ -206,7 +206,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureShipmentLabel(){
         containerView.addSubview(shipmentLabel)
-        shipmentLabel.text = "Your Shipping Address"
+        shipmentLabel.text = "Your Shipping Address".localized
         NSLayoutConstraint.activate([
             shipmentLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
             shipmentLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20)
@@ -262,7 +262,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureItemsLabel(){
         containerView.addSubview(itemsLabel)
-        itemsLabel.text = "itemsLabel"
+        itemsLabel.text = "products".localized
         NSLayoutConstraint.activate([
             itemsLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
             itemsLabel.topAnchor.constraint(equalTo: shipmentView.bottomAnchor, constant: 20)
@@ -281,7 +281,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureShipmentNumLabel(){
         itemsView.addSubview(shipmentNumLabel)
-        shipmentNumLabel.text = "shipment 1"
+        shipmentNumLabel.text = "shipmentNumber".localized
         NSLayoutConstraint.activate([
             shipmentNumLabel.topAnchor.constraint(equalTo: itemsView.topAnchor, constant: 10),
             shipmentNumLabel.leadingAnchor.constraint(equalTo: itemsView.leadingAnchor, constant: 10)
@@ -291,7 +291,7 @@ class CompleteOrderVC: UIViewController {
 
     private func configureDeliveryDate(){
         itemsView.addSubview(deliveryDate)
-        deliveryDate.text = "deliveryDate 1"
+        deliveryDate.text = "DeliveryDate".localized
         NSLayoutConstraint.activate([
             deliveryDate.topAnchor.constraint(equalTo: shipmentNumLabel.bottomAnchor, constant: 10),
             deliveryDate.leadingAnchor.constraint(equalTo: itemsView.leadingAnchor, constant: 10)
@@ -318,7 +318,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configurePaymentMethodLabel(){
         containerView.addSubview(paymentMethodLabel)
-        paymentMethodLabel.text = "paymentMethodLabel"
+        paymentMethodLabel.text = "Available payment methods".localized
         NSLayoutConstraint.activate([
             paymentMethodLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
             paymentMethodLabel.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 20)
@@ -339,7 +339,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureOrderSummaryLabel(){
         containerView.addSubview(orderSummaryLabel)
-        orderSummaryLabel.text = "orderSummaryLabel"
+        orderSummaryLabel.text = "orderSummary".localized
         NSLayoutConstraint.activate([
             orderSummaryLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
             orderSummaryLabel.topAnchor.constraint(equalTo: paymentView.bottomAnchor, constant: 20)
@@ -359,7 +359,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureSubTotalLabel(){
         orderSummaryView.addSubview(subtotalLabel)
-        subtotalLabel.text = "Sub Total"
+        subtotalLabel.text = "Subtotal".localized
         NSLayoutConstraint.activate([
             subtotalLabel.topAnchor.constraint(equalTo: orderSummaryView.topAnchor, constant: 15),
             subtotalLabel.leadingAnchor.constraint(equalTo: orderSummaryView.leadingAnchor, constant: 10)
@@ -368,7 +368,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureSubTotal(){
         orderSummaryView.addSubview(subtotal)
-        subtotal.text = "EGP 999.999.999"
+        subtotal.text = ""
         NSLayoutConstraint.activate([
             subtotal.centerYAnchor.constraint(equalTo: subtotalLabel.centerYAnchor),
             subtotal.trailingAnchor.constraint(equalTo: orderSummaryView.trailingAnchor, constant: -10)
@@ -388,7 +388,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureDeliveryLabel(){
         orderSummaryView.addSubview(deliveryLabel)
-        deliveryLabel.text = "Delivery"
+        deliveryLabel.text = "Delivery".localized
         NSLayoutConstraint.activate([
             deliveryLabel.topAnchor.constraint(equalTo: subtotalLineView.bottomAnchor, constant: 20),
             deliveryLabel.leadingAnchor.constraint(equalTo: orderSummaryView.leadingAnchor, constant: 10)
@@ -434,7 +434,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureGrandTotalLabel(){
         bottomView.addSubview(grandTotalLabel)
-        grandTotalLabel.text = "Grand Total"
+        grandTotalLabel.text = "Grand Total".localized
         NSLayoutConstraint.activate([
             grandTotalLabel.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 30),
             grandTotalLabel.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 10),

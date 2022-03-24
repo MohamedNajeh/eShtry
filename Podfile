@@ -12,7 +12,7 @@ target 'eShtry' do
   pod 'Cosmos'
   pod 'Kingfisher'
   pod 'lottie-ios'
-
+  pod 'MOLH'
 
 end
 

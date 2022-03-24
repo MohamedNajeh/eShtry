@@ -2,8 +2,9 @@ PODS:
   - Alamofire (5.5.0)
   - Cosmos (23.0.0)
   - Kingfisher (7.1.2)
-  - lottie-ios (3.3.0)
+  - lottie-ios (3.2.3)
   - Mobile-Buy-SDK (7.0.0)
+  - MOLH (1.4.3)
   - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - Kingfisher
   - lottie-ios
   - Mobile-Buy-SDK
+  - MOLH
   - ReachabilitySwift
 
 SPEC REPOS:
@@ -21,16 +23,18 @@ SPEC REPOS:
     - Kingfisher
     - lottie-ios
     - Mobile-Buy-SDK
+    - MOLH
     - ReachabilitySwift
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
-  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   Mobile-Buy-SDK: 18ee3b74f99a1a5fa42ad3c997af3d0774928438
+  MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: 53d835258ac5bb8e615261954e1eafac7cc6ceb2
+PODFILE CHECKSUM: 52d377154806a88c12a18f47b8fdb8654a3247f0
 
 COCOAPODS: 1.11.2

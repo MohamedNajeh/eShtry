@@ -12,12 +12,14 @@ class FavoritesVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emtyStateView: UIView!
     
+    @IBOutlet weak var noFavoriteItemsLabel: UILabel!
     var favorites:[Product] = []
     let color:UIColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
        configureTableView()
         configureNavigationBar(largeTitleColor: color, backgoundColor: color, tintColor: .white, title: "favorite".localized, preferredLargeTitle: true)
+        noFavoriteItemsLabel.text = "noFavoriteItemsLabel".localized
     }
     
     

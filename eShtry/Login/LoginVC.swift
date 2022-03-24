@@ -19,6 +19,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailOutletLabel: UILabel!
     @IBOutlet weak var passwordOutletLabel: UILabel!
     
+    @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var loginToYourAccountLabel: UILabel!
+    @IBOutlet weak var dontHaveAccountLabel: UILabel!
     let networkShared = NetworkManager.shared
     var isValidLogin = false
     let activityIndecator = UIActivityIndicatorView(style:.large)
@@ -35,6 +38,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         
         continueOutletBtn?.isUserInteractionEnabled = false
         continueOutletBtn?.alpha = 0.5
+        continueOutletBtn.setTitle("continue".localized, for: .normal)
+        
+        loginToYourAccountLabel.text = "loginToYourAccountLabel".localized
+        
+        registerBtn.setTitle("register".localized, for: .normal)
+        dontHaveAccountLabel.text = "dontHaveAccountLabel".localized
     }
     
     

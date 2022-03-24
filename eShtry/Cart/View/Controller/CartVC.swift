@@ -24,7 +24,7 @@ class CartVC: UIViewController {
     let cashLabel         = DefaultTitleLabel(textAlignment: .left, fontSize: 18, fontColor: .black)
     let descriptionLabel  = SeconderyTitleLabel(textAlignment: .left, fontSize: 15, fontColor: .black)
     
-    let checkoutBtn       = DefaultButton(btnTitle: "CHECKOUT ALL", titleColor: .white, backgroundColor: UIColor(red: 255/255, green: 0, blue: 5/255, alpha: 1), raduis: 10)
+    let checkoutBtn       = DefaultButton(btnTitle: "CHECKOUT ALL".localized, titleColor: .white, backgroundColor: UIColor(red: 255/255, green: 0, blue: 5/255, alpha: 1), raduis: 10)
     
     let locationChoiceView = TopRoundView(raduis: 15, color: .white)
     
@@ -37,7 +37,7 @@ class CartVC: UIViewController {
     
     let hideLocationBtn = ImageButton(typeOfBtn: .exitBtn)
     let addressLabel    = SeconderyTitleLabel(textAlignment: .center, fontSize: 25, fontColor: .black)
-    let addNewAddressBtn = DefaultButton(btnTitle: "Add New Address", titleColor: UIColor(red: 37/255, green: 67/255, blue: 150/255, alpha: 1), backgroundColor: .clear, raduis: 0)
+    let addNewAddressBtn = DefaultButton(btnTitle: "Add New Address".localized, titleColor: UIColor(red: 37/255, green: 67/255, blue: 150/255, alpha: 1), backgroundColor: .clear, raduis: 0)
     var addressCollectionView: UICollectionView!
     
     let networkShared = NetworkManager.shared
@@ -115,7 +115,7 @@ class CartVC: UIViewController {
         viewModel.updateCashPriceLabel = {
             DispatchQueue.main.async {
                 self.cashLabel.text      = "\(self.viewModel.totalPrice)"
-                self.numberOfItems.text  = "( \(self.viewModel.numberOfCells) Items )"
+                self.numberOfItems.text  = "( \(self.viewModel.numberOfCells) \("Items".localized) )"
             }
         }
         
@@ -250,7 +250,7 @@ class CartVC: UIViewController {
     
     private func configureUsernameLabel(){
         headerView.addSubview(usernameLabel)
-        usernameLabel.text = "eslams's Basket"
+        usernameLabel.text = "eslams's \("Basket".localized)"
         NSLayoutConstraint.activate([
             usernameLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
             //            usernameLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
@@ -376,7 +376,7 @@ class CartVC: UIViewController {
     
     private func configureAddressLabel(){
         locationChoiceView.addSubview(addressLabel)
-        addressLabel.text = "Address"
+        addressLabel.text = "address".localized
         NSLayoutConstraint.activate([
             addressLabel.centerYAnchor.constraint(equalTo: hideLocationBtn.centerYAnchor),
             addressLabel.centerXAnchor.constraint(equalTo: locationChoiceView.centerXAnchor)
@@ -425,7 +425,7 @@ class CartVC: UIViewController {
         tableViewFooter.translatesAutoresizingMaskIntoConstraints = true
         let titleLabel = SeconderyTitleLabel(textAlignment: .center, fontSize: 18, fontColor: .black)
         titleLabel.numberOfLines = 0
-        titleLabel.text  = "Available payment methods"
+        titleLabel.text  = "Available payment methods".localized
         tableViewFooter.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -513,7 +513,7 @@ class CartVC: UIViewController {
     
     private func configureSubTotalLabel(){
         bottomView.addSubview(subTotalLabel)
-        subTotalLabel.text = "Subtotal"
+        subTotalLabel.text = "Subtotal".localized
         NSLayoutConstraint.activate([
             subTotalLabel.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 30),
             subTotalLabel.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 10),
@@ -542,7 +542,7 @@ class CartVC: UIViewController {
     
     private func configureDescriptionLabel(){
         bottomView.addSubview(descriptionLabel)
-        descriptionLabel.text = "descriptionLabeldescriptionLabeldescriptionLabeldescriptionLabel"
+        descriptionLabel.text = "prices include tax".localized
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: subTotalLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 10),
@@ -569,7 +569,7 @@ class CartVC: UIViewController {
             let completeCartVC = CompleteOrderVC()
             self.navigationController?.pushViewController(completeCartVC, animated: true)
         }else{
-            CartVC.presentAlert(controller: self, title: "Sorry", message: "Please press location button above to add address", style: .alert, actionTitle: "OK") { action in
+            CartVC.presentAlert(controller: self, title: "Sorry".localized, message: "Please press location button above to add address".localized, style: .alert, actionTitle: "OK".localized) { action in
                 self.dismiss(animated: true)
             }
         }
@@ -619,7 +619,7 @@ class CartVC: UIViewController {
         let backgrounView = DefaultView(color: .white, raduis: 10)
         view.translatesAutoresizingMaskIntoConstraints = true
         let sectionLabel = SeconderyTitleLabel(textAlignment: .center, fontSize: 18, fontColor: .black)
-        sectionLabel.text = "category name for section \(section)"
+        sectionLabel.text = "products".localized
         backgrounView.addSubview(sectionLabel)
         view.addSubview(backgrounView)
         NSLayoutConstraint.activate([
@@ -642,7 +642,7 @@ class CartVC: UIViewController {
         let backgrounView = DefaultView(color: .white, raduis: 10)
         view.translatesAutoresizingMaskIntoConstraints = true
         let sectionLabel = SeconderyTitleLabel(textAlignment: .center, fontSize: 18, fontColor: .black)
-        sectionLabel.text = "Sub total  \(viewModel.totalPrice)"
+        sectionLabel.text = "\("Subtotal".localized)  \(viewModel.totalPrice)"
         backgrounView.addSubview(sectionLabel)
         view.addSubview(backgrounView)
         NSLayoutConstraint.activate([

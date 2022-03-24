@@ -25,6 +25,8 @@
 "terms&conditions" = "الاحكام والشروط ";
 "privacyPolicy" = "سياسة الخصوصيه";
 "version" = "نسخه ١٫٠١";
+"© 2022 eShtry All Right Wz Team" = " جميع الحقوق محفوظه ٢٠٢٢©";
+
 
 "Logged out" = "تم تسجيل الخروج";
 "welcome" = "مرحبا ";
@@ -71,3 +73,55 @@
 
 
 "loginOrRegisterBtn" = "تسجيل الدخول";
+
+
+"CHECKOUT ALL" = "الدفع";
+"Add New Address" = "اضافه عنوان جديد";
+"Items" = "عنصر";
+"Basket" = "سله";
+"products" = "المنتجات";
+"Subtotal" = "الاجمالى";
+"prices include tax" = "السعر شامل ضريبه القيمه المضافه";
+"Available payment methods" = "طرق الدفع المتاحه";
+
+"Sorry" = "اسف";
+"Please press location button above to add address" = "من فضلك اضغط زر العناوين لأضافه عنوان جديد";
+"Complete your order" = "استكمال الطلب";
+"Your Shipping Address" = "عنوان الشحن";
+"shipmentNumber" = "رقم الشحنه";
+"DeliveryDate" = "تاريخ التوصيل";
+"PLACE ORDER" = "اتمام الطلب";
+"Delivery" = "التوصيل";
+"orderSummary" = "تفاصيل الطلب";
+"Grand Total" = "الاجمالى";
+
+"noFavoriteItemsLabel" = "لا يوجد لديك منتجات";
+"logOut" = "تسجيل الخروج";
+"myCart" = "السله";
+"profile" = "الصفحه الشخصيه";
+
+"currency" = "العمله";
+"First Name" = "الاسم الاول";
+"Last Name" = "الاسم الاخير";
+"Mobile Number" = "رقم الهاتف";
+"Your Profile" = "الملف الشخصى";
+"Back" = "الرجوع";
+"Date of Birth" = "تاريخ الميلاد";
+"Please enter your first name" = "من فضلك ادخل الاسم الاول";
+"Please enter your last name" = "من فضلك ادخل الاسم الاخير";
+"Please enter a phone number" = "من فضلك ادخل رقم الهاتف";
+"Please enter a valid email address" = "من فضلك ادخل بريد الكترونى صالح";
+"Weak Password!. Minimum of 8 characters with at least 1 uppercase, 1 lowercase, and 1 number" = "كلمه مرور ضعيفه٫ ادخل ٨ احرف وعلى الاقل حرف كبير و حرف صغير و رقم";
+
+"Minimum of 8 characters with at least 1 uppercase, 1 lowercase, and 1 number" = "الحد الادنى ٨ احرف٫ حرف كبير وحرف صغير و رقم واحد";
+"Please select your date of birth" = "من فضلك اختار تاريخ الميلاد";
+"Registered Successfully" = "تم التسجيل بنجاح";
+"Registration error" = "خطأ فى التسجيل";
+"Make sure you enter your Email correctly" = "تأكد من ادخال بريد الكترونى صالح";
+
+"continue" = "المتابعه";
+"loginToYourAccountLabel" = "تسجيل الدخول الى حسابك";
+"register" = "التسجيل";
+"dontHaveAccountLabel" = "ليس لديك حساب ؟";
+
+"createNewAccount" = "انشاء حساب جديد";
