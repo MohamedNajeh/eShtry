@@ -141,3 +141,7 @@
 "language" = "Language";
 "ar" = "Arabic";
 "en" = "English";
+"alert" = "alert";
+"Are you sure you want to buy" = "Are you sure you want to buy";
+"Are you sure you want to delete item" = "Are you sure you want to delete item";
+"item deleted successfully" = "item deleted successfully";

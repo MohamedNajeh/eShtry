@@ -644,7 +644,11 @@ class CartVC: UIViewController {
             cell.minusBtn.setImage(imageIcon, for: .normal)
             performAnimationForCartButtons(button: cell.minusBtn)
         }else{
-            viewModel.deleteItem(at: sender.indexPath)
+            CartVC.presentAlertWithTwoActions(controller: self, title: "alert".localized, message: "Are you sure you want to delete item".localized, style: .alert, actionTitle: "OK".localized) { action in
+                CartVC.showToast(controller: self, message: "item deleted successfully".localized, seconds: 1)
+                self.viewModel.deleteItem(at: sender.indexPath)
+                
+            }
         }
         
         

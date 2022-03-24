@@ -130,3 +130,7 @@
 "language" = "اللغه";
 "ar" = "العربيه";
 "en" = "الانجليزيه";
+"alert" = "تنبيه";
+"Are you sure you want to buy" = "هل تريد اتمام عمليه الشراء";
+"Are you sure you want to delete item" = "هل تريد حذف المنتج";
+"item deleted successfully" = "تم حذف المنتج بنجاح";
