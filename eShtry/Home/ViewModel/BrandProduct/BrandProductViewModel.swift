@@ -71,6 +71,7 @@ class BrandProductViewModel:NSObject{
         Client.shared.fetchAllCollections { CollectionSort, products in
             if let products = products {
                 self.processFetchedBrandProducts(brnadProducts: products[0])
+                self.products = products[0]
             }else{
                 self.showError = ErrorMessages.invalidData
             }

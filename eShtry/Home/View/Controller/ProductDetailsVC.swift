@@ -44,7 +44,7 @@ class ProductDetailsVC: UITableViewController {
         infoView.layer.cornerRadius = 20
         addToBagBtnOutlet.layer.cornerRadius = 20
         productName.text = product?.title
-        productPrice.text = "\(String(describing: (product?.priceRange.minVariantPrice.amount)!))"
+        productPrice.text = "\(String(describing: (product?.priceRange.minVariantPrice.amount) ?? 45.0))"
         descriptionTextView.text = product?.description
         
     }
@@ -112,7 +112,7 @@ extension ProductDetailsVC : UICollectionViewDelegate , UICollectionViewDataSour
             return varCell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCell", for: indexPath) as! SliderCell
-        cell.sliderImg.contentMode = .scaleAspectFit
+//        cell.sliderImg.content.Mode = .scaleAspectFit
         cell.sliderImg.setImage(with:"\((product?.images.edges[indexPath.row].node.url)!)")
         return cell
     }
@@ -126,7 +126,7 @@ extension ProductDetailsVC : UICollectionViewDelegate , UICollectionViewDataSour
         if collectionView == varientCollectionView {
             return product?.variants.edges.count ?? 0
         }
-        return (product?.images.edges.count)!
+        return (product?.images.edges.count) ?? 1
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

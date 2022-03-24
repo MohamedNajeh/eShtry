@@ -14,8 +14,10 @@ class BrandProductsVC: UIViewController {
     let searchBar = UISearchController()
     var vendor1:[Storefront.Product] = []
     var vendor:String = ""
-    //var products:[Storefront.Product] = []
+    var products:[Storefront.Product] = []
     var brnadProductViewModel = BrandProductViewModel()
+    var productModel = HomeProductViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +35,7 @@ class BrandProductsVC: UIViewController {
         self.brnadProductViewModel.relodCollectionViewClosure = {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
-
+                self.products = self.productModel.products
             }
         }
     }
@@ -122,7 +124,7 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "productDetailsVC") as! ProductDetailsVC
-        //vc.product = products[indexPath.row]
+        vc.product = products[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
 
