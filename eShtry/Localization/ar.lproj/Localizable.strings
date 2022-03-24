@@ -125,3 +125,8 @@
 "dontHaveAccountLabel" = "ليس لديك حساب ؟";
 
 "createNewAccount" = "انشاء حساب جديد";
+"Are You Sure You Want To Log Out?" = "هل انت متأكد انك تريد تسجيل الخروج";
+"Cancel" = "لا";
+"language" = "اللغه";
+"ar" = "العربيه";
+"en" = "الانجليزيه";

@@ -136,3 +136,8 @@
 "dontHaveAccountLabel" = "Don't Have Account?";
 
 "createNewAccount" = "Create New Account";
+"Are You Sure You Want To Log Out?" = "Are You Sure You Want To Log Out?";
+"Cancel" = "Cancel";
+"language" = "Language";
+"ar" = "Arabic";
+"en" = "English";
