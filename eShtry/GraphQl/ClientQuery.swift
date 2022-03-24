@@ -24,6 +24,7 @@ class ClientQuery {
                 .products(first:30){ $0
                 .edges{ $0
                 .node{ $0
+                .productType()
                 .id()
                 .title()
                 .description()
@@ -97,7 +98,7 @@ class ClientQuery {
     
     static func getSubCategoryProductsQuery(vendor:String , type:String) -> Storefront.QueryRootQuery {
         return Storefront.buildQuery{ $0
-                .products(first: 50 , query: "vendor:\(vendor) AND product_type:\(type)"){ $0
+                .products(first: 50 , query: "product_type:\(type)"){ $0
                 .edges{ $0
                 .node { $0
                 .title()

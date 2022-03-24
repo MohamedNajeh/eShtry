@@ -73,6 +73,7 @@ class HomeViewModel:NSObject{
                     return
                 }
                 self.allProducts = products
+                print(products)
             }
             else{
                 self.showError = .invalidData
