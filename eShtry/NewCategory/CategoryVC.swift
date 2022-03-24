@@ -17,7 +17,7 @@ class CategoryVC: UIViewController {
   
     var isHiddenViews:[Bool] = Array(repeating: true, count: 10)
     var collections:[Storefront.Collection] = []
-    var productTypes:[String] = ["shoes".localized,"T-Shirts".localized,"accessories".localized]
+    var productTypes:[String] = ["Rings".localized,"Earrings".localized,"Accessories".localized,"Necklace".localized]
     var selectedVendor:String = "VANS"
     var allProducts:[[Storefront.Product]] = []
     
