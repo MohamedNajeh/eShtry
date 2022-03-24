@@ -89,6 +89,12 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
             guard let self = self else { return }
             let product = Product(id: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).id)", imageUrl: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).imgUrl)", name: "\(self.products[indexPath.row].title)")
             print("product = \(product)")
+            
+            guard let isLogedIn = UserDefaults.standard.object(forKey: "login") as? Bool , isLogedIn else{
+                BrandProductsVC.showToast(controller: self, message: "you must bo logged in to favorite products", seconds: 1)
+                return 
+            }
+            
             if(CoreDataManager.shared.isInFovorite(productId: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).id)")){
                 CoreDataManager.shared.deleteProduct(product: product)
                 item.favoriteButtonOutlet.setImage(UIImage(named: "emptyHeart"), for: .normal)

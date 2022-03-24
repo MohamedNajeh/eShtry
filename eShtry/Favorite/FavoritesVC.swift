@@ -24,9 +24,15 @@ class FavoritesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.favorites = CoreDataManager.shared.getAllFavoriteProducts()
-       
-     //   print("product id = \(id)")
-        tableView.reloadData()
+        guard let isLogedIn = UserDefaults.standard.object(forKey: "login") as? Bool , isLogedIn else {
+            for product in favorites{
+                CoreDataManager.shared.deleteProduct(product: product)
+            }
+            self.favorites = []
+            tableView.reloadData()
+            return
+        }
+        
     }
     
   
@@ -63,13 +69,18 @@ extension FavoritesVC:UITableViewDelegate , UITableViewDataSource{
         cell.productImageView.setImage(with: favorites[indexPath.row].imageUrl)
         cell.productCreationDateLabel.text = "20/12/2021"
         cell.removeFromFavorites = { [weak self] in
-            FavoritesVC.presentAlert(controller: self!, title: "Delete Product ⛔️".localized, message: "Are sure you want to delet product from favorites".localized, style: .actionSheet, actionTitle: "Yes") { (_) in
+            
+            
+            let alert = UIAlertController(title: "Delete Product ⛔️".localized, message: "Are sure you want to delet product from favorites".localized, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [self] _ in
                 CoreDataManager.shared.deleteProduct(product: (self?.favorites[indexPath.row])!)
                 self?.favorites.remove(at: indexPath.row)
-                self?.tableView.reloadData()
+                tableView.deleteRows(at:[indexPath], with: .automatic)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self?.present(alert, animated: true, completion: nil)
             }
             
-        }
         return cell
     }
     

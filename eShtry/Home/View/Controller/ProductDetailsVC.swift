@@ -80,6 +80,12 @@ class ProductDetailsVC: UITableViewController {
     }
     
     @IBAction func addToBagButtonPressed(_ sender: Any) {
+        
+        guard let isLogedIn = UserDefaults.standard.object(forKey: "login") as? Bool , isLogedIn else{
+            BrandProductsVC.showToast(controller: self, message: "you must bo logged in to add  products to Cart", seconds: 1)
+            return
+        }
+        
         guard let title = product?.title else{return}
         guard let price = product?.priceRange.minVariantPrice.amount else{return}
         guard let image = product?.images.edges[0].node.url else {return}
