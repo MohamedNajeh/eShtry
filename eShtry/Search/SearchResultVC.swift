@@ -96,7 +96,7 @@ class SearchResultVC: UIViewController {
     private func navigationToCategories(categoryTitle:String){
         let storyboard = UIStoryboard(name: "HomeSB", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "productsVC") as! BrandProductsVC
-        vc.vendor = categoryTitle
+       // vc.vendor = categoryTitle
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

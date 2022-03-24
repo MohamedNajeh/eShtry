@@ -68,15 +68,22 @@ class BrandProductViewModel:NSObject{
     }
     
     func fetchProducts(vendor:String){
-        Client.shared.fetchBrandProducts(vendor:vendor) { response in
-            if let products = response {
-                self.processFetchedBrandProducts(brnadProducts: products)
+        Client.shared.fetchAllCollections { CollectionSort, products in
+            if let products = products {
+                self.processFetchedBrandProducts(brnadProducts: products[0])
             }else{
                 self.showError = ErrorMessages.invalidData
             }
         }
+//        Client.shared.fetchBrandProducts(vendor:vendor) { response in
+//            if let products = response {
+//                self.processFetchedBrandProducts(brnadProducts: products)
+//            }else{
+//                self.showError = ErrorMessages.invalidData
+//            }
+//        }
+        
     }
-    
     
     
 //    private func createBrandCellViewModel(brandProduct:Storefront.Product)->BrandProductCellViewModel{
@@ -113,3 +120,4 @@ class BrandProductViewModel:NSObject{
 
     
 }
+

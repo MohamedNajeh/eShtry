@@ -19,6 +19,7 @@ class CategoryVC: UIViewController {
     var collections:[Storefront.Collection] = []
     var productTypes:[String] = ["shoes".localized,"T-Shirts".localized,"accessories".localized]
     var selectedVendor:String = "VANS"
+    var allProducts:[[Storefront.Product]] = []
     
     let viewModel = CategoryViewModel()
     
@@ -33,6 +34,7 @@ class CategoryVC: UIViewController {
         let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchButtonPressed))
         
         navigationItem.rightBarButtonItem = searchButton
+        fetchCollections()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,10 +49,10 @@ class CategoryVC: UIViewController {
     }
     
     func fetchCollections(){
-        Client.shared.fetchAllCollections { collections in
+        Client.shared.fetchAllCollections { collections ,products in
             if let collections = collections {
                 self.collections = collections
-                //print(self.collections)
+                self.allProducts = products!
                 self.categoryTableView.reloadData()
             }else{
                print("Wrong")

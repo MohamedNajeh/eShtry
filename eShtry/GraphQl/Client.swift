@@ -10,25 +10,29 @@ import MobileBuySDK
 class Client {
     
 
-    static let shopDomain = "graphql.myshopify.com"
-    static let apiKey     = "8e2fef6daed4b93cf4e731f580799dd1"
+    static let shopDomain = "mohamed-derdeer.myshopify.com"
+    static let apiKey     = "305031df75f9beed4ef18fc1bf1b507f"
 
     
     static let shared = Client()
     let client:Graph.Client = Graph.Client(shopDomain: shopDomain, apiKey: apiKey)
     
-    
-    func fetchAllCollections(completion: @escaping ([Storefront.Collection]?) -> Void) -> Task{
+   // func fetchAllCollections(completion: @escaping ([Storefront.Collection]?))
+    func fetchAllCollections(completion: @escaping ([Storefront.Collection]?,[[Storefront.Product]]?) -> Void) -> Task{
         let query = ClientQuery.queryToGetAllCollections()
         let task = client.queryGraphWith(query) { response, error in
-         let collection = response?.collections.edges.map { $0.node }
-            
+        let collection = response?.collections.edges.map { $0.node }
             guard let result = collection else {
-                completion(nil)
+                completion(nil,nil)
                 print("No response")
                 return
             }
-            completion(result)
+        var all:[[Storefront.Product]] = []
+        collection?.forEach { collection in
+           let products = collection.products.edges.map { $0.node }
+            all.append(products)
+        }
+        completion(collection,all)
         }
         task.resume()
         return task
