@@ -37,6 +37,8 @@ class CompleteOrderVC: UIViewController {
 
     let paymentMethodLabel = DefaultTitleLabel(textAlignment: .left, fontSize: 18, fontColor: .black)
     let paymentView        = DefaultView(color: .white, raduis: 10)
+    let payOnDelivery      = DefaultButton(btnTitle: "payOnDelivery".localized, titleColor: .black, backgroundColor: .clear, raduis: 0)
+    let payOnline      = DefaultButton(btnTitle: "payOnline".localized, titleColor: .black, backgroundColor: .clear, raduis: 0)
 
     
     let orderSummaryLabel = DefaultTitleLabel(textAlignment: .left, fontSize: 18, fontColor: .black)
@@ -78,6 +80,7 @@ class CompleteOrderVC: UIViewController {
         configureItemsCollection()
         configurePaymentMethodLabel()
         configurePaymentView()
+        configurePaymentButtons()
         configureOrderSummaryLabel()
         configureOrderSummaryView()
         configureSubTotalLabel()
@@ -336,6 +339,23 @@ class CompleteOrderVC: UIViewController {
             paymentView.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
+    
+    private func configurePaymentButtons(){
+        paymentView.addSubview(payOnDelivery)
+        paymentView.addSubview(payOnline)
+        
+        NSLayoutConstraint.activate([
+            payOnDelivery.topAnchor.constraint(equalTo: paymentView.topAnchor, constant: 5),
+            payOnDelivery.leadingAnchor.constraint(equalTo: paymentView.leadingAnchor, constant: 5),
+            payOnDelivery.trailingAnchor.constraint(equalTo: paymentView.trailingAnchor, constant: -5),
+            payOnDelivery.bottomAnchor.constraint(equalTo: paymentView.centerYAnchor, constant: -5),
+            
+            payOnline.topAnchor.constraint(equalTo: paymentView.centerYAnchor, constant: 5),
+            payOnline.leadingAnchor.constraint(equalTo: paymentView.leadingAnchor, constant: 5),
+            payOnline.trailingAnchor.constraint(equalTo: paymentView.trailingAnchor, constant: -5),
+            payOnline.bottomAnchor.constraint(equalTo: paymentView.bottomAnchor, constant: -5)
+        ])
+    }
 
     
     private func configureOrderSummaryLabel(){
@@ -468,36 +488,44 @@ class CompleteOrderVC: UIViewController {
     
     @objc func placeOrder(){
         
-                let id = UserDefaults.standard.value(forKey: "userId") as? Int ?? 0
-                let userName = UserDefaults.standard.value(forKey: "userName") as? String ?? ""
-                let orderCustomer = OrderCustomer(id: id, first_name: userName)
-                let order = Order(line_items: cartViewModel.getCellViewModelArr(), customer: orderCustomer)
-        let testOrder = Order(line_items: [CartItemCellViewModel(name: "ADIDAS | CLASSIC BACKPACK", price: "70.00", imgUrl: "", id: "6747827109940", qty: "2", variant_id: "40002696282164")], customer: orderCustomer)
-                let myOrder = APIOrder(order: testOrder)
+        CompleteOrderVC.presentAlertWithTwoActions(controller: self, title: "alert".localized, message: "Are you sure you want to buy".localized, style: .alert, actionTitle: "OK".localized) { action in
+            self.performOrder()
+        }
         
-        
-                NetworkManager.shared.postOrder(order: myOrder) {(data, response, error) in
-                    if error != nil{
-                        print("error while posting order \(error!.localizedDescription)")
-                    }
-                    if let data = data{
-                        let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
-                        print("json: \(json)")
-                        let returnedOrder = json["order"] as? Dictionary<String,Any>
-                        let confirmed = returnedOrder?["confirmed"] as? Int ?? 0
-                        if confirmed != 0 {
-                            CoreDataManager.shared.deleteAllCart()
-                            DispatchQueue.main.async {
-                                self.navigationController?.popViewController(animated: true)
-
-                            }
-        
-                        }
-                    }
-                }
+  
     }
     
+ 
     
+    private func performOrder(){
+        let id = UserDefaults.standard.value(forKey: "userId") as? Int ?? 0
+        let userName = UserDefaults.standard.value(forKey: "userName") as? String ?? ""
+        let orderCustomer = OrderCustomer(id: id, first_name: userName)
+        let order = Order(line_items: cartViewModel.getCellViewModelArr(), customer: orderCustomer)
+let testOrder = Order(line_items: [CartItemCellViewModel(name: "ADIDAS | CLASSIC BACKPACK", price: "70.00", imgUrl: "", id: "6747827109940", qty: "2", variant_id: "40002696282164")], customer: orderCustomer)
+        let myOrder = APIOrder(order: testOrder)
+
+
+        NetworkManager.shared.postOrder(order: myOrder) {(data, response, error) in
+            if error != nil{
+                print("error while posting order \(error!.localizedDescription)")
+            }
+            if let data = data{
+                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+                print("json: \(json)")
+                let returnedOrder = json["order"] as? Dictionary<String,Any>
+                let confirmed = returnedOrder?["confirmed"] as? Int ?? 0
+                if confirmed != 0 {
+                    CoreDataManager.shared.deleteAllCart()
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+
+                    }
+
+                }
+            }
+        }
+    }
 
     
 

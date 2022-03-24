@@ -11,6 +11,7 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBOutlet weak var imageNoAddressesOutlet: UIImageView!
     @IBOutlet weak var titleScreenAddressesOutlet: UILabel!
+    @IBOutlet weak var addNewAddressBtn: UIButton!
     @IBOutlet weak var addressTableOutlet: UITableView!
     
     let activityIndecator = UIActivityIndicatorView(style:.large)
@@ -24,6 +25,8 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
         addressTableOutlet.tableFooterView = UIView()
+//        addNewAddressBtn.setTitle("", for: .normal)
+//        titleScreenAddressesOutlet.text = ""
         
     }
     

@@ -14,6 +14,7 @@ class BrandProductsVC: UIViewController {
     let searchBar = UISearchController()
     var vendor1:[Storefront.Product] = []
     var vendor:String = ""
+    var index = 0
     //var products:[Storefront.Product] = []
     var brnadProductViewModel = BrandProductViewModel()
     override func viewDidLoad() {
@@ -25,7 +26,7 @@ class BrandProductsVC: UIViewController {
 
         //fetchProducts(vendor: self.vendor)
          print(vendor)
-       brnadProductViewModel = BrandProductViewModel(vendor: self.vendor)
+       brnadProductViewModel = BrandProductViewModel(vendor: self.index)
         updateViewWithData()
     }
     

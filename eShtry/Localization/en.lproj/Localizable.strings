@@ -73,7 +73,7 @@
 "loginOrRegister" = "Login to your account or Register a new one ";
 
 
-"loginOrRegisterBtn" = "loginOrRegisterBtn";
+"loginOrRegisterBtn" = "Login Or Register";
 
 
 "CHECKOUT ALL" = "CHECKOUT ALL";
@@ -141,3 +141,12 @@
 "language" = "Language";
 "ar" = "Arabic";
 "en" = "English";
+"alert" = "alert";
+"Are you sure you want to buy" = "Are you sure you want to buy";
+"Are you sure you want to delete item" = "Are you sure you want to delete item";
+"item deleted successfully" = "item deleted successfully";
+
+"You must log in to add  products to Cart" = "You must log in to add  products to Cart";
+
+"payOnDelivery" = "Pay On Delivery";
+"payOnline" = "Pay Online";

@@ -384,6 +384,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
         if indexPath.section == 2 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "productsVC") as! BrandProductsVC
             //vc.vendor = viewModel.allProducts[indexPath.row]
+            vc.index = indexPath.row
             self.navigationController?.pushViewController(vc, animated: true)
         }
         if indexPath.section == 3 {
