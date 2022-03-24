@@ -9,9 +9,9 @@ import UIKit
 import MobileBuySDK
 class SearchResultVC: UIViewController {
     
-    var categories: [SmartCollection]! = []
+    var categories: [Storefront.Collection]! = []
     var products  : [Storefront.Product]! = []
-    var filteredCategories: [SmartCollection] = []
+    var filteredCategories: [Storefront.Collection] = []
     var filteredProducts:[Storefront.Product] = []
     
     var isSearching = false
@@ -156,7 +156,7 @@ extension SearchResultVC : UISearchResultsUpdating{
         isSearching = true
         
         if segmentControl.selectedSegmentIndex == 0 {
-            filteredCategories = self.categories.filter({($0.title?.lowercased().contains(filter.lowercased()))!})
+            filteredCategories = self.categories.filter({($0.title.lowercased().contains(filter.lowercased()))})
             filteredProducts.removeAll()
         }else{
             filteredProducts = self.products.filter({ ($0.title.lowercased().contains(filter.lowercased()))})

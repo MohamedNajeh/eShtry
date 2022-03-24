@@ -25,7 +25,7 @@ class ClientTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Brands is downloaded") // wait untill fimising request and get response
       //  var brandsCollection:[Storefront.Collection]?
         var count: Int?
-        sut.fetchAllCollections { (brands) in
+        sut.fetchAllCollections { brands,args  in
             count = brands?.count
             expectation.fulfill()
         }
