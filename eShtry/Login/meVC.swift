@@ -47,13 +47,17 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     let userDefaults = UserDefaults.standard
     let coreData = CoreDataManager.shared
     let connection = NetworkReachibility.shared
+    let viewModel        = CartViewModel()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         translateToArabic()
+        updateViewWithLoadingView()
     }
     
      override func viewWillAppear(_ animated: Bool) {
+         viewModel.fetchCartItems()
         connection.checkNetwork(target: self)
         navigationController?.setNavigationBarHidden(true, animated: false)
         ifLogin()
@@ -68,6 +72,17 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         default:
             print("")
         }
+         
+         switch viewModel.numberOfCells {
+         case 0:
+             orderTableView.isHidden=true
+             holderImgOrders.isHidden=false
+         case 0...:
+             holderImgOrders.isHidden=true
+             orderTableView.isHidden=false
+         default:
+             print("")
+         }
         
         wishListTableView.reloadData()
 //         headerViewLoginLabel.text = "loginOrRegister".localized
@@ -117,6 +132,29 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
          }
 
         }
+    
+    func updateViewWithLoadingView(){
+        
+        viewModel.relodTableViewClosure = {
+            print("reload table view executed")
+            DispatchQueue.main.async {
+                self.orderTableView.reloadData()
+
+            }
+        }
+        
+        viewModel.bindToShowLoadingToView = {
+            print("show Loading")
+        }
+        viewModel.bindToHideLoadingToView = {
+            print("hide Loading")
+
+        }
+        
+        
+        
+        
+    }
         
 
 
@@ -126,7 +164,7 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
           if tableView == orderTableView{
-              return 0
+              return viewModel.numberOfCells
           }else if tableView == wishListTableView{
             return coreData.getAllFavoriteProducts().count
         }
@@ -137,8 +175,11 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         if tableView == orderTableView{
             let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath)
-            //let orderName = cell.viewWithTag(1) as? UILabel
-            //let price = cell.viewWithTag(2) as? UILabel
+            let orderName = cell.viewWithTag(1) as? UILabel
+            let img = cell.viewWithTag(2) as? UIImageView
+            let cellVM = viewModel.getCellViewModel(at: indexPath)
+            orderName?.text = cellVM.name
+            img?.setImage(with: cellVM.imgUrl)
             
             
             return cell
@@ -232,10 +273,12 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBAction func logOutClick(_ sender: Any) {
 
-        displayAlertTwoAction(title: "LOG OUT", message: "Are You Sure You Want To Log Out?", action: UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+        displayAlertTwoAction(title: "logOut".localized, message: "Are You Sure You Want To Log Out?".localized, action: UIAlertAction(title: "OK".localized, style: .destructive, handler: { (action) in
             self.userDefaults.set(false, forKey:"login")
             meVC.showToast(controller: self, message: "Loggedout".localized, seconds: 3)
             self.navigateToTabBarBYIndex(index: 0)
+            CoreDataManager.shared.deleteAllCart()
+
         }))
         
 
@@ -268,7 +311,7 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func displayAlertTwoAction(title: String,message: String, action: UIAlertAction) {
         let alert = UIAlertController(title: title,message:message,preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel",style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel".localized,style: .default, handler: nil))
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }

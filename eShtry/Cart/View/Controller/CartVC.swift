@@ -574,42 +574,6 @@ class CartVC: UIViewController {
             }
         }
         
-
-        
-        
-//        let id = UserDefaults.standard.value(forKey: "userId") as? Int ?? 0
-//        let userName = UserDefaults.standard.value(forKey: "userName") as? String ?? ""
-//        let orderCustomer = OrderCustomer(id: id, first_name: userName)
-//        let order = Order(line_items: viewModel.getCellViewModel(), customer: orderCustomer)
-//
-//        let myOrder = APIOrder(order: order)
-//
-//
-//        NetworkManager.shared.postOrder(order: myOrder) {(data, response, error) in
-//            if error != nil{
-//                print("error while posting order \(error!.localizedDescription)")
-//            }
-//            if let data = data{
-//                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
-//                print("json: \(json)")
-////                print("call empty cart")
-//
-//                let returnedOrder = json["order"] as? Dictionary<String,Any>
-//                let returnedCustomer = returnedOrder?["customer"] as? Dictionary<String,Any>
-//                let id = returnedCustomer?["id"] as? Int ?? 0
-////                print("customer id: \(id)")
-//                if id != 0 {
-//                    print("call empty cart")
-//
-//                }
-//            }
-//        }
-
-        
-        
-        
-        
-        
     }
     
     
@@ -680,7 +644,11 @@ class CartVC: UIViewController {
             cell.minusBtn.setImage(imageIcon, for: .normal)
             performAnimationForCartButtons(button: cell.minusBtn)
         }else{
-            viewModel.deleteItem(at: sender.indexPath)
+            CartVC.presentAlertWithTwoActions(controller: self, title: "alert".localized, message: "Are you sure you want to delete item".localized, style: .alert, actionTitle: "OK".localized) { action in
+                CartVC.showToast(controller: self, message: "item deleted successfully".localized, seconds: 1)
+                self.viewModel.deleteItem(at: sender.indexPath)
+                
+            }
         }
         
         

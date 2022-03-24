@@ -27,7 +27,7 @@ class BrandProductsVC: UIViewController {
 
         //fetchProducts(vendor: self.vendor)
          print(vendor)
-       brnadProductViewModel = BrandProductViewModel(vendor: self.vendor)
+       brnadProductViewModel = BrandProductViewModel(vendor: self.index)
         updateViewWithData()
     }
     

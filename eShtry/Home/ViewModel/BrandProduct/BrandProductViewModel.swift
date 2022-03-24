@@ -61,13 +61,13 @@ class BrandProductViewModel:NSObject{
         
     }
     
-    init(vendor:String) {
+    init(vendor:Int) {
         super.init()
         fetchProducts(vendor:vendor)
         
     }
     
-    func fetchProducts(vendor:String){
+    func fetchProducts(vendor:Int){
         Client.shared.fetchAllCollections { CollectionSort, products in
             if let products = products {
                 self.processFetchedBrandProducts(brnadProducts: products[0])

@@ -36,6 +36,14 @@ extension UIViewController{
         
     }
     
+    static func presentAlertWithTwoActions(controller: UIViewController,title:String, message: String,style:UIAlertController.Style,actionTitle:String,action:@escaping (_ action:UIAlertAction)->Void){
+        let alert = UIAlertController(title: title, message: message, preferredStyle:style )
+        alert.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: action))
+        alert.addAction(UIAlertAction(title: "Cancel".localized,style: .default, handler: nil))
+         controller.present(alert, animated: true, completion: nil)
+        
+        
+    }
     
     
     func showLoadingView(){

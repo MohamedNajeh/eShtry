@@ -19,6 +19,10 @@ class ProductDetailsVC: UITableViewController {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productName: UILabel!
     
+    @IBOutlet weak var addToBag: UIButton!
+    @IBOutlet weak var seeMoreLabel: UILabel!
+    
+    
     var isMorePressed = false
     var currentIndex = 0
     var timer:Timer?
@@ -82,7 +86,7 @@ class ProductDetailsVC: UITableViewController {
     @IBAction func addToBagButtonPressed(_ sender: Any) {
         
         guard let isLogedIn = UserDefaults.standard.object(forKey: "login") as? Bool , isLogedIn else{
-            BrandProductsVC.showToast(controller: self, message: "you must bo logged in to add  products to Cart", seconds: 1)
+            BrandProductsVC.showToast(controller: self, message: "You must log in to add  products to Cart".localized, seconds: 1)
             return
         }
         

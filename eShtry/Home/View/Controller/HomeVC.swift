@@ -17,7 +17,7 @@ class HomeVC: UIViewController {
     var mov = [1,2,3,2,1,4,5,2,21,21,32,6]
     let color:UIColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)
     
-    var collectionsArr = [SmartCollection]()
+    var collectionsArr = [Storefront.Collection]()
     var productsArr    = [Products]()
     var offersImages = ["of1","s2","s1","s1","of5"]
     var addsImages = ["s1","s2","of1","s4","s5"]
@@ -384,6 +384,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
         if indexPath.section == 2 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "productsVC") as! BrandProductsVC
             //vc.vendor = viewModel.allProducts[indexPath.row]
+            vc.index = indexPath.row
             self.navigationController?.pushViewController(vc, animated: true)
         }
         if indexPath.section == 3 {
