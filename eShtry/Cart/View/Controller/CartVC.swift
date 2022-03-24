@@ -402,10 +402,23 @@ class CartVC: UIViewController {
     
     @objc func pushAddNewAddressVC(){
         
-        let storyboard = UIStoryboard(name: "meVC", bundle: .main)
-        let addressVC  = storyboard.instantiateViewController(withIdentifier: "AddressVC") as! AddressVC
-        addressVC.modalPresentationStyle = .automatic
-        self.present(addressVC, animated: true, completion: nil)
+//        let storyboard = UIStoryboard(name: "meVC", bundle: .main)
+//        let addressVC  = storyboard.instantiateViewController(withIdentifier: "AddressVC") as! AddressVC
+//        addressVC.modalPresentationStyle = .automatic
+//        self.present(addressVC, animated: true, completion: nil)
+        
+        let keyWindow = UIApplication.shared.connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .compactMap({$0 as? UIWindowScene})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+        let tabBarController = keyWindow?.rootViewController as! UITabBarController
+        tabBarController.selectedIndex = 4
+        self.dismiss(animated: true, completion: {
+            self.navigationController?.popToRootViewController(animated: false)
+            self.updateLocationChoiceView()
+        })
+
     }
     
     private func configureAddressCollectionView(){
