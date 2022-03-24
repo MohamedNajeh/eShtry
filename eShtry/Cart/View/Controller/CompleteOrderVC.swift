@@ -58,6 +58,8 @@ class CompleteOrderVC: UIViewController {
     
     let viewModel = CompleteOrderViewModel()
     let cartViewModel = CartViewModel()
+    let connection = NetworkReachibility.shared
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,6 +107,8 @@ class CompleteOrderVC: UIViewController {
         viewModel.fetchData()
         configureView()
         updateAddress()
+        connection.checkNetwork(target: self)
+
     }
     
     func updateAddress(){

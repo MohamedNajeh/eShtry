@@ -62,7 +62,6 @@ class CartVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connection.checkNetwork(target: self)
         configureView()
         configureHeaderView()
         configureUsernameLabel()
@@ -232,6 +231,7 @@ class CartVC: UIViewController {
         configureView()
         viewModel.fetchCartItems()
         addressViewModel.fetchDataFromApi()
+        connection.checkNetwork(target: self)
         
     }
     

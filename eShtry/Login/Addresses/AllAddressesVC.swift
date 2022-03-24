@@ -25,8 +25,8 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
         addressTableOutlet.tableFooterView = UIView()
-//        addNewAddressBtn.setTitle("", for: .normal)
-//        titleScreenAddressesOutlet.text = ""
+        addNewAddressBtn.setTitle("Add New Address".localized, for: .normal)
+        
         
     }
     
@@ -48,6 +48,7 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                     } else {
                         self.imageNoAddressesOutlet.isHidden=true
                         self.titleScreenAddressesOutlet.isHidden=false
+                        self.titleScreenAddressesOutlet.text = "addresses".localized
                     }
                     self.addressTableOutlet.reloadData()
                     self.activityIndecator.stopAnimating()
@@ -87,7 +88,7 @@ class AllAddressesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         let address = cell.viewWithTag(5) as? UILabel
 
      
-        self.allAddressesApi[0].address2?.append(" (Default)")
+        self.allAddressesApi[0].address2?.append(" (Default)".localized)
         title?.text = allAddressesApi[indexPath.row].address2
         name?.text = allAddressesApi[indexPath.row].name
         phone?.text = allAddressesApi[indexPath.row].phone
