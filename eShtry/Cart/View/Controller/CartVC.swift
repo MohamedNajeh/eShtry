@@ -55,9 +55,14 @@ class CartVC: UIViewController {
     let emptyStateImage = DefaultImageView(frame: .zero)
     let loginImage      = DefaultImageView(frame: .zero)
     
+    let connection = NetworkReachibility.shared
+    
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        connection.checkNetwork(target: self)
         configureView()
         configureHeaderView()
         configureUsernameLabel()

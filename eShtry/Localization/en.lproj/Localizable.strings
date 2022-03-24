@@ -150,3 +150,31 @@
 
 "payOnDelivery" = "Pay On Delivery";
 "payOnline" = "Pay Online";
+
+
+"address informatio" = "Address Information";
+"select city" = "Select City";
+"select country" = "Select Country";
+"address label" = "Address Label (Optional)";
+"recciver information" = "Receiver Information";
+"zip code" = "Zip / Postal Code";
+"address1" = "Address";
+"city" = "City";
+"country" = "Country";
+"Home" = "Home";
+"Office" = "Office";
+"Custom" = "Custom";
+
+//addressInformation.text = "address informatio".localized
+//selectCity.text = "select city".localized
+//selectCountry.text = "select country".localized
+//addressLabelTitle.text = "address label".localized
+//receiverTitle.text = "recciver information".localized
+//zipCodeTitle.text = "zip code".localized
+//address1Title.text = "address1".localized
+//cityTitle.text = "city".localized
+//countryTitle.text = "country".localized
+//confirmButtonOutlet.setTitle("confirm".localized, for: .normal)
+//segmentControl.setTitle("Home".localized, forSegmentAt: 0)
+//segmentControl.setTitle("Office".localized, forSegmentAt: 1)
+//segmentControl.setTitle("Custom".localized, forSegmentAt: 2)

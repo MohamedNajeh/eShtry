@@ -22,11 +22,14 @@ class CategoryVC: UIViewController {
     var allProducts:[[Storefront.Product]] = []
     
     let viewModel = CategoryViewModel()
+    let connection = NetworkReachibility.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.title = "Category"
         //configureSearchController()
+        connection.checkNetwork(target: self)
+
         configureTableViews()
         fetchCollections()
         let color:UIColor = UIColor(red: 43/255, green: 95/255, blue: 147/255, alpha: 1)

@@ -25,7 +25,9 @@ class HomeVC: UIViewController {
     
     let viewModel = HomeViewModel()
     let productViewModel = HomeProductViewModel()
+    let connection = NetworkReachibility.shared
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavBar()
@@ -113,9 +115,11 @@ class HomeVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        connection.checkNetwork(target: self)
         viewModel.fetchData()
         collectionView.reloadData()
         startTimer()
+        
     }
     
     func startTimer(){

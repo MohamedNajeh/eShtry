@@ -46,7 +46,7 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     
     let userDefaults = UserDefaults.standard
     let networkShared = NetworkManager.shared
-
+    
     var addressTitle = "home".localized
     var isDefaultAddress = false
     var isCustomTitle = false
@@ -54,6 +54,7 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        translateToArabic()
         navigationController?.setNavigationBarHidden(false, animated: false)
         confirmButtonOutlet?.isUserInteractionEnabled = false
         confirmButtonOutlet?.alpha = 0.5
@@ -77,7 +78,7 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
-               view.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
     }
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -89,11 +90,11 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
         if isCustomTitle {
             addressTitle = customAddressTitleTF.text ?? "home".localized
         }
-
+        
         if isDefaultAddress {
             addressTitle += "(Default)".localized
         }
-
+        
         
         let address = Addresses(address1: addressOutletTF.text, address2: addressTitle, city: cityOutletLabel.text, province: "", phone: receiverPhoneOutletTF.text, zip: zipCodeOutletTF.text, name: receiverNameOutletTF.text, country: countryOutletLabel.text)
         addAddress(address: address)
@@ -104,19 +105,19 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     @IBAction func addressTitleChoose(_ sender: Any) {
         switch segmentControl.selectedSegmentIndex {
         case 0:
-
+            
             
             stackCustomAddressTitle.isHidden = true
         case 1:
             addressTitle = segmentControl.titleForSegment(at: 1) ?? "home".localized
-
+            
             isCustomTitle = false
             addressTitle = segmentControl.titleForSegment(at: 0) ?? "home".localized
             stackCustomAddressTitle.isHidden = true
         case 1:
             isCustomTitle = false
             addressTitle = segmentControl.titleForSegment(at: 1) ?? "Home"
-
+            
             stackCustomAddressTitle.isHidden = true
         case 2:
             isCustomTitle = true
@@ -266,16 +267,16 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     }
     
     func translateToArabic(){
-    
+        
         addressInformation.text = "address informatio".localized
-       selectCity.text = "select city".localized
-       selectCountry.text = "select country".localized
-      addressLabelTitle.text = "address label".localized
-      receiverTitle.text = "recciver information".localized
-      zipCodeTitle.text = "zip code".localized
-      address1Title.text = "address1".localized
-      cityTitle.text = "city".localized
-      countryTitle.text = "country".localized
+        selectCity.text = "select city".localized
+        selectCountry.text = "select country".localized
+        addressLabelTitle.text = "address label".localized
+        receiverTitle.text = "recciver information".localized
+        zipCodeTitle.text = "zip code".localized
+        address1Title.text = "address1".localized
+        cityTitle.text = "city".localized
+        countryTitle.text = "country".localized
         confirmButtonOutlet.setTitle("confirm".localized, for: .normal)
         segmentControl.setTitle("Home".localized, forSegmentAt: 0)
         segmentControl.setTitle("Office".localized, forSegmentAt: 1)
