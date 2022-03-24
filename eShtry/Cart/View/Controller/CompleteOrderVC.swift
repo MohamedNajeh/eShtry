@@ -347,7 +347,10 @@ class CompleteOrderVC: UIViewController {
     private func configurePaymentButtons(){
         paymentView.addSubview(payOnDelivery)
         paymentView.addSubview(payOnline)
-        
+        payOnline.addTarget(self, action: #selector(updatePayonline), for: .touchUpInside)
+        payOnDelivery.addTarget(self, action: #selector(updatePaymentBtn), for: .touchUpInside)
+        payOnDelivery.backgroundColor = .green
+
         NSLayoutConstraint.activate([
             payOnDelivery.topAnchor.constraint(equalTo: paymentView.topAnchor, constant: 5),
             payOnDelivery.leadingAnchor.constraint(equalTo: paymentView.leadingAnchor, constant: 5),
@@ -359,6 +362,21 @@ class CompleteOrderVC: UIViewController {
             payOnline.trailingAnchor.constraint(equalTo: paymentView.trailingAnchor, constant: -5),
             payOnline.bottomAnchor.constraint(equalTo: paymentView.bottomAnchor, constant: -5)
         ])
+    }
+    
+    @objc func updatePaymentBtn(){
+        if payOnDelivery.backgroundColor != .green{
+            payOnline.backgroundColor = .clear
+            payOnDelivery.backgroundColor = .green
+        }
+    }
+    
+    @objc func updatePayonline(){
+        if payOnline.backgroundColor != .green{
+
+            payOnline.backgroundColor = .green
+            payOnDelivery.backgroundColor = .clear
+        }
     }
 
     

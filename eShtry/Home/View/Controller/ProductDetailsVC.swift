@@ -34,6 +34,8 @@ class ProductDetailsVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        seeMoreLabel.text = "see more".localized
+        addToBag.setTitle("add to bag".localized, for: .normal)
         registerCollectionCells()
         configureVCComponent()
         startTimer()
