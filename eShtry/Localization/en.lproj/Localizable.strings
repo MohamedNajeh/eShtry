@@ -25,6 +25,7 @@
 "terms&conditions" = "Terms & Conditions";
 "privacyPolicy" = "Privacy Policy";
 "version" = "version 1.01";
+"© 2022 eShtry All Right Wz Team" = "© 2022 eShtry All Right Wz Team";
 
 
 "Loggedout" = "Logged out";
@@ -73,3 +74,65 @@
 
 
 "loginOrRegisterBtn" = "loginOrRegisterBtn";
+
+
+"CHECKOUT ALL" = "CHECKOUT ALL";
+
+"Add New Address" = "Add New Address";
+
+"Items" = "Items";
+"Basket" = "Basket";
+"products" = "Products";
+"Subtotal" = "Subtotal";
+"prices include tax" = "prices include tax";
+"Available payment methods" = "Available payment methods";
+"Sorry" = "Sorry";
+"Please press location button above to add address" = "Please press location button above to add address";
+"Complete your order" = "Complete your order";
+"Your Shipping Address" = "Your Shipping Address";
+"shipmentNumber" = "shipment number";
+"DeliveryDate" = "Delivery Date";
+"PLACE ORDER" = "PLACE ORDER";
+"Delivery" = "Delivery";
+"orderSummary" = "Order Summary";
+"Grand Total" = "Grand Total";
+
+"noFavoriteItemsLabel" = "No Favorite Items";
+"logOut" = "Log Out";
+
+"myCart" = "My Cart";
+
+"profile" = "Profile";
+
+"currency" = "currency";
+
+"First Name" = "First Name";
+"Last Name" = "Last Name";
+"Mobile Number" = "Mobile Number";
+"Your Profile" = "Your Profile";
+"Back" = "Back";
+
+"Date of Birth" = "Date of Birth";
+"Please enter your first name" = "Please enter your first name";
+"Please enter your last name" = "Please enter your last name";
+"Please enter a phone number" = "Please enter a phone number";
+
+
+"Please enter a valid email address" = "Please enter a valid email address";
+
+"Weak Password!. Minimum of 8 characters with at least 1 uppercase, 1 lowercase, and 1 number" = "Weak Password!. Minimum of 8 characters with at least 1 uppercase, 1 lowercase, and 1 number";
+
+"Minimum of 8 characters with at least 1 uppercase, 1 lowercase, and 1 number" = "Minimum of 8 characters with at least 1 uppercase, 1 lowercase, and 1 number";
+
+
+"Please select your date of birth" = "Please select your date of birth";
+"Registered Successfully" = "Registered Successfully";
+"Registration error" = "Registration error";
+"Make sure you enter your Email correctly" = "Make sure you enter your Email correctly";
+"continue" = "Continue";
+
+"loginToYourAccountLabel" = "Login To Your Account";
+"register" = "register";
+"dontHaveAccountLabel" = "Don't Have Account?";
+
+"createNewAccount" = "Create New Account";
