@@ -7,13 +7,10 @@
 //
 
 import UIKit
+import MOLH
 
 
 class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
-    var moreOrdersArr : [OrdersTemp] = []
-    var myOrder1 : OrdersTemp = OrdersTemp()
-    var myOrder2 : OrdersTemp = OrdersTemp()
     
     @IBOutlet weak var welcomeUserLabelOtlet: UILabel!
     @IBOutlet weak var welcomeUserViewOutlet: UIView!
@@ -23,10 +20,22 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var logOutButtonOutlet: UIButton!
     @IBOutlet weak var stackViewLoggingIn: UIStackView!
     
-
+    
+    @IBOutlet weak var loginAccountLabelOutlet: UILabel!
+    @IBOutlet weak var loginAndResgisterBtnOutlet: UIButton!
+    @IBOutlet weak var version: UILabel!
+    @IBOutlet weak var copyRight: UILabel!
+    
+    @IBOutlet weak var myCartBtnOutlet: UIButton!
+    @IBOutlet weak var wishLisBtnOutlet: UIButton!
+    @IBOutlet weak var profileBtnOutlet: UIButton!
+    @IBOutlet weak var currencyBtnOutlet: UIButton!
+    @IBOutlet weak var addressesBtnOutlet: UIButton!
+    @IBOutlet weak var termsBtnOutlet: UIButton!
+    @IBOutlet weak var contactBtnOutlet: UIButton!
+    @IBOutlet weak var privacyBtnOutlet: UIButton!
     
     @IBOutlet weak var headerViewLoginLabel: UILabel!
-    
     @IBOutlet weak var headerViewLoginBtn: UIButton!
 
     @IBOutlet weak var holderImgOrders: UIImageView!
@@ -41,10 +50,7 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        moreOrdersArr.append(myOrder1)
-//        moreOrdersArr.append(myOrder2)
-        
+        translateToArabic()
     }
     
      override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +72,50 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         wishListTableView.reloadData()
 //         headerViewLoginLabel.text = "loginOrRegister".localized
 //         headerViewLoginBtn.setTitle("loginOrRegisterBtn".localized, for: .normal)
+         
+         if MOLHLanguage.currentAppleLanguage() == "ar" {
+             myCartBtnOutlet.imageEdgeInsets = UIEdgeInsets(top: 0, left: 200, bottom: 0, right: 0)
+             myCartBtnOutlet.titleEdgeInsets = UIEdgeInsets(top: 0, left: 160, bottom: 0, right: 0)
+             myCartBtnOutlet.setTitle("myCart".localized, for: .normal)
+             
+             wishLisBtnOutlet.imageEdgeInsets = UIEdgeInsets(top: 0, left: 180, bottom: 0, right: 0)
+             wishLisBtnOutlet.titleEdgeInsets = UIEdgeInsets(top: 0, left: 140, bottom: 0, right: 0)
+             wishLisBtnOutlet.setTitle("favorite".localized, for: .normal)
+             
+             
+             
+             
+             profileBtnOutlet.imageEdgeInsets = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
+             profileBtnOutlet.titleEdgeInsets = UIEdgeInsets(top: 0, left: 80, bottom: 0, right: 0)
+             profileBtnOutlet.setTitle("profile".localized, for: .normal)
+             
+             currencyBtnOutlet.imageEdgeInsets = UIEdgeInsets(top: 0, left: 200, bottom: 0, right: 0)
+             currencyBtnOutlet.titleEdgeInsets = UIEdgeInsets(top: 0, left: 160, bottom: 0, right: 0)
+             currencyBtnOutlet.setTitle("currency".localized, for: .normal)
+             
+             addressesBtnOutlet.imageEdgeInsets = UIEdgeInsets(top: 0, left: 190, bottom: 0, right: 0)
+             addressesBtnOutlet.titleEdgeInsets = UIEdgeInsets(top: 0, left: 160, bottom: 0, right: 0)
+             addressesBtnOutlet.setTitle("address".localized, for: .normal)
+             
+             contactBtnOutlet.imageEdgeInsets = UIEdgeInsets(top: 0, left: 160, bottom: 0, right: 0)
+             contactBtnOutlet.titleEdgeInsets = UIEdgeInsets(top: 0, left: 140, bottom: 0, right: 0)
+             contactBtnOutlet.setTitle("contactUs".localized, for: .normal)
+             
+             termsBtnOutlet.imageEdgeInsets = UIEdgeInsets(top: 0, left: 120, bottom: 0, right: 0)
+             termsBtnOutlet.titleEdgeInsets = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
+             termsBtnOutlet.setTitle("terms&conditions".localized, for: .normal)
+             
+             privacyBtnOutlet.imageEdgeInsets = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
+             privacyBtnOutlet.titleEdgeInsets = UIEdgeInsets(top: 0, left: 80, bottom: 0, right: 0)
+             privacyBtnOutlet.setTitle("privacyPolicy".localized, for: .normal)
+             
+
+             
+             logOutButtonOutlet.imageEdgeInsets = UIEdgeInsets(top: 0, left: 140, bottom: 0, right: 0)
+             logOutButtonOutlet.titleEdgeInsets = UIEdgeInsets(top: 0, left: 110, bottom: 0, right: 0)
+             logOutButtonOutlet.setTitle("logOut".localized, for: .normal) 
+         }
+
         }
         
 
@@ -111,7 +161,9 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         if tableView == wishListTableView{
             
             navigateToTabBarBYIndex(index: 2)
-          }
+        }else{
+            navigateToTabBarBYIndex(index: 3)
+        }
     }
     
     @IBAction func loginRegister(_ sender: Any) {
@@ -127,7 +179,7 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     @IBAction func myOrdersClick(_ sender: Any) {
-        //navigateToTabBarBYIndex(index: <#T##Int#>)
+        navigateToTabBarBYIndex(index: 3)
     }
     
     
@@ -234,21 +286,12 @@ class meVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         })
     }
     
-    func prepare() {
-        
-        //disAppear img
-        holderImgOrders.isHidden=true
-        holderImgWishList.isHidden=true
-        
-        //disAppear orders
-        orderTableView.isHidden=true
-
-        //Appear img
-        holderImgOrders.isHidden=false
-        holderImgWishList.isHidden=false
-        
-        //Appear orders
-        orderTableView.isHidden=false
-
+    func translateToArabic() {
+        loginAccountLabelOutlet.text = "loginOrRegister".localized
+        loginAndResgisterBtnOutlet.setTitle("loginOrRegisterBtn".localized, for: .normal)
+      version.text = "version".localized
+      copyRight.text = "© 2022 eShtry All Right Wz Team".localized
     }
+    
+    
 }
