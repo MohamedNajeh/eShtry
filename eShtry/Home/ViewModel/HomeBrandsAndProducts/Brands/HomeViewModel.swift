@@ -10,8 +10,9 @@ import MobileBuySDK
 class HomeViewModel:NSObject{
     
     let networkShared  = NetworkManager.shared
-    var brandItems: [SmartCollection] = [SmartCollection]()
+    var brandItems: [Storefront.Collection] = [Storefront.Collection]()
     var allProducts:[[Storefront.Product]] = []
+
 
 
     private var cellViewModdels:[BrandCellViewModel] = [BrandCellViewModel]() {
@@ -69,6 +70,7 @@ class HomeViewModel:NSObject{
             self.state = .finished
             if let collections = collections {
                 self.processFetchedBrandItems(brandItems: collections)
+                self.brandItems = collections
                 guard let products = products else{
                     return
                 }

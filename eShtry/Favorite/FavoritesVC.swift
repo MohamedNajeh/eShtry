@@ -77,7 +77,7 @@ extension FavoritesVC:UITableViewDelegate , UITableViewDataSource{
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [self] _ in
                 CoreDataManager.shared.deleteProduct(product: (self?.favorites[indexPath.row])!)
                 self?.favorites.remove(at: indexPath.row)
-                tableView.deleteRows(at:[indexPath], with: .automatic)
+                tableView.reloadData()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self?.present(alert, animated: true, completion: nil)
