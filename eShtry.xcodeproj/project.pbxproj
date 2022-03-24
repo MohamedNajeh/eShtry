@@ -110,6 +110,7 @@
 		5B31820527E8CE2900322531 /* AddressCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31820427E8CE2900322531 /* AddressCellVM.swift */; };
 		5B91FA0927E9280300355D14 /* VarientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B91FA0727E9280300355D14 /* VarientCell.swift */; };
 		5B91FA0A27E9280300355D14 /* VarientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B91FA0827E9280300355D14 /* VarientCell.xib */; };
+		5B96F82A27ECA75900FF4D0B /* cartMove.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B96F82927ECA75900FF4D0B /* cartMove.json */; };
 		5BA095E227D9785E00C17E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E127D9785E00C17E57 /* AppDelegate.swift */; };
 		5BA095E427D9785E00C17E57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA095E327D9785E00C17E57 /* SceneDelegate.swift */; };
 		5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA095E727D9785E00C17E57 /* Main.storyboard */; };
@@ -267,6 +268,7 @@
 		5B31820427E8CE2900322531 /* AddressCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellVM.swift; sourceTree = "<group>"; };
 		5B91FA0727E9280300355D14 /* VarientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VarientCell.swift; sourceTree = "<group>"; };
 		5B91FA0827E9280300355D14 /* VarientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VarientCell.xib; sourceTree = "<group>"; };
+		5B96F82927ECA75900FF4D0B /* cartMove.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cartMove.json; sourceTree = "<group>"; };
 		5BA095DE27D9785E00C17E57 /* eShtry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShtry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA095E127D9785E00C17E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA095E327D9785E00C17E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -987,6 +989,14 @@
 			path = AddressVM;
 			sourceTree = "<group>";
 		};
+		5B96F82827ECA74A00FF4D0B /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				5B96F82927ECA75900FF4D0B /* cartMove.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		5BA095D527D9785E00C17E57 = {
 			isa = PBXGroup;
 			children = (
@@ -1010,6 +1020,7 @@
 		5BA095E027D9785E00C17E57 /* eShtry */ = {
 			isa = PBXGroup;
 			children = (
+				5B96F82827ECA74A00FF4D0B /* Animations */,
 				191D726727EB527500FC371F /* Localization */,
 				4663974327E704C000080728 /* Favorite */,
 				5BADDD8227E3CB1D00F11550 /* GraphQl */,
@@ -1222,6 +1233,7 @@
 				5BB7779027DFC67D00ECAC8B /* HomeSB.storyboard in Resources */,
 				5BB7778727DFC65600ECAC8B /* ProductCell.xib in Resources */,
 				191D726A27EB549900FC371F /* Localizable.strings in Resources */,
+				5B96F82A27ECA75900FF4D0B /* cartMove.json in Resources */,
 				4663974627E704FA00080728 /* FavoriteSB.storyboard in Resources */,
 				1914DEFF27DFAE9B00931E5D /* Almarai-Light.ttf in Resources */,
 				5BA095E927D9785E00C17E57 /* Main.storyboard in Resources */,

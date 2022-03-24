@@ -284,6 +284,7 @@ class RegisterVC: UITableViewController, UITextFieldDelegate {
                             RegisterVC.presentAlert(controller: self!, title: "Registration error".localized, message: "Make sure you enter your Email correctly".localized, style: .alert, actionTitle: "OK") { (action) in
                                 self?.dismiss(animated: true, completion: nil)
                             }
+                            self?.activityIndecator.stopAnimating()
                         }
                         
                         print("An error occurred while registering")
