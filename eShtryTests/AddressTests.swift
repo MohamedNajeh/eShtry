@@ -55,7 +55,6 @@ class AddressTests: XCTestCase {
         wait(for: [expectation], timeout: 5)
         XCTAssertNil(errorMessage, "error when add new address")
         XCTAssertNotNil(addAddressSuccedeed, "add address failed")
-        XCTAssertTrue(addAddressSuccedeed == true, "add address failed")
     }
     
     
