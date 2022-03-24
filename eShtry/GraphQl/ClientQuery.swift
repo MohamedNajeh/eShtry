@@ -21,7 +21,7 @@ class ClientQuery {
                 .image{ $0
                 .url()
                 }
-                .products(first:30){ $0
+                .products(first:100){ $0
                 .edges{ $0
                 .node{ $0
                 .productType()
@@ -98,7 +98,7 @@ class ClientQuery {
     
     static func getSubCategoryProductsQuery(vendor:String , type:String) -> Storefront.QueryRootQuery {
         return Storefront.buildQuery{ $0
-                .products(first: 50 , query: "product_type:\(type)"){ $0
+                .products(first: 100 , query: "product_type:\(type)"){ $0
                 .edges{ $0
                 .node { $0
                 .title()
@@ -115,7 +115,7 @@ class ClientQuery {
     
     static func queryToGetBrandProducts(vendor:String) -> Storefront.QueryRootQuery {
         return Storefront.buildQuery { $0
-                .products(first:30){ $0
+                .products(first:100){ $0
                 .edges{ $0
                 .node{ $0
                 .id()

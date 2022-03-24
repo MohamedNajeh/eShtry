@@ -17,7 +17,7 @@ class BrandProductsVC: UIViewController {
     var products:[Storefront.Product] = []
     var brnadProductViewModel = BrandProductViewModel()
     var productModel = HomeProductViewModel()
-    
+    var index = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +27,7 @@ class BrandProductsVC: UIViewController {
 
         //fetchProducts(vendor: self.vendor)
          print(vendor)
-       brnadProductViewModel = BrandProductViewModel(vendor: self.index)
+        brnadProductViewModel = BrandProductViewModel(vendor: self.index)
         updateViewWithData()
     }
     
