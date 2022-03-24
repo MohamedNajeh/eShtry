@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import UserNotifications
 class CompleteOrderVC: UIViewController {
     
     let headerView        = DefaultView(color: UIColor(red: 23/255, green: 69/255, blue: 167/255, alpha: 1), raduis: 0)
@@ -490,9 +490,28 @@ class CompleteOrderVC: UIViewController {
         
         CompleteOrderVC.presentAlertWithTwoActions(controller: self, title: "alert".localized, message: "Are you sure you want to buy".localized, style: .alert, actionTitle: "OK".localized) { action in
             self.performOrder()
+            self.startNotification()
         }
         
   
+    }
+    
+    func startNotification(){
+        print("Here")
+        let center = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        content.body = "Your Order Confirmed .. Ceck your email for more details"
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
+        center.add(request) { error in
+            if error != nil{
+                print(error?.localizedDescription ?? "Error in notification")
+            }
+        }
+        
+        
     }
     
  
