@@ -26,11 +26,23 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
     @IBOutlet weak var receiverPhoneLabel: UILabel!
     @IBOutlet weak var receiverNameLabel: UILabel!
     
+    @IBOutlet weak var changeCountryBtn: UIButton!
     @IBOutlet weak var changeCityOutletButton: UIButton!
     @IBOutlet weak var confirmButtonOutlet: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     @IBOutlet weak var viewSupport: UIView!
+    
+    
+    @IBOutlet weak var addressInformation: UILabel!
+    @IBOutlet weak var selectCity: UILabel!
+    @IBOutlet weak var selectCountry: UILabel!
+    @IBOutlet weak var addressLabelTitle: UILabel!
+    @IBOutlet weak var receiverTitle: UILabel!
+    @IBOutlet weak var zipCodeTitle: UILabel!
+    @IBOutlet weak var address1Title: UILabel!
+    @IBOutlet weak var cityTitle: UILabel!
+    @IBOutlet weak var countryTitle: UILabel!
     
     let userDefaults = UserDefaults.standard
     let networkShared = NetworkManager.shared
@@ -253,5 +265,21 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
         }
     }
     
+    func translateToArabic(){
+    
+        addressInformation.text = "address informatio".localized
+       selectCity.text = "select city".localized
+       selectCountry.text = "select country".localized
+      addressLabelTitle.text = "address label".localized
+      receiverTitle.text = "recciver information".localized
+      zipCodeTitle.text = "zip code".localized
+      address1Title.text = "address1".localized
+      cityTitle.text = "city".localized
+      countryTitle.text = "country".localized
+        confirmButtonOutlet.setTitle("confirm".localized, for: .normal)
+        segmentControl.setTitle("Home".localized, forSegmentAt: 0)
+        segmentControl.setTitle("Office".localized, forSegmentAt: 1)
+        segmentControl.setTitle("Custom".localized, forSegmentAt: 2)
+    }
     
 }

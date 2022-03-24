@@ -134,3 +134,6 @@
 "Are you sure you want to buy" = "هل تريد اتمام عمليه الشراء";
 "Are you sure you want to delete item" = "هل تريد حذف المنتج";
 "item deleted successfully" = "تم حذف المنتج بنجاح";
+"You must log in to add  products to Cart" = "يجب عليك تسجيل الدخول اولا";
+"payOnDelivery" = "الدفع عند الاستلام";
+"payOnline" = "الدفع اونلاين";

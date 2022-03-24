@@ -37,6 +37,8 @@ class CompleteOrderVC: UIViewController {
 
     let paymentMethodLabel = DefaultTitleLabel(textAlignment: .left, fontSize: 18, fontColor: .black)
     let paymentView        = DefaultView(color: .white, raduis: 10)
+    let payOnDelivery      = DefaultButton(btnTitle: "payOnDelivery".localized, titleColor: .black, backgroundColor: .clear, raduis: 0)
+    let payOnline      = DefaultButton(btnTitle: "payOnline".localized, titleColor: .black, backgroundColor: .clear, raduis: 0)
 
     
     let orderSummaryLabel = DefaultTitleLabel(textAlignment: .left, fontSize: 18, fontColor: .black)
@@ -78,6 +80,7 @@ class CompleteOrderVC: UIViewController {
         configureItemsCollection()
         configurePaymentMethodLabel()
         configurePaymentView()
+        configurePaymentButtons()
         configureOrderSummaryLabel()
         configureOrderSummaryView()
         configureSubTotalLabel()
@@ -334,6 +337,23 @@ class CompleteOrderVC: UIViewController {
             paymentView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: globalLeading),
             paymentView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: globalTrailing),
             paymentView.heightAnchor.constraint(equalToConstant: 150)
+        ])
+    }
+    
+    private func configurePaymentButtons(){
+        paymentView.addSubview(payOnDelivery)
+        paymentView.addSubview(payOnline)
+        
+        NSLayoutConstraint.activate([
+            payOnDelivery.topAnchor.constraint(equalTo: paymentView.topAnchor, constant: 5),
+            payOnDelivery.leadingAnchor.constraint(equalTo: paymentView.leadingAnchor, constant: 5),
+            payOnDelivery.trailingAnchor.constraint(equalTo: paymentView.trailingAnchor, constant: -5),
+            payOnDelivery.bottomAnchor.constraint(equalTo: paymentView.centerYAnchor, constant: -5),
+            
+            payOnline.topAnchor.constraint(equalTo: paymentView.centerYAnchor, constant: 5),
+            payOnline.leadingAnchor.constraint(equalTo: paymentView.leadingAnchor, constant: 5),
+            payOnline.trailingAnchor.constraint(equalTo: paymentView.trailingAnchor, constant: -5),
+            payOnline.bottomAnchor.constraint(equalTo: paymentView.bottomAnchor, constant: -5)
         ])
     }
 
