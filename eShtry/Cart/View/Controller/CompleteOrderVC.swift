@@ -55,6 +55,7 @@ class CompleteOrderVC: UIViewController {
     
     
     let viewModel = CompleteOrderViewModel()
+    let cartViewModel = CartViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -454,6 +455,7 @@ class CompleteOrderVC: UIViewController {
     
     private func configureCheckoutBtn(){
         bottomView.addSubview(checkoutBtn)
+        checkoutBtn.addTarget(self, action: #selector(placeOrder), for: .touchUpInside)
         NSLayoutConstraint.activate([
             checkoutBtn.topAnchor.constraint(equalTo: cashLabel.bottomAnchor, constant: 10),
             checkoutBtn.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 10),
@@ -463,6 +465,37 @@ class CompleteOrderVC: UIViewController {
         ])
     }
     
+    
+    @objc func placeOrder(){
+        
+                let id = UserDefaults.standard.value(forKey: "userId") as? Int ?? 0
+                let userName = UserDefaults.standard.value(forKey: "userName") as? String ?? ""
+                let orderCustomer = OrderCustomer(id: id, first_name: userName)
+                let order = Order(line_items: cartViewModel.getCellViewModelArr(), customer: orderCustomer)
+        let testOrder = Order(line_items: [CartItemCellViewModel(name: "ADIDAS | CLASSIC BACKPACK", price: "70.00", imgUrl: "", id: "6747827109940", qty: "2", variant_id: "40002696282164")], customer: orderCustomer)
+                let myOrder = APIOrder(order: testOrder)
+        
+        
+                NetworkManager.shared.postOrder(order: myOrder) {(data, response, error) in
+                    if error != nil{
+                        print("error while posting order \(error!.localizedDescription)")
+                    }
+                    if let data = data{
+                        let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,Any>
+                        print("json: \(json)")
+                        let returnedOrder = json["order"] as? Dictionary<String,Any>
+                        let confirmed = returnedOrder?["confirmed"] as? Int ?? 0
+                        if confirmed != 0 {
+                            CoreDataManager.shared.deleteAllCart()
+                            DispatchQueue.main.async {
+                                self.navigationController?.popViewController(animated: true)
+
+                            }
+        
+                        }
+                    }
+                }
+    }
     
     
 

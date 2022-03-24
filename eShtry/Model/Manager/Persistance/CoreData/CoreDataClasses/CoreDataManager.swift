@@ -262,9 +262,9 @@ class CoreDataManager{
         
     }
     
-    func deleteAll(){
+    func deleteAllCart(){
         let managedObjectContext = persistentContainer.viewContext
-        let fetchRequest         = NSFetchRequest<NSManagedObject>(entityName: "FavoriteProduct")
+        let fetchRequest         = NSFetchRequest<NSManagedObject>(entityName: "Cart")
         if let result = try? managedObjectContext.fetch(fetchRequest) {
             for object in result {
                 managedObjectContext.delete(object)

@@ -20,7 +20,7 @@ class CartViewModel: NSObject{
         }
     }
     
-    func getCellViewModel()->[CartItemCellViewModel]{
+    func getCellViewModelArr()->[CartItemCellViewModel]{
         return self.cellViewModdels
     }
     
