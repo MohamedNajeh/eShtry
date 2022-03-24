@@ -90,6 +90,7 @@ class ProductDetailsVC: UITableViewController {
             return
         }
         
+        BrandProductsVC.showToast(controller: self, message: "Added successfully", seconds: 1)
         guard let title = product?.title else{return}
         guard let price = product?.priceRange.minVariantPrice.amount else{return}
         guard let image = product?.images.edges[0].node.url else {return}
