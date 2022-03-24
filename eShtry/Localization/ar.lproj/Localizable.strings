@@ -137,3 +137,17 @@
 "You must log in to add  products to Cart" = "يجب عليك تسجيل الدخول اولا";
 "payOnDelivery" = "الدفع عند الاستلام";
 "payOnline" = "الدفع اونلاين";
+
+"address informatio" = "معلومات العنوان";
+"select city" = "اختر المدينة";
+"select country" = "اختر البلد";
+"address label" = "(اختياري) ";
+"recciver information" = "معلومات المستلم";
+"zip code" = "الرمز البريدي";
+"address1" = "العنوان";
+"city" = "المدينة";
+"country" = "البلد";
+"Home" = "المنزل";
+"Office" = "المكتب";
+"Custom" = "مخصص";
+
