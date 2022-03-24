@@ -21,6 +21,37 @@ class ClientQuery {
                 .image{ $0
                 .url()
                 }
+                .products(first:30){ $0
+                .edges{ $0
+                .node{ $0
+                .id()
+                .title()
+                .description()
+                .variants(first:2){ $0
+                .edges{ $0
+                .node { $0
+                .title()
+                }
+                }
+                }
+                .images(first:10){ $0
+                .edges{ $0
+                .node{ $0
+                .url()
+                }
+                }
+                }
+                .featuredImage{ $0
+                .url()
+                }
+                .priceRange { $0
+                .minVariantPrice{ $0
+                .amount()
+                }
+                }
+                }
+                }
+                }
                 }
                 }
                 }
@@ -83,7 +114,7 @@ class ClientQuery {
     
     static func queryToGetBrandProducts(vendor:String) -> Storefront.QueryRootQuery {
         return Storefront.buildQuery { $0
-                .products(first:30 , query:"vendor:\(vendor)"){ $0
+                .products(first:30){ $0
                 .edges{ $0
                 .node{ $0
                 .id()

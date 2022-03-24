@@ -383,7 +383,7 @@ extension HomeVC:UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "productsVC") as! BrandProductsVC
-            vc.vendor = collectionsArr[indexPath.row].title!
+            //vc.vendor = viewModel.allProducts[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
         if indexPath.section == 3 {

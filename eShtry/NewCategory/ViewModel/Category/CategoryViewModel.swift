@@ -46,14 +46,21 @@ class CategoryViewModel:NSObject{
     
     
     func fetchCategories(){
-        Client.shared.fetchAllCollections { collections in
+        Client.shared.fetchAllCollections { collections, products in
             if let collections = collections {
-                
                 self.processFetchedCategory(categories: collections)
             }else{
                 self.showMessage = ErrorMessages.invalidDataAfterDecoding
             }
         }
+//        Client.shared.fetchAllCollections { collections in
+//            if let collections = collections {
+//
+//                self.processFetchedCategory(categories: collections)
+//            }else{
+//                self.showMessage = ErrorMessages.invalidDataAfterDecoding
+//            }
+//        }
     }
     
     

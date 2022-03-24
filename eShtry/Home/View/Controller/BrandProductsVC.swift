@@ -12,8 +12,9 @@ class BrandProductsVC: UIViewController {
     @IBOutlet weak var sliderOutlet: UISlider!
     @IBOutlet weak var collectionView: UICollectionView!
     let searchBar = UISearchController()
+    var vendor1:[Storefront.Product] = []
     var vendor:String = ""
-    var products:[Storefront.Product] = []
+    //var products:[Storefront.Product] = []
     var brnadProductViewModel = BrandProductViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,9 @@ class BrandProductsVC: UIViewController {
         navigationItem.searchController = searchBar
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
 
-        fetchProducts(vendor: self.vendor)
-        brnadProductViewModel = BrandProductViewModel(vendor: self.vendor)
+        //fetchProducts(vendor: self.vendor)
+         print(vendor)
+       brnadProductViewModel = BrandProductViewModel(vendor: self.vendor)
         updateViewWithData()
     }
     
@@ -42,17 +44,17 @@ class BrandProductsVC: UIViewController {
         self.collectionView.reloadData()
     }
     
-    func fetchProducts(vendor:String){
-        Client.shared.fetchBrandProducts(vendor:vendor) { response in
-            if let products = response {
-                self.products = products
-                //print(products)
-                self.collectionView.reloadData()
-            }else{
-                
-            }
-        }
-    }
+//    func fetchProducts(vendor:String){
+//        Client.shared.fetchBrandProducts(vendor:vendor) { response in
+//            if let products = response {
+//                self.products = products
+//                //print(products)
+//                self.collectionView.reloadData()
+//            }else{
+//
+//            }
+//        }
+//    }
     
     
     @IBAction func sliderValueChanges(_ sender: UISlider) {
@@ -87,7 +89,7 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
         
         item.addToFavorites = { [weak self] in
             guard let self = self else { return }
-            let product = Product(id: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).id)", imageUrl: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).imgUrl)", name: "\(self.products[indexPath.row].title)")
+            let product = Product(id: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).id)", imageUrl: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).imgUrl)", name: "\(self.brnadProductViewModel.getBrandProductCell(at: indexPath).name)")
             print("product = \(product)")
             
             guard let isLogedIn = UserDefaults.standard.object(forKey: "login") as? Bool , isLogedIn else{
@@ -120,7 +122,7 @@ extension BrandProductsVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "productDetailsVC") as! ProductDetailsVC
-        vc.product = products[indexPath.row]
+        //vc.product = products[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
 
