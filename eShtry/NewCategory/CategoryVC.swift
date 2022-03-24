@@ -28,7 +28,6 @@ class CategoryVC: UIViewController {
         super.viewDidLoad()
         //self.title = "Category"
         //configureSearchController()
-        connection.checkNetwork(target: self)
 
         configureTableViews()
         fetchCollections()
@@ -43,6 +42,8 @@ class CategoryVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        connection.checkNetwork(target: self)
+
     }
     
     @objc func searchButtonPressed(){
