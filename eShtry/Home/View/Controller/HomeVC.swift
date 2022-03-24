@@ -27,6 +27,7 @@ class HomeVC: UIViewController {
     let productViewModel = HomeProductViewModel()
     let connection = NetworkReachibility.shared
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

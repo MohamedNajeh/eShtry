@@ -164,17 +164,11 @@
 "Home" = "Home";
 "Office" = "Office";
 "Custom" = "Custom";
+"Add New Address" = "Add New Address";
+"addresses" = "Addresses";
+"confirm" = "Confirm";
+"change" = "Change";
 
-//addressInformation.text = "address informatio".localized
-//selectCity.text = "select city".localized
-//selectCountry.text = "select country".localized
-//addressLabelTitle.text = "address label".localized
-//receiverTitle.text = "recciver information".localized
-//zipCodeTitle.text = "zip code".localized
-//address1Title.text = "address1".localized
-//cityTitle.text = "city".localized
-//countryTitle.text = "country".localized
-//confirmButtonOutlet.setTitle("confirm".localized, for: .normal)
-//segmentControl.setTitle("Home".localized, forSegmentAt: 0)
-//segmentControl.setTitle("Office".localized, forSegmentAt: 1)
-//segmentControl.setTitle("Custom".localized, forSegmentAt: 2)
+"No Connection!" = "No Connection!";
+"Please Check Your Intenet Connection" = "Please Check Your Intenet Connection";
+"Dismiss" = "Dismiss";

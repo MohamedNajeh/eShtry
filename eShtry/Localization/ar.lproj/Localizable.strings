@@ -141,7 +141,7 @@
 "address informatio" = "معلومات العنوان";
 "select city" = "اختر المدينة";
 "select country" = "اختر البلد";
-"address label" = "(اختياري) ";
+"address label" = "(اختياري) مسمى العنوان";
 "recciver information" = "معلومات المستلم";
 "zip code" = "الرمز البريدي";
 "address1" = "العنوان";
@@ -150,4 +150,10 @@
 "Home" = "المنزل";
 "Office" = "المكتب";
 "Custom" = "مخصص";
-
+"Add New Address" = "اضف عنوان جديد";
+"addresses" = "العناوين";
+"confirm" = "تأكيد";
+"change" = "تغيير";
+"No Connection!" = "لا يوجد اتصال بالأنترنت";
+"Please Check Your Intenet Connection" = "تأكد من اتصالك بالانترنت";
+"Dismiss" = "اخفاء";

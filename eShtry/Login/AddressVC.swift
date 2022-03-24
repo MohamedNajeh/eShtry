@@ -281,6 +281,9 @@ class AddressVC: UIViewController, setCountryProtocol, UITextFieldDelegate {
         segmentControl.setTitle("Home".localized, forSegmentAt: 0)
         segmentControl.setTitle("Office".localized, forSegmentAt: 1)
         segmentControl.setTitle("Custom".localized, forSegmentAt: 2)
+        confirmButtonOutlet.setTitle("confirm".localized, for: .normal)
+        changeCountryBtn.setTitle("change".localized, for: .normal)
+        changeCityOutletButton.setTitle("change".localized, for: .normal)
     }
     
 }

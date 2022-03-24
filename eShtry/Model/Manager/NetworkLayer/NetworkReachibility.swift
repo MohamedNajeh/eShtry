@@ -32,8 +32,8 @@ class NetworkReachibility{
 
         }
         reachability.whenUnreachable = { _ in
-            let alert = UIAlertController(title: "No Connection !",message:"Please Check Your Intenet Connection",preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss",style: .default, handler: nil))
+            let alert = UIAlertController(title: "No Connection!".localized,message:"Please Check Your Intenet Connection".localized,preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss".localized,style: .default, handler: nil))
             target.present(alert, animated: true, completion: nil)
             
 
